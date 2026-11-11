@@ -1,0 +1,136 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MoS2ContactExtractionSchema",
+  "type": "object",
+  "required": [
+    "data_point_id",
+    "source_uid",
+    "contact_metal",
+    "contact_architecture",
+    "layer_count",
+    "characterization_method",
+    "measurement_temperature_k",
+    "provenance_location"
+  ],
+  "properties": {
+    "data_point_id": {
+      "type": "string",
+      "pattern": "^DP-[0-9]{3,}$"
+    },
+    "source_uid": {
+      "type": "string"
+    },
+    "citation_short": {
+      "type": "string"
+    },
+    "doi": {
+      "type": "string"
+    },
+    "semiconductor": {
+      "type": "string",
+      "default": "MoS2"
+    },
+    "layer_count": {
+      "type": ["integer", "string"],
+      "description": "Number of MoS2 layers (1 for monolayer) or 'bulk'"
+    },
+    "thickness_nm": {
+      "type": ["number", "null"],
+      "minimum": 0.6
+    },
+    "flake_synthesis_method": {
+      "type": "string",
+      "enum": ["Mechanical_Exfoliation", "CVD", "MOCVD", "Chemical_Vapor_Transport"]
+    },
+    "contact_metal": {
+      "type": "string"
+    },
+    "work_function_ev": {
+      "type": ["number", "null"],
+      "minimum": 2.0,
+      "maximum": 6.5
+    },
+    "pauling_electronegativity": {
+      "type": ["number", "null"],
+      "minimum": 0.8,
+      "maximum": 3.0
+    },
+    "contact_architecture": {
+      "type": "string",
+      "enum": [
+        "Top_Contact",
+        "Edge_Contact",
+        "vdW_Laminated",
+        "Phase_Engineered_1T",
+        "Semimetal_vdW",
+        "Interlayer_Buffer"
+      ]
+    },
+    "adhesion_layer": {
+      "type": ["string", "null"]
+    },
+    "deposition_method": {
+      "type": "string",
+      "enum": [
+        "Thermal_Evaporation",
+        "E_beam_Evaporation",
+        "Sputtering",
+        "Dry_Transfer",
+        "Chemical_Treatment"
+      ]
+    },
+    "vacuum_base_pressure_torr": {
+      "type": ["number", "null"]
+    },
+    "post_annealing_temperature_c": {
+      "type": ["number", "null"],
+      "minimum": 20.0,
+      "maximum": 600.0
+    },
+    "post_annealing_gas_ambient": {
+      "type": ["string", "null"],
+      "enum": ["None", "Vacuum", "Ar", "Ar/H2_Forming_Gas", "N2", null]
+    },
+    "gate_configuration": {
+      "type": "string",
+      "enum": ["Back_Gate", "Top_Gate", "Dual_Gate", "Ionic_Liquid"]
+    },
+    "gate_dielectric": {
+      "type": "string"
+    },
+    "measurement_temperature_k": {
+      "type": "number",
+      "minimum": 1.0,
+      "maximum": 500.0
+    },
+    "gate_carrier_density_cm2": {
+      "type": ["number", "null"]
+    },
+    "characterization_method": {
+      "type": "string"
+    },
+    "contact_resistance_rc_ohm_um": {
+      "type": ["number", "null"],
+      "minimum": 0.0
+    },
+    "specific_contact_resistivity_ohm_cm2": {
+      "type": ["number", "null"],
+      "minimum": 0.0
+    },
+    "schottky_barrier_height_ev": {
+      "type": ["number", "null"],
+      "minimum": 0.0,
+      "maximum": 2.0
+    },
+    "carrier_polarity": {
+      "type": "string",
+      "enum": ["n_type", "p_type"]
+    },
+    "provenance_location": {
+      "type": "string"
+    },
+    "notes_and_context": {
+      "type": ["string", "null"]
+    }
+  }
+}
