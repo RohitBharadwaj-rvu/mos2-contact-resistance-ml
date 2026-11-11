@@ -1,0 +1,1101 @@
+{
+  "title": "Cross-Architecture SHAP Feature Attribution and Physical Directionality Audit",
+  "features_analyzed": [
+    "physics_predicted_sbh_ev",
+    "is_vdw_or_depinned_contact",
+    "sulfide_formation_enthalpy_kj_mol",
+    "gate_carrier_density_cm2"
+  ],
+  "models_evaluated": [
+    "Ridge_Regression",
+    "ElasticNet",
+    "Gradient_Boosting",
+    "Random_Forest",
+    "Gaussian_Process_Matern",
+    "Support_Vector_Regression_RBF"
+  ],
+  "model_attributions": {
+    "Ridge_Regression": {
+      "ranked_features": [
+        "gate_carrier_density_cm2",
+        "physics_predicted_sbh_ev",
+        "is_vdw_or_depinned_contact",
+        "sulfide_formation_enthalpy_kj_mol"
+      ],
+      "mean_abs_shap": {
+        "physics_predicted_sbh_ev": 0.1796,
+        "is_vdw_or_depinned_contact": 0.1671,
+        "sulfide_formation_enthalpy_kj_mol": 0.0512,
+        "gate_carrier_density_cm2": 0.2478
+      },
+      "directionality": {
+        "physics_predicted_sbh_ev": "positive (increases Rc)",
+        "is_vdw_or_depinned_contact": "negative (decreases Rc)",
+        "sulfide_formation_enthalpy_kj_mol": "positive (increases Rc)",
+        "gate_carrier_density_cm2": "negative (decreases Rc)"
+      }
+    },
+    "ElasticNet": {
+      "ranked_features": [
+        "gate_carrier_density_cm2",
+        "physics_predicted_sbh_ev",
+        "is_vdw_or_depinned_contact",
+        "sulfide_formation_enthalpy_kj_mol"
+      ],
+      "mean_abs_shap": {
+        "physics_predicted_sbh_ev": 0.1989,
+        "is_vdw_or_depinned_contact": 0.1806,
+        "sulfide_formation_enthalpy_kj_mol": 0.0509,
+        "gate_carrier_density_cm2": 0.2611
+      },
+      "directionality": {
+        "physics_predicted_sbh_ev": "positive (increases Rc)",
+        "is_vdw_or_depinned_contact": "negative (decreases Rc)",
+        "sulfide_formation_enthalpy_kj_mol": "positive (increases Rc)",
+        "gate_carrier_density_cm2": "negative (decreases Rc)"
+      }
+    },
+    "Gradient_Boosting": {
+      "ranked_features": [
+        "gate_carrier_density_cm2",
+        "physics_predicted_sbh_ev",
+        "is_vdw_or_depinned_contact",
+        "sulfide_formation_enthalpy_kj_mol"
+      ],
+      "mean_abs_shap": {
+        "physics_predicted_sbh_ev": 0.1713,
+        "is_vdw_or_depinned_contact": 0.1649,
+        "sulfide_formation_enthalpy_kj_mol": 0.1163,
+        "gate_carrier_density_cm2": 0.3553
+      },
+      "directionality": {
+        "physics_predicted_sbh_ev": "positive (increases Rc)",
+        "is_vdw_or_depinned_contact": "negative (decreases Rc)",
+        "sulfide_formation_enthalpy_kj_mol": "positive (increases Rc)",
+        "gate_carrier_density_cm2": "negative (decreases Rc)"
+      }
+    },
+    "Random_Forest": {
+      "ranked_features": [
+        "gate_carrier_density_cm2",
+        "is_vdw_or_depinned_contact",
+        "physics_predicted_sbh_ev",
+        "sulfide_formation_enthalpy_kj_mol"
+      ],
+      "mean_abs_shap": {
+        "physics_predicted_sbh_ev": 0.0753,
+        "is_vdw_or_depinned_contact": 0.1092,
+        "sulfide_formation_enthalpy_kj_mol": 0.0548,
+        "gate_carrier_density_cm2": 0.4441
+      },
+      "directionality": {
+        "physics_predicted_sbh_ev": "positive (increases Rc)",
+        "is_vdw_or_depinned_contact": "negative (decreases Rc)",
+        "sulfide_formation_enthalpy_kj_mol": "positive (increases Rc)",
+        "gate_carrier_density_cm2": "negative (decreases Rc)"
+      }
+    },
+    "Gaussian_Process_Matern": {
+      "ranked_features": [
+        "gate_carrier_density_cm2",
+        "is_vdw_or_depinned_contact",
+        "physics_predicted_sbh_ev",
+        "sulfide_formation_enthalpy_kj_mol"
+      ],
+      "mean_abs_shap": {
+        "physics_predicted_sbh_ev": 0.1882,
+        "is_vdw_or_depinned_contact": 0.2183,
+        "sulfide_formation_enthalpy_kj_mol": 0.0633,
+        "gate_carrier_density_cm2": 0.2861
+      },
+      "directionality": {
+        "physics_predicted_sbh_ev": "positive (increases Rc)",
+        "is_vdw_or_depinned_contact": "negative (decreases Rc)",
+        "sulfide_formation_enthalpy_kj_mol": "positive (increases Rc)",
+        "gate_carrier_density_cm2": "negative (decreases Rc)"
+      }
+    },
+    "Support_Vector_Regression_RBF": {
+      "ranked_features": [
+        "gate_carrier_density_cm2",
+        "is_vdw_or_depinned_contact",
+        "physics_predicted_sbh_ev",
+        "sulfide_formation_enthalpy_kj_mol"
+      ],
+      "mean_abs_shap": {
+        "physics_predicted_sbh_ev": 0.177,
+        "is_vdw_or_depinned_contact": 0.2025,
+        "sulfide_formation_enthalpy_kj_mol": 0.0685,
+        "gate_carrier_density_cm2": 0.3264
+      },
+      "directionality": {
+        "physics_predicted_sbh_ev": "positive (increases Rc)",
+        "is_vdw_or_depinned_contact": "negative (decreases Rc)",
+        "sulfide_formation_enthalpy_kj_mol": "positive (increases Rc)",
+        "gate_carrier_density_cm2": "negative (decreases Rc)"
+      }
+    }
+  },
+  "full_results": {
+    "Ridge_Regression": {
+      "model_name": "Ridge_Regression",
+      "base_expected_value": 3.1152,
+      "mean_abs_shap": {
+        "physics_predicted_sbh_ev": 0.1796,
+        "is_vdw_or_depinned_contact": 0.1671,
+        "sulfide_formation_enthalpy_kj_mol": 0.0512,
+        "gate_carrier_density_cm2": 0.2478
+      },
+      "ranked_features": [
+        "gate_carrier_density_cm2",
+        "physics_predicted_sbh_ev",
+        "is_vdw_or_depinned_contact",
+        "sulfide_formation_enthalpy_kj_mol"
+      ],
+      "directionality_audit": {
+        "physics_predicted_sbh_ev": {
+          "feature_shap_correlation": 1.0,
+          "effect_sign": "positive (increases Rc)",
+          "matches_physics": true
+        },
+        "is_vdw_or_depinned_contact": {
+          "feature_shap_correlation": -1.0,
+          "effect_sign": "negative (decreases Rc)",
+          "matches_physics": true
+        },
+        "sulfide_formation_enthalpy_kj_mol": {
+          "feature_shap_correlation": 1.0,
+          "effect_sign": "positive (increases Rc)",
+          "matches_physics": true
+        },
+        "gate_carrier_density_cm2": {
+          "feature_shap_correlation": -1.0,
+          "effect_sign": "negative (decreases Rc)",
+          "matches_physics": true
+        }
+      },
+      "shap_values_matrix": [
+        [
+          -0.30904501709527255,
+          -0.18568928416218636,
+          0.033601197988890864,
+          -0.592185024271492
+        ],
+        [
+          -0.3089283126592263,
+          -0.18568928416218636,
+          0.033601197988890864,
+          -0.3401913969219209
+        ],
+        [
+          -0.25291018335680915,
+          -0.18568928416218636,
+          0.05990079682674571,
+          -0.004199893789159533
+        ],
+        [
+          -0.30904501709527255,
+          -0.18568928416218636,
+          0.005917409738517339,
+          0.03779904410243564
+        ],
+        [
+          1.2968080229073529,
+          -0.18568928416218636,
+          0.04052214505148424,
+          0.24779373356041157
+        ],
+        [
+          -0.09710976123446097,
+          0.15192759613269793,
+          -0.10481774326297674,
+          -0.17219564535554024
+        ],
+        [
+          0.03768386239948031,
+          0.15192759613269793,
+          0.07166640683315445,
+          -0.17219564535554024
+        ],
+        [
+          0.007340709027337521,
+          -0.18568928416218636,
+          0.01283835680111072,
+          -0.17219564535554024
+        ],
+        [
+          -0.23085304494398196,
+          0.15192759613269793,
+          -0.1532643727011304,
+          0.1637958577772212
+        ],
+        [
+          0.05694009434718583,
+          -0.18568928416218636,
+          0.026680250926297482,
+          -0.3401913969219209
+        ],
+        [
+          0.007340709027337521,
+          -0.18568928416218636,
+          0.08204782742704453,
+          -0.17219564535554024
+        ],
+        [
+          -0.10294498303679608,
+          0.15192759613269793,
+          -0.10481774326297674,
+          -0.3401913969219209
+        ],
+        [
+          0.060908045172774115,
+          0.15192759613269793,
+          0.025296061513778806,
+          0.24779373356041157
+        ],
+        [
+          -0.06735013004255186,
+          0.15192759613269793,
+          -0.007924484386669423,
+          -0.17219564535554024
+        ],
+        [
+          0.07899723276001294,
+          0.15192759613269793,
+          0.02321977739500079,
+          0.41578948512679226
+        ],
+        [
+          0.13559888424266303,
+          -0.18568928416218636,
+          -0.018305904980559493,
+          0.3317916093436019
+        ],
+        [
+          -0.08263841116466987,
+          0.15192759613269793,
+          -0.10481774326297674,
+          0.24779373356041157
+        ],
+        [
+          -0.03537311456575549,
+          0.15192759613269793,
+          -0.018305904980559493,
+          0.24779373356041157
+        ],
+        [
+          0.060908045172774115,
+          0.15192759613269793,
+          0.025296061513778806,
+          0.24779373356041157
+        ],
+        [
+          0.053672370137878525,
+          0.15192759613269793,
+          0.07166640683315445,
+          0.2897926714520067
+        ]
+      ]
+    },
+    "ElasticNet": {
+      "model_name": "ElasticNet",
+      "base_expected_value": 3.1152,
+      "mean_abs_shap": {
+        "physics_predicted_sbh_ev": 0.1989,
+        "is_vdw_or_depinned_contact": 0.1806,
+        "sulfide_formation_enthalpy_kj_mol": 0.0509,
+        "gate_carrier_density_cm2": 0.2611
+      },
+      "ranked_features": [
+        "gate_carrier_density_cm2",
+        "physics_predicted_sbh_ev",
+        "is_vdw_or_depinned_contact",
+        "sulfide_formation_enthalpy_kj_mol"
+      ],
+      "directionality_audit": {
+        "physics_predicted_sbh_ev": {
+          "feature_shap_correlation": 1.0,
+          "effect_sign": "positive (increases Rc)",
+          "matches_physics": true
+        },
+        "is_vdw_or_depinned_contact": {
+          "feature_shap_correlation": -1.0,
+          "effect_sign": "negative (decreases Rc)",
+          "matches_physics": true
+        },
+        "sulfide_formation_enthalpy_kj_mol": {
+          "feature_shap_correlation": 1.0,
+          "effect_sign": "positive (increases Rc)",
+          "matches_physics": true
+        },
+        "gate_carrier_density_cm2": {
+          "feature_shap_correlation": -1.0,
+          "effect_sign": "negative (decreases Rc)",
+          "matches_physics": true
+        }
+      },
+      "shap_values_matrix": [
+        [
+          -0.34214600726317523,
+          -0.20066078040915525,
+          0.03337939358364715,
+          -0.624002663603985
+        ],
+        [
+          -0.3420168029252493,
+          -0.20066078040915525,
+          0.03337939358364715,
+          -0.3584696152618637
+        ],
+        [
+          -0.2799987207205273,
+          -0.20066078040915525,
+          0.05950538650184679,
+          -0.004425550805702038
+        ],
+        [
+          -0.34214600726317523,
+          -0.20066078040915525,
+          0.005878348406594914,
+          0.03982995725131818
+        ],
+        [
+          1.4357056826055206,
+          -0.20066078040915525,
+          0.04025465487791022,
+          0.26110749753641926
+        ],
+        [
+          -0.10751092958864389,
+          0.16417700215294523,
+          -0.10412583230161404,
+          -0.18144758303378292
+        ],
+        [
+          0.041720080716468266,
+          0.16417700215294523,
+          0.07119333070209398,
+          -0.18144758303378292
+        ],
+        [
+          0.008126952855577038,
+          -0.20066078040915525,
+          0.012753609700857975,
+          -0.18144758303378292
+        ],
+        [
+          -0.2555791008524176,
+          0.16417700215294523,
+          -0.15225266136145546,
+          0.17259648142237885
+        ],
+        [
+          0.06303879647434102,
+          -0.20066078040915525,
+          0.026504132289384096,
+          -0.3584696152618637
+        ],
+        [
+          0.008126952855577038,
+          -0.20066078040915525,
+          0.08150622264348859,
+          -0.18144758303378292
+        ],
+        [
+          -0.11397114648496909,
+          0.16417700215294523,
+          -0.10412583230161404,
+          -0.3584696152618637
+        ],
+        [
+          0.0674317439638426,
+          0.16417700215294523,
+          0.02512908003053148,
+          0.26110749753641926
+        ],
+        [
+          -0.07456382341738538,
+          0.16417700215294523,
+          -0.007872174181931207,
+          -0.18144758303378292
+        ],
+        [
+          0.08745841634245068,
+          0.16417700215294523,
+          0.023066501642252563,
+          0.43812952976450015
+        ],
+        [
+          0.15012252023680447,
+          -0.20066078040915525,
+          -0.018185066123325794,
+          0.3496185136504597
+        ],
+        [
+          -0.09148959168575739,
+          0.16417700215294523,
+          -0.10412583230161404,
+          0.26110749753641926
+        ],
+        [
+          -0.03916183482552336,
+          0.16417700215294523,
+          -0.018185066123325794,
+          0.26110749753641926
+        ],
+        [
+          0.0674317439638426,
+          0.16417700215294523,
+          0.02512908003053148,
+          0.26110749753641926
+        ],
+        [
+          0.05942107501239931,
+          0.16417700215294523,
+          0.07119333070209398,
+          0.3053630055934395
+        ]
+      ]
+    },
+    "Gradient_Boosting": {
+      "model_name": "Gradient_Boosting",
+      "base_expected_value": 3.1234,
+      "mean_abs_shap": {
+        "physics_predicted_sbh_ev": 0.1713,
+        "is_vdw_or_depinned_contact": 0.1649,
+        "sulfide_formation_enthalpy_kj_mol": 0.1163,
+        "gate_carrier_density_cm2": 0.3553
+      },
+      "ranked_features": [
+        "gate_carrier_density_cm2",
+        "physics_predicted_sbh_ev",
+        "is_vdw_or_depinned_contact",
+        "sulfide_formation_enthalpy_kj_mol"
+      ],
+      "directionality_audit": {
+        "physics_predicted_sbh_ev": {
+          "feature_shap_correlation": 0.7972,
+          "effect_sign": "positive (increases Rc)",
+          "matches_physics": true
+        },
+        "is_vdw_or_depinned_contact": {
+          "feature_shap_correlation": -0.9581,
+          "effect_sign": "negative (decreases Rc)",
+          "matches_physics": true
+        },
+        "sulfide_formation_enthalpy_kj_mol": {
+          "feature_shap_correlation": 0.7376,
+          "effect_sign": "positive (increases Rc)",
+          "matches_physics": true
+        },
+        "gate_carrier_density_cm2": {
+          "feature_shap_correlation": -0.8736,
+          "effect_sign": "negative (decreases Rc)",
+          "matches_physics": true
+        }
+      },
+      "shap_values_matrix": [
+        [
+          -0.2727263619999238,
+          -0.22241158287452778,
+          0.03560651633906584,
+          -0.4789101022052989
+        ],
+        [
+          -0.18283562483890833,
+          -0.2187697236449671,
+          0.04537874499893506,
+          -0.4747934162659559
+        ],
+        [
+          -0.1721836681147769,
+          -0.13877973695444046,
+          0.15732362656256269,
+          -0.3561653823623837
+        ],
+        [
+          -0.21016795375993622,
+          -0.199566308957309,
+          0.011736621596845786,
+          -0.2764189413516095
+        ],
+        [
+          0.6725813012006557,
+          -0.07440642780822039,
+          0.40462599472854455,
+          0.6471628321291868
+        ],
+        [
+          -0.07832046596529738,
+          0.18039651631925854,
+          -0.12277390882324686,
+          -0.22961095106788054
+        ],
+        [
+          -0.045453077500574444,
+          0.17507971042605946,
+          0.12553614727338097,
+          -0.3134400678056171
+        ],
+        [
+          -0.09021410696541267,
+          -0.253487587797496,
+          -0.06297536808823412,
+          -0.31257495300644467
+        ],
+        [
+          -0.1520816331059508,
+          0.15037144685730958,
+          -0.13585312145097453,
+          -0.1693859542352504
+        ],
+        [
+          -0.020759040655782036,
+          -0.2516650650705891,
+          0.02304867596657404,
+          -0.3673160446874021
+        ],
+        [
+          -0.0877154657085907,
+          -0.17815727873692971,
+          0.17446260880652928,
+          -0.37154410392448084
+        ],
+        [
+          -0.152184604565554,
+          0.18305447138632466,
+          -0.12269882068011592,
+          -0.28005828100435476
+        ],
+        [
+          -0.03392693489034811,
+          0.12554519976526166,
+          0.01095548054334359,
+          0.3904794041204442
+        ],
+        [
+          0.07862542430471942,
+          0.24323144813273798,
+          0.05647285954835019,
+          -0.20477893447821627
+        ],
+        [
+          0.43522265649329056,
+          0.11627386679643069,
+          0.041799616749342405,
+          0.3426972254222757
+        ],
+        [
+          0.5124210154557427,
+          -0.12904870118432207,
+          -0.22474262851685659,
+          0.3816216468202563
+        ],
+        [
+          -0.09433631807458506,
+          0.1049618635191201,
+          -0.19485880864568025,
+          0.3585388025410831
+        ],
+        [
+          0.015620122057637853,
+          0.1395239468065363,
+          -0.07624181136833023,
+          0.3280188010044512
+        ],
+        [
+          -0.03392693489034811,
+          0.12554519976526166,
+          0.01095548054334359,
+          0.3904794041204442
+        ],
+        [
+          -0.08431827722657588,
+          0.08690851392207888,
+          0.28808368311130605,
+          0.4313096549950435
+        ]
+      ]
+    },
+    "Random_Forest": {
+      "model_name": "Random_Forest",
+      "base_expected_value": 3.126,
+      "mean_abs_shap": {
+        "physics_predicted_sbh_ev": 0.0753,
+        "is_vdw_or_depinned_contact": 0.1092,
+        "sulfide_formation_enthalpy_kj_mol": 0.0548,
+        "gate_carrier_density_cm2": 0.4441
+      },
+      "ranked_features": [
+        "gate_carrier_density_cm2",
+        "is_vdw_or_depinned_contact",
+        "physics_predicted_sbh_ev",
+        "sulfide_formation_enthalpy_kj_mol"
+      ],
+      "directionality_audit": {
+        "physics_predicted_sbh_ev": {
+          "feature_shap_correlation": 0.7471,
+          "effect_sign": "positive (increases Rc)",
+          "matches_physics": true
+        },
+        "is_vdw_or_depinned_contact": {
+          "feature_shap_correlation": -0.9387,
+          "effect_sign": "negative (decreases Rc)",
+          "matches_physics": true
+        },
+        "sulfide_formation_enthalpy_kj_mol": {
+          "feature_shap_correlation": 0.5491,
+          "effect_sign": "positive (increases Rc)",
+          "matches_physics": true
+        },
+        "gate_carrier_density_cm2": {
+          "feature_shap_correlation": -0.8755,
+          "effect_sign": "negative (decreases Rc)",
+          "matches_physics": true
+        }
+      },
+      "shap_values_matrix": [
+        [
+          -0.12087178772223925,
+          -0.1366561776008619,
+          -0.013929135575014004,
+          -0.4630695225417573
+        ],
+        [
+          -0.12087178772223925,
+          -0.1366561776008619,
+          -0.013929135575014004,
+          -0.4630695225417573
+        ],
+        [
+          -0.07472154002958417,
+          -0.11460278279249664,
+          0.05506944705510308,
+          -0.43437585940642837
+        ],
+        [
+          -0.11437642195965503,
+          -0.1366561776008619,
+          -0.06346927777296191,
+          -0.4284633711486108
+        ],
+        [
+          0.18165453175090238,
+          -0.05303863580272546,
+          0.11384317419331358,
+          0.7403854133006773
+        ],
+        [
+          -0.05027968827646201,
+          0.1496708295966365,
+          -0.015319875492288918,
+          -0.3024988422712454
+        ],
+        [
+          0.020294798728783203,
+          0.15934185160707795,
+          0.0473207191366222,
+          -0.3771278655420313
+        ],
+        [
+          0.005591548257747055,
+          -0.14405093440343397,
+          -0.05910025935915923,
+          -0.40934909550495807
+        ],
+        [
+          -0.09768854100937521,
+          0.1157887745064208,
+          -0.05805733199005321,
+          -0.01208727980644122
+        ],
+        [
+          0.07694141152099998,
+          -0.1348987201412939,
+          -0.06562051700528225,
+          -0.421502269909552
+        ],
+        [
+          -0.0020391070288212024,
+          -0.13112180873908838,
+          0.052856599359975456,
+          -0.4249058267349077
+        ],
+        [
+          -0.06420780395602757,
+          0.14671051385725917,
+          -0.017512940835638226,
+          -0.3057967437746195
+        ],
+        [
+          0.030930892829651897,
+          0.06679124745890166,
+          -0.022332218679584955,
+          0.5235078057462558
+        ],
+        [
+          0.013972228675210738,
+          0.17907151662046625,
+          0.009695689104773118,
+          -0.2910942767835466
+        ],
+        [
+          0.1638174261470533,
+          0.06679124745890166,
+          -0.01617827597070565,
+          0.6212834209042745
+        ],
+        [
+          0.16416984629633244,
+          -0.05303863580272546,
+          -0.11916934941866779,
+          0.6615482861620406
+        ],
+        [
+          -0.07599510778308441,
+          0.061684655677297744,
+          -0.10373807708207727,
+          0.4513206755589858
+        ],
+        [
+          -0.05408625346507023,
+          0.06953691173754369,
+          -0.09604651192492034,
+          0.4291568029456666
+        ],
+        [
+          0.030930892829651897,
+          0.06679124745890166,
+          -0.022332218679584955,
+          0.5235078057462558
+        ],
+        [
+          0.04333608353224395,
+          0.06203331563869082,
+          0.12966582718948866,
+          0.5981425868100432
+        ]
+      ]
+    },
+    "Gaussian_Process_Matern": {
+      "model_name": "Gaussian_Process_Matern",
+      "base_expected_value": 3.2019,
+      "mean_abs_shap": {
+        "physics_predicted_sbh_ev": 0.1882,
+        "is_vdw_or_depinned_contact": 0.2183,
+        "sulfide_formation_enthalpy_kj_mol": 0.0633,
+        "gate_carrier_density_cm2": 0.2861
+      },
+      "ranked_features": [
+        "gate_carrier_density_cm2",
+        "is_vdw_or_depinned_contact",
+        "physics_predicted_sbh_ev",
+        "sulfide_formation_enthalpy_kj_mol"
+      ],
+      "directionality_audit": {
+        "physics_predicted_sbh_ev": {
+          "feature_shap_correlation": 0.9982,
+          "effect_sign": "positive (increases Rc)",
+          "matches_physics": true
+        },
+        "is_vdw_or_depinned_contact": {
+          "feature_shap_correlation": -0.9944,
+          "effect_sign": "negative (decreases Rc)",
+          "matches_physics": true
+        },
+        "sulfide_formation_enthalpy_kj_mol": {
+          "feature_shap_correlation": 0.9573,
+          "effect_sign": "positive (increases Rc)",
+          "matches_physics": true
+        },
+        "gate_carrier_density_cm2": {
+          "feature_shap_correlation": -0.9907,
+          "effect_sign": "negative (decreases Rc)",
+          "matches_physics": true
+        }
+      },
+      "shap_values_matrix": [
+        [
+          -0.26962974460902744,
+          -0.32104946044883753,
+          0.027083311775416785,
+          -0.5646089975316699
+        ],
+        [
+          -0.2798069499079713,
+          -0.33412728423423116,
+          0.027370907353287177,
+          -0.3824664438032219
+        ],
+        [
+          -0.2537925344144012,
+          -0.32284480062834836,
+          0.049996497463422496,
+          -0.06053770437407968
+        ],
+        [
+          -0.3171288046745271,
+          -0.32887403322875813,
+          0.004065577440562018,
+          -0.009629442797400186
+        ],
+        [
+          1.4713036559441366,
+          -0.22957099044351,
+          0.030961268292727828,
+          0.30938965004897134
+        ],
+        [
+          -0.09785909396170482,
+          0.14794106265616508,
+          -0.1746696412170566,
+          -0.2002664772767754
+        ],
+        [
+          0.034645639480964815,
+          0.14837940842493724,
+          0.019250349801927816,
+          -0.23340497608090593
+        ],
+        [
+          0.0025105526055373417,
+          -0.3439776707330931,
+          0.00736540166253309,
+          -0.25681698719141954
+        ],
+        [
+          -0.24802917368358957,
+          0.12829747275009756,
+          -0.33057778917461134,
+          0.13702832123158132
+        ],
+        [
+          0.050728834028345604,
+          -0.3368666461352547,
+          0.016841317610215345,
+          -0.41924809287417714
+        ],
+        [
+          0.0030495294888923663,
+          -0.31949208054548717,
+          0.058640580713550834,
+          -0.256147198205165
+        ],
+        [
+          -0.10055434405693858,
+          0.1488393933976322,
+          -0.16631322811809413,
+          -0.3477371173325146
+        ],
+        [
+          0.06667639325273711,
+          0.1385970810653188,
+          0.020145137215771936,
+          0.2728979587089927
+        ],
+        [
+          -0.06444138404129583,
+          0.1609507036674831,
+          -0.004573771519027783,
+          -0.21105828842264257
+        ],
+        [
+          0.09011706369098582,
+          0.1320390863221863,
+          0.022623452407174893,
+          0.5106202821179446
+        ],
+        [
+          0.16140821856801588,
+          -0.27799660026530926,
+          -0.019598445016799526,
+          0.43018684814871944
+        ],
+        [
+          -0.08970945589771473,
+          0.13185179686567192,
+          -0.19830977226288635,
+          0.24770432916273333
+        ],
+        [
+          -0.03653342253032088,
+          0.1405745691433181,
+          -0.020338576103560713,
+          0.26031085765843254
+        ],
+        [
+          0.06667639325273711,
+          0.1385970810653188,
+          0.020145137215771936,
+          0.2728979587089927
+        ],
+        [
+          0.058749351797994655,
+          0.1344297836067285,
+          0.04809706279469106,
+          0.3396836714327028
+        ]
+      ]
+    },
+    "Support_Vector_Regression_RBF": {
+      "model_name": "Support_Vector_Regression_RBF",
+      "base_expected_value": 3.1837,
+      "mean_abs_shap": {
+        "physics_predicted_sbh_ev": 0.177,
+        "is_vdw_or_depinned_contact": 0.2025,
+        "sulfide_formation_enthalpy_kj_mol": 0.0685,
+        "gate_carrier_density_cm2": 0.3264
+      },
+      "ranked_features": [
+        "gate_carrier_density_cm2",
+        "is_vdw_or_depinned_contact",
+        "physics_predicted_sbh_ev",
+        "sulfide_formation_enthalpy_kj_mol"
+      ],
+      "directionality_audit": {
+        "physics_predicted_sbh_ev": {
+          "feature_shap_correlation": 0.9977,
+          "effect_sign": "positive (increases Rc)",
+          "matches_physics": true
+        },
+        "is_vdw_or_depinned_contact": {
+          "feature_shap_correlation": -0.9588,
+          "effect_sign": "negative (decreases Rc)",
+          "matches_physics": true
+        },
+        "sulfide_formation_enthalpy_kj_mol": {
+          "feature_shap_correlation": 0.9435,
+          "effect_sign": "positive (increases Rc)",
+          "matches_physics": true
+        },
+        "gate_carrier_density_cm2": {
+          "feature_shap_correlation": -0.9738,
+          "effect_sign": "negative (decreases Rc)",
+          "matches_physics": true
+        }
+      },
+      "shap_values_matrix": [
+        [
+          -0.23799032539361345,
+          -0.34110865952687275,
+          0.03500855230573885,
+          -0.529268625756253
+        ],
+        [
+          -0.2590143721907684,
+          -0.3418305257775478,
+          0.040866071874766874,
+          -0.4227502104767778
+        ],
+        [
+          -0.24278304180551352,
+          -0.3085573066661918,
+          0.08922841397367742,
+          -0.09911151780279384
+        ],
+        [
+          -0.3168117780189405,
+          -0.33295663207222087,
+          0.004706093324884808,
+          -0.04151638199507618
+        ],
+        [
+          1.3251394263475178,
+          -0.03371040996383945,
+          0.009677645634531107,
+          0.30852392760862823
+        ],
+        [
+          -0.09640378069370113,
+          0.16403537355480546,
+          -0.15509566389112103,
+          -0.24746559264886914
+        ],
+        [
+          0.025309435858359174,
+          0.13981470511546193,
+          0.017904411546852406,
+          -0.30580152705046937
+        ],
+        [
+          0.004471175929394833,
+          -0.2968539590232241,
+          0.009027610404826886,
+          -0.3117268667597926
+        ],
+        [
+          -0.24373943711240348,
+          0.14356862690676106,
+          -0.367100762843426,
+          0.11656545346632852
+        ],
+        [
+          0.05593266238166927,
+          -0.28852952166309304,
+          0.01782141297719675,
+          -0.4708364555602092
+        ],
+        [
+          0.0028698380102012977,
+          -0.2608417942278068,
+          0.08182122566655943,
+          -0.3191192874240781
+        ],
+        [
+          -0.09668249918775837,
+          0.16822732380355387,
+          -0.13633525640123295,
+          -0.35853036006823796
+        ],
+        [
+          0.061836747058204466,
+          0.13741474157527547,
+          0.02189814693809944,
+          0.3141096207113381
+        ],
+        [
+          -0.05991399279962482,
+          0.1658413934270183,
+          -0.007539272178023665,
+          -0.2780360288920646
+        ],
+        [
+          0.0854039606957983,
+          0.13003557653959308,
+          0.024952255161409753,
+          0.6347329739261436
+        ],
+        [
+          0.187454556360633,
+          -0.23597010077112457,
+          -0.028294547362819555,
+          0.4967731900462725
+        ],
+        [
+          -0.09079789489038756,
+          0.14481574888958662,
+          -0.21774652783699383,
+          0.26112988976573037
+        ],
+        [
+          -0.0347662362881718,
+          0.1489727481684918,
+          -0.02719750013059763,
+          0.29284167631517355
+        ],
+        [
+          0.061836747058204466,
+          0.13741474157527547,
+          0.02189814693809944,
+          0.3141096207113381
+        ],
+        [
+          0.05070966104914698,
+          0.12880098432811046,
+          0.056763704724884005,
+          0.4048939099408088
+        ]
+      ]
+    }
+  }
+}
