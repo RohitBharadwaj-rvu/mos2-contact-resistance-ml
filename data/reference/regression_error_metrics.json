@@ -1,0 +1,29 @@
+{
+  "title": "Regression Error Metrics Specification for MoS2 Contact Resistance",
+  "metrics": [
+    {
+      "name": "RMSE_log10_dex",
+      "unit": "dex (decades)",
+      "formula": "sqrt(mean((log10(Rc_true) - log10(Rc_pred))^2))",
+      "physical_meaning": "Penalizes large order-of-magnitude prediction errors; standard optimization loss."
+    },
+    {
+      "name": "MAE_log10_dex",
+      "unit": "dex (decades)",
+      "formula": "mean(|log10(Rc_true) - log10(Rc_pred)|)",
+      "physical_meaning": "Robust average decade discrepancy; immune to isolated outlier characterization noise."
+    },
+    {
+      "name": "geometric_factor_error",
+      "unit": "multiplicative factor (X-fold)",
+      "formula": "10^(MAE_log10)",
+      "physical_meaning": "Direct physical interpretability: factor of 1.4x means predictions are within 40% of measured values."
+    },
+    {
+      "name": "medape_linear_pct",
+      "unit": "%",
+      "formula": "median(|Rc_true - Rc_pred| / Rc_true) * 100",
+      "physical_meaning": "Scale-invariant median relative percentage error across linear resistance ranges."
+    }
+  ]
+}
