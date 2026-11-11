@@ -1,0 +1,54 @@
+{
+  "features_analyzed": [
+    "work_function_ev",
+    "pauling_electronegativity",
+    "sulfide_formation_enthalpy_kj_mol",
+    "d_band_center_ev",
+    "schottky_mott_barrier_ev",
+    "electronegativity_diff_sulfur",
+    "is_vdw_or_depinned_contact",
+    "effective_pinning_factor_s",
+    "fermi_level_shift_ev",
+    "physics_predicted_sbh_ev"
+  ],
+  "sample_size": 20,
+  "strong_correlations": [
+    {
+      "feature_1": "work_function_ev",
+      "feature_2": "schottky_mott_barrier_ev",
+      "pearson_r": 1.0
+    },
+    {
+      "feature_1": "pauling_electronegativity",
+      "feature_2": "sulfide_formation_enthalpy_kj_mol",
+      "pearson_r": 0.845
+    },
+    {
+      "feature_1": "pauling_electronegativity",
+      "feature_2": "electronegativity_diff_sulfur",
+      "pearson_r": -1.0
+    },
+    {
+      "feature_1": "sulfide_formation_enthalpy_kj_mol",
+      "feature_2": "electronegativity_diff_sulfur",
+      "pearson_r": -0.845
+    },
+    {
+      "feature_1": "is_vdw_or_depinned_contact",
+      "feature_2": "effective_pinning_factor_s",
+      "pearson_r": 1.0
+    }
+  ],
+  "vif_scores": {
+    "work_function_ev": 1000.0,
+    "pauling_electronegativity": 1000.0,
+    "sulfide_formation_enthalpy_kj_mol": 10.46,
+    "d_band_center_ev": 4.71,
+    "schottky_mott_barrier_ev": 1000.0,
+    "electronegativity_diff_sulfur": 1000.0,
+    "is_vdw_or_depinned_contact": 1000.0,
+    "effective_pinning_factor_s": 1000.0,
+    "fermi_level_shift_ev": 1.68,
+    "physics_predicted_sbh_ev": 5.54
+  }
+}
