@@ -1,0 +1,90 @@
+{
+  "literature_indexes": {
+    "openalex": {
+      "accessibility_score": 10,
+      "api_status": "Free Public API (No key required, polite email pool recommended)",
+      "rate_limit": "100,000 requests/day, 10 req/s",
+      "export_formats": ["JSON", "JSON-LD"],
+      "citation_tracking": "Complete bidirectional citation graph with concepts and open access PDF URLs",
+      "recommended_role": "Primary engine for automated literature discovery and citation graph expansion"
+    },
+    "crossref": {
+      "accessibility_score": 9.5,
+      "api_status": "Free Public REST API",
+      "rate_limit": "Polite pool with mailto header",
+      "export_formats": ["JSON", "BibTeX", "RIS"],
+      "citation_tracking": "Reference lists and publisher metadata verification",
+      "recommended_role": "Primary DOI normalization and metadata validation"
+    },
+    "arxiv": {
+      "accessibility_score": 9.0,
+      "api_status": "Free Public XML/Atom API",
+      "rate_limit": "1 req / 3s polite query limit",
+      "export_formats": ["Atom XML", "BibTeX", "PDF direct"],
+      "citation_tracking": "Direct full-text PDF open access",
+      "recommended_role": "Preprint discovery and open access full-text source"
+    },
+    "semantic_scholar": {
+      "accessibility_score": 8.5,
+      "api_status": "REST API with free API key",
+      "rate_limit": "1 req/s without key, 100 req/s with key",
+      "export_formats": ["JSON"],
+      "citation_tracking": "Influential citation counts and TLDR summaries",
+      "recommended_role": "Citation impact ranking and automated filtering"
+    },
+    "ieee_xplore": {
+      "accessibility_score": 7.5,
+      "api_status": "Subscription / Dev API Key Required for automated queries; Web export free",
+      "rate_limit": "API key required",
+      "export_formats": ["BibTeX", "CSV", "RIS"],
+      "citation_tracking": "Authoritative engineering citations (TED, EDL, IEDM)",
+      "recommended_role": "Targeted manual/hybrid search for premier device characterization papers"
+    },
+    "nature_springer": {
+      "accessibility_score": 7.5,
+      "api_status": "Springer Nature Meta API (free key available); Open access articles fully open",
+      "rate_limit": "5,000 req/day",
+      "export_formats": ["BibTeX", "RIS", "JSON"],
+      "citation_tracking": "Nature group citation links",
+      "recommended_role": "High-impact breakthrough paper extraction"
+    },
+    "acs_pubs": {
+      "accessibility_score": 7.0,
+      "api_status": "Web search with RIS/BibTeX export; Crossref metadata",
+      "rate_limit": "Web portal standards",
+      "export_formats": ["BibTeX", "RIS"],
+      "citation_tracking": "Direct web citation tools",
+      "recommended_role": "Nanoscale interface and chemical doping study extraction"
+    }
+  },
+  "materials_databases": {
+    "c2db": {
+      "accessibility_score": 10,
+      "api_status": "Direct open download (ASE db, web REST API)",
+      "rate_limit": "Unrestricted open access",
+      "export_formats": ["JSON", "CSV", "ASE-db"],
+      "recommended_role": "Primary source for pristine and defected 2D MoS2 intrinsic properties"
+    },
+    "materials_project": {
+      "accessibility_score": 9.0,
+      "api_status": "MP-API Python SDK (Requires free MP API key)",
+      "rate_limit": "Standard MP tier",
+      "export_formats": ["JSON", "CIF", "Python dict"],
+      "recommended_role": "Primary source for bulk contact metal electronic and thermodynamic properties"
+    },
+    "nist_srd": {
+      "accessibility_score": 9.5,
+      "api_status": "Public domain web access and tables",
+      "rate_limit": "Standard web",
+      "export_formats": ["HTML table", "CSV"],
+      "recommended_role": "Standard experimental work functions and ionization potentials"
+    },
+    "crc_handbook": {
+      "accessibility_score": 9.0,
+      "api_status": "Standard Reference Reference Tables",
+      "rate_limit": "Static extraction",
+      "export_formats": ["Tabular"],
+      "recommended_role": "Standard electronegativities, radii, and resistivity benchmarks"
+    }
+  }
+}
