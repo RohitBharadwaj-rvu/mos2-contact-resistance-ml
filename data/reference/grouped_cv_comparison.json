@@ -1,0 +1,61 @@
+{
+  "dataset_n_samples": 20,
+  "dataset_n_clusters": 13,
+  "models_evaluated": {
+    "Ridge_Regression": {
+      "random_5fold": {
+        "rmse_log10_rc": 0.219,
+        "mae_log10_rc": 0.182,
+        "pearson_r": 0.946
+      },
+      "grouped_5fold": {
+        "rmse_log10_rc": 0.231,
+        "mae_log10_rc": 0.196,
+        "pearson_r": 0.942
+      },
+      "leave_one_group_out": {
+        "rmse_log10_rc": 0.24,
+        "mae_log10_rc": 0.206,
+        "pearson_r": 0.936
+      },
+      "optimism_penalty_rmse": 0.012
+    },
+    "Gradient_Boosting": {
+      "random_5fold": {
+        "rmse_log10_rc": 0.42,
+        "mae_log10_rc": 0.313,
+        "pearson_r": 0.784
+      },
+      "grouped_5fold": {
+        "rmse_log10_rc": 0.41,
+        "mae_log10_rc": 0.29,
+        "pearson_r": 0.796
+      },
+      "leave_one_group_out": {
+        "rmse_log10_rc": 0.415,
+        "mae_log10_rc": 0.3,
+        "pearson_r": 0.79
+      },
+      "optimism_penalty_rmse": -0.01
+    },
+    "Gaussian_Process_Matern": {
+      "random_5fold": {
+        "rmse_log10_rc": 0.417,
+        "mae_log10_rc": 0.246,
+        "pearson_r": 0.794
+      },
+      "grouped_5fold": {
+        "rmse_log10_rc": 0.452,
+        "mae_log10_rc": 0.25,
+        "pearson_r": 0.756
+      },
+      "leave_one_group_out": {
+        "rmse_log10_rc": 0.433,
+        "mae_log10_rc": 0.252,
+        "pearson_r": 0.78
+      },
+      "optimism_penalty_rmse": 0.035
+    }
+  },
+  "recommendation": "Use Grouped 5-Fold as standard cross-validation and LOGO as the rigorous out-of-distribution benchmark."
+}
