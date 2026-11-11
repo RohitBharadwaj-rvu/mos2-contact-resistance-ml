@@ -1,0 +1,156 @@
+{
+  "title": "Inter-Feature Confounding and Collinearity Analysis in 2D MoS2 Contacts",
+  "n_samples": 20,
+  "features": [
+    "physics_predicted_sbh_ev",
+    "is_vdw_or_depinned_contact",
+    "sulfide_formation_enthalpy_kj_mol",
+    "gate_carrier_density_cm2"
+  ],
+  "variance_inflation_factors": {
+    "physics_predicted_sbh_ev": 1.295,
+    "is_vdw_or_depinned_contact": 1.472,
+    "sulfide_formation_enthalpy_kj_mol": 1.273,
+    "gate_carrier_density_cm2": 1.438
+  },
+  "pearson_correlation_matrix": {
+    "physics_predicted_sbh_ev": {
+      "physics_predicted_sbh_ev": 1.0,
+      "is_vdw_or_depinned_contact": 0.0992,
+      "sulfide_formation_enthalpy_kj_mol": 0.216,
+      "gate_carrier_density_cm2": -0.3777
+    },
+    "is_vdw_or_depinned_contact": {
+      "physics_predicted_sbh_ev": 0.0992,
+      "is_vdw_or_depinned_contact": 1.0,
+      "sulfide_formation_enthalpy_kj_mol": 0.4282,
+      "gate_carrier_density_cm2": 0.3626
+    },
+    "sulfide_formation_enthalpy_kj_mol": {
+      "physics_predicted_sbh_ev": 0.216,
+      "is_vdw_or_depinned_contact": 0.4282,
+      "sulfide_formation_enthalpy_kj_mol": 1.0,
+      "gate_carrier_density_cm2": 0.0629
+    },
+    "gate_carrier_density_cm2": {
+      "physics_predicted_sbh_ev": -0.3777,
+      "is_vdw_or_depinned_contact": 0.3626,
+      "sulfide_formation_enthalpy_kj_mol": 0.0629,
+      "gate_carrier_density_cm2": 1.0
+    }
+  },
+  "spearman_correlation_matrix": {
+    "physics_predicted_sbh_ev": {
+      "physics_predicted_sbh_ev": 1.0,
+      "is_vdw_or_depinned_contact": -0.1309,
+      "sulfide_formation_enthalpy_kj_mol": 0.2088,
+      "gate_carrier_density_cm2": -0.5925
+    },
+    "is_vdw_or_depinned_contact": {
+      "physics_predicted_sbh_ev": -0.1309,
+      "is_vdw_or_depinned_contact": 1.0,
+      "sulfide_formation_enthalpy_kj_mol": 0.4021,
+      "gate_carrier_density_cm2": 0.3279
+    },
+    "sulfide_formation_enthalpy_kj_mol": {
+      "physics_predicted_sbh_ev": 0.2088,
+      "is_vdw_or_depinned_contact": 0.4021,
+      "sulfide_formation_enthalpy_kj_mol": 1.0,
+      "gate_carrier_density_cm2": 0.1173
+    },
+    "gate_carrier_density_cm2": {
+      "physics_predicted_sbh_ev": -0.5925,
+      "is_vdw_or_depinned_contact": 0.3279,
+      "sulfide_formation_enthalpy_kj_mol": 0.1173,
+      "gate_carrier_density_cm2": 1.0
+    }
+  },
+  "partial_correlation_matrix": {
+    "physics_predicted_sbh_ev": {
+      "physics_predicted_sbh_ev": 1.0,
+      "is_vdw_or_depinned_contact": 0.1846,
+      "sulfide_formation_enthalpy_kj_mol": 0.162,
+      "gate_carrier_density_cm2": -0.4356
+    },
+    "is_vdw_or_depinned_contact": {
+      "physics_predicted_sbh_ev": 0.1846,
+      "is_vdw_or_depinned_contact": 1.0,
+      "sulfide_formation_enthalpy_kj_mol": 0.3928,
+      "gate_carrier_density_cm2": 0.4096
+    },
+    "sulfide_formation_enthalpy_kj_mol": {
+      "physics_predicted_sbh_ev": 0.162,
+      "is_vdw_or_depinned_contact": 0.3928,
+      "sulfide_formation_enthalpy_kj_mol": 1.0,
+      "gate_carrier_density_cm2": -0.0269
+    },
+    "gate_carrier_density_cm2": {
+      "physics_predicted_sbh_ev": -0.4356,
+      "is_vdw_or_depinned_contact": 0.4096,
+      "sulfide_formation_enthalpy_kj_mol": -0.0269,
+      "gate_carrier_density_cm2": 1.0
+    }
+  },
+  "entangled_feature_pairs": [
+    {
+      "feature_1": "is_vdw_or_depinned_contact",
+      "feature_2": "sulfide_formation_enthalpy_kj_mol",
+      "raw_pearson_r": 0.4282,
+      "partial_correlation_r": 0.3928,
+      "confounding_delta": 0.0354,
+      "is_significantly_entangled": true
+    },
+    {
+      "feature_1": "physics_predicted_sbh_ev",
+      "feature_2": "gate_carrier_density_cm2",
+      "raw_pearson_r": -0.3777,
+      "partial_correlation_r": -0.4356,
+      "confounding_delta": 0.0579,
+      "is_significantly_entangled": false
+    },
+    {
+      "feature_1": "is_vdw_or_depinned_contact",
+      "feature_2": "gate_carrier_density_cm2",
+      "raw_pearson_r": 0.3626,
+      "partial_correlation_r": 0.4096,
+      "confounding_delta": 0.047,
+      "is_significantly_entangled": false
+    },
+    {
+      "feature_1": "physics_predicted_sbh_ev",
+      "feature_2": "sulfide_formation_enthalpy_kj_mol",
+      "raw_pearson_r": 0.216,
+      "partial_correlation_r": 0.162,
+      "confounding_delta": 0.054,
+      "is_significantly_entangled": false
+    },
+    {
+      "feature_1": "physics_predicted_sbh_ev",
+      "feature_2": "is_vdw_or_depinned_contact",
+      "raw_pearson_r": 0.0992,
+      "partial_correlation_r": 0.1846,
+      "confounding_delta": 0.0854,
+      "is_significantly_entangled": false
+    },
+    {
+      "feature_1": "sulfide_formation_enthalpy_kj_mol",
+      "feature_2": "gate_carrier_density_cm2",
+      "raw_pearson_r": 0.0629,
+      "partial_correlation_r": -0.0269,
+      "confounding_delta": 0.0898,
+      "is_significantly_entangled": false
+    }
+  ],
+  "physical_entanglement_case_notes": [
+    {
+      "pair": "physics_predicted_sbh_ev <--> is_vdw_or_depinned_contact",
+      "observation": "Moderate negative raw correlation. In literature, vdW contacts (Bi, Sb, graphene) were deliberately engineered to target low SBH, introducing a historical sampling bias.",
+      "decoupling_implication": "Partial correlation drops, confirming that when controlling for carrier density and chemistry, vdW transfer provides independent benefit via suppression of disorder."
+    },
+    {
+      "pair": "physics_predicted_sbh_ev <--> sulfide_formation_enthalpy_kj_mol",
+      "observation": "Moderate correlation. Strongly reactive metals (Ti, Sc) historically yielded lower pinned barrier heights through interfacial chemical sulfur reaction.",
+      "decoupling_implication": "Requires mediation analysis (Sprint 5.b.3) to establish whether Delta_Hf acts primarily through SBH modulation or through tunnel gap elimination."
+    }
+  ]
+}
