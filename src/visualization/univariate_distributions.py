@@ -111,3 +111,9 @@ def generate_univariate_distribution_plots(df: Optional[pd.DataFrame] = None) ->
     plt.close()
     
     return FIGURE_PNG_PATH
+
+
+if __name__ == "__main__":
+    p = generate_univariate_distribution_plots()
+    print(f"Generated univariate distribution plots at: {p}")
+

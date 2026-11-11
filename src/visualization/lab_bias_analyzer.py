@@ -14,6 +14,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
 
+import warnings
+warnings.filterwarnings("ignore", category=PendingDeprecationWarning)
+
 from src.features.feature_engineer import get_cleaned_and_engineered_dataset
 
 VARIANCE_JSON_PATH = Path(__file__).resolve().parents[2] / "data" / "processed" / "inter_paper_variance_summary.json"
@@ -128,3 +131,9 @@ def generate_variance_plots(df: Optional[pd.DataFrame] = None) -> Path:
     plt.close()
     
     return VARIANCE_PNG_PATH
+
+
+if __name__ == "__main__":
+    p = generate_variance_plots()
+    print(f"Generated lab bias and variance plot at: {p}")
+

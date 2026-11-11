@@ -132,3 +132,9 @@ def generate_bivariate_plots(df: Optional[pd.DataFrame] = None) -> Path:
     plt.close()
     
     return BIVARIATE_PNG_PATH
+
+
+if __name__ == "__main__":
+    p = generate_bivariate_plots()
+    print(f"Generated bivariate relationship plots at: {p}")
+
