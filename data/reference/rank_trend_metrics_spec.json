@@ -1,0 +1,24 @@
+{
+  "title": "Rank and Monotonic Trend Metrics Specification for MoS2 Contacts",
+  "rationale": "Cross-lab systematic offsets shift absolute resistance values, but screening algorithms must accurately order contact strategies from best to worst.",
+  "metrics": [
+    {
+      "name": "spearman_rho",
+      "range": "[-1.0, +1.0]",
+      "target": ">= 0.80",
+      "meaning": "Monotonic ranking correlation across experimental devices."
+    },
+    {
+      "name": "kendall_tau",
+      "range": "[-1.0, +1.0]",
+      "target": ">= 0.65",
+      "meaning": "Net proportion of concordant pairwise metal comparisons."
+    },
+    {
+      "name": "concordance_index",
+      "range": "[0.0, 1.0]",
+      "target": ">= 0.85",
+      "meaning": "Probability that the model correctly predicts which of two randomly chosen contacts has lower Rc."
+    }
+  ]
+}
