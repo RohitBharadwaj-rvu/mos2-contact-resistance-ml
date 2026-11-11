@@ -1,0 +1,280 @@
+{
+  "features": [
+    "physics_predicted_sbh_ev",
+    "is_vdw_or_depinned_contact",
+    "sulfide_formation_enthalpy_kj_mol",
+    "gate_carrier_density_cm2"
+  ],
+  "monotone_constraints_applied": {
+    "physics_predicted_sbh_ev": 1,
+    "is_vdw_or_depinned_contact": -1,
+    "sulfide_formation_enthalpy_kj_mol": 0,
+    "gate_carrier_density_cm2": -1
+  },
+  "lightgbm_unconstrained": {
+    "composite_selection_score": 0.756,
+    "raw_score": 0.756,
+    "parsimony_penalty": 0.0,
+    "is_qualified_for_deployment": true,
+    "sub_scores": {
+      "accuracy_score_weighted": 0.2365,
+      "rank_score_weighted": 0.3083,
+      "concordance_score_weighted": 0.2112
+    },
+    "underlying_metrics": {
+      "rmse_log10_dex": 0.4087,
+      "spearman_rho": 0.8808,
+      "concordance_index": 0.8447
+    },
+    "fold_metrics": [
+      {
+        "fold": 0,
+        "rmse_dex": 0.0755,
+        "mae_dex": 0.0657
+      },
+      {
+        "fold": 1,
+        "rmse_dex": 0.7105,
+        "mae_dex": 0.5137
+      },
+      {
+        "fold": 2,
+        "rmse_dex": 0.4107,
+        "mae_dex": 0.3828
+      },
+      {
+        "fold": 3,
+        "rmse_dex": 0.1684,
+        "mae_dex": 0.1283
+      },
+      {
+        "fold": 4,
+        "rmse_dex": 0.3574,
+        "mae_dex": 0.2691
+      }
+    ],
+    "oof_predictions": [
+      2.5386,
+      2.5386,
+      2.4291,
+      2.3561,
+      3.4719,
+      2.8623,
+      2.9105,
+      2.6786,
+      3.3951,
+      2.4638,
+      2.6247,
+      2.7696,
+      3.8064,
+      2.9121,
+      3.6595,
+      4.2114,
+      3.4074,
+      3.5747,
+      3.798,
+      3.872
+    ]
+  },
+  "lightgbm_constrained": {
+    "composite_selection_score": 0.7556,
+    "raw_score": 0.7556,
+    "parsimony_penalty": 0.0,
+    "is_qualified_for_deployment": true,
+    "sub_scores": {
+      "accuracy_score_weighted": 0.2367,
+      "rank_score_weighted": 0.3078,
+      "concordance_score_weighted": 0.2112
+    },
+    "underlying_metrics": {
+      "rmse_log10_dex": 0.4083,
+      "spearman_rho": 0.8793,
+      "concordance_index": 0.8447
+    },
+    "fold_metrics": [
+      {
+        "fold": 0,
+        "rmse_dex": 0.0805,
+        "mae_dex": 0.0736
+      },
+      {
+        "fold": 1,
+        "rmse_dex": 0.7098,
+        "mae_dex": 0.5047
+      },
+      {
+        "fold": 2,
+        "rmse_dex": 0.4132,
+        "mae_dex": 0.3843
+      },
+      {
+        "fold": 3,
+        "rmse_dex": 0.1676,
+        "mae_dex": 0.1121
+      },
+      {
+        "fold": 4,
+        "rmse_dex": 0.3525,
+        "mae_dex": 0.263
+      }
+    ],
+    "oof_predictions": [
+      2.5056,
+      2.5056,
+      2.4641,
+      2.3557,
+      3.4675,
+      2.8782,
+      3.0907,
+      2.7491,
+      3.3858,
+      2.4624,
+      2.6339,
+      2.757,
+      3.83,
+      2.9157,
+      3.6653,
+      4.2128,
+      3.4095,
+      3.5829,
+      3.8027,
+      3.8884
+    ]
+  },
+  "histgb_unconstrained": {
+    "composite_selection_score": 0.7441,
+    "raw_score": 0.7441,
+    "parsimony_penalty": 0.0,
+    "is_qualified_for_deployment": true,
+    "sub_scores": {
+      "accuracy_score_weighted": 0.2268,
+      "rank_score_weighted": 0.3062,
+      "concordance_score_weighted": 0.2112
+    },
+    "underlying_metrics": {
+      "rmse_log10_dex": 0.4331,
+      "spearman_rho": 0.8748,
+      "concordance_index": 0.8447
+    },
+    "fold_metrics": [
+      {
+        "fold": 0,
+        "rmse_dex": 0.4597,
+        "mae_dex": 0.4234
+      },
+      {
+        "fold": 1,
+        "rmse_dex": 0.6539,
+        "mae_dex": 0.4594
+      },
+      {
+        "fold": 2,
+        "rmse_dex": 0.4016,
+        "mae_dex": 0.3721
+      },
+      {
+        "fold": 3,
+        "rmse_dex": 0.1115,
+        "mae_dex": 0.1026
+      },
+      {
+        "fold": 4,
+        "rmse_dex": 0.3536,
+        "mae_dex": 0.3121
+      }
+    ],
+    "oof_predictions": [
+      2.5549,
+      2.5549,
+      2.6377,
+      2.2981,
+      3.5772,
+      2.807,
+      3.1133,
+      2.6201,
+      3.3372,
+      2.3375,
+      2.5969,
+      2.8617,
+      3.6792,
+      2.9004,
+      3.6918,
+      4.1944,
+      2.8584,
+      3.1991,
+      3.4909,
+      3.1472
+    ]
+  },
+  "histgb_constrained": {
+    "composite_selection_score": 0.7386,
+    "raw_score": 0.7386,
+    "parsimony_penalty": 0.0,
+    "is_qualified_for_deployment": true,
+    "sub_scores": {
+      "accuracy_score_weighted": 0.2241,
+      "rank_score_weighted": 0.3046,
+      "concordance_score_weighted": 0.2099
+    },
+    "underlying_metrics": {
+      "rmse_log10_dex": 0.4398,
+      "spearman_rho": 0.8703,
+      "concordance_index": 0.8395
+    },
+    "fold_metrics": [
+      {
+        "fold": 0,
+        "rmse_dex": 0.4641,
+        "mae_dex": 0.4293
+      },
+      {
+        "fold": 1,
+        "rmse_dex": 0.6634,
+        "mae_dex": 0.4634
+      },
+      {
+        "fold": 2,
+        "rmse_dex": 0.4195,
+        "mae_dex": 0.3903
+      },
+      {
+        "fold": 3,
+        "rmse_dex": 0.1086,
+        "mae_dex": 0.0962
+      },
+      {
+        "fold": 4,
+        "rmse_dex": 0.3522,
+        "mae_dex": 0.3112
+      }
+    ],
+    "oof_predictions": [
+      2.5528,
+      2.5528,
+      2.6289,
+      2.2932,
+      3.5577,
+      2.827,
+      3.1275,
+      2.6642,
+      3.3335,
+      2.3375,
+      2.6212,
+      2.8621,
+      3.6839,
+      2.9008,
+      3.6915,
+      4.2271,
+      2.8532,
+      3.1927,
+      3.4811,
+      3.145
+    ]
+  },
+  "summary_deltas": {
+    "lgbm_score_gain": -0.0004,
+    "lgbm_rmse_reduction_dex": 0.0004,
+    "histgb_score_gain": -0.0055,
+    "histgb_rmse_reduction_dex": -0.0067
+  }
+}
