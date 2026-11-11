@@ -1,0 +1,95 @@
+{
+  "title": "MoS2 Contact Resistance Model Limitations, Validity Envelopes, and Dataset Gaps",
+  "dataset_biases": {
+    "n_samples": 20,
+    "contact_type_split": {
+      "vdw_count": 9,
+      "evaporated_count": 11,
+      "vdw_fraction_pct": 45.0
+    },
+    "carrier_density_coverage_cm2": {
+      "min": 3000000000000.0,
+      "max": 15000000000000.0,
+      "median": 7750000000000.0,
+      "sparse_regions": [
+        "n_2D < 1e12 cm^-2 (subthreshold)",
+        "n_2D > 2.5e13 cm^-2 (extreme dielectric stress)"
+      ]
+    },
+    "barrier_height_coverage_ev": {
+      "min": 0.0,
+      "max": 1.3760000000000001,
+      "sparse_regions": [
+        "Phi_B > 0.8 eV (strong p-type contacts)"
+      ]
+    },
+    "layer_count_distribution": {
+      "monolayer_1L_pct": 90.0,
+      "few_layer_pct": 10.0
+    },
+    "major_literature_biases": [
+      "Severe n-type bias: >95% of published 2D MoS2 studies investigate electron injection; p-type contacts remain severely under-characterized.",
+      "Room-temperature bias: 90% of extracted Rc values are reported at 300 K; temperature-dependent activation curves (4 K - 300 K) are sparse.",
+      "Contact geometry bias: Overwhelming focus on top-contact geometries; 1D edge contacts (e.g., via etched h-BN/graphene trenches) are rarely tabulated.",
+      "Publication bias toward low Rc: Studies achieving poor contact (> 1e5 Ohm*um) frequently omit TLM de-embedding, skewing literature toward best-case devices."
+    ]
+  },
+  "validity_envelopes": {
+    "gate_carrier_density": {
+      "valid_range_cm2": [
+        100000000000.0,
+        30000000000000.0
+      ],
+      "lower_bound_failure_mode": "Subthreshold regime where current is dominated by channel thermionic barrier rather than contact resistance.",
+      "upper_bound_failure_mode": "Dielectric breakdown (Fowler-Nordheim leakage and oxide rupture) in thin high-k gate stacks."
+    },
+    "schottky_barrier_height": {
+      "valid_range_ev": [
+        0.0,
+        1.2
+      ],
+      "lower_bound_failure_mode": "Ohmic degenerate state bounded strictly by the Landauer-Sharvin quantum ballistic limit (~ 18-36 Ohm*um).",
+      "upper_bound_failure_mode": "Complete carrier freeze-out where current drops below noise floor (Rc > 1e7 Ohm*um)."
+    },
+    "thermal_budget_limits": {
+      "bismuth_semimetal": "T_process < 240 deg C (Bismuth dewetting and balling threshold).",
+      "1T_phase_mos2": "T_process < 100 deg C (Metastable 1T to 2H relaxation threshold).",
+      "reactive_metals_ti_sc": "T_process < 400 deg C (Excessive metal-sulfur interdiffusion leading to MoS2 lattice destruction)."
+    },
+    "transfer_length_effect": {
+      "current_crowding_envelope": "Model assumes contact length L_c > 2 * L_T (~ 50-100 nm). For sub-30nm scaled contact lengths, 2D edge current crowding increases effective Rc."
+    }
+  },
+  "future_experimental_priorities": [
+    {
+      "priority_rank": 1,
+      "title": "Systematic P-Type Contact Benchmark on 2D MoS2",
+      "rationale": "Complementary CMOS logic strictly requires high-performance p-FETs. Experimental validation with high work-function metals (Pt, Pd, Au) under high-k hole accumulation is essential.",
+      "target_measurement": "TLM de-embedded Rc and Richardson activation SBH under hole accumulation (Vgs < -2 V with thin HfO2)."
+    },
+    {
+      "priority_rank": 2,
+      "title": "Cryogenic Temperature-Dependent TLM (4 K - 300 K)",
+      "rationale": "Decouple tunneling vs thermionic emission across the full temperature range. Freeze-out measurements will verify if zero-barrier Bi contacts remain Ohmic at 4 K.",
+      "target_measurement": "Four-probe TLM contact resistance vs 1000/T to extract true zero-bias barrier height."
+    },
+    {
+      "priority_rank": 3,
+      "title": "Contact Scaling Down to Sub-20 nm Contact Length (Lc)",
+      "rationale": "IRDS roadmap requires physical contact pitch < 40 nm. Characterize current crowding and transfer length scaling limits at ultra-scaled dimensions.",
+      "target_measurement": "Rc vs Lc scaling from 10 nm to 500 nm to measure transmission length LT."
+    },
+    {
+      "priority_rank": 4,
+      "title": "Standardized Extraction Protocol Benchmark (TLM vs Y-Function)",
+      "rationale": "Eliminate inter-lab extraction variance by conducting cross-methodology comparisons on the same identical physical device.",
+      "target_measurement": "Simultaneous TLM, Y-function, and gated four-probe extraction on identical lithographic patterns."
+    },
+    {
+      "priority_rank": 5,
+      "title": "Air-Stability and Accelerated Lifetime Aging Analysis",
+      "rationale": "Semimetal and 1T contacts degrade rapidly in ambient humidity. Quantify degradation kinetics and capping layer (ALD Al2O3, h-BN) effectiveness over 1000+ hours.",
+      "target_measurement": "Time-dependent Rc drift under 85 deg C / 85% relative humidity stress testing."
+    }
+  ]
+}
