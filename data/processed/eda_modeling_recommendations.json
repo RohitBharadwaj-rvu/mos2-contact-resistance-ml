@@ -1,0 +1,93 @@
+{
+  "dataset_scale": {
+    "n_samples": 20,
+    "n_sources": 13,
+    "effective_degrees_of_freedom": 12,
+    "regime": "small_n_tabular"
+  },
+  "target_formulation": {
+    "primary_target": "log10_rc",
+    "raw_target": "contact_resistance_rc_ohm_um",
+    "rationale": "Raw Rc exhibits heavy positive skew (skewness=2.50). Log10 transformation normalizes residuals (skewness=0.44) and matches logarithmic resistance scaling across orders of magnitude.",
+    "schottky_barrier_target": "schottky_barrier_height_ev"
+  },
+  "feature_selection_constraints": {
+    "max_features_recommended": 4,
+    "sample_to_feature_ratio_target": ">= 4:1",
+    "redundant_collinear_pairs": [
+      {
+        "features": [
+          "work_function_ev",
+          "schottky_mott_barrier_ev"
+        ],
+        "correlation": 1.0,
+        "action": "Drop schottky_mott_barrier_ev because it is an exact linear shift (Phi_M - 4.2)"
+      },
+      {
+        "features": [
+          "pauling_electronegativity",
+          "work_function_ev"
+        ],
+        "correlation": 0.81,
+        "action": "Keep work_function_ev as primary physical descriptor; use electronegativity only in multivariate tree models"
+      }
+    ],
+    "high_vif_features_to_prune": [
+      "work_function_ev",
+      "pauling_electronegativity",
+      "sulfide_formation_enthalpy_kj_mol",
+      "schottky_mott_barrier_ev",
+      "electronegativity_diff_sulfur",
+      "is_vdw_or_depinned_contact",
+      "effective_pinning_factor_s"
+    ],
+    "recommended_primary_features": [
+      "hybrid_effective_barrier_ev",
+      "semimetal_pinning_suppression_flag",
+      "sulfide_formation_enthalpy_kj_mol",
+      "dielectric_permittivity"
+    ]
+  },
+  "cross_validation_strategy": {
+    "recommended_cv": "GroupKFold_or_LOGO",
+    "grouping_variable": "source_uid",
+    "rationale": "Standard random K-Fold suffers from data leakage due to intra-laboratory correlation. Grouped splitting tests generalization to completely unseen fabrication labs and literature sources."
+  },
+  "recommended_models": {
+    "parsimonious_parametric": [
+      "Ridge",
+      "Lasso",
+      "ElasticNet",
+      "KernelRidge"
+    ],
+    "probabilistic": [
+      "GaussianProcessRegressor"
+    ],
+    "non_linear_tabular": [
+      "RandomForestRegressor",
+      "GradientBoostingRegressor"
+    ],
+    "symbolic_discovery": [
+      "gplearn",
+      "analytical_physics_equations"
+    ]
+  },
+  "evaluation_metrics": [
+    {
+      "name": "RMSE_log10_rc",
+      "description": "Root Mean Squared Error on log10(Rc), representing average order-of-magnitude error (dex)."
+    },
+    {
+      "name": "MAE_log10_rc",
+      "description": "Mean Absolute Error on log10(Rc), robust to individual experimental outliers."
+    },
+    {
+      "name": "Spearman_rho",
+      "description": "Monotonic rank correlation, invariant to non-linear monotonic calibrations."
+    },
+    {
+      "name": "Pearson_r",
+      "description": "Linear correlation between predicted and experimental log10(Rc)."
+    }
+  ]
+}
