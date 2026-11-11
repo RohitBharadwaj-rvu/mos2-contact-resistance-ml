@@ -7,6 +7,7 @@ import json
 import pytest
 from src.models.sample_complexity_analyzer import (
     compute_sample_complexity_constraints,
+    select_parsimonious_features,
     COMPLEXITY_JSON_PATH
 )
 
@@ -24,3 +25,12 @@ def test_compute_sample_complexity_constraints():
     with open(COMPLEXITY_JSON_PATH, "r", encoding="utf-8") as f:
         loaded = json.load(f)
     assert loaded["dataset_dimensions"]["n_samples"] == constraints["dataset_dimensions"]["n_samples"]
+
+
+def test_select_parsimonious_features():
+    """Verify parsimonious feature selector returns non-collinear physical descriptors."""
+    selected = select_parsimonious_features(max_features=4)
+    assert len(selected) == 4
+    assert "physics_predicted_sbh_ev" in selected
+    assert "is_vdw_or_depinned_contact" in selected
+

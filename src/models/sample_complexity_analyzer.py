@@ -87,6 +87,42 @@ def compute_sample_complexity_constraints(df: Optional[pd.DataFrame] = None) -> 
     return constraints
 
 
+def select_parsimonious_features(df: Optional[pd.DataFrame] = None, max_features: int = 4) -> List[str]:
+    """
+    Selects a parsimonious, non-collinear subset of physical features respecting the sample-to-feature budget.
+    Ensures selected pairs have |Pearson r| < 0.85 to avoid multicollinearity.
+    """
+    if df is None:
+        df = get_cleaned_and_engineered_dataset()
+        
+    candidate_priority = [
+        "physics_predicted_sbh_ev",
+        "is_vdw_or_depinned_contact",
+        "sulfide_formation_enthalpy_kj_mol",
+        "gate_carrier_density_cm2",
+        "work_function_ev",
+        "d_band_center_ev"
+    ]
+    
+    selected: List[str] = []
+    for cand in candidate_priority:
+        if cand not in df.columns:
+            continue
+        # Check collinearity against already selected features
+        collinear = False
+        for s in selected:
+            corr = abs(df[cand].corr(df[s]))
+            if corr >= 0.85:
+                collinear = True
+                break
+        if not collinear:
+            selected.append(cand)
+            if len(selected) >= max_features:
+                break
+                
+    return selected
+
+
 if __name__ == "__main__":
     c = compute_sample_complexity_constraints()
     print("Computed model complexity constraints:")
