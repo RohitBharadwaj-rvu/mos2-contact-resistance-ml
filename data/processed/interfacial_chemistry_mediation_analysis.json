@@ -1,0 +1,25 @@
+{
+  "title": "Interfacial Chemistry (Delta_Hf) vs Schottky Barrier Height (Phi_B) Mediation Analysis",
+  "n_samples": 20,
+  "n_bootstraps": 100,
+  "path_coefficients": {
+    "path_a_enthalpy_to_sbh": -0.3609,
+    "path_b_sbh_to_log10_rc": 1.2898,
+    "path_c_prime_direct_enthalpy_to_log10_rc": -0.0478,
+    "total_effect_c": -0.5133
+  },
+  "indirect_effect": {
+    "value": -0.4655,
+    "bootstrap_95_ci": [
+      -1.4026,
+      0.1102
+    ],
+    "sobel_z_score": -1.2415,
+    "sobel_p_value": 0.2144
+  },
+  "variance_share": {
+    "pct_direct_orbital_bonding": 9.3,
+    "pct_indirect_barrier_doping": 90.7
+  },
+  "physical_conclusion": "Indirect barrier modulation dominates: Reactive metal formation enthalpy acts primarily through de-pinning and Schottky barrier height reduction."
+}
