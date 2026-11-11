@@ -1,0 +1,36 @@
+{
+  "dataset_summary": {
+    "total_samples": 20,
+    "total_distinct_papers": 13,
+    "multi_device_papers_count": 4,
+    "records_in_multi_device_papers": 11,
+    "fraction_vulnerable_to_leakage": 0.55
+  },
+  "multi_device_papers_distribution": {
+    "SRC-REV-2015-ALLAIN": 4,
+    "SRC-EXP-2018-LIU": 3,
+    "SRC-EXP-2021-SHEN": 2,
+    "SRC-EXP-2016-ENGLISH": 2
+  },
+  "random_5fold_simulation": {
+    "total_folds_evaluated": 5,
+    "folds_with_intra_study_leakage": 5,
+    "leakage_fold_percentage": 100.0,
+    "average_leaked_source_clusters_per_fold": 1.6
+  },
+  "leakage_mechanisms": [
+    {
+      "mechanism": "Identical Fabrication Equipment",
+      "risk": "Devices from the same paper share base vacuum levels, crucible purity, and substrate contamination, allowing models to learn batch constants."
+    },
+    {
+      "mechanism": "Same Flake / Crystal Batch",
+      "risk": "Flakes mechanically exfoliated from the same bulk crystal share defect density and thickness distribution."
+    },
+    {
+      "mechanism": "Consistent Measurement Calibration",
+      "risk": "Same probe station, contact probe resistance subtraction, and cryostat thermometer calibration."
+    }
+  ],
+  "conclusion": "Standard random K-Fold suffers from 100% fold contamination in our multi-record studies. Grouped cross-validation is mandatory."
+}
