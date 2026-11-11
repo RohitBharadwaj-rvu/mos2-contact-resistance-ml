@@ -1,0 +1,386 @@
+{
+  "validation_scheme": "grouped_5fold",
+  "n_samples": 20,
+  "features_used": [
+    "physics_predicted_sbh_ev",
+    "is_vdw_or_depinned_contact",
+    "sulfide_formation_enthalpy_kj_mol",
+    "gate_carrier_density_cm2"
+  ],
+  "baseline_models": {
+    "mean_baseline": {
+      "composite_selection_score": 0.1832,
+      "raw_score": 0.1832,
+      "parsimony_penalty": 0.0,
+      "is_qualified_for_deployment": false,
+      "sub_scores": {
+        "accuracy_score_weighted": 0.1082,
+        "rank_score_weighted": 0.0,
+        "concordance_score_weighted": 0.075
+      },
+      "underlying_metrics": {
+        "rmse_log10_dex": 0.7294,
+        "spearman_rho": -0.5764,
+        "concordance_index": 0.3
+      },
+      "oof_predictions": [
+        3.2418,
+        3.2418,
+        3.0209,
+        3.0209,
+        3.0209,
+        3.1369,
+        3.1369,
+        3.2418,
+        3.1819,
+        3.1819,
+        3.1369,
+        3.1819,
+        3.1369,
+        3.1819,
+        3.0209,
+        3.2418,
+        2.9947,
+        2.9947,
+        2.9947,
+        2.9947
+      ]
+    },
+    "median_baseline": {
+      "composite_selection_score": 0.1738,
+      "raw_score": 0.1738,
+      "parsimony_penalty": 0.0,
+      "is_qualified_for_deployment": false,
+      "sub_scores": {
+        "accuracy_score_weighted": 0.0936,
+        "rank_score_weighted": 0.0,
+        "concordance_score_weighted": 0.0803
+      },
+      "underlying_metrics": {
+        "rmse_log10_dex": 0.7661,
+        "spearman_rho": -0.5504,
+        "concordance_index": 0.3211
+      },
+      "oof_predictions": [
+        3.1712,
+        3.1712,
+        2.9553,
+        2.9553,
+        2.9553,
+        3.057,
+        3.057,
+        3.1712,
+        3.1712,
+        3.1712,
+        3.057,
+        3.1712,
+        3.057,
+        3.1712,
+        2.9553,
+        3.1712,
+        2.7766,
+        2.7766,
+        2.7766,
+        2.7766
+      ]
+    },
+    "pure_physics_schottky": {
+      "composite_selection_score": 0.3688,
+      "raw_score": 0.3688,
+      "parsimony_penalty": 0.0,
+      "is_qualified_for_deployment": false,
+      "sub_scores": {
+        "accuracy_score_weighted": 0.0,
+        "rank_score_weighted": 0.1931,
+        "concordance_score_weighted": 0.1757
+      },
+      "underlying_metrics": {
+        "rmse_log10_dex": 1.9687,
+        "spearman_rho": 0.5518,
+        "concordance_index": 0.7026
+      },
+      "oof_predictions": [
+        -0.7329,
+        -0.7329,
+        -0.3632,
+        -1.3693,
+        3.6611,
+        1.5955,
+        4.446,
+        3.9621,
+        -1.0682,
+        3.9621,
+        4.446,
+        1.1116,
+        4.446,
+        3.9621,
+        3.6611,
+        3.9621,
+        1.5955,
+        4.446,
+        4.446,
+        4.446
+      ]
+    },
+    "ordinary_least_squares": {
+      "composite_selection_score": 0.8497,
+      "raw_score": 0.8497,
+      "parsimony_penalty": 0.0,
+      "is_qualified_for_deployment": true,
+      "sub_scores": {
+        "accuracy_score_weighted": 0.2994,
+        "rank_score_weighted": 0.3253,
+        "concordance_score_weighted": 0.225
+      },
+      "underlying_metrics": {
+        "rmse_log10_dex": 0.2514,
+        "spearman_rho": 0.9293,
+        "concordance_index": 0.9
+      },
+      "fold_metrics": [
+        {
+          "fold": 0,
+          "rmse_dex": 0.0536,
+          "mae_dex": 0.0493
+        },
+        {
+          "fold": 1,
+          "rmse_dex": 0.3401,
+          "mae_dex": 0.2926
+        },
+        {
+          "fold": 2,
+          "rmse_dex": 0.2782,
+          "mae_dex": 0.2774
+        },
+        {
+          "fold": 3,
+          "rmse_dex": 0.2633,
+          "mae_dex": 0.2188
+        },
+        {
+          "fold": 4,
+          "rmse_dex": 0.225,
+          "mae_dex": 0.1942
+        }
+      ],
+      "oof_predictions": [
+        1.8151,
+        2.0868,
+        2.7589,
+        2.6798,
+        4.2229,
+        2.8748,
+        3.4462,
+        2.6463,
+        3.0555,
+        2.583,
+        2.8795,
+        2.6263,
+        3.7894,
+        2.9665,
+        3.8583,
+        3.3104,
+        3.3409,
+        3.5005,
+        3.6697,
+        3.7605
+      ]
+    },
+    "ridge_regression": {
+      "composite_selection_score": 0.8596,
+      "raw_score": 0.8596,
+      "parsimony_penalty": 0.0,
+      "is_qualified_for_deployment": true,
+      "sub_scores": {
+        "accuracy_score_weighted": 0.3078,
+        "rank_score_weighted": 0.3268,
+        "concordance_score_weighted": 0.225
+      },
+      "underlying_metrics": {
+        "rmse_log10_dex": 0.2306,
+        "spearman_rho": 0.9338,
+        "concordance_index": 0.9
+      },
+      "fold_metrics": [
+        {
+          "fold": 0,
+          "rmse_dex": 0.0785,
+          "mae_dex": 0.0713
+        },
+        {
+          "fold": 1,
+          "rmse_dex": 0.2978,
+          "mae_dex": 0.2644
+        },
+        {
+          "fold": 2,
+          "rmse_dex": 0.2528,
+          "mae_dex": 0.2484
+        },
+        {
+          "fold": 3,
+          "rmse_dex": 0.2364,
+          "mae_dex": 0.1998
+        },
+        {
+          "fold": 4,
+          "rmse_dex": 0.2264,
+          "mae_dex": 0.1962
+        }
+      ],
+      "oof_predictions": [
+        1.8793,
+        2.1493,
+        2.7312,
+        2.6564,
+        4.326,
+        2.8782,
+        3.3988,
+        2.6831,
+        3.071,
+        2.6005,
+        2.8838,
+        2.6461,
+        3.7532,
+        2.9716,
+        3.817,
+        3.3365,
+        3.3349,
+        3.4796,
+        3.6365,
+        3.7209
+      ]
+    },
+    "lasso_regression": {
+      "composite_selection_score": 0.8139,
+      "raw_score": 0.8139,
+      "parsimony_penalty": 0.0,
+      "is_qualified_for_deployment": true,
+      "sub_scores": {
+        "accuracy_score_weighted": 0.2726,
+        "rank_score_weighted": 0.3216,
+        "concordance_score_weighted": 0.2197
+      },
+      "underlying_metrics": {
+        "rmse_log10_dex": 0.3185,
+        "spearman_rho": 0.9188,
+        "concordance_index": 0.8789
+      },
+      "fold_metrics": [
+        {
+          "fold": 0,
+          "rmse_dex": 0.2642,
+          "mae_dex": 0.228
+        },
+        {
+          "fold": 1,
+          "rmse_dex": 0.5262,
+          "mae_dex": 0.4778
+        },
+        {
+          "fold": 2,
+          "rmse_dex": 0.2684,
+          "mae_dex": 0.1932
+        },
+        {
+          "fold": 3,
+          "rmse_dex": 0.0939,
+          "mae_dex": 0.0794
+        },
+        {
+          "fold": 4,
+          "rmse_dex": 0.2824,
+          "mae_dex": 0.2462
+        }
+      ],
+      "oof_predictions": [
+        2.1687,
+        2.4181,
+        2.8415,
+        2.8511,
+        3.9798,
+        2.956,
+        3.0914,
+        2.8955,
+        3.157,
+        2.7,
+        2.8561,
+        2.6872,
+        3.5287,
+        2.9161,
+        3.6144,
+        3.5204,
+        3.2776,
+        3.325,
+        3.4217,
+        3.4531
+      ]
+    },
+    "elastic_net": {
+      "composite_selection_score": 0.8626,
+      "raw_score": 0.8626,
+      "parsimony_penalty": 0.0,
+      "is_qualified_for_deployment": true,
+      "sub_scores": {
+        "accuracy_score_weighted": 0.2996,
+        "rank_score_weighted": 0.3326,
+        "concordance_score_weighted": 0.2303
+      },
+      "underlying_metrics": {
+        "rmse_log10_dex": 0.2509,
+        "spearman_rho": 0.9504,
+        "concordance_index": 0.9211
+      },
+      "fold_metrics": [
+        {
+          "fold": 0,
+          "rmse_dex": 0.2046,
+          "mae_dex": 0.1784
+        },
+        {
+          "fold": 1,
+          "rmse_dex": 0.3577,
+          "mae_dex": 0.3264
+        },
+        {
+          "fold": 2,
+          "rmse_dex": 0.2307,
+          "mae_dex": 0.1773
+        },
+        {
+          "fold": 3,
+          "rmse_dex": 0.1403,
+          "mae_dex": 0.1327
+        },
+        {
+          "fold": 4,
+          "rmse_dex": 0.2686,
+          "mae_dex": 0.2225
+        }
+      ],
+      "oof_predictions": [
+        2.0283,
+        2.2887,
+        2.7438,
+        2.7237,
+        4.2832,
+        2.9335,
+        3.2253,
+        2.7991,
+        3.1787,
+        2.6593,
+        2.8601,
+        2.7239,
+        3.6267,
+        2.9552,
+        3.6917,
+        3.4481,
+        3.3395,
+        3.3906,
+        3.4947,
+        3.5279
+      ]
+    }
+  }
+}
