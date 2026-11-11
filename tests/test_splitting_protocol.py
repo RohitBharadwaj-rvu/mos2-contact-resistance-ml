@@ -8,6 +8,7 @@ import pytest
 from src.validation.splitting_protocol import (
     audit_grouped_fold_distributions,
     get_official_validation_protocol,
+    get_cv_splits,
     PROTOCOL_JSON_PATH
 )
 
@@ -40,3 +41,16 @@ def test_get_official_validation_protocol():
     with open(PROTOCOL_JSON_PATH, "r", encoding="utf-8") as f:
         loaded = json.load(f)
     assert loaded["title"] == protocol["title"]
+
+
+def test_get_cv_splits():
+    """Verify drop-in CV split generator supports grouped_5fold and logo."""
+    splits_g5 = get_cv_splits(scheme="grouped_5fold")
+    assert len(splits_g5) == 5
+    
+    splits_logo = get_cv_splits(scheme="logo")
+    assert len(splits_logo) >= 10
+    
+    with pytest.raises(ValueError):
+        get_cv_splits(scheme="invalid_scheme")
+

@@ -5,7 +5,7 @@ Analyzes fold-wise representation, target balance, and architectural coverage un
 
 import json
 from pathlib import Path
-from typing import Dict, Any, List, Optional
+from typing import Dict, Any, List, Tuple, Optional
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import GroupKFold, LeaveOneGroupOut
@@ -97,6 +97,30 @@ def get_official_validation_protocol() -> Dict[str, Any]:
         json.dump(protocol, f, indent=2)
         
     return protocol
+
+
+def get_cv_splits(df: Optional[pd.DataFrame] = None, scheme: str = "grouped_5fold") -> List[Tuple[np.ndarray, np.ndarray]]:
+    """
+    Standard drop-in cross-validation split generator for all model training and tuning pipelines.
+    Supported schemes: 'grouped_5fold', 'logo', 'random_5fold'.
+    """
+    from sklearn.model_selection import KFold
+    if df is None:
+        df = get_cleaned_and_engineered_dataset()
+        
+    groups = df["source_uid"].values
+    
+    if scheme == "grouped_5fold":
+        gkf = GroupKFold(n_splits=5)
+        return list(gkf.split(df, groups=groups))
+    elif scheme == "logo":
+        logo = LeaveOneGroupOut()
+        return list(logo.split(df, groups=groups))
+    elif scheme == "random_5fold":
+        kf = KFold(n_splits=5, shuffle=True, random_state=42)
+        return list(kf.split(df))
+    else:
+        raise ValueError(f"Unknown CV scheme: {scheme}")
 
 
 if __name__ == "__main__":
