@@ -22,21 +22,21 @@
     },
     "Gradient_Boosting": {
       "random_5fold": {
-        "rmse_log10_rc": 0.42,
-        "mae_log10_rc": 0.313,
-        "pearson_r": 0.784
+        "rmse_log10_rc": 0.444,
+        "mae_log10_rc": 0.343,
+        "pearson_r": 0.761
       },
       "grouped_5fold": {
-        "rmse_log10_rc": 0.41,
-        "mae_log10_rc": 0.29,
+        "rmse_log10_rc": 0.413,
+        "mae_log10_rc": 0.292,
         "pearson_r": 0.796
       },
       "leave_one_group_out": {
-        "rmse_log10_rc": 0.415,
-        "mae_log10_rc": 0.3,
-        "pearson_r": 0.79
+        "rmse_log10_rc": 0.405,
+        "mae_log10_rc": 0.294,
+        "pearson_r": 0.807
       },
-      "optimism_penalty_rmse": -0.01
+      "optimism_penalty_rmse": -0.031
     },
     "Gaussian_Process_Matern": {
       "random_5fold": {

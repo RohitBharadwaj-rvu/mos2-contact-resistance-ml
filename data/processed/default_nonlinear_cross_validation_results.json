@@ -74,68 +74,68 @@
       ]
     },
     "Gradient_Boosting": {
-      "composite_selection_score": 0.759,
-      "raw_score": 0.759,
+      "composite_selection_score": 0.7534,
+      "raw_score": 0.7534,
       "parsimony_penalty": 0.0,
       "is_qualified_for_deployment": true,
       "sub_scores": {
-        "accuracy_score_weighted": 0.2361,
-        "rank_score_weighted": 0.3104,
-        "concordance_score_weighted": 0.2125
+        "accuracy_score_weighted": 0.2348,
+        "rank_score_weighted": 0.3088,
+        "concordance_score_weighted": 0.2099
       },
       "underlying_metrics": {
-        "rmse_log10_dex": 0.4098,
-        "spearman_rho": 0.8868,
-        "concordance_index": 0.85
+        "rmse_log10_dex": 0.4131,
+        "spearman_rho": 0.8823,
+        "concordance_index": 0.8395
       },
       "fold_metrics": [
         {
           "fold": 0,
-          "rmse_dex": 0.2063,
-          "mae_dex": 0.1787
+          "rmse_dex": 0.2306,
+          "mae_dex": 0.2023
         },
         {
           "fold": 1,
-          "rmse_dex": 0.6965,
-          "mae_dex": 0.4657
+          "rmse_dex": 0.7297,
+          "mae_dex": 0.5056
         },
         {
           "fold": 2,
-          "rmse_dex": 0.4352,
-          "mae_dex": 0.3961
+          "rmse_dex": 0.3795,
+          "mae_dex": 0.3571
         },
         {
           "fold": 3,
-          "rmse_dex": 0.1427,
-          "mae_dex": 0.1305
+          "rmse_dex": 0.1389,
+          "mae_dex": 0.1135
         },
         {
           "fold": 4,
-          "rmse_dex": 0.3199,
-          "mae_dex": 0.2784
+          "rmse_dex": 0.3226,
+          "mae_dex": 0.2824
         }
       ],
       "oof_predictions": [
-        2.5326,
-        2.5326,
-        2.5821,
-        2.3551,
-        3.481,
-        2.8112,
-        2.9478,
-        2.6652,
-        3.2791,
-        2.6808,
-        2.532,
-        2.8282,
-        3.7088,
-        2.925,
-        3.6904,
-        4.2898,
-        3.2357,
-        3.4501,
-        3.4588,
-        3.5296
+        2.5103,
+        2.5103,
+        2.48,
+        2.3659,
+        3.4172,
+        2.822,
+        2.9784,
+        2.7042,
+        3.2774,
+        2.6796,
+        2.6046,
+        2.8378,
+        3.7543,
+        2.9158,
+        3.6859,
+        4.1392,
+        3.2093,
+        3.4008,
+        3.509,
+        3.4608
       ]
     },
     "Gaussian_Process_Matern": {
