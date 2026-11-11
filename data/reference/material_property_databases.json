@@ -1,0 +1,96 @@
+[
+  {
+    "id": "materials_project",
+    "name": "The Materials Project",
+    "url": "https://materialsproject.org",
+    "api_url": "https://api.materialsproject.org",
+    "type": "Computational DFT / Open Materials Database",
+    "relevant_properties": [
+      "Metal work functions",
+      "Bandgap (PBE, GGA+U)",
+      "Formation energy per atom",
+      "Lattice constants",
+      "Density of states"
+    ],
+    "coverage_for_project": "Elemental contact metals (Ti, Au, Pd, Sc, Ni, Pt, Bi, Sb, etc.) and transition metal dichalcogenides (MoS2, WS2)",
+    "access_tier": "Free with API key (MP-API)",
+    "priority": "Critical"
+  },
+  {
+    "id": "c2db",
+    "name": "Computational 2D Materials Database (C2DB - DTU)",
+    "url": "https://c2db.fysik.dtu.dk",
+    "api_url": "https://c2db.fysik.dtu.dk/api",
+    "type": "High-Throughput DFT specifically for 2D Monolayers",
+    "relevant_properties": [
+      "Monolayer MoS2 bandgap (PBE, HSE06, G0W0)",
+      "Work function / ionization potential",
+      "Effective electron mass (m_e*)",
+      "Dielectric constants (eps_parallel, eps_perp)",
+      "Exfoliation energy"
+    ],
+    "coverage_for_project": "Monolayer & bilayer 2D semiconductors and vdW contact layers",
+    "access_tier": "Open Access (CC-BY 4.0)",
+    "priority": "Critical"
+  },
+  {
+    "id": "nist_srd",
+    "name": "NIST Standard Reference Data & Chemistry WebBook",
+    "url": "https://webbook.nist.gov/chemistry",
+    "type": "Experimental Standard Reference Data",
+    "relevant_properties": [
+      "Experimental work functions of polycrystalline & oriented single crystals",
+      "Ionization potentials",
+      "Standard enthalpy of vaporization",
+      "Heat capacities"
+    ],
+    "coverage_for_project": "High-precision experimental baseline work functions for metals",
+    "access_tier": "Public Domain / Open Access",
+    "priority": "Critical"
+  },
+  {
+    "id": "crc_handbook",
+    "name": "CRC Handbook of Chemistry and Physics (Electronic Properties)",
+    "url": "https://hbcponline.com",
+    "type": "Curated Experimental Reference",
+    "relevant_properties": [
+      "Work functions (thermionic, photoelectric, contact potential)",
+      "Pauling electronegativity",
+      "Miedema parameter (chemical potential for electrons)",
+      "Atomic and covalent radii",
+      "Electrical resistivity of bulk metals"
+    ],
+    "coverage_for_project": "Fundamental contact metal descriptors for physics-informed ML",
+    "access_tier": "Standard Reference Reference Tables",
+    "priority": "Critical"
+  },
+  {
+    "id": "oqmd",
+    "name": "Open Quantum Materials Database (OQMD)",
+    "url": "https://oqmd.org",
+    "api_url": "http://oqmd.org/oqmdapi/compounds",
+    "type": "DFT Database",
+    "relevant_properties": [
+      "Thermodynamic phase stability",
+      "Metal-chalcogenide alloy formation enthalpies (e.g., Ti-S, Ni-S, Au-S reactivity)"
+    ],
+    "coverage_for_project": "Quantifying interfacial chemical reaction tendency at metal-MoS2 contacts",
+    "access_tier": "Open Access (REST API)",
+    "priority": "High"
+  },
+  {
+    "id": "aflow",
+    "name": "AFLOW (Automatic FLOW for Materials Discovery)",
+    "url": "http://aflowlib.org",
+    "api_url": "http://aflowlib.duke.edu/search/API",
+    "type": "Materials Informatics Repository",
+    "relevant_properties": [
+      "Elastic moduli",
+      "Debye temperatures",
+      "Thermal expansion coefficients"
+    ],
+    "coverage_for_project": "Thermal expansion mismatch and mechanical adhesion between contact metal and 2D flake",
+    "access_tier": "Open Access",
+    "priority": "Medium"
+  }
+]
