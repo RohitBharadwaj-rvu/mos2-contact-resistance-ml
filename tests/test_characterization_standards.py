@@ -42,3 +42,13 @@ def test_2d_thermionic_current():
     # Lower temp (77 K), current drops exponentially
     curr_77 = compute_2d_thermionic_current(77, 0.2)
     assert 0.0 <= curr_77 < curr_300
+
+
+def test_metrology_sample_weight():
+    from src.data.characterization_standards import get_metrology_sample_weight
+    w_tlm = get_metrology_sample_weight("TLM")
+    assert w_tlm == 1.0
+
+    w_two_probe = get_metrology_sample_weight("Two_Probe_Extraction")
+    assert w_two_probe <= 0.35
+    assert w_two_probe < w_tlm

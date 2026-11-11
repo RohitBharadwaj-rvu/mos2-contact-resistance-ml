@@ -80,3 +80,25 @@ def compute_2d_thermionic_current(
         return 0.0
     i_2d = area_cm2 * richardson_constant_a_cm2_k1p5 * (temperature_k ** 1.5) * math.exp(exponent)
     return i_2d
+
+
+def get_metrology_sample_weight(method_name: str) -> float:
+    """
+    Computes a normalized sample weight w_i in [0.2, 1.0] for loss weighting in ML models,
+    inversely proportional to measurement variance / uncertainty.
+    """
+    rc_meta = evaluate_rc_method_reliability(method_name)
+    sbh_meta = evaluate_sbh_method_reliability(method_name)
+    
+    score = max(rc_meta.get("reliability_score", 0), sbh_meta.get("reliability_score", 0))
+    if score >= 9.0:
+        return 1.0
+    elif score >= 8.0:
+        return 0.85
+    elif score >= 6.0:
+        return 0.65
+    elif score >= 3.0:
+        return 0.30
+    else:
+        return 0.20
+

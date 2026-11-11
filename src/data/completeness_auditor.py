@@ -61,6 +61,9 @@ def audit_source_completeness(paper: Dict[str, Any], method_record: Dict[str, An
     else:
         curation_decision = "ACCEPTED_PRIMARY_MODELING"
         quarantine_reason = None
+
+    carrier_density = paper.get("carrier_density_cm2")
+    is_high_carrier_density = carrier_density is not None and carrier_density >= 1e13
         
     return {
         "id": paper.get("id"),
@@ -70,7 +73,8 @@ def audit_source_completeness(paper: Dict[str, Any], method_record: Dict[str, An
         "quality_score": quality_score,
         "missing_fields": missing_fields,
         "inconsistencies": inconsistencies,
-        "quarantine_reason": quarantine_reason
+        "quarantine_reason": quarantine_reason,
+        "is_high_carrier_density": is_high_carrier_density
     }
 
 
