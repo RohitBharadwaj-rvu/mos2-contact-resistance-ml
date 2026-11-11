@@ -1,0 +1,90 @@
+{
+  "heading": "Heading 5: Interpretability, Decoupling Analysis, and Interpretable Regime Mapping",
+  "subheadings_audited": [
+    "5.a",
+    "5.b",
+    "5.c"
+  ],
+  "checks": {
+    "file_shap_attributions": {
+      "path": "data\\processed\\shap_feature_attribution_analysis.json",
+      "exists": true
+    },
+    "file_pdp_ice_curves": {
+      "path": "data\\processed\\pdp_and_permutation_importance.json",
+      "exists": true
+    },
+    "file_confounding_analysis": {
+      "path": "data\\processed\\inter_feature_confounding_analysis.json",
+      "exists": true
+    },
+    "file_variance_decomposition": {
+      "path": "data\\processed\\intrinsic_extrinsic_decoupling_results.json",
+      "exists": true
+    },
+    "file_mediation_analysis": {
+      "path": "data\\processed\\interfacial_chemistry_mediation_analysis.json",
+      "exists": true
+    },
+    "file_regime_definitions": {
+      "path": "data\\reference\\contact_transport_regimes.json",
+      "exists": true
+    },
+    "file_regime_phase_diagram": {
+      "path": "data\\processed\\regime_phase_diagram_data.json",
+      "exists": true
+    },
+    "file_design_rules": {
+      "path": "data\\reference\\design_rules_ultra_low_contact_resistance.json",
+      "exists": true
+    },
+    "figure_shap_summary_beeswarm.png": {
+      "path": "reports/figures/shap_summary_beeswarm.png",
+      "exists": true
+    },
+    "figure_shap_cross_architecture_comparison.png": {
+      "path": "reports/figures/shap_cross_architecture_comparison.png",
+      "exists": true
+    },
+    "figure_permutation_importance_oof.png": {
+      "path": "reports/figures/permutation_importance_oof.png",
+      "exists": true
+    },
+    "figure_pdp_ice_curves.png": {
+      "path": "reports/figures/pdp_ice_curves.png",
+      "exists": true
+    },
+    "figure_pdp_2d_interaction_surface.png": {
+      "path": "reports/figures/pdp_2d_interaction_surface.png",
+      "exists": true
+    },
+    "figure_confounding_partial_correlation_matrix.png": {
+      "path": "reports/figures/confounding_partial_correlation_matrix.png",
+      "exists": true
+    },
+    "figure_intrinsic_vs_extrinsic_decomposition.png": {
+      "path": "reports/figures/intrinsic_vs_extrinsic_decomposition.png",
+      "exists": true
+    },
+    "figure_mediation_path_analysis.png": {
+      "path": "reports/figures/mediation_path_analysis.png",
+      "exists": true
+    },
+    "figure_regime_phase_diagram_2d.png": {
+      "path": "reports/figures/regime_phase_diagram_2d.png",
+      "exists": true
+    },
+    "figure_regime_phase_diagram_workfunction.png": {
+      "path": "reports/figures/regime_phase_diagram_workfunction.png",
+      "exists": true
+    }
+  },
+  "summary_metrics": {
+    "variance_intrinsic_pct": 87.1,
+    "variance_extrinsic_pct": 6.0,
+    "variance_unexplained_pct": 6.9,
+    "mediation_indirect_pct": 90.7,
+    "mediation_direct_pct": 9.3
+  },
+  "all_passed": true
+}
