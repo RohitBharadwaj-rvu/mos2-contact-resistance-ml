@@ -42,10 +42,10 @@
       "effective_pinning_factor_s"
     ],
     "recommended_primary_features": [
-      "hybrid_effective_barrier_ev",
-      "semimetal_pinning_suppression_flag",
+      "physics_predicted_sbh_ev",
+      "is_vdw_or_depinned_contact",
       "sulfide_formation_enthalpy_kj_mol",
-      "dielectric_permittivity"
+      "work_function_ev"
     ]
   },
   "cross_validation_strategy": {

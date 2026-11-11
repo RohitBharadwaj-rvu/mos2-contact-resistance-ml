@@ -68,10 +68,10 @@ def generate_eda_modeling_recommendations(df: Optional[pd.DataFrame] = None) -> 
             ],
             "high_vif_features_to_prune": high_vif_features,
             "recommended_primary_features": [
-                "hybrid_effective_barrier_ev",
-                "semimetal_pinning_suppression_flag",
+                "physics_predicted_sbh_ev",
+                "is_vdw_or_depinned_contact",
                 "sulfide_formation_enthalpy_kj_mol",
-                "dielectric_permittivity"
+                "work_function_ev"
             ]
         },
         "cross_validation_strategy": {
