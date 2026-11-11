@@ -28,6 +28,24 @@ def test_get_metal_properties():
     assert bi is not None
     assert bi["contact_class"] == "semimetal_vdw_gapless"
 
+    w = get_metal_properties("W")
+    assert w is not None
+    assert w["contact_class"] == "refractory_metal"
+
+    graphene = get_metal_properties("Graphene")
+    assert graphene is not None
+    assert graphene["contact_class"] == "2d_vdw_interlayer"
+
+
+def test_fermi_shift():
+    from src.data.material_databases import compute_gate_modulated_fermi_shift
+    shift_zero = compute_gate_modulated_fermi_shift(0)
+    assert shift_zero == 0.0
+
+    shift_high_n = compute_gate_modulated_fermi_shift(1e13)
+    # At 10^13 cm^-2, Fermi level shifts into conduction band by ~25-50 meV
+    assert 0.02 <= shift_high_n <= 0.15
+
 
 def test_get_mos2_properties():
     mono = get_mos2_properties("monolayer")
