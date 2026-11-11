@@ -13,6 +13,7 @@ CORPUS_RAW_PATH = Path(__file__).resolve().parents[2] / "data" / "raw" / "raw_li
 FOUNDATIONAL_LITERATURE = [
     {
         "id": "ref_001_shen_2021",
+        "source_uid": "SRC-EXP-2021-SHEN",
         "title": "Ultralow contact resistance between semimetal and monolayer semiconductors",
         "doi": "10.1038/s41586-021-03472-9",
         "authors": ["Shen, P.-C.", "Su, C.", "Lin, Y.", "Chou, A.-S.", "Cheng, C.-C.", "Kong, J."],
@@ -31,6 +32,7 @@ FOUNDATIONAL_LITERATURE = [
     },
     {
         "id": "ref_002_allain_2015",
+        "source_uid": "SRC-REV-2015-ALLAIN",
         "title": "Electrical contacts to two-dimensional semiconductors",
         "doi": "10.1038/nmat4452",
         "authors": ["Allain, A.", "Kang, J.", "Banerjee, K.", "Kis, A."],
@@ -49,6 +51,7 @@ FOUNDATIONAL_LITERATURE = [
     },
     {
         "id": "ref_003_liu_2018",
+        "source_uid": "SRC-EXP-2018-LIU",
         "title": "Approaching the Schottky-Mott limit in van der Waals metal-semiconductor junctions",
         "doi": "10.1038/s41586-018-0129-8",
         "authors": ["Liu, Y.", "Guo, J.", "Zhu, E.", "Liao, L.", "Lee, S.-J.", "Huang, Y.", "Duan, X."],
@@ -67,6 +70,7 @@ FOUNDATIONAL_LITERATURE = [
     },
     {
         "id": "ref_004_kappera_2014",
+        "source_uid": "SRC-EXP-2014-KAPPERA",
         "title": "Phase-engineered low-resistance contacts to monolayer 2D semiconductors",
         "doi": "10.1038/nmat4080",
         "authors": ["Kappera, R.", "Voiry, D.", "Yalcin, S. E.", "Branch, B.", "Mohite, A. D.", "Chhowalla, M."],
@@ -85,6 +89,7 @@ FOUNDATIONAL_LITERATURE = [
     },
     {
         "id": "ref_005_english_2016",
+        "source_uid": "SRC-EXP-2016-ENGLISH",
         "title": "Contact resistance benchmarks and scaling limits in monolayer MoS2 FETs",
         "doi": "10.1109/IEDM.2016.7838355",
         "authors": ["English, C. D.", "Shine, G.", "Dorgan, V. E.", "Saraswat, K. C.", "Pop, E."],
@@ -103,6 +108,7 @@ FOUNDATIONAL_LITERATURE = [
     },
     {
         "id": "ref_006_das_2013",
+        "source_uid": "SRC-EXP-2013-DAS",
         "title": "High performance pristine MoS2 field effect transistors with scandium contacts",
         "doi": "10.1021/nl303583v",
         "authors": ["Das, S.", "Chen, H.-Y.", "Penumatcha, A. V.", "Appenzeller, J."],
@@ -121,6 +127,7 @@ FOUNDATIONAL_LITERATURE = [
     },
     {
         "id": "ref_007_chwang_2014",
+        "source_uid": "SRC-EXP-2014-CHWANG",
         "title": "Investigation of metal contacts on MoS2 using transfer length method",
         "doi": "10.1063/1.4862491",
         "authors": ["Wang, H.", "Chwang, A. B."],
@@ -139,6 +146,7 @@ FOUNDATIONAL_LITERATURE = [
     },
     {
         "id": "ref_008_radisavljevic_2011",
+        "source_uid": "SRC-EXP-2011-RADISAV",
         "title": "Single-layer MoS2 transistors",
         "doi": "10.1038/nnano.2010.279",
         "authors": ["Radisavljevic, B.", "Radenovic, A.", "Brivio, J.", "Giacometti, V.", "Kis, A."],
@@ -157,6 +165,7 @@ FOUNDATIONAL_LITERATURE = [
     },
     {
         "id": "ref_009_cui_2015",
+        "source_uid": "SRC-EXP-2015-CUI",
         "title": "Multi-terminal transport in pristine monolayer MoS2",
         "doi": "10.1021/nl504118s",
         "authors": ["Cui, X.", "Lee, G.-H.", "Kim, Y. D.", "Arefe, G.", "Huang, P. Y.", "Hone, J."],
@@ -175,6 +184,7 @@ FOUNDATIONAL_LITERATURE = [
     },
     {
         "id": "ref_010_wang_2019",
+        "source_uid": "SRC-EXP-2019-WANG",
         "title": "Low resistance van der Waals contacts to two-dimensional materials",
         "doi": "10.1038/s41928-019-0245-0",
         "authors": ["Wang, Y.", "Kim, J. C.", "Wu, R. J.", "Martinez, J.", "Song, X.", "Mkhoyan, K. A.", "Chhowalla, M."],
@@ -193,6 +203,7 @@ FOUNDATIONAL_LITERATURE = [
     },
     {
         "id": "ref_011_li_2019",
+        "source_uid": "SRC-EXP-2019-LI",
         "title": "Antimony semimetal contacts for ultrathin 2D electronics",
         "doi": "10.1002/adma.201903106",
         "authors": ["Li, T.", "Tu, T.", "Sun, X.", "Fu, H.", "Yu, J.", "Peng, H."],
@@ -211,6 +222,7 @@ FOUNDATIONAL_LITERATURE = [
     },
     {
         "id": "ref_012_guimaraes_2016",
+        "source_uid": "SRC-EXP-2016-GUIMARAES",
         "title": "Atomically thin Ohmic contacts to MoS2 through graphene interlayers",
         "doi": "10.1021/acs.nanolett.6b00676",
         "authors": ["Guimaraes, M. H. D.", "Gao, H.", "Han, Y.", "Kang, K.", "Shen, S.", "Muller, D. A.", "Park, J."],
@@ -229,6 +241,7 @@ FOUNDATIONAL_LITERATURE = [
     },
     {
         "id": "ref_013_mcdonnell_2014",
+        "source_uid": "SRC-EXP-2014-MCDONNELL",
         "title": "Defect-dominated doping and contact resistance in MoS2",
         "doi": "10.1021/nn5004445",
         "authors": ["McDonnell, S.", "Smyth, C.", "Hinkle, C. L.", "Wallace, R. M."],
@@ -247,6 +260,7 @@ FOUNDATIONAL_LITERATURE = [
     },
     {
         "id": "ref_014_liu_2020",
+        "source_uid": "SRC-EXP-2020-LIU",
         "title": "Thermal annealing and contact engineering of molybdenum disulfide FETs",
         "doi": "10.1109/TED.2020.2974152",
         "authors": ["Liu, K.", "English, C. D.", "Pop, E."],
@@ -265,6 +279,7 @@ FOUNDATIONAL_LITERATURE = [
     },
     {
         "id": "ref_015_kim_2017",
+        "source_uid": "SRC-EXP-2017-KIM",
         "title": "Approaching Ohmic contact to MoS2 via molybdenum oxide interlayers",
         "doi": "10.1002/aelm.201700124",
         "authors": ["Kim, C.", "Moon, I.", "Lee, D.", "Choi, M. S.", "Ahmed, F.", "Nam, S.", "Cho, Y.", "Shin, H.-J.", "Park, S."],

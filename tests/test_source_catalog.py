@@ -29,6 +29,16 @@ def test_find_source_by_uid():
     assert not_found is None
 
 
+def test_find_by_metal_and_metric():
+    from src.data.source_catalog import find_sources_by_metal, find_sources_by_metric
+    bi_sources = find_sources_by_metal("Bi")
+    assert len(bi_sources) >= 1
+    assert bi_sources[0]["source_uid"] == "SRC-EXP-2021-SHEN"
+
+    rc_sources = find_sources_by_metric("Rc")
+    assert len(rc_sources) >= 10
+
+
 def test_unique_uids():
     catalog = load_source_catalog()
     uids = [s["source_uid"] for s in catalog]

@@ -240,6 +240,28 @@ def find_source_by_uid(uid: str) -> Optional[Dict[str, Any]]:
     return None
 
 
+def find_sources_by_metal(metal_symbol: str) -> List[Dict[str, Any]]:
+    """Finds all sources that tested or reviewed a specific metal contact."""
+    catalog = load_source_catalog()
+    results = []
+    for src in catalog:
+        system = src.get("contact_system", "")
+        if metal_symbol.lower() in system.lower():
+            results.append(src)
+    return results
+
+
+def find_sources_by_metric(metric: str) -> List[Dict[str, Any]]:
+    """Finds all sources that report a specific metric (e.g. 'Rc' or 'SBH')."""
+    catalog = load_source_catalog()
+    results = []
+    for src in catalog:
+        metrics = src.get("reported_metrics", [])
+        if any(metric.lower() in m.lower() for m in metrics):
+            results.append(src)
+    return results
+
+
 def get_catalog_summary() -> Dict[str, Any]:
     """Generates ledger summary by category and curation status."""
     catalog = load_source_catalog()
