@@ -1,0 +1,66 @@
+{
+  "inclusion_rules": [
+    {
+      "rule_id": "INC-01",
+      "name": "Target Material System",
+      "description": "Must report experimental measurements on MoS2 (monolayer, few-layer, or bulk single crystals).",
+      "mandatory": true
+    },
+    {
+      "rule_id": "INC-02",
+      "name": "Identified Contact Metal/Architecture",
+      "description": "Must explicitly identify the contact electrode composition (e.g., Ti, Au, Bi, Sc, Pd, 1T-MoS2, vdW graphene).",
+      "mandatory": true
+    },
+    {
+      "rule_id": "INC-03",
+      "name": "Quantitative Metric Reporting",
+      "description": "Must report at least one quantitative metric: normalized contact resistance Rc (Ohm*um or Ohm*cm2) or Schottky barrier height (eV).",
+      "mandatory": true
+    },
+    {
+      "rule_id": "INC-04",
+      "name": "Valid Characterization Metrology",
+      "description": "Must utilize TLM, multi-terminal Hall bar, temperature activation (Richardson plot), or XPS band bending.",
+      "mandatory": true
+    },
+    {
+      "rule_id": "INC-05",
+      "name": "Device Geometry Disclosure",
+      "description": "Must specify contact dimensions (channel width W, length L, or contact area) sufficient to compute width-normalized resistance.",
+      "mandatory": true
+    }
+  ],
+  "exclusion_rules": [
+    {
+      "rule_id": "EXC-01",
+      "name": "Pure Simulation Without Device Data",
+      "description": "Reject pure DFT / ab initio simulations that report no experimental device measurements.",
+      "action": "Immediate Rejection"
+    },
+    {
+      "rule_id": "EXC-02",
+      "name": "Uncalibrated Two-Probe Measurement",
+      "description": "Reject studies relying solely on two-terminal resistance without channel resistance subtraction.",
+      "action": "Quarantine / Rejection"
+    },
+    {
+      "rule_id": "EXC-03",
+      "name": "Off-Topic Application Domain",
+      "description": "Reject papers on photocatalysis, battery anodes, hydrogen evolution reaction (HER), or solid lubricants.",
+      "action": "Immediate Rejection"
+    },
+    {
+      "rule_id": "EXC-04",
+      "name": "Unphysical Metric Values",
+      "description": "Reject records with negative contact resistance or Schottky barrier height exceeding MoS2 bandgap (Phi_B > 2.0 eV).",
+      "action": "Immediate Rejection"
+    },
+    {
+      "rule_id": "EXC-05",
+      "name": "Missing Metal Work Function or Identification",
+      "description": "Reject contacts where electrode material is unspecified or arbitrary composite slurry without stoichiometry.",
+      "action": "Quarantine"
+    }
+  ]
+}
