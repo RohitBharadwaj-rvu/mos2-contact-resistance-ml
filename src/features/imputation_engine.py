@@ -38,18 +38,20 @@ def apply_domain_inferred_imputation(df: pd.DataFrame) -> pd.DataFrame:
     # 1. Post-annealing temperature and ambient defaults (20 C, None if unmentioned)
     if "post_annealing_temperature_c" in df_imputed.columns:
         df_imputed["anneal_temp_was_missing"] = df_imputed["post_annealing_temperature_c"].isnull().astype(int)
-        df_imputed["post_annealing_temperature_c"] = df_imputed["post_annealing_temperature_c"].fillna(20.0)
+        df_imputed["post_annealing_temperature_c"] = pd.to_numeric(
+            df_imputed["post_annealing_temperature_c"], errors="coerce"
+        ).fillna(20.0)
         
     if "post_annealing_gas_ambient" in df_imputed.columns:
-        df_imputed["post_annealing_gas_ambient"] = df_imputed["post_annealing_gas_ambient"].fillna("None")
+        df_imputed["post_annealing_gas_ambient"] = df_imputed["post_annealing_gas_ambient"].fillna("None").astype(str)
         
     # 2. Adhesion layer default (None if unspecified)
     if "adhesion_layer" in df_imputed.columns:
-        df_imputed["adhesion_layer"] = df_imputed["adhesion_layer"].fillna("None")
+        df_imputed["adhesion_layer"] = df_imputed["adhesion_layer"].fillna("None").astype(str)
         
     # 3. Flake synthesis method default
     if "flake_synthesis_method" in df_imputed.columns:
-        df_imputed["flake_synthesis_method"] = df_imputed["flake_synthesis_method"].fillna("Mechanical_Exfoliation")
+        df_imputed["flake_synthesis_method"] = df_imputed["flake_synthesis_method"].fillna("Mechanical_Exfoliation").astype(str)
         
     # 4. Vacuum pressure default based on deposition method
     if "vacuum_base_pressure_torr" in df_imputed.columns:
@@ -62,11 +64,13 @@ def apply_domain_inferred_imputation(df: pd.DataFrame) -> pd.DataFrame:
             "Chemical_Treatment": 1e-6
         }
         dep_col = df_imputed["deposition_method"].map(default_pressures).fillna(1e-6)
-        df_imputed["vacuum_base_pressure_torr"] = df_imputed["vacuum_base_pressure_torr"].fillna(dep_col)
+        num_pressure = pd.to_numeric(df_imputed["vacuum_base_pressure_torr"], errors="coerce")
+        df_imputed["vacuum_base_pressure_torr"] = num_pressure.fillna(dep_col)
         
     # 5. Carrier density default for ON-state contact resistance measurements (1.0e13 cm^-2)
     if "gate_carrier_density_cm2" in df_imputed.columns:
         df_imputed["carrier_density_was_missing"] = df_imputed["gate_carrier_density_cm2"].isnull().astype(int)
-        df_imputed["gate_carrier_density_cm2"] = df_imputed["gate_carrier_density_cm2"].fillna(1.0e13)
+        num_density = pd.to_numeric(df_imputed["gate_carrier_density_cm2"], errors="coerce")
+        df_imputed["gate_carrier_density_cm2"] = num_density.fillna(1.0e13)
         
     return df_imputed

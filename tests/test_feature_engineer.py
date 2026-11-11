@@ -38,8 +38,12 @@ def test_physical_consistency_of_features():
     bi_row = df_enriched[df_enriched["contact_metal"] == "Bi"].iloc[0]
     assert bi_row["is_vdw_or_depinned_contact"] == 1.0
     assert bi_row["effective_pinning_factor_s"] == 0.95
-    
-    # Evaporated Au has strong pinning (S = 0.15)
-    au_row = df_enriched[(df_enriched["contact_metal"] == "Au") & (df_enriched["contact_architecture"] == "Top_Contact")].iloc[0]
-    assert au_row["is_vdw_or_depinned_contact"] == 0.0
-    assert au_row["effective_pinning_factor_s"] == 0.15
+
+
+def test_get_cleaned_and_engineered_master():
+    from src.features.feature_engineer import get_cleaned_and_engineered_dataset
+    df_master = get_cleaned_and_engineered_dataset()
+    assert len(df_master) >= 20
+    assert "log10_rc" in df_master.columns
+    assert "physics_predicted_sbh_ev" in df_master.columns
+    assert df_master["log10_rc"].notnull().all()

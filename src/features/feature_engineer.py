@@ -3,6 +3,7 @@ Physics-Informed Domain Feature Engineering Pipeline for MoS2 Contacts.
 Computes Schottky-Mott mismatch, Fermi pinning descriptors, chemical reactivity, and degenerate gate factors.
 """
 
+from pathlib import Path
 from typing import Dict, Any, List
 import pandas as pd
 import numpy as np
@@ -99,5 +100,32 @@ def enrich_dataset_with_physics_features(df: pd.DataFrame) -> pd.DataFrame:
     # I. Logarithm of vacuum base pressure (vacuum quality index)
     pressures = df_feat["vacuum_base_pressure_torr"].replace(0, np.nan).fillna(1.0e-6)
     df_feat["log_vacuum_pressure"] = np.log10(pressures)
+
+    # J. Target transformation: log10_rc
+    if "contact_resistance_rc_ohm_um" in df_feat.columns:
+        rc_series = df_feat["contact_resistance_rc_ohm_um"].replace(0, np.nan)
+        df_feat["log10_rc"] = np.log10(rc_series)
     
     return df_feat
+
+
+def get_cleaned_and_engineered_dataset() -> pd.DataFrame:
+    """
+    Executes the complete data cleaning, imputation, and physics feature engineering pipeline,
+    and returns the master curated dataset.
+    """
+    from src.data.tabular_extractor import load_tabular_dataset
+    from src.features.imputation_engine import apply_domain_inferred_imputation
+    
+    df_raw = load_tabular_dataset()
+    df_imputed = apply_domain_inferred_imputation(df_raw)
+    df_engineered = enrich_dataset_with_physics_features(df_imputed)
+    
+    # Save master processed dataset
+    out_csv = Path(__file__).resolve().parents[2] / "data" / "processed" / "master_curated_contacts_features.csv"
+    out_json = Path(__file__).resolve().parents[2] / "data" / "processed" / "master_curated_contacts_features.json"
+    df_engineered.to_csv(out_csv, index=False)
+    df_engineered.to_json(out_json, orient="records", indent=2)
+    
+    return df_engineered
+
