@@ -1,0 +1,68 @@
+{
+  "title": "Comparison of Machine Learning Contact Trends with Solid-State Semiconductor Physics",
+  "fermi_level_pinning_analysis": {
+    "vdw_contacts": {
+      "n_samples": 9,
+      "pinning_parameter_S": 0.939,
+      "intercept_ev": -3.943,
+      "pearson_r": 0.998,
+      "interpretation": "Near Schottky-Mott limit (unpinned, MIGS suppressed)"
+    },
+    "evaporated_contacts": {
+      "n_samples": 11,
+      "pinning_parameter_S": 0.154,
+      "intercept_ev": -0.481,
+      "pearson_r": 0.996,
+      "interpretation": "Strongly pinned (Bardeen limit)"
+    },
+    "all_contacts": {
+      "n_samples": 20,
+      "pinning_parameter_S": 0.425,
+      "intercept_ev": -1.689,
+      "pearson_r": 0.731,
+      "interpretation": "Partially pinned / reactive interface"
+    }
+  },
+  "transport_mechanism_scaling": {
+    "ml_slope_dex_per_ev": 1.0,
+    "pure_thermionic_slope_300k_dex_per_ev": 16.8,
+    "scaling_ratio_thermionic_to_ml": 16.8,
+    "physical_mechanism_deduction": "The empirical slope (1.0 dex/eV) is 16.8x shallower than pure Richardson thermionic emission (16.8 dex/eV). This proves transport in real MoS2 FETs is governed by Thermionic-Field Emission (TFE) and Fowler-Nordheim tunneling through an ultra-thin barrier, where gate electrostatic band-bending drastically thins the barrier width."
+  },
+  "quantum_limit_comparison": {
+    "monolayer_effective_mass_ratio": 0.55,
+    "representative_checks": [
+      {
+        "carrier_density_cm2": 1000000000000.0,
+        "landauer_quantum_limit_ohm_um": 57.2,
+        "ml_predicted_zero_barrier_rc_ohm_um": 3630.8,
+        "physical_margin_factor": 63.49
+      },
+      {
+        "carrier_density_cm2": 2023589647725.1555,
+        "landauer_quantum_limit_ohm_um": 40.2,
+        "ml_predicted_zero_barrier_rc_ohm_um": 2868.4,
+        "physical_margin_factor": 71.35
+      },
+      {
+        "carrier_density_cm2": 4094915062380.419,
+        "landauer_quantum_limit_ohm_um": 28.3,
+        "ml_predicted_zero_barrier_rc_ohm_um": 1780.4,
+        "physical_margin_factor": 63.0
+      },
+      {
+        "carrier_density_cm2": 8286427728546.859,
+        "landauer_quantum_limit_ohm_um": 19.9,
+        "ml_predicted_zero_barrier_rc_ohm_um": 678.2,
+        "physical_margin_factor": 34.14
+      },
+      {
+        "carrier_density_cm2": 16768329368110.1,
+        "landauer_quantum_limit_ohm_um": 14.0,
+        "ml_predicted_zero_barrier_rc_ohm_um": 96.2,
+        "physical_margin_factor": 6.89
+      }
+    ],
+    "quantum_bound_respected": true
+  }
+}
