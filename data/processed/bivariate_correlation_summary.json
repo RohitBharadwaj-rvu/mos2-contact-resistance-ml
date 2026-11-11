@@ -1,0 +1,37 @@
+{
+  "work_function_ev_vs_schottky_barrier_height_ev": {
+    "n_samples": 20,
+    "pearson_r": 0.808,
+    "pearson_p_value": 1.65e-05,
+    "spearman_rho": 0.851,
+    "spearman_p_value": 2.01e-06
+  },
+  "schottky_barrier_height_ev_vs_log10_rc": {
+    "n_samples": 20,
+    "pearson_r": 0.91,
+    "pearson_p_value": 2.74e-08,
+    "spearman_rho": 0.926,
+    "spearman_p_value": 4.9e-09
+  },
+  "physics_predicted_sbh_ev_vs_log10_rc": {
+    "n_samples": 20,
+    "pearson_r": 0.763,
+    "pearson_p_value": 9.13e-05,
+    "spearman_rho": 0.754,
+    "spearman_p_value": 0.000122
+  },
+  "sulfide_formation_enthalpy_kj_mol_vs_log10_rc": {
+    "n_samples": 20,
+    "pearson_r": 0.093,
+    "pearson_p_value": 0.696,
+    "spearman_rho": -0.048,
+    "spearman_p_value": 0.84
+  },
+  "fermi_level_shift_ev_vs_log10_rc": {
+    "n_samples": 20,
+    "pearson_r": -0.786,
+    "pearson_p_value": 3.97e-05,
+    "spearman_rho": -0.824,
+    "spearman_p_value": 7.87e-06
+  }
+}
