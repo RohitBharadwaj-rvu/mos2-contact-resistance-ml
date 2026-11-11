@@ -31,3 +31,14 @@ def test_no_null_critical_targets():
 def test_unique_datapoint_ids():
     df = load_tabular_dataset()
     assert len(df["data_point_id"].unique()) == len(df)
+
+
+def test_transfer_length_and_resistivity():
+    from src.data.tabular_extractor import compute_transfer_length_um, convert_rc_to_specific_resistivity
+    # Rc = 500 Ohm*um, R_sh = 10,000 Ohm/sq -> L_T = 0.05 um
+    lt = compute_transfer_length_um(500.0, 10000.0)
+    assert lt == 0.05
+
+    # rho_c = (500 * 1e-4)^2 / 10000 = (0.05)^2 / 10000 = 2.5e-7 Ohm*cm^2
+    rho_c = convert_rc_to_specific_resistivity(500.0, 10000.0)
+    assert abs(rho_c - 2.5e-7) < 1e-9

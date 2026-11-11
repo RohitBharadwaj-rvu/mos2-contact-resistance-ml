@@ -642,3 +642,30 @@ def load_tabular_dataset() -> pd.DataFrame:
     if not TABULAR_CSV_PATH.exists():
         export_tabular_dataset()
     return pd.read_csv(TABULAR_CSV_PATH)
+
+
+def compute_transfer_length_um(rc_ohm_um: float, r_sheet_ohm_sq: float = 10000.0) -> float:
+    """
+    Computes transmission transfer length L_T:
+    L_T = R_c / R_sheet
+    Where R_c is in Ohm*um and R_sheet is in Ohm/sq.
+    Returns L_T in um.
+    """
+    if r_sheet_ohm_sq <= 0:
+        return 0.0
+    return round(rc_ohm_um / r_sheet_ohm_sq, 4)
+
+
+def convert_rc_to_specific_resistivity(rc_ohm_um: float, r_sheet_ohm_sq: float = 10000.0) -> float:
+    """
+    Computes specific contact resistivity rho_c (Ohm*cm^2):
+    rho_c = R_c * L_T = R_c^2 / R_sheet
+    With R_c in Ohm*um -> (R_c * 1e-4 cm), L_T in um -> (L_T * 1e-4 cm).
+    rho_c = (R_c * 1e-4)^2 / (R_sheet)
+    """
+    if r_sheet_ohm_sq <= 0:
+        return 0.0
+    rc_cm = rc_ohm_um * 1e-4
+    rho_c = (rc_cm ** 2) / (r_sheet_ohm_sq)
+    return float(f"{rho_c:.2e}")
+
