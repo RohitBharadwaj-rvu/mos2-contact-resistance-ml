@@ -9,6 +9,7 @@ from src.models.decoupling_framework import (
     get_feature_domain_partition,
     define_decoupling_analysis_spec,
     calculate_domain_attribution_shares,
+    decouple_model_predictions,
     DECOUPLING_SPEC_JSON
 )
 
@@ -61,3 +62,33 @@ def test_calculate_domain_attribution_shares():
     assert shares["extrinsic_share_pct"] == 30.0
     assert shares["electrostatic_share_pct"] == 20.0
     assert round(sum(shares.values()), 1) == 100.0
+
+
+def test_decouple_model_predictions():
+    """Verify end-to-end model prediction decoupling into physical domain shares."""
+    from sklearn.linear_model import Ridge
+    from sklearn.preprocessing import StandardScaler
+    from sklearn.pipeline import Pipeline
+    import pandas as pd
+    import numpy as np
+    
+    X = pd.DataFrame({
+        "work_function_ev": [4.0, 4.5, 5.0, 5.5],
+        "is_vdw_or_depinned_contact": [1.0, 0.0, 0.0, 0.0],
+        "gate_carrier_density_cm2": [1e12, 5e12, 1e13, 2e13]
+    })
+    y = np.array([2.5, 3.2, 3.8, 4.2])
+    
+    model = Pipeline([
+        ("scaler", StandardScaler()),
+        ("ridge", Ridge(alpha=1.0))
+    ]).fit(X, y)
+    res = decouple_model_predictions(model, X, y)
+    
+    assert "feature_attributions" in res
+    assert "domain_shares" in res
+    shares = res["domain_shares"]
+    assert "intrinsic_share_pct" in shares
+    assert "extrinsic_share_pct" in shares
+    assert "electrostatic_share_pct" in shares
+

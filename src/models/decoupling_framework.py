@@ -124,6 +124,28 @@ def calculate_domain_attribution_shares(feature_attributions: Dict[str, float]) 
     return domain_totals
 
 
+def decouple_model_predictions(model: Any, X: Any, y: Any) -> Dict[str, Any]:
+    """
+    Computes empirical permutation importances and decomposes them into physical domain percentages.
+    """
+    from sklearn.inspection import permutation_importance
+    import pandas as pd
+    
+    if isinstance(X, pd.DataFrame):
+        feature_cols = list(X.columns)
+    else:
+        feature_cols = [f"feature_{i}" for i in range(np.asarray(X).shape[1])]
+        
+    r = permutation_importance(model, X, y, n_repeats=10, random_state=42)
+    attributions = {col: round(float(imp), 4) for col, imp in zip(feature_cols, r.importances_mean)}
+    shares = calculate_domain_attribution_shares(attributions)
+    
+    return {
+        "feature_attributions": attributions,
+        "domain_shares": shares
+    }
+
+
 if __name__ == "__main__":
     spec = define_decoupling_analysis_spec()
     print("Decoupling framework specification serialized.")
