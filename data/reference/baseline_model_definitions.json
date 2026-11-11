@@ -1,0 +1,20 @@
+{
+  "mean_regressor": {
+    "type": "naive_statistical",
+    "description": "Predicts constant training target mean. Minimizes squared loss among constant predictors.",
+    "loss_optimized": "MSE"
+  },
+  "median_regressor": {
+    "type": "naive_statistical",
+    "description": "Predicts constant training target median. Minimizes L1 absolute loss among constant predictors.",
+    "loss_optimized": "MAE"
+  },
+  "pure_physics_schottky_baseline": {
+    "type": "physical_reference",
+    "description": "Calculates log10(Rc) directly from ideal Schottky-Mott barrier (Phi_M - 4.2 eV) assuming classic thermionic transport without Fermi pinning.",
+    "parameters": {
+      "electron_affinity_ev": 4.2,
+      "assumed_kbt_ev": 0.0259
+    }
+  }
+}
