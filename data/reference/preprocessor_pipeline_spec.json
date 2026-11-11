@@ -1,0 +1,25 @@
+{
+  "title": "Preprocessor Pipeline Rules for Candidate Model Families",
+  "families": {
+    "linear_regularized": {
+      "imputer": "SimpleImputer(strategy='median')",
+      "scaler": "StandardScaler(mean=0, std=1)",
+      "rationale": "Equalizes gradient descent penalties for L1/L2 penalties across diverse physical units."
+    },
+    "bayesian_kernel": {
+      "imputer": "SimpleImputer(strategy='median')",
+      "scaler": "StandardScaler(mean=0, std=1)",
+      "rationale": "Prevents dimensions with huge raw values (e.g., carrier density 10^12) from dominating kernel distances."
+    },
+    "tree_ensembles": {
+      "imputer": "SimpleImputer(strategy='median')",
+      "scaler": "StandardScaler(mean=0, std=1)",
+      "rationale": "Guarantees zero NaN entries across fold splits."
+    },
+    "symbolic_regression": {
+      "imputer": "SimpleImputer(strategy='median')",
+      "scaler": "MinMaxScaler(feature_range=(0.1, 1.0))",
+      "rationale": "Avoids negative numbers and division by zero during transcendent operator evaluation."
+    }
+  }
+}
