@@ -1,0 +1,12 @@
+{
+  "title": "MoS2 Contact Resistance Official Model Selection Criteria",
+  "composite_formula": "Score = 0.40 * (1 - min(1, RMSE)) + 0.35 * max(0, rho) + 0.25 * C_index - 0.05 * max(0, P - 4)",
+  "hard_qualification_thresholds": {
+    "max_grouped_rmse_dex": 0.45,
+    "min_spearman_rho": 0.75,
+    "min_concordance_index": 0.8,
+    "max_active_features": 6,
+    "max_physical_violations": 0
+  },
+  "role_in_pipeline": "Determines the winning champion architecture and hyperparameter configuration across Grouped 5-Fold and LOGO cross-validation."
+}
