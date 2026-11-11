@@ -1,0 +1,35 @@
+{
+  "primary_task": {
+    "name": "log10_contact_resistance_regression",
+    "target_variable": "log10_rc",
+    "unit": "log10(Ohm*um)",
+    "loss_function": "MSE",
+    "metric": "RMSE",
+    "physical_significance": "Represents orders-of-magnitude contact resistance scaling; 0.1 dex error = 26% error."
+  },
+  "auxiliary_task": {
+    "name": "schottky_barrier_height_regression",
+    "target_variable": "schottky_barrier_height_ev",
+    "unit": "eV",
+    "loss_function": "MSE",
+    "metric": "MAE",
+    "physical_significance": "Measures interfacial potential barrier governing thermionic carrier injection."
+  },
+  "formulations": {
+    "independent_single_task": {
+      "description": "Fit separate estimators for log10_rc and Phi_B. Maximizes parameter dedication and prevents negative transfer in small-N regime.",
+      "recommended": true,
+      "rationale": "Given N=20, independent models prevent cross-task parameter interference and allow distinct regularizers for each target."
+    },
+    "joint_multi_task": {
+      "description": "Multi-output regressor optimizing shared loss: L = L(log10_rc) + lambda * L(Phi_B).",
+      "recommended": false,
+      "rationale": "High target correlation (r=0.816) theoretically aids joint learning, but small sample size risks joint optimization instabilities."
+    },
+    "physics_chained_hybrid": {
+      "description": "Stage 1 predicts Phi_B; Stage 2 predicts log10_rc using Stage 1 prediction as a dynamic input feature alongside carrier density.",
+      "recommended": true,
+      "rationale": "Directly embodies the thermionic emission physics: Rc ~ exp(q * Phi_B / kT)."
+    }
+  }
+}
