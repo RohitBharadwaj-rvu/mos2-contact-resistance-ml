@@ -35,21 +35,32 @@ def build_family_preprocessor(model_family: str,
             "gate_carrier_density_cm2"
         ]
         
-    if model_family in ["linear", "kernel", "bayesian_non_parametric"]:
+    fam_norm = model_family.lower().strip()
+    if any(k in fam_norm for k in ["linear", "ridge", "lasso", "elasticnet"]):
+        canonical_family = "linear"
+    elif any(k in fam_norm for k in ["kernel", "bayesian", "gpr", "gaussian", "svr"]):
+        canonical_family = "kernel"
+    elif any(k in fam_norm for k in ["tree", "forest", "boost", "gradient"]):
+        canonical_family = "tree_ensemble"
+    elif any(k in fam_norm for k in ["symbolic", "gp", "formula"]):
+        canonical_family = "symbolic"
+    else:
+        canonical_family = fam_norm
+
+    if canonical_family in ["linear", "kernel"]:
         num_transformer = Pipeline([
             ("imputer", SimpleImputer(strategy="median")),
             ("scaler", StandardScaler())
         ])
-    elif model_family == "tree_ensemble":
-        # Trees do not strictly need scaling, but median imputation guarantees no NaN splits
+    elif canonical_family == "tree_ensemble":
         num_transformer = Pipeline([
             ("imputer", SimpleImputer(strategy="median")),
-            ("scaler", StandardScaler())  # Standardized scaling is safe and maintains numerical comparability
+            ("scaler", StandardScaler())
         ])
-    elif model_family == "symbolic":
+    elif canonical_family == "symbolic":
         num_transformer = Pipeline([
             ("imputer", SimpleImputer(strategy="median")),
-            ("scaler", MinMaxScaler(feature_range=(0.1, 1.0)))  # Keeps values strictly positive for safe log/exp
+            ("scaler", MinMaxScaler(feature_range=(0.1, 1.0)))
         ])
     else:
         raise ValueError(f"Unknown model family: {model_family}")

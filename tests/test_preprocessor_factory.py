@@ -15,7 +15,7 @@ from src.features.preprocessor_factory import (
 
 
 def test_build_family_preprocessor():
-    """Verify preprocessor construction, imputation, and scaling across families."""
+    """Verify preprocessor construction, imputation, and scaling across families and aliases."""
     df = pd.DataFrame({
         "physics_predicted_sbh_ev": [0.4, np.nan, 0.6],
         "is_vdw_or_depinned_contact": [1.0, 0.0, 0.0],
@@ -23,14 +23,14 @@ def test_build_family_preprocessor():
         "gate_carrier_density_cm2": [1e12, 5e12, 1e13]
     })
     
-    for family in ["linear", "kernel", "bayesian_non_parametric", "tree_ensemble", "symbolic"]:
+    # Test canonical and alias names
+    for family in ["linear", "ridge", "lasso", "kernel", "gpr", "bayesian", "tree_ensemble", "random_forest", "symbolic"]:
         pipe = build_family_preprocessor(family)
         res = pipe.fit_transform(df)
         assert res.shape == (3, 4)
         assert not np.isnan(res).any(), f"NaNs remained after preprocessing for family {family}"
         
         if family == "symbolic":
-            # Values should be within (0.1, 1.0)
             assert (res >= 0.09).all() and (res <= 1.01).all()
             
     with pytest.raises(ValueError):
