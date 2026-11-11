@@ -1,0 +1,36 @@
+{
+  "title": "Categorical Variable Encoding Specification for MoS2 Contact ML",
+  "categorical_variables": {
+    "contact_architecture": {
+      "categories": [
+        "top_contact",
+        "edge_contact",
+        "transferred_vdw"
+      ],
+      "physics_rank": {
+        "top_contact": 0,
+        "edge_contact": 1,
+        "transferred_vdw": 2
+      },
+      "rationale": "Transferred vdW contacts suppress Fermi-level pinning; edge contacts provide 1D covalent orbital overlap."
+    },
+    "deposition_method": {
+      "categories": [
+        "thermal_evaporation",
+        "e_beam_evaporation",
+        "mechanical_transfer"
+      ],
+      "physics_rank": {
+        "thermal_evaporation": 0,
+        "e_beam_evaporation": 1,
+        "mechanical_transfer": 2
+      },
+      "rationale": "Mechanical transfer eliminates high-energy kinetic bombardment and defect creation."
+    }
+  },
+  "recommended_strategy": "OneHotEncoder with handle_unknown='ignore' inside Pipeline to guarantee zero data leakage",
+  "leakage_safeguards": [
+    "Encoders must only be fitted on training fold indices",
+    "Unseen test categories must encode to zero-vectors rather than throwing errors"
+  ]
+}
