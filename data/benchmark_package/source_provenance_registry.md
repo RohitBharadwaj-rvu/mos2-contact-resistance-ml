@@ -1,0 +1,12 @@
+# Source Literature Provenance Registry
+
+| Source UID | Primary Citation | DOI | Extracted Metals | Extraction Method |
+| :--- | :--- | :--- | :--- | :--- |
+| `SRC-EXP-2021-SHEN` | Shen, P. C. et al. Ultralow contact resistance between semimetal bismuth and 2D semiconductors. Nature 593, 211-217 (2021). | [10.1038/s41586-021-03472-9](https://doi.org/10.1038/s41586-021-03472-9) | Bi, Ag | TLM de-embedding with EOT < 1nm HfO2 dielectric |
+| `SRC-EXP-2019-WANG` | Wang, Y. et al. Van der Waals contacts between three-dimensional metals and two-dimensional semiconductors. Nature 568, 70-74 (2019). | [10.1038/s41586-019-1064-y](https://doi.org/10.1038/s41586-019-1064-y) | Ag, Ti, Au, Pt | Transferred metal mechanically de-laminated, cryogenic and 300K TLM |
+| `SRC-EXP-2018-LIU` | Liu, Y. et al. Approaching the Schottky-Mott limit in van der Waals contacts for two-dimensional semiconductors. Nature 557, 696-700 (2018). | [10.1038/s41586-018-0129-8](https://doi.org/10.1038/s41586-018-0129-8) | Pt, Ti, In, Au | Pristine physical transfer onto monolayer MoS2 flakes |
+| `SRC-EXP-2014-KAPPERA` | Kappera, R. et al. Phase-engineered low-resistance contacts for ultrathin MoS2 transistors. Nature Mater. 13, 1128-1134 (2014). | [10.1038/nmat4080](https://doi.org/10.1038/nmat4080) | 1T-MoS2, Au | Chemical n-butyl lithium metallic 1T phase conversion |
+| `SRC-EXP-2014-MCDONNELL` | McDonnell, S. et al. Hole Contacts on Transition Metal Dichalcogenides. ACS Nano 8, 2880-2888 (2014). | [10.1021/nn500044q](https://doi.org/10.1021/nn500044q) | Pd, Au | UHV e-beam evaporation and XPS band alignment |
+| `SRC-EXP-2013-DAS` | Das, S. et al. High performance multilayer MoS2 transistors with scandium contacts. Nano Lett. 13, 100-105 (2013). | [10.1021/nl303583v](https://doi.org/10.1021/nl303583v) | Sc, Ti, Ni, Pt | Back-gated 90nm SiO2 TLM characterization |
+| `SRC-EXP-2017-ENGLISH` | English, C. D. et al. Approaching the Theoretical Limit of Contact Resistance in Monolayer MoS2. Nano Lett. 16, 3824-3830 (2016). | [10.1021/acs.nanolett.6b01309](https://doi.org/10.1021/acs.nanolett.6b01309) | Ti, Au | Ultra-clean high-vacuum evaporation and contact scaling |
+| `SRC-EXP-2019-CHOUDHARY` | Choudhary, K. et al. The Joint Automated Repository for Various Integrated Simulations (JARVIS) 2D Database. 2D Mater. 6, 025008 (2019). | [10.1088/2053-1583/ab0489](https://doi.org/10.1088/2053-1583/ab0489) | DFT baseline, Work functions | Density functional theory (PBE/optB88vdW) interface simulations |

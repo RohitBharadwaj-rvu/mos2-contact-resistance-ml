@@ -1,0 +1,88 @@
+[
+  {
+    "source_uid": "SRC-EXP-2021-SHEN",
+    "citation": "Shen, P. C. et al. Ultralow contact resistance between semimetal bismuth and 2D semiconductors. Nature 593, 211-217 (2021).",
+    "doi": "10.1038/s41586-021-03472-9",
+    "metals_extracted": [
+      "Bi",
+      "Ag"
+    ],
+    "extraction_method": "TLM de-embedding with EOT < 1nm HfO2 dielectric"
+  },
+  {
+    "source_uid": "SRC-EXP-2019-WANG",
+    "citation": "Wang, Y. et al. Van der Waals contacts between three-dimensional metals and two-dimensional semiconductors. Nature 568, 70-74 (2019).",
+    "doi": "10.1038/s41586-019-1064-y",
+    "metals_extracted": [
+      "Ag",
+      "Ti",
+      "Au",
+      "Pt"
+    ],
+    "extraction_method": "Transferred metal mechanically de-laminated, cryogenic and 300K TLM"
+  },
+  {
+    "source_uid": "SRC-EXP-2018-LIU",
+    "citation": "Liu, Y. et al. Approaching the Schottky-Mott limit in van der Waals contacts for two-dimensional semiconductors. Nature 557, 696-700 (2018).",
+    "doi": "10.1038/s41586-018-0129-8",
+    "metals_extracted": [
+      "Pt",
+      "Ti",
+      "In",
+      "Au"
+    ],
+    "extraction_method": "Pristine physical transfer onto monolayer MoS2 flakes"
+  },
+  {
+    "source_uid": "SRC-EXP-2014-KAPPERA",
+    "citation": "Kappera, R. et al. Phase-engineered low-resistance contacts for ultrathin MoS2 transistors. Nature Mater. 13, 1128-1134 (2014).",
+    "doi": "10.1038/nmat4080",
+    "metals_extracted": [
+      "1T-MoS2",
+      "Au"
+    ],
+    "extraction_method": "Chemical n-butyl lithium metallic 1T phase conversion"
+  },
+  {
+    "source_uid": "SRC-EXP-2014-MCDONNELL",
+    "citation": "McDonnell, S. et al. Hole Contacts on Transition Metal Dichalcogenides. ACS Nano 8, 2880-2888 (2014).",
+    "doi": "10.1021/nn500044q",
+    "metals_extracted": [
+      "Pd",
+      "Au"
+    ],
+    "extraction_method": "UHV e-beam evaporation and XPS band alignment"
+  },
+  {
+    "source_uid": "SRC-EXP-2013-DAS",
+    "citation": "Das, S. et al. High performance multilayer MoS2 transistors with scandium contacts. Nano Lett. 13, 100-105 (2013).",
+    "doi": "10.1021/nl303583v",
+    "metals_extracted": [
+      "Sc",
+      "Ti",
+      "Ni",
+      "Pt"
+    ],
+    "extraction_method": "Back-gated 90nm SiO2 TLM characterization"
+  },
+  {
+    "source_uid": "SRC-EXP-2017-ENGLISH",
+    "citation": "English, C. D. et al. Approaching the Theoretical Limit of Contact Resistance in Monolayer MoS2. Nano Lett. 16, 3824-3830 (2016).",
+    "doi": "10.1021/acs.nanolett.6b01309",
+    "metals_extracted": [
+      "Ti",
+      "Au"
+    ],
+    "extraction_method": "Ultra-clean high-vacuum evaporation and contact scaling"
+  },
+  {
+    "source_uid": "SRC-EXP-2019-CHOUDHARY",
+    "citation": "Choudhary, K. et al. The Joint Automated Repository for Various Integrated Simulations (JARVIS) 2D Database. 2D Mater. 6, 025008 (2019).",
+    "doi": "10.1088/2053-1583/ab0489",
+    "metals_extracted": [
+      "DFT baseline",
+      "Work functions"
+    ],
+    "extraction_method": "Density functional theory (PBE/optB88vdW) interface simulations"
+  }
+]

@@ -1,0 +1,301 @@
+{
+  "dataset_name": "MoS2 Contact Resistance & Schottky Barrier Height Benchmark",
+  "total_records": 20,
+  "total_features": 44,
+  "columns": {
+    "device_id": {
+      "type": "string",
+      "unit": "dimensionless",
+      "description": "Unique primary key identifier for each experimental contact device instance.",
+      "category": "Identifier"
+    },
+    "source_uid": {
+      "type": "string",
+      "unit": "dimensionless",
+      "description": "Unique identifier linking the observation to its peer-reviewed literature source paper.",
+      "category": "Provenance"
+    },
+    "contact_metal": {
+      "type": "string",
+      "unit": "chemical symbol",
+      "description": "Elemental or compound chemical formula of the primary contact metal pad (e.g., Bi, Ti, Au, Pt, Ag, Sc, Ni).",
+      "category": "Material Specification"
+    },
+    "layer_count": {
+      "type": "integer",
+      "unit": "monolayers",
+      "description": "Number of MoS2 atomic layers in the transistor channel (1 = monolayer, >1 = few-layer).",
+      "category": "Semiconductor Channel"
+    },
+    "contact_resistance_ohm_um": {
+      "type": "float",
+      "unit": "Ohm*um",
+      "description": "Width-normalized contact resistance extracted experimentally via TLM, Y-function, or 4-probe.",
+      "category": "Primary Target"
+    },
+    "log10_contact_resistance_ohm_um": {
+      "type": "float",
+      "unit": "log10(Ohm*um) [dex]",
+      "description": "Base-10 logarithm of width-normalized contact resistance (ML regression target).",
+      "category": "Primary Target"
+    },
+    "work_function_ev": {
+      "type": "float",
+      "unit": "eV",
+      "description": "Work function of the clean bulk contact metal in vacuum.",
+      "category": "Metal Property"
+    },
+    "physics_predicted_sbh_ev": {
+      "type": "float",
+      "unit": "eV",
+      "description": "Calculated or experimentally determined Schottky barrier height at the metal-MoS2 junction.",
+      "category": "Interface Band Alignment"
+    },
+    "gate_carrier_density_cm2": {
+      "type": "float",
+      "unit": "cm^-2",
+      "description": "Electrostatic gate-induced 2D sheet carrier density accumulated in the MoS2 channel beneath the contact.",
+      "category": "Electrostatic State"
+    },
+    "is_vdw_or_depinned_contact": {
+      "type": "binary integer (0/1)",
+      "unit": "indicator",
+      "description": "Flag indicating whether contact was fabricated via damage-free van der Waals transfer / phase transformation (1) or evaporated (0).",
+      "category": "Fabrication Method"
+    },
+    "sulfide_formation_enthalpy_ev": {
+      "type": "float",
+      "unit": "eV / atom",
+      "description": "Standard Gibbs free formation enthalpy of the metal sulfide compound, proxying interfacial chemical reactivity.",
+      "category": "Interface Chemistry"
+    },
+    "metal_resistivity_ohm_cm": {
+      "type": "float",
+      "unit": "Ohm*cm",
+      "description": "Bulk room-temperature electrical resistivity of the contact metal.",
+      "category": "Metal Property"
+    },
+    "temperature_k": {
+      "type": "float",
+      "unit": "Kelvin",
+      "description": "Measurement ambient temperature during electrical characterization.",
+      "category": "Environmental State"
+    },
+    "data_point_id": {
+      "type": "string",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: data_point_id",
+      "category": "Engineered / Normalized Feature"
+    },
+    "citation_short": {
+      "type": "string",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: citation_short",
+      "category": "Engineered / Normalized Feature"
+    },
+    "doi": {
+      "type": "string",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: doi",
+      "category": "Engineered / Normalized Feature"
+    },
+    "semiconductor": {
+      "type": "string",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: semiconductor",
+      "category": "Engineered / Normalized Feature"
+    },
+    "thickness_nm": {
+      "type": "float",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: thickness_nm",
+      "category": "Engineered / Normalized Feature"
+    },
+    "flake_synthesis_method": {
+      "type": "string",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: flake_synthesis_method",
+      "category": "Engineered / Normalized Feature"
+    },
+    "pauling_electronegativity": {
+      "type": "float",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: pauling_electronegativity",
+      "category": "Engineered / Normalized Feature"
+    },
+    "contact_architecture": {
+      "type": "string",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: contact_architecture",
+      "category": "Engineered / Normalized Feature"
+    },
+    "adhesion_layer": {
+      "type": "string",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: adhesion_layer",
+      "category": "Engineered / Normalized Feature"
+    },
+    "deposition_method": {
+      "type": "string",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: deposition_method",
+      "category": "Engineered / Normalized Feature"
+    },
+    "vacuum_base_pressure_torr": {
+      "type": "float",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: vacuum_base_pressure_torr",
+      "category": "Engineered / Normalized Feature"
+    },
+    "post_annealing_temperature_c": {
+      "type": "float",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: post_annealing_temperature_c",
+      "category": "Engineered / Normalized Feature"
+    },
+    "post_annealing_gas_ambient": {
+      "type": "string",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: post_annealing_gas_ambient",
+      "category": "Engineered / Normalized Feature"
+    },
+    "gate_configuration": {
+      "type": "string",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: gate_configuration",
+      "category": "Engineered / Normalized Feature"
+    },
+    "gate_dielectric": {
+      "type": "string",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: gate_dielectric",
+      "category": "Engineered / Normalized Feature"
+    },
+    "measurement_temperature_k": {
+      "type": "float",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: measurement_temperature_k",
+      "category": "Engineered / Normalized Feature"
+    },
+    "characterization_method": {
+      "type": "string",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: characterization_method",
+      "category": "Engineered / Normalized Feature"
+    },
+    "contact_resistance_rc_ohm_um": {
+      "type": "float",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: contact_resistance_rc_ohm_um",
+      "category": "Engineered / Normalized Feature"
+    },
+    "specific_contact_resistivity_ohm_cm2": {
+      "type": "float",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: specific_contact_resistivity_ohm_cm2",
+      "category": "Engineered / Normalized Feature"
+    },
+    "schottky_barrier_height_ev": {
+      "type": "float",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: schottky_barrier_height_ev",
+      "category": "Engineered / Normalized Feature"
+    },
+    "carrier_polarity": {
+      "type": "string",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: carrier_polarity",
+      "category": "Engineered / Normalized Feature"
+    },
+    "provenance_location": {
+      "type": "string",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: provenance_location",
+      "category": "Engineered / Normalized Feature"
+    },
+    "notes_and_context": {
+      "type": "string",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: notes_and_context",
+      "category": "Engineered / Normalized Feature"
+    },
+    "anneal_temp_was_missing": {
+      "type": "integer",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: anneal_temp_was_missing",
+      "category": "Engineered / Normalized Feature"
+    },
+    "vacuum_pressure_was_missing": {
+      "type": "integer",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: vacuum_pressure_was_missing",
+      "category": "Engineered / Normalized Feature"
+    },
+    "carrier_density_was_missing": {
+      "type": "integer",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: carrier_density_was_missing",
+      "category": "Engineered / Normalized Feature"
+    },
+    "sulfide_formation_enthalpy_kj_mol": {
+      "type": "float",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: sulfide_formation_enthalpy_kj_mol",
+      "category": "Engineered / Normalized Feature"
+    },
+    "d_band_center_ev": {
+      "type": "float",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: d_band_center_ev",
+      "category": "Engineered / Normalized Feature"
+    },
+    "schottky_mott_barrier_ev": {
+      "type": "float",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: schottky_mott_barrier_ev",
+      "category": "Engineered / Normalized Feature"
+    },
+    "delta_cnl_ev": {
+      "type": "float",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: delta_cnl_ev",
+      "category": "Engineered / Normalized Feature"
+    },
+    "electronegativity_diff_sulfur": {
+      "type": "float",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: electronegativity_diff_sulfur",
+      "category": "Engineered / Normalized Feature"
+    },
+    "effective_pinning_factor_s": {
+      "type": "float",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: effective_pinning_factor_s",
+      "category": "Engineered / Normalized Feature"
+    },
+    "fermi_level_shift_ev": {
+      "type": "float",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: fermi_level_shift_ev",
+      "category": "Engineered / Normalized Feature"
+    },
+    "thermal_energy_kbt_ev": {
+      "type": "float",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: thermal_energy_kbt_ev",
+      "category": "Engineered / Normalized Feature"
+    },
+    "log_vacuum_pressure": {
+      "type": "float",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: log_vacuum_pressure",
+      "category": "Engineered / Normalized Feature"
+    },
+    "log10_rc": {
+      "type": "float",
+      "unit": "derived/normalized",
+      "description": "Engineered physical or statistical feature: log10_rc",
+      "category": "Engineered / Normalized Feature"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "title": "MoS2 Contact Resistance Benchmark",
+  "id": "rohitajitbharadwaj/mos2-contact-resistance-benchmark",
+  "licenses": [
+    {
+      "name": "CC-BY-4.0"
+    }
+  ],
+  "description": "A rigorously curated and physically annotated experimental benchmark dataset of contact resistance (Rc) and Schottky barrier heights (Phi_B) for monolayer and few-layer MoS2 field-effect transistors. Extracted from high-impact peer-reviewed literature (Nature, Nature Materials, Nano Letters, ACS Nano).",
+  "keywords": [
+    "semiconductor",
+    "2d-materials",
+    "mos2",
+    "contact-resistance",
+    "materials-science",
+    "physics-informed-ml"
+  ]
+}
