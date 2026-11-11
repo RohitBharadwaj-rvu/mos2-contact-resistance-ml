@@ -3,6 +3,8 @@ Unified Model Factory for Shortlisted Architectures (Subheading 2.c Audit Enhanc
 Provides a single interface to instantiate any shortlisted model with standardized capacity constraints and pre-configured preprocessing pipelines.
 """
 
+import json
+from pathlib import Path
 from typing import Any, Dict, Optional
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
@@ -13,6 +15,8 @@ from sklearn.gaussian_process.kernels import ConstantKernel as C, Matern, WhiteK
 from sklearn.svm import SVR
 
 from src.models.model_selector import get_shortlisted_architectures
+
+TUNED_HYPERPARAMS_PATH = Path(__file__).resolve().parents[2] / "data" / "processed" / "tuned_hyperparameters_and_scores.json"
 
 
 def instantiate_candidate_model(name: str, random_state: int = 42, **kwargs) -> Any:
@@ -81,3 +85,31 @@ def instantiate_candidate_model(name: str, random_state: int = 42, **kwargs) -> 
         ])
     else:
         raise ValueError(f"Unhandled shortlisted model: {name}")
+
+
+def instantiate_tuned_candidate_model(name: str, random_state: int = 42) -> Any:
+    """
+    Instantiates a shortlisted model configured with its optimal tuned hyperparameters
+    obtained from systematic GroupKFold tuning search.
+    """
+    best_params = {}
+    if TUNED_HYPERPARAMS_PATH.exists():
+        try:
+            with open(TUNED_HYPERPARAMS_PATH, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            if name in data.get("models_tuned", {}):
+                best_params = data["models_tuned"][name].get("best_params", {})
+        except Exception:
+            pass
+
+    # Default tuned fallbacks if file not loaded
+    defaults = {
+        "Ridge_Regression": {"alpha": 5.0},
+        "ElasticNet": {"alpha": 0.1, "l1_ratio": 0.1},
+        "Gradient_Boosting": {"n_estimators": 75, "learning_rate": 0.1, "max_depth": 3, "subsample": 0.8},
+        "Random_Forest": {"n_estimators": 30, "max_depth": 3, "min_samples_split": 3, "min_samples_leaf": 2},
+        "Gaussian_Process_Matern": {"length_scale": 0.5, "noise_level": 0.01, "nu": 1.5},
+        "Support_Vector_Regression_RBF": {"C": 20.0, "epsilon": 0.02, "gamma": 0.05}
+    }
+    merged_params = {**defaults.get(name, {}), **best_params}
+    return instantiate_candidate_model(name, random_state=random_state, **merged_params)

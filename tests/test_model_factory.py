@@ -3,7 +3,7 @@ Tests for Unified Model Factory (Subheading 2.c Audit).
 """
 
 import pytest
-from src.models.model_factory import instantiate_candidate_model
+from src.models.model_factory import instantiate_candidate_model, instantiate_tuned_candidate_model
 from src.models.model_selector import get_shortlisted_architectures
 
 
@@ -19,3 +19,13 @@ def test_instantiate_candidate_model():
         
     with pytest.raises(ValueError):
         instantiate_candidate_model("Nonexistent_Model")
+
+
+def test_instantiate_tuned_candidate_model():
+    """Verify that every shortlisted architecture can be instantiated in its optimal tuned configuration."""
+    shortlisted = get_shortlisted_architectures()
+    for name in shortlisted:
+        tuned_model = instantiate_tuned_candidate_model(name)
+        assert tuned_model is not None
+        assert hasattr(tuned_model, "fit")
+        assert hasattr(tuned_model, "predict")
