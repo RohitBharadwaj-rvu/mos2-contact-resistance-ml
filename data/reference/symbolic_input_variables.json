@@ -1,0 +1,69 @@
+{
+  "title": "Selected Physical Input Variables for Symbolic Regression Discovery",
+  "rationale": "Restricts equation search to 4 dimensionally well-scaled solid-state descriptors spanning barrier physics, electrostatic gating, interface de-pinning, and chemical bond formation. Prevents combinatorial explosion and division-by-zero or numerical underflow in genetic programming.",
+  "target_variable": "log10_rc",
+  "variables": [
+    {
+      "symbol": "x_sbh",
+      "feature_col": "physics_predicted_sbh_ev",
+      "unit": "eV",
+      "range": [
+        0.0,
+        1.3760000000000001
+      ],
+      "scaling": "identity",
+      "physical_meaning": "Schottky barrier height governing thermionic injection barrier"
+    },
+    {
+      "symbol": "x_n2d",
+      "feature_col": "gate_carrier_density_cm2",
+      "unit": "10^13 cm^-2",
+      "range": [
+        0.3,
+        1.5
+      ],
+      "scaling": "divide_by_1e13",
+      "physical_meaning": "Electrostatic gate-induced channel carrier density modulating barrier width and tunneling"
+    },
+    {
+      "symbol": "x_vdw",
+      "feature_col": "is_vdw_or_depinned_contact",
+      "unit": "dimensionless {0, 1}",
+      "range": [
+        0.0,
+        1.0
+      ],
+      "scaling": "identity",
+      "physical_meaning": "De-pinning binary flag indicating pristine van der Waals interface"
+    },
+    {
+      "symbol": "x_hf",
+      "feature_col": "sulfide_formation_enthalpy_kj_mol",
+      "unit": "dimensionless ratio (-Delta_Hf / 500 kJ/mol)",
+      "range": [
+        -0.0,
+        0.68
+      ],
+      "scaling": "neg_divide_by_500",
+      "physical_meaning": "Thermodynamic metal sulfide formation enthalpy indicating interface chemical bond energy"
+    }
+  ],
+  "correlations_with_target": {
+    "x_sbh": {
+      "pearson_r": 0.763,
+      "spearman_rho": 0.7542
+    },
+    "x_n2d": {
+      "pearson_r": -0.7862,
+      "spearman_rho": -0.8243
+    },
+    "x_vdw": {
+      "pearson_r": -0.3725,
+      "spearman_rho": -0.5316
+    },
+    "x_hf": {
+      "pearson_r": -0.0933,
+      "spearman_rho": 0.0483
+    }
+  }
+}
