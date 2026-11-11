@@ -54,7 +54,14 @@ class PurePhysicsSchottkyBaseline(BaseEstimator, RegressorMixin):
         self.kbt = kbt_ev
         
     def fit(self, X, y=None):
-        # Zero learned parameters
+        if y is not None:
+            if isinstance(X, pd.DataFrame):
+                wf = X["work_function_ev"].values
+            else:
+                wf = np.asarray(X)[:, 0]
+            sbh_sm = np.clip(wf - self.chi, 0.0, 2.0)
+            ideal_shift = (0.43429 / self.kbt) * np.clip(sbh_sm, 0.0, 0.3)
+            self.r0 = float(np.median(y - ideal_shift))
         return self
         
     def predict(self, X):
