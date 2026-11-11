@@ -1,0 +1,66 @@
+{
+  "dataset_dimensions": {
+    "n_samples": 20,
+    "n_literature_clusters": 13,
+    "effective_dof_cluster": 12
+  },
+  "feature_budgets": {
+    "unregularized_linear_max_features": 2,
+    "regularized_linear_max_features": 4,
+    "recommended_active_features": 4,
+    "minimum_sample_to_feature_ratio": "5:1"
+  },
+  "model_architecture_constraints": {
+    "linear_models": {
+      "regularization": "MANDATORY (L1 Lasso, L2 Ridge, or ElasticNet)",
+      "max_active_weights": 4,
+      "alpha_tuning_range": [
+        0.001,
+        100.0
+      ]
+    },
+    "decision_tree_ensembles": {
+      "max_depth": 3,
+      "min_samples_split": 4,
+      "min_samples_leaf": 2,
+      "n_estimators": 50,
+      "max_features": "sqrt",
+      "rationale": "Deep trees will isolate single data points and memorize noise; shallow depth prevents sample fragmentation."
+    },
+    "gaussian_processes": {
+      "kernel_families": [
+        "RBF",
+        "Matern52",
+        "DotProduct"
+      ],
+      "length_scale_bounds": [
+        0.1,
+        10.0
+      ],
+      "noise_level_alpha": ">= 0.05",
+      "rationale": "Gaussian processes provide closed-form Bayesian uncertainty estimation naturally robust to small N."
+    },
+    "symbolic_regression": {
+      "max_equation_length_nodes": 12,
+      "parsimony_coefficient": 0.05,
+      "allowed_operators": [
+        "add",
+        "sub",
+        "mul",
+        "div",
+        "exp",
+        "log"
+      ],
+      "rationale": "High node complexity results in non-physical polynomial fitting."
+    }
+  },
+  "overfitting_risk_assessment": {
+    "risk_level": "HIGH_IF_UNCONSTRAINED",
+    "mitigation_protocol": [
+      "Strict feature selection to top 3-4 physical descriptors",
+      "Paper-wise GroupKFold cross-validation",
+      "Regularization penalties on all parametric models",
+      "Ensemble averaging and Bayesian shrinkage"
+    ]
+  }
+}
