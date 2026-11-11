@@ -12,6 +12,7 @@ from src.models.symbolic_search_space import (
     protected_log,
     protected_inv,
     define_symbolic_search_space,
+    validate_physics_constraints,
     SEARCH_SPACE_JSON
 )
 
@@ -63,3 +64,25 @@ def test_define_symbolic_search_space():
     with open(SEARCH_SPACE_JSON, "r", encoding="utf-8") as f:
         loaded = json.load(f)
     assert len(loaded["primitive_operators"]) == len(cfg["primitive_operators"])
+
+
+def test_validate_physics_constraints():
+    """Verify that physical constraints validator correctly audits candidate formulas."""
+    # Physical model: log10(Rc) = 2.0 + 3.0 * Phi_B - 0.5 * log10(n2D / 1e11)
+    def valid_physical_eq(phi, n2d):
+        return 2.0 + 3.0 * phi - 0.5 * np.log10(n2d / 1e11)
+        
+    res = validate_physics_constraints(valid_physical_eq)
+    assert res["passed_all_constraints"] is True
+    assert res["schottky_monotonicity"] is True
+    assert res["gate_monotonicity"] is True
+    assert res["quantum_limit_valid"] is True
+    
+    # Non-physical model: increasing barrier decreases Rc
+    def invalid_eq(phi, n2d):
+        return 5.0 - 2.0 * phi
+        
+    res_bad = validate_physics_constraints(invalid_eq)
+    assert res_bad["passed_all_constraints"] is False
+    assert res_bad["schottky_monotonicity"] is False
+

@@ -86,6 +86,43 @@ def define_symbolic_search_space() -> Dict[str, Any]:
     return config
 
 
+def validate_physics_constraints(func: Callable[[np.ndarray, np.ndarray], np.ndarray],
+                                 phi_bounds: tuple = (0.1, 1.2),
+                                 n2d_bounds: tuple = (1e11, 1e13)) -> Dict[str, Any]:
+    """
+    Numerically audits a candidate symbolic function f(Phi_B, n_2D) -> log10(Rc)
+    against solid-state physical constraints using finite-difference partial derivatives.
+    """
+    phi_grid = np.linspace(phi_bounds[0], phi_bounds[1], 20)
+    n2d_grid = np.logspace(np.log10(n2d_bounds[0]), np.log10(n2d_bounds[1]), 20)
+    
+    # 1. Monotonicity in Phi_B (at fixed median n_2D)
+    median_n2d = np.full_like(phi_grid, 1e12)
+    rc_vs_phi = func(phi_grid, median_n2d)
+    diff_phi = np.diff(rc_vs_phi)
+    phi_monotonic = bool(np.all(diff_phi >= -1e-4))
+    
+    # 2. Negative monotonicity in n_2D (at fixed median Phi_B)
+    median_phi = np.full_like(n2d_grid, 0.4)
+    rc_vs_n2d = func(median_phi, n2d_grid)
+    diff_n2d = np.diff(rc_vs_n2d)
+    n2d_monotonic = bool(np.all(diff_n2d <= 1e-4))
+    
+    # 3. Quantum lower bound (log10(Rc) >= log10(10 Ohm*um) = 1.0)
+    min_predicted_rc = float(np.min(func(np.array([phi_bounds[0]]), np.array([n2d_bounds[1]]))))
+    quantum_valid = bool(min_predicted_rc >= 0.8)
+    
+    all_passed = phi_monotonic and n2d_monotonic and quantum_valid
+    
+    return {
+        "passed_all_constraints": all_passed,
+        "schottky_monotonicity": phi_monotonic,
+        "gate_monotonicity": n2d_monotonic,
+        "quantum_limit_valid": quantum_valid,
+        "min_predicted_log10_rc": round(min_predicted_rc, 3)
+    }
+
+
 if __name__ == "__main__":
     cfg = define_symbolic_search_space()
     print("Symbolic search space defined successfully:")
