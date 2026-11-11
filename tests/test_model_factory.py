@@ -20,6 +20,12 @@ def test_instantiate_candidate_model():
     with pytest.raises(ValueError):
         instantiate_candidate_model("Nonexistent_Model")
 
+    # Verify discovered symbolic model instantiation
+    sym_model = instantiate_candidate_model("Discovered_Symbolic")
+    assert sym_model is not None
+    assert hasattr(sym_model, "fit")
+    assert hasattr(sym_model, "predict")
+
 
 def test_instantiate_tuned_candidate_model():
     """Verify that every shortlisted architecture can be instantiated in its optimal tuned configuration."""

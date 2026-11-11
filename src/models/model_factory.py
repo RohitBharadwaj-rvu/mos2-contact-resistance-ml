@@ -23,6 +23,11 @@ def instantiate_candidate_model(name: str, random_state: int = 42, **kwargs) -> 
     """
     Instantiates a shortlisted model with pre-configured small-N hyperparameters and scaling.
     """
+    if name == "Discovered_Symbolic":
+        from src.models.symbolic_evaluator import DiscoveredSymbolicContactModel
+        refit = kwargs.get("refit", False)
+        return DiscoveredSymbolicContactModel(refit=refit)
+
     shortlisted = get_shortlisted_architectures()
     if name not in shortlisted:
         raise ValueError(f"Model '{name}' is not in shortlisted architectures: {shortlisted}")
