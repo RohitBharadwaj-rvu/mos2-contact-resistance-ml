@@ -9,6 +9,7 @@ import numpy as np
 from src.validation.selection_criteria import (
     compute_composite_selection_score,
     define_model_selection_criteria_spec,
+    evaluate_model_cv,
     SELECTION_JSON_PATH
 )
 
@@ -46,3 +47,25 @@ def test_define_model_selection_criteria_spec():
     with open(SELECTION_JSON_PATH, "r", encoding="utf-8") as f:
         loaded = json.load(f)
     assert loaded["title"] == spec["title"]
+
+
+def test_evaluate_model_cv():
+    """Verify that evaluate_model_cv executes cross-validation and returns full score report."""
+    from src.features.feature_engineer import get_cleaned_and_engineered_dataset
+    from src.models.model_factory import instantiate_candidate_model
+    from src.models.sample_complexity_analyzer import select_parsimonious_features
+    
+    df = get_cleaned_and_engineered_dataset()
+    features = select_parsimonious_features(df, max_features=4)
+    X = df[features]
+    y = df["log10_rc"].values
+    
+    model = instantiate_candidate_model("Ridge_Regression")
+    report = evaluate_model_cv(model, X, y)
+    
+    assert "composite_selection_score" in report
+    assert "fold_metrics" in report
+    assert len(report["fold_metrics"]) == 5
+    assert len(report["oof_predictions"]) == len(y)
+    assert report["is_qualified_for_deployment"] is True
+

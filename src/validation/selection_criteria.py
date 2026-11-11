@@ -5,8 +5,10 @@ Defines multi-objective selection criteria combining out-of-fold RMSE, Spearman 
 
 import json
 from pathlib import Path
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Tuple, Optional
 import numpy as np
+import pandas as pd
+from sklearn.base import clone
 
 from src.validation.regression_metrics import evaluate_regression_metrics
 from src.validation.rank_trend_metrics import evaluate_rank_and_trend_metrics
@@ -85,6 +87,43 @@ def define_model_selection_criteria_spec() -> Dict[str, Any]:
         json.dump(spec, f, indent=2)
         
     return spec
+
+
+def evaluate_model_cv(model: Any, X: Any, y: np.ndarray, splits: Optional[List[Tuple[np.ndarray, np.ndarray]]] = None) -> Dict[str, Any]:
+    """
+    Executes cross-validation across provided splits, aggregates out-of-fold predictions,
+    and returns full composite selection report.
+    """
+    if splits is None:
+        from src.validation.splitting_protocol import get_cv_splits
+        splits = get_cv_splits(scheme="grouped_5fold")
+        
+    oof_preds = np.zeros_like(y, dtype=float)
+    fold_metrics = []
+    
+    for fold_idx, (train_idx, val_idx) in enumerate(splits):
+        m = clone(model)
+        X_train = X.iloc[train_idx] if isinstance(X, pd.DataFrame) else X[train_idx]
+        y_train = y[train_idx]
+        X_val = X.iloc[val_idx] if isinstance(X, pd.DataFrame) else X[val_idx]
+        y_val = y[val_idx]
+        
+        m.fit(X_train, y_train)
+        pred_val = m.predict(X_val)
+        oof_preds[val_idx] = pred_val
+        
+        fold_metrics.append({
+            "fold": fold_idx,
+            "rmse_dex": round(float(np.sqrt(np.mean((y_val - pred_val) ** 2))), 4),
+            "mae_dex": round(float(np.mean(np.abs(y_val - pred_val))), 4)
+        })
+        
+    feature_count = X.shape[1] if hasattr(X, "shape") else 4
+    score_report = compute_composite_selection_score(y, oof_preds, feature_count=feature_count)
+    score_report["fold_metrics"] = fold_metrics
+    score_report["oof_predictions"] = [round(float(p), 4) for p in oof_preds]
+    
+    return score_report
 
 
 if __name__ == "__main__":
