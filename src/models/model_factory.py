@@ -39,26 +39,34 @@ def instantiate_candidate_model(name: str, random_state: int = 42, **kwargs) -> 
     elif name == "Random_Forest":
         max_depth = kwargs.get("max_depth", 3)
         n_estimators = kwargs.get("n_estimators", 50)
+        min_samples_split = kwargs.get("min_samples_split", 4)
+        min_samples_leaf = kwargs.get("min_samples_leaf", 2)
         return RandomForestRegressor(
             max_depth=max_depth,
             n_estimators=n_estimators,
-            min_samples_split=4,
-            min_samples_leaf=2,
+            min_samples_split=min_samples_split,
+            min_samples_leaf=min_samples_leaf,
             random_state=random_state
         )
     elif name == "Gradient_Boosting":
         max_depth = kwargs.get("max_depth", 3)
         n_estimators = kwargs.get("n_estimators", 50)
         learning_rate = kwargs.get("learning_rate", 0.05)
+        subsample = kwargs.get("subsample", 0.8)
+        min_samples_leaf = kwargs.get("min_samples_leaf", 2)
         return GradientBoostingRegressor(
             max_depth=max_depth,
             n_estimators=n_estimators,
             learning_rate=learning_rate,
-            subsample=0.8,
+            subsample=subsample,
+            min_samples_leaf=min_samples_leaf,
             random_state=random_state
         )
     elif name == "Gaussian_Process_Matern":
-        kernel = C(1.0, (1e-2, 1e2)) * Matern(length_scale=2.0, nu=2.5, length_scale_bounds=(1e-1, 50.0)) + WhiteKernel(noise_level=0.1, noise_level_bounds=(1e-3, 1.0))
+        length_scale = kwargs.get("length_scale", kwargs.get("length_scale_init", 2.0))
+        noise_level = kwargs.get("noise_level", kwargs.get("noise_level_init", 0.1))
+        nu = kwargs.get("nu", 2.5)
+        kernel = C(1.0, (1e-2, 1e2)) * Matern(length_scale=length_scale, nu=nu, length_scale_bounds=(1e-1, 50.0)) + WhiteKernel(noise_level=noise_level, noise_level_bounds=(1e-3, 1.0))
         return Pipeline([
             ("scaler", StandardScaler()),
             ("regressor", GaussianProcessRegressor(kernel=kernel, n_restarts_optimizer=5, random_state=random_state))
@@ -66,9 +74,10 @@ def instantiate_candidate_model(name: str, random_state: int = 42, **kwargs) -> 
     elif name == "Support_Vector_Regression_RBF":
         C_param = kwargs.get("C", 5.0)
         epsilon = kwargs.get("epsilon", 0.1)
+        gamma = kwargs.get("gamma", "scale")
         return Pipeline([
             ("scaler", StandardScaler()),
-            ("regressor", SVR(kernel="rbf", C=C_param, epsilon=epsilon))
+            ("regressor", SVR(kernel="rbf", C=C_param, epsilon=epsilon, gamma=gamma))
         ])
     else:
         raise ValueError(f"Unhandled shortlisted model: {name}")
