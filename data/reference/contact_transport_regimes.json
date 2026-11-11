@@ -1,0 +1,342 @@
+{
+  "title": "MoS2 Contact Physical Transport Regimes and Dataset Classifications",
+  "n_samples": 20,
+  "regime_definitions": {
+    "Regime_I_Quantum_Limited": {
+      "name": "Ballistic / Quantum-Limited Regime",
+      "rc_range_ohm_um": [
+        10.0,
+        200.0
+      ],
+      "rc_range_dex": [
+        1.0,
+        2.3
+      ],
+      "criteria": {
+        "max_sbh_ev": 0.15,
+        "min_n2d_cm2": 10000000000000.0,
+        "requires_vdw_or_homojunction": true
+      },
+      "governing_physics": "Landauer-Sharvin ballistic quantum injection limit. Van der Waals de-pinning or phase-engineered 1T metallic homojunction eliminates the interfacial vacuum barrier, allowing near-unity quantum transmission.",
+      "typical_technologies": [
+        "Bi(0001) transferred vdW",
+        "1T-MoS2 chemical homojunction",
+        "Sb(0001)"
+      ]
+    },
+    "Regime_II_Thermionic_Field_Tunneling": {
+      "name": "Thermionic-Field / Tunneling-Dominated Regime",
+      "rc_range_ohm_um": [
+        200.0,
+        1500.0
+      ],
+      "rc_range_dex": [
+        2.3,
+        3.18
+      ],
+      "criteria": {
+        "max_sbh_ev": 0.45,
+        "min_n2d_cm2": 8000000000000.0,
+        "requires_vdw_or_homojunction": false
+      },
+      "governing_physics": "Field emission (Fowler-Nordheim or direct tunneling) through an electrostatically compressed depletion width (W_dep ~ sqrt(eps / n_2D)). Highly responsive to gate bias.",
+      "typical_technologies": [
+        "Ti/Au evaporated and annealed",
+        "Ag",
+        "In",
+        "Sc"
+      ]
+    },
+    "Regime_III_Thermionic_Emission": {
+      "name": "Thermionic Emission-Dominated Regime",
+      "rc_range_ohm_um": [
+        1500.0,
+        15000.0
+      ],
+      "rc_range_dex": [
+        3.18,
+        4.18
+      ],
+      "criteria": {
+        "max_sbh_ev": 0.7,
+        "min_n2d_cm2": 3000000000000.0,
+        "requires_vdw_or_homojunction": false
+      },
+      "governing_physics": "Classical Richardson-Dushman thermionic emission over the Schottky barrier. Strong exponential temperature dependence J ~ A* T^2 exp(-q*Phi_B / k_B*T).",
+      "typical_technologies": [
+        "Au evaporated",
+        "Ni",
+        "Cr",
+        "Mo"
+      ]
+    },
+    "Regime_IV_Defect_Dominated_Pinned": {
+      "name": "Defect-Dominated / Fermi-Level Pinned Regime",
+      "rc_range_ohm_um": [
+        15000.0,
+        100000.0
+      ],
+      "rc_range_dex": [
+        4.18,
+        5.0
+      ],
+      "criteria": {
+        "min_sbh_ev": 0.7,
+        "requires_vdw_or_homojunction": false
+      },
+      "governing_physics": "MIGS (Metal-Induced Gap States) and high-density sulfur vacancy clusters (V_S) pin the Fermi level deep near mid-gap. High work function metals suffer severe thermionic freeze-out and localized defect hopping.",
+      "typical_technologies": [
+        "Pt transferred/evaporated",
+        "Pd unpassivated evaporated"
+      ]
+    }
+  },
+  "regime_distribution": {
+    "Regime_I_Quantum_Limited": 2,
+    "Regime_II_Thermionic_Field_Tunneling": 10,
+    "Regime_III_Thermionic_Emission": 7,
+    "Regime_IV_Defect_Dominated_Pinned": 1
+  },
+  "classified_devices": [
+    {
+      "device_id": "dev_0",
+      "contact_metal": "Bi",
+      "source_uid": "SRC-EXP-2021-SHEN",
+      "observed_log10_rc": 2.0899,
+      "observed_rc_linear_ohm_um": 123.0,
+      "schottky_barrier_height_ev": 0.0,
+      "gate_carrier_density_cm2": 15000000000000.0,
+      "is_vdw": true,
+      "classified_regime": "Regime_I_Quantum_Limited",
+      "regime_name": "Ballistic / Quantum-Limited Regime"
+    },
+    {
+      "device_id": "dev_1",
+      "contact_metal": "Bi",
+      "source_uid": "SRC-EXP-2021-SHEN",
+      "observed_log10_rc": 2.3424,
+      "observed_rc_linear_ohm_um": 220.0,
+      "schottky_barrier_height_ev": 0.0001,
+      "gate_carrier_density_cm2": 12000000000000.0,
+      "is_vdw": true,
+      "classified_regime": "Regime_I_Quantum_Limited",
+      "regime_name": "Ballistic / Quantum-Limited Regime"
+    },
+    {
+      "device_id": "dev_2",
+      "contact_metal": "Ag",
+      "source_uid": "SRC-EXP-2018-LIU",
+      "observed_log10_rc": 2.6021,
+      "observed_rc_linear_ohm_um": 400.0,
+      "schottky_barrier_height_ev": 0.0481,
+      "gate_carrier_density_cm2": 8000000000000.0,
+      "is_vdw": true,
+      "classified_regime": "Regime_II_Thermionic_Field_Tunneling",
+      "regime_name": "Thermionic-Field / Tunneling-Dominated Regime"
+    },
+    {
+      "device_id": "dev_3",
+      "contact_metal": "In",
+      "source_uid": "SRC-EXP-2018-LIU",
+      "observed_log10_rc": 2.4771,
+      "observed_rc_linear_ohm_um": 300.0,
+      "schottky_barrier_height_ev": 0.0,
+      "gate_carrier_density_cm2": 7500000000000.0,
+      "is_vdw": true,
+      "classified_regime": "Regime_II_Thermionic_Field_Tunneling",
+      "regime_name": "Thermionic-Field / Tunneling-Dominated Regime"
+    },
+    {
+      "device_id": "dev_4",
+      "contact_metal": "Pt",
+      "source_uid": "SRC-EXP-2018-LIU",
+      "observed_log10_rc": 4.8129,
+      "observed_rc_linear_ohm_um": 65000.0,
+      "schottky_barrier_height_ev": 1.376,
+      "gate_carrier_density_cm2": 5000000000000.0,
+      "is_vdw": true,
+      "classified_regime": "Regime_IV_Defect_Dominated_Pinned",
+      "regime_name": "Defect-Dominated / Fermi-Level Pinned Regime"
+    },
+    {
+      "device_id": "dev_5",
+      "contact_metal": "Ti",
+      "source_uid": "SRC-EXP-2016-ENGLISH",
+      "observed_log10_rc": 2.8692,
+      "observed_rc_linear_ohm_um": 740.0,
+      "schottky_barrier_height_ev": 0.1816,
+      "gate_carrier_density_cm2": 10000000000000.0,
+      "is_vdw": false,
+      "classified_regime": "Regime_II_Thermionic_Field_Tunneling",
+      "regime_name": "Thermionic-Field / Tunneling-Dominated Regime"
+    },
+    {
+      "device_id": "dev_6",
+      "contact_metal": "Au",
+      "source_uid": "SRC-EXP-2016-ENGLISH",
+      "observed_log10_rc": 3.0414,
+      "observed_rc_linear_ohm_um": 1100.0,
+      "schottky_barrier_height_ev": 0.2971,
+      "gate_carrier_density_cm2": 10000000000000.0,
+      "is_vdw": false,
+      "classified_regime": "Regime_II_Thermionic_Field_Tunneling",
+      "regime_name": "Thermionic-Field / Tunneling-Dominated Regime"
+    },
+    {
+      "device_id": "dev_7",
+      "contact_metal": "1T-MoS2",
+      "source_uid": "SRC-EXP-2014-KAPPERA",
+      "observed_log10_rc": 2.3802,
+      "observed_rc_linear_ohm_um": 240.0,
+      "schottky_barrier_height_ev": 0.2711,
+      "gate_carrier_density_cm2": 10000000000000.0,
+      "is_vdw": true,
+      "classified_regime": "Regime_II_Thermionic_Field_Tunneling",
+      "regime_name": "Thermionic-Field / Tunneling-Dominated Regime"
+    },
+    {
+      "device_id": "dev_8",
+      "contact_metal": "Sc",
+      "source_uid": "SRC-EXP-2013-DAS",
+      "observed_log10_rc": 2.8129,
+      "observed_rc_linear_ohm_um": 650.0,
+      "schottky_barrier_height_ev": 0.067,
+      "gate_carrier_density_cm2": 6000000000000.0,
+      "is_vdw": false,
+      "classified_regime": "Regime_II_Thermionic_Field_Tunneling",
+      "regime_name": "Thermionic-Field / Tunneling-Dominated Regime"
+    },
+    {
+      "device_id": "dev_9",
+      "contact_metal": "Sb",
+      "source_uid": "SRC-EXP-2019-LI",
+      "observed_log10_rc": 2.5185,
+      "observed_rc_linear_ohm_um": 330.0,
+      "schottky_barrier_height_ev": 0.3136,
+      "gate_carrier_density_cm2": 12000000000000.0,
+      "is_vdw": true,
+      "classified_regime": "Regime_II_Thermionic_Field_Tunneling",
+      "regime_name": "Thermionic-Field / Tunneling-Dominated Regime"
+    },
+    {
+      "device_id": "dev_10",
+      "contact_metal": "Graphene",
+      "source_uid": "SRC-EXP-2016-GUIMARAES",
+      "observed_log10_rc": 2.699,
+      "observed_rc_linear_ohm_um": 500.0,
+      "schottky_barrier_height_ev": 0.2711,
+      "gate_carrier_density_cm2": 10000000000000.0,
+      "is_vdw": true,
+      "classified_regime": "Regime_II_Thermionic_Field_Tunneling",
+      "regime_name": "Thermionic-Field / Tunneling-Dominated Regime"
+    },
+    {
+      "device_id": "dev_11",
+      "contact_metal": "Ti",
+      "source_uid": "SRC-EXP-2020-LIU",
+      "observed_log10_rc": 2.7404,
+      "observed_rc_linear_ohm_um": 550.0,
+      "schottky_barrier_height_ev": 0.1766,
+      "gate_carrier_density_cm2": 12000000000000.0,
+      "is_vdw": false,
+      "classified_regime": "Regime_II_Thermionic_Field_Tunneling",
+      "regime_name": "Thermionic-Field / Tunneling-Dominated Regime"
+    },
+    {
+      "device_id": "dev_12",
+      "contact_metal": "Ni",
+      "source_uid": "SRC-EXP-2014-CHWANG",
+      "observed_log10_rc": 3.5051,
+      "observed_rc_linear_ohm_um": 3200.0,
+      "schottky_barrier_height_ev": 0.317,
+      "gate_carrier_density_cm2": 5000000000000.0,
+      "is_vdw": false,
+      "classified_regime": "Regime_III_Thermionic_Emission",
+      "regime_name": "Thermionic Emission-Dominated Regime"
+    },
+    {
+      "device_id": "dev_13",
+      "contact_metal": "Cr",
+      "source_uid": "SRC-EXP-2015-CUI",
+      "observed_log10_rc": 3.3222,
+      "observed_rc_linear_ohm_um": 2100.0,
+      "schottky_barrier_height_ev": 0.2071,
+      "gate_carrier_density_cm2": 10000000000000.0,
+      "is_vdw": false,
+      "classified_regime": "Regime_II_Thermionic_Field_Tunneling",
+      "regime_name": "Thermionic-Field / Tunneling-Dominated Regime"
+    },
+    {
+      "device_id": "dev_14",
+      "contact_metal": "Pd",
+      "source_uid": "SRC-EXP-2014-MCDONNELL",
+      "observed_log10_rc": 4.0792,
+      "observed_rc_linear_ohm_um": 12000.0,
+      "schottky_barrier_height_ev": 0.3325,
+      "gate_carrier_density_cm2": 3000000000000.0,
+      "is_vdw": false,
+      "classified_regime": "Regime_III_Thermionic_Emission",
+      "regime_name": "Thermionic Emission-Dominated Regime"
+    },
+    {
+      "device_id": "dev_15",
+      "contact_metal": "Mo",
+      "source_uid": "SRC-EXP-2017-KIM",
+      "observed_log10_rc": 3.6232,
+      "observed_rc_linear_ohm_um": 4200.0,
+      "schottky_barrier_height_ev": 0.381,
+      "gate_carrier_density_cm2": 4000000000000.0,
+      "is_vdw": true,
+      "classified_regime": "Regime_III_Thermionic_Emission",
+      "regime_name": "Thermionic Emission-Dominated Regime"
+    },
+    {
+      "device_id": "dev_16",
+      "contact_metal": "Ti",
+      "source_uid": "SRC-REV-2015-ALLAIN",
+      "observed_log10_rc": 3.301,
+      "observed_rc_linear_ohm_um": 2000.0,
+      "schottky_barrier_height_ev": 0.194,
+      "gate_carrier_density_cm2": 5000000000000.0,
+      "is_vdw": false,
+      "classified_regime": "Regime_III_Thermionic_Emission",
+      "regime_name": "Thermionic Emission-Dominated Regime"
+    },
+    {
+      "device_id": "dev_17",
+      "contact_metal": "Mo",
+      "source_uid": "SRC-REV-2015-ALLAIN",
+      "observed_log10_rc": 3.5441,
+      "observed_rc_linear_ohm_um": 3500.0,
+      "schottky_barrier_height_ev": 0.2345,
+      "gate_carrier_density_cm2": 5000000000000.0,
+      "is_vdw": false,
+      "classified_regime": "Regime_III_Thermionic_Emission",
+      "regime_name": "Thermionic Emission-Dominated Regime"
+    },
+    {
+      "device_id": "dev_18",
+      "contact_metal": "Ni",
+      "source_uid": "SRC-REV-2015-ALLAIN",
+      "observed_log10_rc": 3.699,
+      "observed_rc_linear_ohm_um": 5000.0,
+      "schottky_barrier_height_ev": 0.317,
+      "gate_carrier_density_cm2": 5000000000000.0,
+      "is_vdw": false,
+      "classified_regime": "Regime_III_Thermionic_Emission",
+      "regime_name": "Thermionic Emission-Dominated Regime"
+    },
+    {
+      "device_id": "dev_19",
+      "contact_metal": "Au",
+      "source_uid": "SRC-REV-2015-ALLAIN",
+      "observed_log10_rc": 3.8451,
+      "observed_rc_linear_ohm_um": 7000.0,
+      "schottky_barrier_height_ev": 0.3108,
+      "gate_carrier_density_cm2": 4500000000000.0,
+      "is_vdw": false,
+      "classified_regime": "Regime_III_Thermionic_Emission",
+      "regime_name": "Thermionic Emission-Dominated Regime"
+    }
+  ]
+}
