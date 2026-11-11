@@ -1,0 +1,152 @@
+[
+  {
+    "id": "ref_001_shen_2021",
+    "source_uid": "SRC-EXP-2021-SHEN",
+    "title": "Ultralow contact resistance between semimetal and monolayer semiconductors",
+    "curation_decision": "ACCEPTED_PRIMARY_MODELING",
+    "quality_score": 100,
+    "missing_fields": [],
+    "inconsistencies": [],
+    "quarantine_reason": null
+  },
+  {
+    "id": "ref_002_allain_2015",
+    "source_uid": "SRC-REV-2015-ALLAIN",
+    "title": "Electrical contacts to two-dimensional semiconductors",
+    "curation_decision": "ACCEPTED_PRIMARY_MODELING",
+    "quality_score": 82,
+    "missing_fields": [],
+    "inconsistencies": [],
+    "quarantine_reason": null
+  },
+  {
+    "id": "ref_003_liu_2018",
+    "source_uid": "SRC-EXP-2018-LIU",
+    "title": "Approaching the Schottky-Mott limit in van der Waals metal-semiconductor junctions",
+    "curation_decision": "ACCEPTED_PRIMARY_MODELING",
+    "quality_score": 97,
+    "missing_fields": [],
+    "inconsistencies": [],
+    "quarantine_reason": null
+  },
+  {
+    "id": "ref_004_kappera_2014",
+    "source_uid": "SRC-EXP-2014-KAPPERA",
+    "title": "Phase-engineered low-resistance contacts to monolayer 2D semiconductors",
+    "curation_decision": "ACCEPTED_PRIMARY_MODELING",
+    "quality_score": 83,
+    "missing_fields": [],
+    "inconsistencies": [],
+    "quarantine_reason": null
+  },
+  {
+    "id": "ref_005_english_2016",
+    "source_uid": "SRC-EXP-2016-ENGLISH",
+    "title": "Contact resistance benchmarks and scaling limits in monolayer MoS2 FETs",
+    "curation_decision": "ACCEPTED_PRIMARY_MODELING",
+    "quality_score": 98,
+    "missing_fields": [],
+    "inconsistencies": [],
+    "quarantine_reason": null
+  },
+  {
+    "id": "ref_006_das_2013",
+    "source_uid": "SRC-EXP-2013-DAS",
+    "title": "High performance pristine MoS2 field effect transistors with scandium contacts",
+    "curation_decision": "ACCEPTED_PRIMARY_MODELING",
+    "quality_score": 90,
+    "missing_fields": [],
+    "inconsistencies": [],
+    "quarantine_reason": null
+  },
+  {
+    "id": "ref_007_chwang_2014",
+    "source_uid": "SRC-EXP-2014-CHWANG",
+    "title": "Investigation of metal contacts on MoS2 using transfer length method",
+    "curation_decision": "ACCEPTED_PRIMARY_MODELING",
+    "quality_score": 76,
+    "missing_fields": [],
+    "inconsistencies": [],
+    "quarantine_reason": null
+  },
+  {
+    "id": "ref_008_radisavljevic_2011",
+    "source_uid": "SRC-EXP-2011-RADISAV",
+    "title": "Single-layer MoS2 transistors",
+    "curation_decision": "QUARANTINED_AUXILIARY",
+    "quality_score": 64,
+    "missing_fields": [],
+    "inconsistencies": [],
+    "quarantine_reason": "Suboptimal metrology: Two-probe extracted (Quality Score: 64)"
+  },
+  {
+    "id": "ref_009_cui_2015",
+    "source_uid": "SRC-EXP-2015-CUI",
+    "title": "Multi-terminal transport in pristine monolayer MoS2",
+    "curation_decision": "ACCEPTED_PRIMARY_MODELING",
+    "quality_score": 97,
+    "missing_fields": [],
+    "inconsistencies": [],
+    "quarantine_reason": null
+  },
+  {
+    "id": "ref_010_wang_2019",
+    "source_uid": "SRC-EXP-2019-WANG",
+    "title": "Low resistance van der Waals contacts to two-dimensional materials",
+    "curation_decision": "ACCEPTED_PRIMARY_MODELING",
+    "quality_score": 91,
+    "missing_fields": [],
+    "inconsistencies": [],
+    "quarantine_reason": null
+  },
+  {
+    "id": "ref_011_li_2019",
+    "source_uid": "SRC-EXP-2019-LI",
+    "title": "Antimony semimetal contacts for ultrathin 2D electronics",
+    "curation_decision": "ACCEPTED_PRIMARY_MODELING",
+    "quality_score": 91,
+    "missing_fields": [],
+    "inconsistencies": [],
+    "quarantine_reason": null
+  },
+  {
+    "id": "ref_012_guimaraes_2016",
+    "source_uid": "SRC-EXP-2016-GUIMARAES",
+    "title": "Atomically thin Ohmic contacts to MoS2 through graphene interlayers",
+    "curation_decision": "ACCEPTED_PRIMARY_MODELING",
+    "quality_score": 92,
+    "missing_fields": [],
+    "inconsistencies": [],
+    "quarantine_reason": null
+  },
+  {
+    "id": "ref_013_mcdonnell_2014",
+    "source_uid": "SRC-EXP-2014-MCDONNELL",
+    "title": "Defect-dominated doping and contact resistance in MoS2",
+    "curation_decision": "ACCEPTED_PRIMARY_MODELING",
+    "quality_score": 94,
+    "missing_fields": [],
+    "inconsistencies": [],
+    "quarantine_reason": null
+  },
+  {
+    "id": "ref_014_liu_2020",
+    "source_uid": "SRC-EXP-2020-LIU",
+    "title": "Thermal annealing and contact engineering of molybdenum disulfide FETs",
+    "curation_decision": "ACCEPTED_PRIMARY_MODELING",
+    "quality_score": 92,
+    "missing_fields": [],
+    "inconsistencies": [],
+    "quarantine_reason": null
+  },
+  {
+    "id": "ref_015_kim_2017",
+    "source_uid": "SRC-EXP-2017-KIM",
+    "title": "Approaching Ohmic contact to MoS2 via molybdenum oxide interlayers",
+    "curation_decision": "ACCEPTED_PRIMARY_MODELING",
+    "quality_score": 85,
+    "missing_fields": [],
+    "inconsistencies": [],
+    "quarantine_reason": null
+  }
+]
