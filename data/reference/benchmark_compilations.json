@@ -1,0 +1,121 @@
+[
+  {
+    "id": "allain_2015_natmat",
+    "title": "Electrical contacts to two-dimensional semiconductors",
+    "authors": ["A. Allain", "J. Kang", "K. Banerjee", "A. Kis"],
+    "journal": "Nature Materials",
+    "year": 2015,
+    "volume": "14",
+    "pages": "1195-1205",
+    "doi": "10.1038/nmat4452",
+    "type": "Comprehensive Meta-Analysis / Review",
+    "key_contributions": [
+      "Extensive compilation of experimental Schottky barrier heights for Ti, Mo, Ni, Au, Pt, and Sc on MoS2",
+      "Quantitative measurement of Fermi-level pinning factor (S ~ 0.1) across deposited metals",
+      "Decomposition of tunneling vs thermionic barrier resistances"
+    ],
+    "data_points_reported": 42,
+    "has_supplementary_tables": true,
+    "metals_covered": ["Ti", "Au", "Pd", "Sc", "Ni", "Pt", "Mo", "Cr"],
+    "priority": "Critical"
+  },
+  {
+    "id": "shen_2021_nature",
+    "title": "Ultralow contact resistance between semimetal and monolayer semiconductors",
+    "authors": ["P.-C. Shen", "C. Su", "Y. Lin", "A.-S. Chou", "C.-C. Cheng", "J. Kong", "et al."],
+    "journal": "Nature",
+    "year": 2021,
+    "volume": "593",
+    "pages": "211-217",
+    "doi": "10.1038/s41586-021-03472-9",
+    "type": "Landmark Experimental Benchmark & Review",
+    "key_contributions": [
+      "Semimetallic Bi (0001) vdW contact demonstration with ultralow Rc ~ 123 Ohm*um",
+      "Benchmark comparison table of state-of-the-art contact resistances in monolayer MoS2 across literature",
+      "Zero Schottky barrier height verification via low-temperature Arrhenius activation"
+    ],
+    "data_points_reported": 35,
+    "has_supplementary_tables": true,
+    "metals_covered": ["Bi", "Ti", "Au", "Ni", "Sc", "Ag"],
+    "priority": "Critical"
+  },
+  {
+    "id": "liu_2018_nature",
+    "title": "Approaching the Schottky-Mott limit in van der Waals metal-semiconductor junctions",
+    "authors": ["Y. Liu", "J. Guo", "E. Zhu", "L. Liao", "S.-J. Lee", "M. Ding", "I. Shakir", "V. Gambin", "Y. Huang", "X. Duan"],
+    "journal": "Nature",
+    "year": 2018,
+    "volume": "557",
+    "pages": "696-700",
+    "doi": "10.1038/s41586-018-0129-8",
+    "type": "Primary Benchmark Compilation",
+    "key_contributions": [
+      "Systematic comparison of transferred vdW contacts vs conventional evaporated contacts",
+      "Restoration of Schottky-Mott slope (S ~ 0.96) for transferred metal contacts",
+      "Extensive tabulated Schottky barrier heights for Ag, In, Cu, Au, Pt, and Ti on MoS2"
+    ],
+    "data_points_reported": 28,
+    "has_supplementary_tables": true,
+    "metals_covered": ["Ag", "In", "Cu", "Au", "Pt", "Ti"],
+    "priority": "Critical"
+  },
+  {
+    "id": "schulman_2018_chem_soc_rev",
+    "title": "Contact engineering for 2D materials and devices",
+    "authors": ["D. S. Schulman", "A. J. Arnold", "S. Das"],
+    "journal": "Chemical Society Reviews",
+    "year": 2018,
+    "volume": "47",
+    "pages": "3037-3058",
+    "doi": "10.1039/C7CS00828A",
+    "type": "Comprehensive Review and Data Catalog",
+    "key_contributions": [
+      "Meta-analysis of 1T metallic phase engineering, graphene interlayers, chemical doping, and hBN encapsulation",
+      "Tabulation of contact resistances reported with transmission line measurements (TLM)",
+      "Standardization of Rc normalization by contact width (Ohm*um)"
+    ],
+    "data_points_reported": 50,
+    "has_supplementary_tables": true,
+    "metals_covered": ["Ti", "Au", "Pd", "Sc", "Ni", "Cr", "Mo", "Graphene"],
+    "priority": "Critical"
+  },
+  {
+    "id": "kappera_2014_natmat",
+    "title": "Phase-engineered low-resistance contacts to monolayer 2D semiconductors",
+    "authors": ["R. Kappera", "D. Voiry", "S. E. Yalcin", "B. Branch", "G. Gupta", "A. D. Mohite", "M. Chhowalla"],
+    "journal": "Nature Materials",
+    "year": 2014,
+    "volume": "13",
+    "pages": "1128-1134",
+    "doi": "10.1038/nmat4080",
+    "type": "Experimental Benchmark",
+    "key_contributions": [
+      "2H to 1T local phase transition achieving Rc ~ 200-300 Ohm*um",
+      "Detailed TLM resistance versus channel length extraction data",
+      "Temperature dependence of contact resistivity"
+    ],
+    "data_points_reported": 18,
+    "has_supplementary_tables": true,
+    "metals_covered": ["1T-MoS2", "Au", "Ti"],
+    "priority": "High"
+  },
+  {
+    "id": "english_2016_iedm",
+    "title": "Contact resistance benchmarks and scaling limits in monolayer MoS2 FETs",
+    "authors": ["C. D. English", "G. Shine", "V. E. Dorgan", "K. C. Saraswat", "E. Pop"],
+    "journal": "IEEE International Electron Devices Meeting (IEDM)",
+    "year": 2016,
+    "pages": "5.6.1-5.6.4",
+    "doi": "10.1109/IEDM.2016.7838355",
+    "type": "High-Precision Device Metrology Benchmark",
+    "key_contributions": [
+      "Rigorous ultra-high vacuum TLM measurements on monolayer MoS2",
+      "Rc extraction under high carrier densities (n > 10^13 cm^-2)",
+      "Demonstration of Au-only and Ti/Au contacts down to Rc ~ 740 Ohm*um"
+    ],
+    "data_points_reported": 22,
+    "has_supplementary_tables": true,
+    "metals_covered": ["Ti", "Au", "Sc"],
+    "priority": "High"
+  }
+]
