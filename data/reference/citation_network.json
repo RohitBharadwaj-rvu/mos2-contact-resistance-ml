@@ -1,0 +1,149 @@
+{
+  "nodes": [
+    {
+      "id": "bardeen_1947",
+      "title": "Surface states and rectifying properties of metal-semiconductor contacts",
+      "year": 1947,
+      "type": "Theory Foundation"
+    },
+    {
+      "id": "cowley_sze_1965",
+      "title": "Surface states and barrier height of metal-semiconductor systems",
+      "year": 1965,
+      "type": "Theory Foundation"
+    },
+    {
+      "id": "radisavljevic_2011",
+      "title": "Single-layer MoS2 transistors",
+      "year": 2011,
+      "type": "Landmark Device"
+    },
+    {
+      "id": "das_2013",
+      "title": "High performance pristine MoS2 FETs with scandium contacts",
+      "year": 2013,
+      "type": "Low-WF Experiment"
+    },
+    {
+      "id": "kappera_2014",
+      "title": "Phase-engineered low-resistance contacts to monolayer 2D semiconductors",
+      "year": 2014,
+      "type": "Phase Engineering"
+    },
+    {
+      "id": "allain_2015",
+      "title": "Electrical contacts to two-dimensional semiconductors",
+      "year": 2015,
+      "type": "Meta-Analysis Review"
+    },
+    {
+      "id": "cui_2015",
+      "title": "Multi-terminal transport in pristine monolayer MoS2",
+      "year": 2015,
+      "type": "Metrology"
+    },
+    {
+      "id": "english_2016",
+      "title": "Contact resistance benchmarks and scaling limits in monolayer MoS2 FETs",
+      "year": 2016,
+      "type": "TLM Benchmark"
+    },
+    {
+      "id": "liu_2018",
+      "title": "Approaching the Schottky-Mott limit in van der Waals metal-semiconductor junctions",
+      "year": 2018,
+      "type": "vdW Transferred"
+    },
+    {
+      "id": "schulman_2018",
+      "title": "Contact engineering for 2D materials and devices",
+      "year": 2018,
+      "type": "Meta-Analysis Review"
+    },
+    {
+      "id": "wang_2019",
+      "title": "Low resistance van der Waals contacts to two-dimensional materials",
+      "year": 2019,
+      "type": "vdW Experiment"
+    },
+    {
+      "id": "shen_2021",
+      "title": "Ultralow contact resistance between semimetal and monolayer semiconductors",
+      "year": 2021,
+      "type": "Semimetal Benchmark"
+    },
+    {
+      "id": "zheng_2022",
+      "title": "Universal contact engineering for two-dimensional materials",
+      "year": 2022,
+      "type": "Forward Benchmark"
+    }
+  ],
+  "edges": [
+    {
+      "source": "allain_2015",
+      "target": "bardeen_1947",
+      "type": "theoretical_basis"
+    },
+    {
+      "source": "allain_2015",
+      "target": "cowley_sze_1965",
+      "type": "theoretical_basis"
+    },
+    {
+      "source": "allain_2015",
+      "target": "radisavljevic_2011",
+      "type": "data_synthesis"
+    },
+    {
+      "source": "allain_2015",
+      "target": "das_2013",
+      "type": "data_synthesis"
+    },
+    {
+      "source": "allain_2015",
+      "target": "kappera_2014",
+      "type": "data_synthesis"
+    },
+    {
+      "source": "liu_2018",
+      "target": "allain_2015",
+      "type": "cites_benchmark"
+    },
+    {
+      "source": "schulman_2018",
+      "target": "allain_2015",
+      "type": "cites_review"
+    },
+    {
+      "source": "schulman_2018",
+      "target": "english_2016",
+      "type": "data_synthesis"
+    },
+    {
+      "source": "shen_2021",
+      "target": "allain_2015",
+      "type": "benchmark_comparison"
+    },
+    {
+      "source": "shen_2021",
+      "target": "liu_2018",
+      "type": "methodology_contrast"
+    },
+    {
+      "source": "shen_2021",
+      "target": "english_2016",
+      "type": "benchmark_comparison"
+    },
+    {
+      "source": "zheng_2022",
+      "target": "shen_2021",
+      "type": "forward_expansion"
+    },
+    {
+      "source": "zheng_2022",
+      "target": "liu_2018",
+      "type": "forward_expansion"
+    }
+  ]
+}
