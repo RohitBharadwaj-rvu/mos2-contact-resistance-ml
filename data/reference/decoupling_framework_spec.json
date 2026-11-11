@@ -1,0 +1,50 @@
+{
+  "title": "Intrinsic vs Extrinsic Contact Decoupling Framework",
+  "feature_domains": {
+    "intrinsic_metal_domain": [
+      "work_function_ev",
+      "pauling_electronegativity",
+      "sulfide_formation_enthalpy_kj_mol",
+      "d_band_center_ev",
+      "metal_resistivity_ohm_cm",
+      "schottky_mott_barrier_ev",
+      "electronegativity_diff_sulfur"
+    ],
+    "extrinsic_processing_domain": [
+      "contact_architecture",
+      "is_vdw_or_depinned_contact",
+      "deposition_method",
+      "vacuum_base_pressure_torr",
+      "log_vacuum_pressure",
+      "post_annealing_temperature_c",
+      "post_annealing_gas_ambient",
+      "adhesion_layer",
+      "effective_pinning_factor_s"
+    ],
+    "electrostatic_operational_domain": [
+      "gate_carrier_density_cm2",
+      "measurement_temperature_k",
+      "thermal_energy_kbt_ev",
+      "fermi_level_shift_ev"
+    ]
+  },
+  "mathematical_decomposition": {
+    "shap_partition_formula": "Delta log10(Rc)(x) = Phi_intrinsic(x) + Phi_extrinsic(x) + Phi_electrostatic(x)",
+    "domain_attribution_share": "W_domain = sum(|phi_{i, j in domain}|) / sum(|phi_{total}|)",
+    "interaction_separation": "Separates additive main effects from cross-domain synergy Phi_{intrinsic, extrinsic}(x)"
+  },
+  "target_experimental_questions": [
+    {
+      "question": "What fraction of contact resistance variance is strictly governed by metal elemental choice versus fabrication recipe?",
+      "metric": "Global Attribution Share (W_intrinsic vs W_extrinsic)"
+    },
+    {
+      "question": "For a standard evaporated metal (e.g., Ti), what is the maximum achievable Rc reduction via vacuum optimization and thermal annealing alone?",
+      "metric": "Local Partial Residual Optimization Range [min(Phi_extrinsic), max(Phi_extrinsic)]"
+    },
+    {
+      "question": "At what gate doping density does electrostatic modulation saturate and become dominated by interfacial tunnel barrier height?",
+      "metric": "2D Decoupling Response Surface Inflection Points"
+    }
+  ]
+}
