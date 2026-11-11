@@ -1,0 +1,214 @@
+[
+  {
+    "id": "ref_001_shen_2021",
+    "source_uid": "SRC-EXP-2021-SHEN",
+    "title": "Ultralow contact resistance between semimetal and monolayer semiconductors",
+    "decision": "PASSED_TITLE_ABSTRACT",
+    "is_accepted": true,
+    "passed_rules": [
+      "INC-01: Target Material System",
+      "INC-02: Identified Contact Metal/Architecture",
+      "INC-03: Quantitative Metric Reporting",
+      "INC-04: Valid Characterization Metrology"
+    ],
+    "rejection_reasons": []
+  },
+  {
+    "id": "ref_002_allain_2015",
+    "source_uid": "SRC-REV-2015-ALLAIN",
+    "title": "Electrical contacts to two-dimensional semiconductors",
+    "decision": "PASSED_TITLE_ABSTRACT",
+    "is_accepted": true,
+    "passed_rules": [
+      "INC-01: Target Material System",
+      "INC-02: Identified Contact Metal/Architecture",
+      "INC-03: Quantitative Metric Reporting",
+      "INC-04: Valid Characterization Metrology"
+    ],
+    "rejection_reasons": []
+  },
+  {
+    "id": "ref_003_liu_2018",
+    "source_uid": "SRC-EXP-2018-LIU",
+    "title": "Approaching the Schottky-Mott limit in van der Waals metal-semiconductor junctions",
+    "decision": "REJECTED_INCOMPLETE",
+    "is_accepted": false,
+    "passed_rules": [
+      "INC-02: Identified Contact Metal/Architecture",
+      "INC-03: Quantitative Metric Reporting",
+      "INC-04: Valid Characterization Metrology"
+    ],
+    "rejection_reasons": [
+      "INC-01: Failed material confirmation (MoS2)"
+    ]
+  },
+  {
+    "id": "ref_004_kappera_2014",
+    "source_uid": "SRC-EXP-2014-KAPPERA",
+    "title": "Phase-engineered low-resistance contacts to monolayer 2D semiconductors",
+    "decision": "PASSED_TITLE_ABSTRACT",
+    "is_accepted": true,
+    "passed_rules": [
+      "INC-01: Target Material System",
+      "INC-02: Identified Contact Metal/Architecture",
+      "INC-03: Quantitative Metric Reporting",
+      "INC-04: Valid Characterization Metrology"
+    ],
+    "rejection_reasons": []
+  },
+  {
+    "id": "ref_005_english_2016",
+    "source_uid": "SRC-EXP-2016-ENGLISH",
+    "title": "Contact resistance benchmarks and scaling limits in monolayer MoS2 FETs",
+    "decision": "PASSED_TITLE_ABSTRACT",
+    "is_accepted": true,
+    "passed_rules": [
+      "INC-01: Target Material System",
+      "INC-02: Identified Contact Metal/Architecture",
+      "INC-03: Quantitative Metric Reporting",
+      "INC-04: Valid Characterization Metrology"
+    ],
+    "rejection_reasons": []
+  },
+  {
+    "id": "ref_006_das_2013",
+    "source_uid": "SRC-EXP-2013-DAS",
+    "title": "High performance pristine MoS2 field effect transistors with scandium contacts",
+    "decision": "PASSED_TITLE_ABSTRACT",
+    "is_accepted": true,
+    "passed_rules": [
+      "INC-01: Target Material System",
+      "INC-02: Identified Contact Metal/Architecture",
+      "INC-03: Quantitative Metric Reporting",
+      "INC-04: Valid Characterization Metrology"
+    ],
+    "rejection_reasons": []
+  },
+  {
+    "id": "ref_007_chwang_2014",
+    "source_uid": "SRC-EXP-2014-CHWANG",
+    "title": "Investigation of metal contacts on MoS2 using transfer length method",
+    "decision": "PASSED_TITLE_ABSTRACT",
+    "is_accepted": true,
+    "passed_rules": [
+      "INC-01: Target Material System",
+      "INC-02: Identified Contact Metal/Architecture",
+      "INC-03: Quantitative Metric Reporting",
+      "INC-04: Valid Characterization Metrology"
+    ],
+    "rejection_reasons": []
+  },
+  {
+    "id": "ref_008_radisavljevic_2011",
+    "source_uid": "SRC-EXP-2011-RADISAV",
+    "title": "Single-layer MoS2 transistors",
+    "decision": "FLAGGED_ERROR_PRONE_METROLOGY",
+    "is_accepted": false,
+    "passed_rules": [
+      "INC-01: Target Material System",
+      "INC-02: Identified Contact Metal/Architecture",
+      "INC-03: Quantitative Metric Reporting"
+    ],
+    "rejection_reasons": [
+      "EXC-02: Uncalibrated two-probe measurement without decoupling"
+    ]
+  },
+  {
+    "id": "ref_009_cui_2015",
+    "source_uid": "SRC-EXP-2015-CUI",
+    "title": "Multi-terminal transport in pristine monolayer MoS2",
+    "decision": "PASSED_TITLE_ABSTRACT",
+    "is_accepted": true,
+    "passed_rules": [
+      "INC-01: Target Material System",
+      "INC-02: Identified Contact Metal/Architecture",
+      "INC-03: Quantitative Metric Reporting",
+      "INC-04: Valid Characterization Metrology"
+    ],
+    "rejection_reasons": []
+  },
+  {
+    "id": "ref_010_wang_2019",
+    "source_uid": "SRC-EXP-2019-WANG",
+    "title": "Low resistance van der Waals contacts to two-dimensional materials",
+    "decision": "PASSED_TITLE_ABSTRACT",
+    "is_accepted": true,
+    "passed_rules": [
+      "INC-01: Target Material System",
+      "INC-02: Identified Contact Metal/Architecture",
+      "INC-03: Quantitative Metric Reporting",
+      "INC-04: Valid Characterization Metrology"
+    ],
+    "rejection_reasons": []
+  },
+  {
+    "id": "ref_011_li_2019",
+    "source_uid": "SRC-EXP-2019-LI",
+    "title": "Antimony semimetal contacts for ultrathin 2D electronics",
+    "decision": "PASSED_TITLE_ABSTRACT",
+    "is_accepted": true,
+    "passed_rules": [
+      "INC-01: Target Material System",
+      "INC-02: Identified Contact Metal/Architecture",
+      "INC-03: Quantitative Metric Reporting",
+      "INC-04: Valid Characterization Metrology"
+    ],
+    "rejection_reasons": []
+  },
+  {
+    "id": "ref_012_guimaraes_2016",
+    "source_uid": "SRC-EXP-2016-GUIMARAES",
+    "title": "Atomically thin Ohmic contacts to MoS2 through graphene interlayers",
+    "decision": "PASSED_TITLE_ABSTRACT",
+    "is_accepted": true,
+    "passed_rules": [
+      "INC-01: Target Material System",
+      "INC-02: Identified Contact Metal/Architecture",
+      "INC-03: Quantitative Metric Reporting",
+      "INC-04: Valid Characterization Metrology"
+    ],
+    "rejection_reasons": []
+  },
+  {
+    "id": "ref_013_mcdonnell_2014",
+    "source_uid": "SRC-EXP-2014-MCDONNELL",
+    "title": "Defect-dominated doping and contact resistance in MoS2",
+    "decision": "PASSED_TITLE_ABSTRACT",
+    "is_accepted": true,
+    "passed_rules": [
+      "INC-01: Target Material System",
+      "INC-02: Identified Contact Metal/Architecture",
+      "INC-03: Quantitative Metric Reporting",
+      "INC-04: Valid Characterization Metrology"
+    ],
+    "rejection_reasons": []
+  },
+  {
+    "id": "ref_014_liu_2020",
+    "source_uid": "SRC-EXP-2020-LIU",
+    "title": "Thermal annealing and contact engineering of molybdenum disulfide FETs",
+    "decision": "PASSED_TITLE_ABSTRACT",
+    "is_accepted": true,
+    "passed_rules": [
+      "INC-01: Target Material System",
+      "INC-02: Identified Contact Metal/Architecture",
+      "INC-03: Quantitative Metric Reporting",
+      "INC-04: Valid Characterization Metrology"
+    ],
+    "rejection_reasons": []
+  },
+  {
+    "id": "ref_015_kim_2017",
+    "source_uid": "SRC-EXP-2017-KIM",
+    "title": "Approaching Ohmic contact to MoS2 via molybdenum oxide interlayers",
+    "decision": "PASSED_TITLE_ABSTRACT",
+    "is_accepted": true,
+    "passed_rules": [
+      "INC-01: Target Material System",
+      "INC-02: Identified Contact Metal/Architecture",
+      "INC-03: Quantitative Metric Reporting",
+      "INC-04: Valid Characterization Metrology"
+    ],
+    "rejection_reasons": []
+  }
+]

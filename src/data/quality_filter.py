@@ -45,7 +45,12 @@ def audit_candidate_record(record: Dict[str, Any]) -> Tuple[bool, List[str], Lis
         rejections.append("EXC-02: Uncalibrated two-probe measurement without decoupling")
 
     # Check Inclusions
-    if "mos2" in title_and_abstract or "mos2" in record.get("title", "").lower() or record.get("contact_system"):
+    mat_terms = [
+        "mos2", "molybdenum disulf", "molybdenum disulph",
+        "two-dimensional semiconductor", "2d semiconductor",
+        "transition metal dichalcogenide", "tmdc"
+    ]
+    if any(mt in title_and_abstract for mt in mat_terms) or record.get("contact_system"):
         passed.append("INC-01: Target Material System")
     else:
         rejections.append("INC-01: Failed material confirmation (MoS2)")
