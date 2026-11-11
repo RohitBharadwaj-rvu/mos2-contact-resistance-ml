@@ -1,0 +1,65 @@
+{
+  "material_terms": [
+    "MoS2",
+    "MoS_2",
+    "molybdenum disulfide",
+    "molybdenum disulphide",
+    "monolayer MoS2",
+    "few-layer MoS2",
+    "bilayer MoS2",
+    "2D transition metal dichalcogenide"
+  ],
+  "contact_resistance_terms": [
+    "contact resistance",
+    "specific contact resistivity",
+    "transfer length method",
+    "TLM",
+    "Ohmic contact",
+    "Rc",
+    "contact resistivity"
+  ],
+  "schottky_barrier_terms": [
+    "Schottky barrier",
+    "Schottky barrier height",
+    "SBH",
+    "Fermi level pinning",
+    "Schottky-Mott",
+    "Bardeen limit",
+    "thermionic emission",
+    "Richardson plot",
+    "activation energy"
+  ],
+  "fabrication_processing_terms": [
+    "e-beam evaporation",
+    "thermal evaporation",
+    "sputtering",
+    "van der Waals contact",
+    "vdW contact",
+    "transferred contact",
+    "semimetal contact",
+    "phase engineering",
+    "1T phase",
+    "annealing",
+    "forming gas",
+    "edge contact"
+  ],
+  "metals_list": [
+    "Ti", "Au", "Pd", "Sc", "Ni", "Pt", "Cr", "Bi", "Sb", "In", "Ag", "Mo", "W", "Cu", "Al", "Y"
+  ],
+  "exclusion_terms": [
+    "photocatalysis",
+    "hydrogen evolution reaction",
+    "HER",
+    "solid lubricant",
+    "battery anode",
+    "lithium ion",
+    "supercapacitor",
+    "electrocatalysis"
+  ],
+  "query_templates": {
+    "openalex_contact_resistance": "(\"MoS2\" OR \"molybdenum disulfide\") AND (\"contact resistance\" OR \"TLM\" OR \"specific contact resistivity\") AND (\"FET\" OR \"transistor\" OR \"channel\")",
+    "openalex_schottky_barrier": "(\"MoS2\" OR \"molybdenum disulfide\") AND (\"Schottky barrier\" OR \"Fermi level pinning\" OR \"SBH\") AND (\"metal\" OR \"contact\")",
+    "openalex_vdw_and_semimetal": "(\"MoS2\" OR \"molybdenum disulfide\") AND (\"Bi\" OR \"bismuth\" OR \"semimetal\" OR \"van der Waals contact\") AND (\"contact resistance\" OR \"Ohmic\")",
+    "arxiv_cond_mat_mos2_contacts": "all:MoS2 AND (all:contact OR all:Schottky) AND (all:resistance OR all:barrier)"
+  }
+}
