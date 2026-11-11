@@ -1,0 +1,63 @@
+{
+  "features_used": [
+    "physics_predicted_sbh_ev",
+    "is_vdw_or_depinned_contact",
+    "sulfide_formation_enthalpy_kj_mol",
+    "gate_carrier_density_cm2"
+  ],
+  "n_samples": 20,
+  "models": {
+    "ordinary_least_squares": {
+      "rmse_log10_rc": 0.16,
+      "mae_log10_rc": 0.128,
+      "r2_score": 0.943,
+      "pearson_r": 0.971,
+      "coefficients": {
+        "physics_predicted_sbh_ev": 0.401,
+        "is_vdw_or_depinned_contact": -0.218,
+        "sulfide_formation_enthalpy_kj_mol": 0.089,
+        "gate_carrier_density_cm2": -0.304
+      },
+      "intercept": 3.115
+    },
+    "ridge_regression": {
+      "rmse_log10_rc": 0.162,
+      "mae_log10_rc": 0.134,
+      "r2_score": 0.942,
+      "pearson_r": 0.971,
+      "coefficients": {
+        "physics_predicted_sbh_ev": 0.383,
+        "is_vdw_or_depinned_contact": -0.205,
+        "sulfide_formation_enthalpy_kj_mol": 0.082,
+        "gate_carrier_density_cm2": -0.3
+      },
+      "intercept": 3.115
+    },
+    "lasso_regression": {
+      "rmse_log10_rc": 0.234,
+      "mae_log10_rc": 0.186,
+      "r2_score": 0.879,
+      "pearson_r": 0.958,
+      "coefficients": {
+        "physics_predicted_sbh_ev": 0.315,
+        "is_vdw_or_depinned_contact": -0.08,
+        "sulfide_formation_enthalpy_kj_mol": 0.0,
+        "gate_carrier_density_cm2": -0.281
+      },
+      "intercept": 3.115
+    },
+    "elastic_net": {
+      "rmse_log10_rc": 0.198,
+      "mae_log10_rc": 0.162,
+      "r2_score": 0.913,
+      "pearson_r": 0.965,
+      "coefficients": {
+        "physics_predicted_sbh_ev": 0.348,
+        "is_vdw_or_depinned_contact": -0.129,
+        "sulfide_formation_enthalpy_kj_mol": 0.01,
+        "gate_carrier_density_cm2": -0.287
+      },
+      "intercept": 3.115
+    }
+  }
+}
