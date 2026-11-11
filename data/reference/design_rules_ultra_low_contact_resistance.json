@@ -1,0 +1,170 @@
+{
+  "title": "MoS2 Contact Resistance Quantitative Design Rules and Strategic Engineering Matrix",
+  "threshold_tables": {
+    "target_100_ohm_um": {
+      "target_rc_ohm_um": 100.0,
+      "target_rc_dex": 2.0,
+      "governing_design_formula": "Phi_B_max [eV] = log10(Rc_target) + (n_2D / 1e13 cm^-2) - 3.660",
+      "scenario_thresholds": [
+        {
+          "scenario": "Standard Back-Gate (SiO2 90nm, Vgs=30V)",
+          "gate_carrier_density_cm2": 5000000000000.0,
+          "achievable_with_zero_barrier_rc_ohm_um": 1445.4,
+          "max_tolerable_sbh_ev": 0.0,
+          "is_target_achievable": false
+        },
+        {
+          "scenario": "Strong Back-Gate (SiO2 90nm, Vgs=60V)",
+          "gate_carrier_density_cm2": 10000000000000.0,
+          "achievable_with_zero_barrier_rc_ohm_um": 457.1,
+          "max_tolerable_sbh_ev": 0.0,
+          "is_target_achievable": false
+        },
+        {
+          "scenario": "Thin High-k Top-Gate (HfO2 5nm, Vgs=2V)",
+          "gate_carrier_density_cm2": 15000000000000.0,
+          "achievable_with_zero_barrier_rc_ohm_um": 144.5,
+          "max_tolerable_sbh_ev": 0.0,
+          "is_target_achievable": false
+        },
+        {
+          "scenario": "Peak High-k Gating (HfO2 3nm, Vgs=3V)",
+          "gate_carrier_density_cm2": 20000000000000.0,
+          "achievable_with_zero_barrier_rc_ohm_um": 45.7,
+          "max_tolerable_sbh_ev": 0.34,
+          "is_target_achievable": true
+        },
+        {
+          "scenario": "Ionic Liquid / Solid Electrolyte",
+          "gate_carrier_density_cm2": 25000000000000.0,
+          "achievable_with_zero_barrier_rc_ohm_um": 14.5,
+          "max_tolerable_sbh_ev": 0.84,
+          "is_target_achievable": true
+        }
+      ]
+    },
+    "target_200_ohm_um": {
+      "target_rc_ohm_um": 200.0,
+      "target_rc_dex": 2.301,
+      "governing_design_formula": "Phi_B_max [eV] = log10(Rc_target) + (n_2D / 1e13 cm^-2) - 3.660",
+      "scenario_thresholds": [
+        {
+          "scenario": "Standard Back-Gate (SiO2 90nm, Vgs=30V)",
+          "gate_carrier_density_cm2": 5000000000000.0,
+          "achievable_with_zero_barrier_rc_ohm_um": 1445.4,
+          "max_tolerable_sbh_ev": 0.0,
+          "is_target_achievable": false
+        },
+        {
+          "scenario": "Strong Back-Gate (SiO2 90nm, Vgs=60V)",
+          "gate_carrier_density_cm2": 10000000000000.0,
+          "achievable_with_zero_barrier_rc_ohm_um": 457.1,
+          "max_tolerable_sbh_ev": 0.0,
+          "is_target_achievable": false
+        },
+        {
+          "scenario": "Thin High-k Top-Gate (HfO2 5nm, Vgs=2V)",
+          "gate_carrier_density_cm2": 15000000000000.0,
+          "achievable_with_zero_barrier_rc_ohm_um": 144.5,
+          "max_tolerable_sbh_ev": 0.141,
+          "is_target_achievable": true
+        },
+        {
+          "scenario": "Peak High-k Gating (HfO2 3nm, Vgs=3V)",
+          "gate_carrier_density_cm2": 20000000000000.0,
+          "achievable_with_zero_barrier_rc_ohm_um": 45.7,
+          "max_tolerable_sbh_ev": 0.641,
+          "is_target_achievable": true
+        },
+        {
+          "scenario": "Ionic Liquid / Solid Electrolyte",
+          "gate_carrier_density_cm2": 25000000000000.0,
+          "achievable_with_zero_barrier_rc_ohm_um": 14.5,
+          "max_tolerable_sbh_ev": 1.141,
+          "is_target_achievable": true
+        }
+      ]
+    },
+    "target_500_ohm_um": {
+      "target_rc_ohm_um": 500.0,
+      "target_rc_dex": 2.699,
+      "governing_design_formula": "Phi_B_max [eV] = log10(Rc_target) + (n_2D / 1e13 cm^-2) - 3.660",
+      "scenario_thresholds": [
+        {
+          "scenario": "Standard Back-Gate (SiO2 90nm, Vgs=30V)",
+          "gate_carrier_density_cm2": 5000000000000.0,
+          "achievable_with_zero_barrier_rc_ohm_um": 1445.4,
+          "max_tolerable_sbh_ev": 0.0,
+          "is_target_achievable": false
+        },
+        {
+          "scenario": "Strong Back-Gate (SiO2 90nm, Vgs=60V)",
+          "gate_carrier_density_cm2": 10000000000000.0,
+          "achievable_with_zero_barrier_rc_ohm_um": 457.1,
+          "max_tolerable_sbh_ev": 0.039,
+          "is_target_achievable": true
+        },
+        {
+          "scenario": "Thin High-k Top-Gate (HfO2 5nm, Vgs=2V)",
+          "gate_carrier_density_cm2": 15000000000000.0,
+          "achievable_with_zero_barrier_rc_ohm_um": 144.5,
+          "max_tolerable_sbh_ev": 0.539,
+          "is_target_achievable": true
+        },
+        {
+          "scenario": "Peak High-k Gating (HfO2 3nm, Vgs=3V)",
+          "gate_carrier_density_cm2": 20000000000000.0,
+          "achievable_with_zero_barrier_rc_ohm_um": 45.7,
+          "max_tolerable_sbh_ev": 1.039,
+          "is_target_achievable": true
+        },
+        {
+          "scenario": "Ionic Liquid / Solid Electrolyte",
+          "gate_carrier_density_cm2": 25000000000000.0,
+          "achievable_with_zero_barrier_rc_ohm_um": 14.5,
+          "max_tolerable_sbh_ev": 1.539,
+          "is_target_achievable": true
+        }
+      ]
+    }
+  },
+  "technology_recommendations": [
+    {
+      "scenario_id": "SCENARIO_1_ULTRA_HIGH_PERFORMANCE_LOGIC",
+      "application": "Sub-1nm CMOS Node Ultra-High-Performance Logic (IRDS Target)",
+      "target_rc": "< 100 Ohm*um",
+      "recommended_contact_strategy": "Van der Waals transferred semimetal: Bismuth Bi(0001) or Antimony Sb(0001)",
+      "interface_engineering": "Pristine physical transfer in inert glovebox (< 0.1 ppm O2/H2O) to prevent surface oxidation.",
+      "gate_dielectric_spec": "Dual-gated geometry with high-k HfO2 or ZrO2 (EOT < 0.8 nm), providing n_2D >= 1.8e13 cm^-2.",
+      "thermal_budget_limit": "Maintain T_processing < 240 deg C to prevent bismuth balling/dewetting."
+    },
+    {
+      "scenario_id": "SCENARIO_2_CMOS_FAB_COMPATIBLE_TRANSITION",
+      "application": "Standard Foundry CMOS Fab-Line Compatible Integration",
+      "target_rc": "200 - 400 Ohm*um",
+      "recommended_contact_strategy": "Low-work-function reactive transition metal: Titanium (Ti) or Scandium (Sc) with Au/Pt cap",
+      "interface_engineering": "Ultra-high vacuum e-beam evaporation (< 10^-8 Torr) with slow initial deposition rate (0.1 A/s) to minimize kinetic impact damage.",
+      "gate_dielectric_spec": "Back-gated SiO2 (30-50 nm) or Al2O3 top-gate, operating at n_2D >= 1.0e13 cm^-2.",
+      "thermal_budget_limit": "Post-metal vacuum annealing at 250 - 300 deg C in Ar/H2 forming gas to induce mild interfacial sulfur reaction and reduce pinning."
+    },
+    {
+      "scenario_id": "SCENARIO_3_CRYOGENIC_QUANTUM_COMPUTING_INTERFACE",
+      "application": "Cryogenic 2D Superconducting / Quantum Readout Electronics (4 K - 77 K)",
+      "target_rc": "< 200 Ohm*um at 4 K",
+      "recommended_contact_strategy": "Chemically converted 1T metallic phase MoS2 homojunction or Nb/MoS2 superconducting contact",
+      "interface_engineering": "Local n-butyl lithium or laser-assisted phase transformation to eliminate Schottky barrier freeze-out entirely (Phi_B ~ 0 eV).",
+      "gate_dielectric_spec": "h-BN encapsulated gate stack to suppress cryogenic charged impurity scattering.",
+      "thermal_budget_limit": "Metastable 1T phase requires T < 100 deg C after chemical conversion to prevent relaxation back to 2H phase."
+    },
+    {
+      "scenario_id": "SCENARIO_4_FLEXIBLE_TRANSPARENT_ELECTRONICS",
+      "application": "Low-Temperature Flexible Polymer Substrates (PET, Polyimide)",
+      "target_rc": "< 500 Ohm*um",
+      "recommended_contact_strategy": "Transferred monolayer graphene or low-temperature silver Ag nanowires",
+      "interface_engineering": "Dry stamping van der Waals lamination at room temperature.",
+      "gate_dielectric_spec": "High-capacitance ion gel or ALD Al2O3 deposited at 120 deg C.",
+      "thermal_budget_limit": "Strict limit T < 150 deg C to preserve organic substrate dimensional stability."
+    }
+  ],
+  "key_design_takeaway": "To break the 100 Ohm*um barrier, experimentalists must operate in Regime I: Gate carrier density must exceed 1.7e13 cm^-2 (requiring high-k dielectrics), and Schottky barrier height must be suppressed below 0.15 eV using van der Waals semimetals (Bi, Sb) or 1T-phase homojunctions."
+}

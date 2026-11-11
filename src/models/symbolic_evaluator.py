@@ -10,12 +10,65 @@ from typing import Dict, Any, List, Optional, Callable, Tuple
 import numpy as np
 import pandas as pd
 import sympy as sp
+from sklearn.base import BaseEstimator, RegressorMixin
 
 from src.models.symbolic_search_space import validate_physics_constraints
 from src.models.symbolic_variable_selector import get_scaled_symbolic_dataset
 
 PARETO_JSON = Path(__file__).resolve().parents[2] / "data" / "processed" / "symbolic_regression_pareto_frontier.json"
 AUDITED_EQUATIONS_JSON = Path(__file__).resolve().parents[2] / "data" / "processed" / "symbolic_equations_audited.json"
+
+
+class DiscoveredSymbolicContactModel(BaseEstimator, RegressorMixin):
+    """
+    Scikit-learn compatible estimator implementing the Pareto-optimal discovered closed-form physical equation:
+    log10(Rc) = alpha * Phi_B - beta * (n_2D / 1e13) + gamma
+    In pure analytical mode (refit=False):
+        alpha = 1.0, beta = 1.0, gamma = 3.660
+    In refit mode (refit=True):
+        Fine-tunes alpha, beta, gamma via Ordinary Least Squares on the 2 physical basis functions.
+    """
+    def __init__(self, refit: bool = False):
+        self.refit = refit
+        self.alpha_ = 1.0
+        self.beta_ = 1.0
+        self.gamma_ = 3.660
+
+    def fit(self, X, y=None):
+        if not self.refit:
+            return self
+        
+        if isinstance(X, pd.DataFrame):
+            sbh_col = "physics_predicted_sbh_ev" if "physics_predicted_sbh_ev" in X.columns else ("x_sbh" if "x_sbh" in X.columns else X.columns[0])
+            n2d_col = "gate_carrier_density_cm2" if "gate_carrier_density_cm2" in X.columns else ("x_n2d" if "x_n2d" in X.columns else (X.columns[3] if len(X.columns) > 3 else X.columns[1]))
+            phi = X[sbh_col].values
+            n2d = X[n2d_col].values
+        else:
+            X_arr = np.asarray(X)
+            phi = X_arr[:, 0]
+            n2d = X_arr[:, -1]
+            
+        n2d_norm = n2d if np.max(n2d) <= 10.0 else n2d / 1e13
+        Design = np.column_stack([phi, -n2d_norm, np.ones_like(phi)])
+        coeffs, _, _, _ = np.linalg.lstsq(Design, y, rcond=None)
+        self.alpha_ = float(coeffs[0])
+        self.beta_ = float(coeffs[1])
+        self.gamma_ = float(coeffs[2])
+        return self
+
+    def predict(self, X):
+        if isinstance(X, pd.DataFrame):
+            sbh_col = "physics_predicted_sbh_ev" if "physics_predicted_sbh_ev" in X.columns else ("x_sbh" if "x_sbh" in X.columns else X.columns[0])
+            n2d_col = "gate_carrier_density_cm2" if "gate_carrier_density_cm2" in X.columns else ("x_n2d" if "x_n2d" in X.columns else (X.columns[3] if len(X.columns) > 3 else X.columns[1]))
+            phi = X[sbh_col].values
+            n2d = X[n2d_col].values
+        else:
+            X_arr = np.asarray(X)
+            phi = X_arr[:, 0]
+            n2d = X_arr[:, -1]
+            
+        n2d_norm = n2d if np.max(n2d) <= 10.0 else n2d / 1e13
+        return self.alpha_ * phi - self.beta_ * n2d_norm + self.gamma_
 
 
 def evaluate_equation_physics(
