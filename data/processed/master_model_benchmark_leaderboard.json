@@ -1,0 +1,108 @@
+{
+  "title": "Master MoS2 Contact Resistance ML Benchmark Leaderboard (Default Settings)",
+  "validation_scheme": "GroupKFold(n_splits=5, groups=source_uid)",
+  "n_models_evaluated": 11,
+  "leaderboard": [
+    {
+      "model_name": "elastic_net",
+      "category": "naive_statistical",
+      "composite_score": 0.8626,
+      "rmse_log10_dex": 0.2509,
+      "spearman_rho": 0.9504,
+      "concordance_index": 0.9211,
+      "is_qualified": true
+    },
+    {
+      "model_name": "ridge_regression",
+      "category": "baseline_parametric",
+      "composite_score": 0.8596,
+      "rmse_log10_dex": 0.2306,
+      "spearman_rho": 0.9338,
+      "concordance_index": 0.9,
+      "is_qualified": true
+    },
+    {
+      "model_name": "ordinary_least_squares",
+      "category": "baseline_parametric",
+      "composite_score": 0.8497,
+      "rmse_log10_dex": 0.2514,
+      "spearman_rho": 0.9293,
+      "concordance_index": 0.9,
+      "is_qualified": true
+    },
+    {
+      "model_name": "lasso_regression",
+      "category": "baseline_parametric",
+      "composite_score": 0.8139,
+      "rmse_log10_dex": 0.3185,
+      "spearman_rho": 0.9188,
+      "concordance_index": 0.8789,
+      "is_qualified": true
+    },
+    {
+      "model_name": "Gradient_Boosting",
+      "category": "non_linear_ml",
+      "composite_score": 0.759,
+      "rmse_log10_dex": 0.4098,
+      "spearman_rho": 0.8868,
+      "concordance_index": 0.85,
+      "is_qualified": true
+    },
+    {
+      "model_name": "Random_Forest",
+      "category": "non_linear_ml",
+      "composite_score": 0.7434,
+      "rmse_log10_dex": 0.4098,
+      "spearman_rho": 0.8612,
+      "concordance_index": 0.8237,
+      "is_qualified": true
+    },
+    {
+      "model_name": "Gaussian_Process_Matern",
+      "category": "non_linear_ml",
+      "composite_score": 0.7364,
+      "rmse_log10_dex": 0.4518,
+      "spearman_rho": 0.8647,
+      "concordance_index": 0.8579,
+      "is_qualified": false
+    },
+    {
+      "model_name": "Support_Vector_Regression_RBF",
+      "category": "non_linear_ml",
+      "composite_score": 0.6242,
+      "rmse_log10_dex": 0.5337,
+      "spearman_rho": 0.7053,
+      "concordance_index": 0.7632,
+      "is_qualified": false
+    },
+    {
+      "model_name": "pure_physics_schottky",
+      "category": "naive_statistical",
+      "composite_score": 0.3688,
+      "rmse_log10_dex": 1.9687,
+      "spearman_rho": 0.5518,
+      "concordance_index": 0.7026,
+      "is_qualified": false
+    },
+    {
+      "model_name": "mean_baseline",
+      "category": "naive_statistical",
+      "composite_score": 0.1832,
+      "rmse_log10_dex": 0.7294,
+      "spearman_rho": -0.5764,
+      "concordance_index": 0.3,
+      "is_qualified": false
+    },
+    {
+      "model_name": "median_baseline",
+      "category": "naive_statistical",
+      "composite_score": 0.1738,
+      "rmse_log10_dex": 0.7661,
+      "spearman_rho": -0.5504,
+      "concordance_index": 0.3211,
+      "is_qualified": false
+    }
+  ],
+  "champion_model_pre_tuning": "elastic_net",
+  "top_score_pre_tuning": 0.8626
+}
