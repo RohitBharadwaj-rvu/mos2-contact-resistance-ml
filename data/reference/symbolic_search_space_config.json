@@ -1,0 +1,71 @@
+{
+  "primitive_operators": [
+    {
+      "name": "add",
+      "symbol": "+",
+      "arity": 2
+    },
+    {
+      "name": "sub",
+      "symbol": "-",
+      "arity": 2
+    },
+    {
+      "name": "mul",
+      "symbol": "*",
+      "arity": 2
+    },
+    {
+      "name": "div",
+      "symbol": "/",
+      "arity": 2,
+      "protected": true
+    },
+    {
+      "name": "exp",
+      "symbol": "exp",
+      "arity": 1,
+      "protected": true,
+      "rationale": "Models thermionic exp(q*Phi / kT)"
+    },
+    {
+      "name": "log",
+      "symbol": "log",
+      "arity": 1,
+      "protected": true,
+      "rationale": "Models logarithmic target and scaling"
+    },
+    {
+      "name": "inv",
+      "symbol": "1/x",
+      "arity": 1,
+      "protected": true,
+      "rationale": "Models reciprocal density scaling"
+    }
+  ],
+  "complexity_constraints": {
+    "max_tree_depth": 4,
+    "max_nodes": 12,
+    "parsimony_coefficient": 0.035,
+    "tournament_size": 20,
+    "generations": 50,
+    "population_size": 1000
+  },
+  "physical_inductive_constraints": [
+    {
+      "constraint": "positive_schottky_monotonicity",
+      "formulation": "d(log10_rc) / d(Phi_B) >= 0",
+      "physical_meaning": "Increasing barrier height must monotonically increase contact resistance."
+    },
+    {
+      "constraint": "negative_gate_monotonicity",
+      "formulation": "d(log10_rc) / d(n_2D) <= 0",
+      "physical_meaning": "Electrostatic carrier accumulation must monotonically compress depletion width and decrease contact resistance."
+    },
+    {
+      "constraint": "asymptotic_quantum_limit",
+      "formulation": "lim_{n_2D -> inf, Phi_B -> 0} Rc >= R_quantum ~ 10-100 Ohm*um",
+      "physical_meaning": "Contact resistance cannot drop below the Landauer-Sharvin ballistic quantum resistance limit."
+    }
+  ]
+}
