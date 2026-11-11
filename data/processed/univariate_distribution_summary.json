@@ -1,0 +1,149 @@
+{
+  "dataset_sample_size": 20,
+  "numerical_statistics": {
+    "work_function_ev": {
+      "mean": 4.596,
+      "std": 0.484,
+      "median": 4.5,
+      "q1": 4.312,
+      "q3": 5.1,
+      "iqr": 0.787,
+      "skewness": 0.165,
+      "kurtosis": -0.029,
+      "outlier_count": 0,
+      "outliers": []
+    },
+    "pauling_electronegativity": {
+      "mean": 1.99,
+      "std": 0.339,
+      "median": 2.02,
+      "q1": 1.75,
+      "q3": 2.17,
+      "iqr": 0.42,
+      "skewness": -0.017,
+      "kurtosis": -0.774,
+      "outlier_count": 0,
+      "outliers": []
+    },
+    "sulfide_formation_enthalpy_kj_mol": {
+      "mean": -118.55,
+      "std": 93.866,
+      "median": -83.5,
+      "q1": -145.0,
+      "q3": -67.5,
+      "iqr": 77.5,
+      "skewness": -0.977,
+      "kurtosis": -0.103,
+      "outlier_count": 4,
+      "outliers": [
+        -270.0,
+        -340.0,
+        -270.0,
+        -270.0
+      ]
+    },
+    "d_band_center_ev": {
+      "mean": -2.92,
+      "std": 1.682,
+      "median": -2.05,
+      "q1": -4.275,
+      "q3": -1.725,
+      "iqr": 2.55,
+      "skewness": -0.654,
+      "kurtosis": -1.058,
+      "outlier_count": 0,
+      "outliers": []
+    },
+    "contact_resistance_rc_ohm_um": {
+      "mean": 5457.65,
+      "std": 13962.51,
+      "median": 920.0,
+      "q1": 382.5,
+      "q3": 3675.0,
+      "iqr": 3292.5,
+      "skewness": 3.856,
+      "kurtosis": 13.548,
+      "outlier_count": 2,
+      "outliers": [
+        65000.0,
+        12000.0
+      ]
+    },
+    "log10_rc": {
+      "mean": 3.115,
+      "std": 0.672,
+      "median": 2.955,
+      "q1": 2.581,
+      "q3": 3.564,
+      "iqr": 0.983,
+      "skewness": 0.649,
+      "kurtosis": -0.096,
+      "outlier_count": 0,
+      "outliers": []
+    },
+    "schottky_barrier_height_ev": {
+      "mean": 0.317,
+      "std": 0.334,
+      "median": 0.25,
+      "q1": 0.08,
+      "q3": 0.405,
+      "iqr": 0.325,
+      "skewness": 1.963,
+      "kurtosis": 4.124,
+      "outlier_count": 1,
+      "outliers": [
+        1.45
+      ]
+    },
+    "physics_predicted_sbh_ev": {
+      "mean": 0.265,
+      "std": 0.281,
+      "median": 0.253,
+      "q1": 0.149,
+      "q3": 0.314,
+      "iqr": 0.165,
+      "skewness": 2.913,
+      "kurtosis": 9.299,
+      "outlier_count": 1,
+      "outliers": [
+        1.376
+      ]
+    }
+  },
+  "categorical_distributions": {
+    "contact_metal": {
+      "Ti": 3,
+      "Bi": 2,
+      "Au": 2,
+      "Mo": 2,
+      "Ni": 2,
+      "Ag": 1,
+      "In": 1,
+      "Pt": 1,
+      "1T-MoS2": 1,
+      "Sc": 1,
+      "Graphene": 1,
+      "Sb": 1,
+      "Cr": 1,
+      "Pd": 1
+    },
+    "contact_architecture": {
+      "Top_Contact": 11,
+      "Semimetal_vdW": 3,
+      "vdW_Laminated": 3,
+      "Interlayer_Buffer": 2,
+      "Phase_Engineered_1T": 1
+    },
+    "deposition_method": {
+      "E_beam_Evaporation": 10,
+      "Thermal_Evaporation": 4,
+      "Dry_Transfer": 4,
+      "Chemical_Treatment": 1,
+      "Sputtering": 1
+    },
+    "carrier_polarity": {
+      "n_type": 17,
+      "p_type": 3
+    }
+  }
+}
