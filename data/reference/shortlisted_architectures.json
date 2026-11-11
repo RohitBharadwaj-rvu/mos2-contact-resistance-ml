@@ -1,0 +1,118 @@
+{
+  "weights": {
+    "small_n_generalization": 0.25,
+    "physical_interpretability": 0.25,
+    "non_linear_interactions": 0.2,
+    "uncertainty_quantification": 0.2,
+    "optimization_stability": 0.1
+  },
+  "candidate_evaluations": [
+    {
+      "architecture": "Gaussian_Process_Matern",
+      "family": "bayesian_non_parametric",
+      "scores": {
+        "small_n_generalization": 9.5,
+        "physical_interpretability": 7.0,
+        "non_linear_interactions": 9.5,
+        "uncertainty_quantification": 10.0,
+        "optimization_stability": 8.0
+      },
+      "shortlisted": true,
+      "role": "Primary Bayesian model supplying analytic prediction intervals and experimental noise estimation.",
+      "composite_score": 8.82
+    },
+    {
+      "architecture": "Ridge_Regression",
+      "family": "regularized_linear",
+      "scores": {
+        "small_n_generalization": 9.5,
+        "physical_interpretability": 10.0,
+        "non_linear_interactions": 6.0,
+        "uncertainty_quantification": 5.0,
+        "optimization_stability": 10.0
+      },
+      "shortlisted": true,
+      "role": "Primary regularized linear benchmark with direct coefficient physics attribution.",
+      "composite_score": 8.07
+    },
+    {
+      "architecture": "Random_Forest",
+      "family": "tree_ensemble",
+      "scores": {
+        "small_n_generalization": 8.5,
+        "physical_interpretability": 7.5,
+        "non_linear_interactions": 9.0,
+        "uncertainty_quantification": 6.0,
+        "optimization_stability": 9.5
+      },
+      "shortlisted": true,
+      "role": "Robust bagging ensemble minimizing variance.",
+      "composite_score": 7.95
+    },
+    {
+      "architecture": "ElasticNet",
+      "family": "regularized_linear",
+      "scores": {
+        "small_n_generalization": 9.0,
+        "physical_interpretability": 9.5,
+        "non_linear_interactions": 6.0,
+        "uncertainty_quantification": 5.0,
+        "optimization_stability": 9.5
+      },
+      "shortlisted": true,
+      "role": "Sparsity-inducing linear model pruning weak features.",
+      "composite_score": 7.78
+    },
+    {
+      "architecture": "Gradient_Boosting",
+      "family": "tree_ensemble",
+      "scores": {
+        "small_n_generalization": 8.0,
+        "physical_interpretability": 8.0,
+        "non_linear_interactions": 10.0,
+        "uncertainty_quantification": 4.0,
+        "optimization_stability": 8.5
+      },
+      "shortlisted": true,
+      "role": "Primary non-linear tabular champion capturing gating and de-pinning interactions.",
+      "composite_score": 7.65
+    },
+    {
+      "architecture": "Support_Vector_Regression_RBF",
+      "family": "kernel_margin",
+      "scores": {
+        "small_n_generalization": 9.0,
+        "physical_interpretability": 6.5,
+        "non_linear_interactions": 9.5,
+        "uncertainty_quantification": 4.0,
+        "optimization_stability": 8.5
+      },
+      "shortlisted": true,
+      "role": "Epsilon-insensitive margin regressor immune to small experimental noise.",
+      "composite_score": 7.43
+    },
+    {
+      "architecture": "Unregularized_OLS",
+      "family": "linear",
+      "scores": {
+        "small_n_generalization": 5.0,
+        "physical_interpretability": 10.0,
+        "non_linear_interactions": 5.0,
+        "uncertainty_quantification": 4.0,
+        "optimization_stability": 7.0
+      },
+      "shortlisted": false,
+      "role": "Rejected due to high variance and multicollinearity sensitivity.",
+      "composite_score": 6.25
+    }
+  ],
+  "shortlisted_models": [
+    "Gaussian_Process_Matern",
+    "Ridge_Regression",
+    "Random_Forest",
+    "ElasticNet",
+    "Gradient_Boosting",
+    "Support_Vector_Regression_RBF"
+  ],
+  "primary_champion_recommendation": "Gaussian_Process_Matern and Gradient_Boosting"
+}
