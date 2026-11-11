@@ -1,0 +1,90 @@
+{
+  "contact_resistance_methods": {
+    "TLM": {
+      "name": "Transmission Line Method (TLM)",
+      "reliability_tier": "Gold_Standard",
+      "reliability_score": 10,
+      "minimum_channel_lengths_required": 3,
+      "decouples_channel_resistance": true,
+      "typical_uncertainty_percent": 10.0,
+      "required_parameters": ["channel_width_um", "channel_lengths_list_um", "gate_voltage_v", "temperature_k"],
+      "pitfalls": ["Channel width non-uniformity", "Gate leakage at high Vg", "Flake thickness variations"]
+    },
+    "Four_Probe_Hall_Bar": {
+      "name": "Four-Probe / Multi-Terminal Hall Bar",
+      "reliability_tier": "High",
+      "reliability_score": 8.5,
+      "minimum_channel_lengths_required": 1,
+      "decouples_channel_resistance": true,
+      "typical_uncertainty_percent": 15.0,
+      "required_parameters": ["probe_spacing_um", "channel_width_um", "injected_current_a"],
+      "pitfalls": ["Inner probe invasiveness", "Non-negligible probe contact resistance"]
+    },
+    "Y_Function": {
+      "name": "Y-Function Mobility Degradation Analysis",
+      "reliability_tier": "Moderate",
+      "reliability_score": 6.5,
+      "minimum_channel_lengths_required": 1,
+      "decouples_channel_resistance": false,
+      "typical_uncertainty_percent": 25.0,
+      "required_parameters": ["gate_dielectric_capacitance_f_cm2", "transconductance_gm"],
+      "pitfalls": ["Assumes linear mobility degradation", "Sensitive to high-k interface traps"]
+    },
+    "Two_Probe_Extraction": {
+      "name": "Two-Probe Raw Extraction",
+      "reliability_tier": "Error_Prone",
+      "reliability_score": 3.0,
+      "minimum_channel_lengths_required": 1,
+      "decouples_channel_resistance": false,
+      "typical_uncertainty_percent": 60.0,
+      "required_parameters": ["total_resistance_ohm"],
+      "pitfalls": ["Cannot cleanly decouple channel resistance", "Grossly overestimates Rc"]
+    }
+  },
+  "schottky_barrier_methods": {
+    "Modified_Richardson_Arrhenius": {
+      "name": "Modified 2D Richardson Temperature Activation",
+      "reliability_tier": "Gold_Standard",
+      "reliability_score": 10,
+      "temperature_range_required_k": [77, 300],
+      "thermionic_scaling_power": 1.5,
+      "flatband_extrapolation_required": true,
+      "typical_uncertainty_ev": 0.03,
+      "required_parameters": ["temperature_series_k", "gate_voltage_series_v", "activation_energy_slope"],
+      "pitfalls": ["Tunneling field emission at high negative/positive gate biases", "Barrier lowering"]
+    },
+    "Subthreshold_Arrhenius": {
+      "name": "Sub-threshold Activation Energy Extraction",
+      "reliability_tier": "High",
+      "reliability_score": 8.5,
+      "temperature_range_required_k": [150, 300],
+      "thermionic_scaling_power": 1.5,
+      "flatband_extrapolation_required": true,
+      "typical_uncertainty_ev": 0.05,
+      "required_parameters": ["subthreshold_swing_mv_dec", "temperature_k"],
+      "pitfalls": ["Interface trap capacitance Dit shifting subthreshold slope"]
+    },
+    "XPS_Band_Bending": {
+      "name": "In-situ XPS Core-Level Binding Energy Shift",
+      "reliability_tier": "High",
+      "reliability_score": 8.0,
+      "temperature_range_required_k": [300, 300],
+      "thermionic_scaling_power": null,
+      "flatband_extrapolation_required": false,
+      "typical_uncertainty_ev": 0.05,
+      "required_parameters": ["core_level_peak_ev", "valence_band_maximum_ev"],
+      "pitfalls": ["X-ray beam-induced charging", "Metal deposition sputter damage altering surface chemistry"]
+    },
+    "Room_Temp_IV_Fitting": {
+      "name": "Single Room-Temperature I-V Diode Equation Fitting",
+      "reliability_tier": "Error_Prone",
+      "reliability_score": 3.5,
+      "temperature_range_required_k": [295, 300],
+      "thermionic_scaling_power": 2.0,
+      "flatband_extrapolation_required": false,
+      "typical_uncertainty_ev": 0.20,
+      "required_parameters": ["ideality_factor_n"],
+      "pitfalls": ["Large ideality factors n >> 2 invalidate classic thermionic emission model"]
+    }
+  }
+}
