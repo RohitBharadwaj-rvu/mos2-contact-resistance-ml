@@ -1,0 +1,82 @@
+{
+  "title": "Model-Agnostic Permutation Importance and Partial Dependence Analysis",
+  "permutation_importance": {
+    "model_name": "Ridge_Regression",
+    "base_oof_rmse_dex": 0.226,
+    "permutation_importance": {
+      "physics_predicted_sbh_ev": {
+        "mean_delta_rmse_dex": 0.2747,
+        "std_delta_rmse_dex": 0.142,
+        "relative_importance_pct": 55.6
+      },
+      "is_vdw_or_depinned_contact": {
+        "mean_delta_rmse_dex": 0.0612,
+        "std_delta_rmse_dex": 0.0301,
+        "relative_importance_pct": 12.4
+      },
+      "sulfide_formation_enthalpy_kj_mol": {
+        "mean_delta_rmse_dex": 0.0137,
+        "std_delta_rmse_dex": 0.0052,
+        "relative_importance_pct": 2.8
+      },
+      "gate_carrier_density_cm2": {
+        "mean_delta_rmse_dex": 0.1449,
+        "std_delta_rmse_dex": 0.0803,
+        "relative_importance_pct": 29.3
+      }
+    }
+  },
+  "pdp_1d_curves": {
+    "gate_carrier_density_cm2": {
+      "label": "Gate Carrier Density $n_{2D}$ [cm$^{-2}$]",
+      "grid_sample": [
+        1000000000000.0,
+        1387755102040.8164,
+        1775510204081.6328,
+        2163265306122.449,
+        2551020408163.2656
+      ],
+      "pdp_mean_sample": [
+        3.699,
+        3.6665,
+        3.6339,
+        3.6013,
+        3.5688
+      ]
+    },
+    "physics_predicted_sbh_ev": {
+      "label": "Schottky Barrier Height $\\Phi_B$ [eV]",
+      "grid_sample": [
+        0.0,
+        0.0265,
+        0.0531,
+        0.0796,
+        0.1061
+      ],
+      "pdp_mean_sample": [
+        2.8062,
+        2.8372,
+        2.8681,
+        2.8991,
+        2.9301
+      ]
+    },
+    "sulfide_formation_enthalpy_kj_mol": {
+      "label": "Sulfide Enthalpy $\\Delta H_f$ [kJ/mol]",
+      "grid_sample": [
+        -350.0,
+        -342.8571,
+        -335.7143,
+        -328.5714,
+        -321.4286
+      ],
+      "pdp_mean_sample": [
+        2.9551,
+        2.96,
+        2.965,
+        2.9699,
+        2.9748
+      ]
+    }
+  }
+}
