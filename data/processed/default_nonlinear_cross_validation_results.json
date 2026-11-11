@@ -1,0 +1,272 @@
+{
+  "validation_scheme": "grouped_5fold",
+  "n_samples": 20,
+  "features_used": [
+    "physics_predicted_sbh_ev",
+    "is_vdw_or_depinned_contact",
+    "sulfide_formation_enthalpy_kj_mol",
+    "gate_carrier_density_cm2"
+  ],
+  "default_nonlinear_models": {
+    "Random_Forest": {
+      "composite_selection_score": 0.7434,
+      "raw_score": 0.7434,
+      "parsimony_penalty": 0.0,
+      "is_qualified_for_deployment": true,
+      "sub_scores": {
+        "accuracy_score_weighted": 0.2361,
+        "rank_score_weighted": 0.3014,
+        "concordance_score_weighted": 0.2059
+      },
+      "underlying_metrics": {
+        "rmse_log10_dex": 0.4098,
+        "spearman_rho": 0.8612,
+        "concordance_index": 0.8237
+      },
+      "fold_metrics": [
+        {
+          "fold": 0,
+          "rmse_dex": 0.1413,
+          "mae_dex": 0.1106
+        },
+        {
+          "fold": 1,
+          "rmse_dex": 0.6845,
+          "mae_dex": 0.4628
+        },
+        {
+          "fold": 2,
+          "rmse_dex": 0.3915,
+          "mae_dex": 0.3799
+        },
+        {
+          "fold": 3,
+          "rmse_dex": 0.1863,
+          "mae_dex": 0.1511
+        },
+        {
+          "fold": 4,
+          "rmse_dex": 0.4038,
+          "mae_dex": 0.3177
+        }
+      ],
+      "oof_predictions": [
+        2.5881,
+        2.5881,
+        2.5177,
+        2.497,
+        3.5266,
+        2.8564,
+        2.8914,
+        2.7245,
+        3.4064,
+        2.6675,
+        2.5751,
+        2.739,
+        3.8228,
+        2.7951,
+        3.6186,
+        4.0546,
+        3.3873,
+        3.4927,
+        3.6548,
+        3.5847
+      ]
+    },
+    "Gradient_Boosting": {
+      "composite_selection_score": 0.759,
+      "raw_score": 0.759,
+      "parsimony_penalty": 0.0,
+      "is_qualified_for_deployment": true,
+      "sub_scores": {
+        "accuracy_score_weighted": 0.2361,
+        "rank_score_weighted": 0.3104,
+        "concordance_score_weighted": 0.2125
+      },
+      "underlying_metrics": {
+        "rmse_log10_dex": 0.4098,
+        "spearman_rho": 0.8868,
+        "concordance_index": 0.85
+      },
+      "fold_metrics": [
+        {
+          "fold": 0,
+          "rmse_dex": 0.2063,
+          "mae_dex": 0.1787
+        },
+        {
+          "fold": 1,
+          "rmse_dex": 0.6965,
+          "mae_dex": 0.4657
+        },
+        {
+          "fold": 2,
+          "rmse_dex": 0.4352,
+          "mae_dex": 0.3961
+        },
+        {
+          "fold": 3,
+          "rmse_dex": 0.1427,
+          "mae_dex": 0.1305
+        },
+        {
+          "fold": 4,
+          "rmse_dex": 0.3199,
+          "mae_dex": 0.2784
+        }
+      ],
+      "oof_predictions": [
+        2.5326,
+        2.5326,
+        2.5821,
+        2.3551,
+        3.481,
+        2.8112,
+        2.9478,
+        2.6652,
+        3.2791,
+        2.6808,
+        2.532,
+        2.8282,
+        3.7088,
+        2.925,
+        3.6904,
+        4.2898,
+        3.2357,
+        3.4501,
+        3.4588,
+        3.5296
+      ]
+    },
+    "Gaussian_Process_Matern": {
+      "composite_selection_score": 0.7364,
+      "raw_score": 0.7364,
+      "parsimony_penalty": 0.0,
+      "is_qualified_for_deployment": false,
+      "sub_scores": {
+        "accuracy_score_weighted": 0.2193,
+        "rank_score_weighted": 0.3026,
+        "concordance_score_weighted": 0.2145
+      },
+      "underlying_metrics": {
+        "rmse_log10_dex": 0.4518,
+        "spearman_rho": 0.8647,
+        "concordance_index": 0.8579
+      },
+      "fold_metrics": [
+        {
+          "fold": 0,
+          "rmse_dex": 0.0574,
+          "mae_dex": 0.0431
+        },
+        {
+          "fold": 1,
+          "rmse_dex": 0.9161,
+          "mae_dex": 0.5835
+        },
+        {
+          "fold": 2,
+          "rmse_dex": 0.2512,
+          "mae_dex": 0.2499
+        },
+        {
+          "fold": 3,
+          "rmse_dex": 0.231,
+          "mae_dex": 0.1769
+        },
+        {
+          "fold": 4,
+          "rmse_dex": 0.2484,
+          "mae_dex": 0.1961
+        }
+      ],
+      "oof_predictions": [
+        1.8511,
+        2.1129,
+        2.7249,
+        2.6618,
+        3.0078,
+        2.8814,
+        3.4026,
+        2.6742,
+        3.0488,
+        2.4979,
+        2.75,
+        2.6369,
+        3.7883,
+        2.8978,
+        3.8578,
+        3.386,
+        3.3144,
+        3.5174,
+        3.6749,
+        3.7368
+      ]
+    },
+    "Support_Vector_Regression_RBF": {
+      "composite_selection_score": 0.6242,
+      "raw_score": 0.6242,
+      "parsimony_penalty": 0.0,
+      "is_qualified_for_deployment": false,
+      "sub_scores": {
+        "accuracy_score_weighted": 0.1865,
+        "rank_score_weighted": 0.2469,
+        "concordance_score_weighted": 0.1908
+      },
+      "underlying_metrics": {
+        "rmse_log10_dex": 0.5337,
+        "spearman_rho": 0.7053,
+        "concordance_index": 0.7632
+      },
+      "fold_metrics": [
+        {
+          "fold": 0,
+          "rmse_dex": 0.159,
+          "mae_dex": 0.129
+        },
+        {
+          "fold": 1,
+          "rmse_dex": 0.9668,
+          "mae_dex": 0.6583
+        },
+        {
+          "fold": 2,
+          "rmse_dex": 0.5261,
+          "mae_dex": 0.4448
+        },
+        {
+          "fold": 3,
+          "rmse_dex": 0.2267,
+          "mae_dex": 0.1737
+        },
+        {
+          "fold": 4,
+          "rmse_dex": 0.3691,
+          "mae_dex": 0.329
+        }
+      ],
+      "oof_predictions": [
+        2.995,
+        2.6919,
+        2.6766,
+        2.7177,
+        2.9507,
+        2.8587,
+        3.3831,
+        2.5245,
+        3.2465,
+        2.4224,
+        2.7478,
+        2.9946,
+        3.7989,
+        2.7902,
+        3.6234,
+        3.2428,
+        3.1866,
+        3.5719,
+        3.6053,
+        3.5649
+      ]
+    }
+  }
+}
