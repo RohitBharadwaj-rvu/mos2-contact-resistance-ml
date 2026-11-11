@@ -1,0 +1,118 @@
+{
+  "total_source_papers": 13,
+  "anova_f_statistic": 1.711,
+  "anova_p_value": 0.251,
+  "group_statistics": {
+    "SRC-EXP-2013-DAS": {
+      "count": 1,
+      "mean_log10_rc": 2.813,
+      "std_log10_rc": 0.0,
+      "median_rc_ohm_um": 650.0,
+      "citation": "Das et al. (2013)"
+    },
+    "SRC-EXP-2014-CHWANG": {
+      "count": 1,
+      "mean_log10_rc": 3.505,
+      "std_log10_rc": 0.0,
+      "median_rc_ohm_um": 3200.0,
+      "citation": "Wang & Chwang (2014)"
+    },
+    "SRC-EXP-2014-KAPPERA": {
+      "count": 1,
+      "mean_log10_rc": 2.38,
+      "std_log10_rc": 0.0,
+      "median_rc_ohm_um": 240.0,
+      "citation": "Kappera et al. (2014)"
+    },
+    "SRC-EXP-2014-MCDONNELL": {
+      "count": 1,
+      "mean_log10_rc": 4.079,
+      "std_log10_rc": 0.0,
+      "median_rc_ohm_um": 12000.0,
+      "citation": "McDonnell et al. (2014)"
+    },
+    "SRC-EXP-2015-CUI": {
+      "count": 1,
+      "mean_log10_rc": 3.322,
+      "std_log10_rc": 0.0,
+      "median_rc_ohm_um": 2100.0,
+      "citation": "Cui et al. (2015)"
+    },
+    "SRC-EXP-2016-ENGLISH": {
+      "count": 2,
+      "mean_log10_rc": 2.955,
+      "std_log10_rc": 0.086,
+      "median_rc_ohm_um": 902.2,
+      "citation": "English et al. (2016)"
+    },
+    "SRC-EXP-2016-GUIMARAES": {
+      "count": 1,
+      "mean_log10_rc": 2.699,
+      "std_log10_rc": 0.0,
+      "median_rc_ohm_um": 500.0,
+      "citation": "Guimaraes et al. (2016)"
+    },
+    "SRC-EXP-2017-KIM": {
+      "count": 1,
+      "mean_log10_rc": 3.623,
+      "std_log10_rc": 0.0,
+      "median_rc_ohm_um": 4200.0,
+      "citation": "Kim et al. (2017)"
+    },
+    "SRC-EXP-2018-LIU": {
+      "count": 3,
+      "mean_log10_rc": 3.297,
+      "std_log10_rc": 1.073,
+      "median_rc_ohm_um": 400.0,
+      "citation": "Liu et al. (2018)"
+    },
+    "SRC-EXP-2019-LI": {
+      "count": 1,
+      "mean_log10_rc": 2.519,
+      "std_log10_rc": 0.0,
+      "median_rc_ohm_um": 330.0,
+      "citation": "Li et al. (2019)"
+    },
+    "SRC-EXP-2020-LIU": {
+      "count": 1,
+      "mean_log10_rc": 2.74,
+      "std_log10_rc": 0.0,
+      "median_rc_ohm_um": 550.0,
+      "citation": "Liu et al. (2020)"
+    },
+    "SRC-EXP-2021-SHEN": {
+      "count": 2,
+      "mean_log10_rc": 2.216,
+      "std_log10_rc": 0.126,
+      "median_rc_ohm_um": 164.5,
+      "citation": "Shen et al. (2021)"
+    },
+    "SRC-REV-2015-ALLAIN": {
+      "count": 4,
+      "mean_log10_rc": 3.597,
+      "std_log10_rc": 0.201,
+      "median_rc_ohm_um": 4183.3,
+      "citation": "Allain et al. (2015)"
+    }
+  },
+  "ti_cross_paper_benchmark": [
+    {
+      "source_uid": "SRC-EXP-2016-ENGLISH",
+      "citation_short": "English et al. (2016)",
+      "contact_resistance_rc_ohm_um": 740.0,
+      "post_annealing_temperature_c": 20.0
+    },
+    {
+      "source_uid": "SRC-EXP-2020-LIU",
+      "citation_short": "Liu et al. (2020)",
+      "contact_resistance_rc_ohm_um": 550.0,
+      "post_annealing_temperature_c": 300.0
+    },
+    {
+      "source_uid": "SRC-REV-2015-ALLAIN",
+      "citation_short": "Allain et al. (2015)",
+      "contact_resistance_rc_ohm_um": 2000.0,
+      "post_annealing_temperature_c": 20.0
+    }
+  ]
+}
