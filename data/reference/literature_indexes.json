@@ -1,0 +1,169 @@
+[
+  {
+    "id": "ieee_xplore",
+    "name": "IEEE Xplore Digital Library",
+    "domains": ["Nanoelectronics", "Semiconductor Devices", "Solid-State Circuits"],
+    "key_venues": [
+      "IEEE Electron Device Letters (EDL)",
+      "IEEE Transactions on Electron Devices (TED)",
+      "IEEE International Electron Devices Meeting (IEDM)",
+      "Device Research Conference (DRC)"
+    ],
+    "coverage_type": "Primary Engineering / Device Physics Literature",
+    "api_available": true,
+    "api_endpoint": "https://ieeexploreapi.ieee.org/api/v1/search/articles",
+    "open_access_tier": "Subscription / Green Open Access",
+    "export_formats": ["BibTeX", "CSV", "RIS"],
+    "priority_rating": "Critical"
+  },
+  {
+    "id": "acs_pubs",
+    "name": "ACS Publications",
+    "domains": ["Materials Chemistry", "Nanotechnology", "Interface Science"],
+    "key_venues": [
+      "ACS Nano",
+      "Nano Letters",
+      "ACS Applied Materials & Interfaces",
+      "Chemistry of Materials"
+    ],
+    "coverage_type": "Nanoscale Materials & Contact Physics",
+    "api_available": true,
+    "api_endpoint": "https://pubs.acs.org",
+    "open_access_tier": "Subscription / Hybrid OA",
+    "export_formats": ["BibTeX", "RIS"],
+    "priority_rating": "Critical"
+  },
+  {
+    "id": "nature_springer",
+    "name": "Nature Publishing Group / SpringerLink",
+    "domains": ["Nanotechnology", "Condensed Matter Physics", "Applied Physics"],
+    "key_venues": [
+      "Nature Nanotechnology",
+      "Nature Electronics",
+      "Nature Materials",
+      "Nature Communications",
+      "npj 2D Materials and Applications"
+    ],
+    "coverage_type": "High-Impact Breakthroughs in 2D Transistors & Ohmic Contacts",
+    "api_available": true,
+    "api_endpoint": "https://api.springernature.com/meta/v1/json",
+    "open_access_tier": "Hybrid OA / Fully OA (Nat Commun, npj)",
+    "export_formats": ["BibTeX", "RIS", "JSON"],
+    "priority_rating": "Critical"
+  },
+  {
+    "id": "aps_physics",
+    "name": "American Physical Society (APS)",
+    "domains": ["Condensed Matter Physics", "Electronic Structure"],
+    "key_venues": [
+      "Physical Review Letters (PRL)",
+      "Physical Review B (PRB)",
+      "Physical Review Applied"
+    ],
+    "coverage_type": "Fundamental Interface Physics, Fermi-level Pinning, Band Alignments",
+    "api_available": true,
+    "api_endpoint": "https://journals.aps.org",
+    "open_access_tier": "Subscription / Green OA",
+    "export_formats": ["BibTeX", "RIS"],
+    "priority_rating": "High"
+  },
+  {
+    "id": "wiley_online",
+    "name": "Wiley Online Library",
+    "domains": ["Materials Science", "Electronic Materials"],
+    "key_venues": [
+      "Advanced Materials",
+      "Advanced Electronic Materials",
+      "Advanced Functional Materials",
+      "Small"
+    ],
+    "coverage_type": "2D Device Engineering & Contact Strategies (vdW, 2D/3D)",
+    "api_available": true,
+    "api_endpoint": "https://onlinelibrary.wiley.com",
+    "open_access_tier": "Subscription / Hybrid OA",
+    "export_formats": ["BibTeX", "RIS"],
+    "priority_rating": "High"
+  },
+  {
+    "id": "elsevier_sciencedirect",
+    "name": "Elsevier ScienceDirect",
+    "domains": ["Solid-State Electronics", "Applied Surface Science", "Materials Science"],
+    "key_venues": [
+      "Solid-State Electronics",
+      "Applied Surface Science",
+      "Nano Energy",
+      "Carbon"
+    ],
+    "coverage_type": "Electrical Characterization Protocols, TLM Studies, Contact Annealing",
+    "api_available": true,
+    "api_endpoint": "https://api.elsevier.com/content/search/scidir",
+    "open_access_tier": "Subscription / Hybrid OA",
+    "export_formats": ["BibTeX", "RIS", "CSV"],
+    "priority_rating": "High"
+  },
+  {
+    "id": "iop_science",
+    "name": "IOP Publishing",
+    "domains": ["2D Materials", "Nanotechnology", "Condensed Matter"],
+    "key_venues": [
+      "2D Materials",
+      "Nanotechnology",
+      "Journal of Physics: Condensed Matter",
+      "Semiconductor Science and Technology"
+    ],
+    "coverage_type": "2D Crystal Growth, Interface States, Contact Resistance Measurements",
+    "api_available": true,
+    "api_endpoint": "https://iopscience.iop.org",
+    "open_access_tier": "Subscription / Hybrid OA",
+    "export_formats": ["BibTeX", "RIS"],
+    "priority_rating": "High"
+  },
+  {
+    "id": "arxiv_org",
+    "name": "arXiv.org (cond-mat)",
+    "domains": ["Mesoscopic and Hall Physics", "Materials Science"],
+    "key_venues": ["cond-mat.mes-hall", "cond-mat.mtrl-sci"],
+    "coverage_type": "Open-access preprints of experimental and computational device studies",
+    "api_available": true,
+    "api_endpoint": "http://export.arxiv.org/api/query",
+    "open_access_tier": "Open Access (Free / Full Text)",
+    "export_formats": ["Atom XML", "BibTeX"],
+    "priority_rating": "High"
+  },
+  {
+    "id": "openalex",
+    "name": "OpenAlex Index",
+    "domains": ["All Scientific Disciplines", "Citation Graphs", "Open Access Resolution"],
+    "key_venues": ["Global Cross-Publisher Index"],
+    "coverage_type": "Programmatic bibliographic graph, DOI resolution, automated citation tracing",
+    "api_available": true,
+    "api_endpoint": "https://api.openalex.org/works",
+    "open_access_tier": "Open Access (CC0)",
+    "export_formats": ["JSON-LD", "JSON"],
+    "priority_rating": "Critical"
+  },
+  {
+    "id": "semantic_scholar",
+    "name": "Semantic Scholar / Allen Institute for AI",
+    "domains": ["Computer Science", "Materials Informatics", "Device Physics"],
+    "key_venues": ["AI-indexed global publications"],
+    "coverage_type": "Influence scores, citation graphs, TLDR summaries",
+    "api_available": true,
+    "api_endpoint": "https://api.semanticscholar.org/graph/v1",
+    "open_access_tier": "Open Access API",
+    "export_formats": ["JSON"],
+    "priority_rating": "High"
+  },
+  {
+    "id": "crossref",
+    "name": "Crossref Metadata API",
+    "domains": ["Universal Publisher Registry"],
+    "key_venues": ["All DOI Registrations"],
+    "coverage_type": "DOI verification, publisher metadata, author affiliation, license verification",
+    "api_available": true,
+    "api_endpoint": "https://api.crossref.org/works",
+    "open_access_tier": "Open Access",
+    "export_formats": ["JSON", "UNIXREF"],
+    "priority_rating": "Critical"
+  }
+]
