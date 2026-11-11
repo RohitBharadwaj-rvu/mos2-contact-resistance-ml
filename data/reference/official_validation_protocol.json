@@ -1,0 +1,111 @@
+{
+  "title": "MoS2 Contact Resistance Official Machine Learning Validation Protocol",
+  "primary_cv_scheme": {
+    "scheme": "GroupKFold",
+    "n_splits": 5,
+    "grouping_variable": "source_uid",
+    "leakage_guarantee": "Zero source_uid overlap between training and validation sets",
+    "role": "Hyperparameter optimization, feature pruning, and cross-validation model selection."
+  },
+  "secondary_benchmark_scheme": {
+    "scheme": "LeaveOneGroupOut (LOGO)",
+    "n_splits": 13,
+    "grouping_variable": "source_uid",
+    "role": "True out-of-distribution transfer benchmark assessing prediction on completely unseen literature cleanrooms."
+  },
+  "fold_distribution_audit": {
+    "n_splits": 5,
+    "total_samples": 20,
+    "total_groups": 13,
+    "folds": [
+      {
+        "fold_index": 0,
+        "validation_sample_count": 4,
+        "training_sample_count": 16,
+        "papers_in_validation": [
+          "SRC-REV-2015-ALLAIN"
+        ],
+        "target_mean_log10_rc": 3.597,
+        "target_std_log10_rc": 0.201,
+        "target_min_log10_rc": 3.301,
+        "target_max_log10_rc": 3.845,
+        "vdw_depinned_contacts_count": 0,
+        "evaporated_contacts_count": 4
+      },
+      {
+        "fold_index": 1,
+        "validation_sample_count": 4,
+        "training_sample_count": 16,
+        "papers_in_validation": [
+          "SRC-EXP-2018-LIU",
+          "SRC-EXP-2014-MCDONNELL"
+        ],
+        "target_mean_log10_rc": 3.493,
+        "target_std_log10_rc": 0.989,
+        "target_min_log10_rc": 2.477,
+        "target_max_log10_rc": 4.813,
+        "vdw_depinned_contacts_count": 3,
+        "evaporated_contacts_count": 1
+      },
+      {
+        "fold_index": 2,
+        "validation_sample_count": 4,
+        "training_sample_count": 16,
+        "papers_in_validation": [
+          "SRC-EXP-2021-SHEN",
+          "SRC-EXP-2014-KAPPERA",
+          "SRC-EXP-2017-KIM"
+        ],
+        "target_mean_log10_rc": 2.609,
+        "target_std_log10_rc": 0.596,
+        "target_min_log10_rc": 2.09,
+        "target_max_log10_rc": 3.623,
+        "vdw_depinned_contacts_count": 4,
+        "evaporated_contacts_count": 0
+      },
+      {
+        "fold_index": 3,
+        "validation_sample_count": 4,
+        "training_sample_count": 16,
+        "papers_in_validation": [
+          "SRC-EXP-2016-ENGLISH",
+          "SRC-EXP-2016-GUIMARAES",
+          "SRC-EXP-2014-CHWANG"
+        ],
+        "target_mean_log10_rc": 3.029,
+        "target_std_log10_rc": 0.301,
+        "target_min_log10_rc": 2.699,
+        "target_max_log10_rc": 3.505,
+        "vdw_depinned_contacts_count": 1,
+        "evaporated_contacts_count": 3
+      },
+      {
+        "fold_index": 4,
+        "validation_sample_count": 4,
+        "training_sample_count": 16,
+        "papers_in_validation": [
+          "SRC-EXP-2013-DAS",
+          "SRC-EXP-2019-LI",
+          "SRC-EXP-2020-LIU",
+          "SRC-EXP-2015-CUI"
+        ],
+        "target_mean_log10_rc": 2.849,
+        "target_std_log10_rc": 0.294,
+        "target_min_log10_rc": 2.519,
+        "target_max_log10_rc": 3.322,
+        "vdw_depinned_contacts_count": 1,
+        "evaporated_contacts_count": 3
+      }
+    ],
+    "balance_assessment": {
+      "min_val_size": 4,
+      "max_val_size": 4,
+      "is_balanced": true
+    }
+  },
+  "prohibited_practices": [
+    "Random train_test_split without source grouping",
+    "Random KFold or StratifiedKFold on rows from the same paper",
+    "StandardScaler fitting on the entire dataset prior to splitting"
+  ]
+}
