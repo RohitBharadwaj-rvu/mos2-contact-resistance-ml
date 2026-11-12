@@ -1,0 +1,723 @@
+{
+  "title": "Cross-Validated Evaluation of Symbolic Closed-Form Contact Resistance Equations",
+  "scientific_qualification": "Empirical Closed-Form Heuristic: These symbolic equations represent interpretable, parsimonious mathematical surrogates. They capture predominant physical trends (Schottky barrier scaling, carrier accumulation, and de-pinning) across held-out publications with out-of-distribution error ~0.41-0.49 dex, but should be understood as semi-empirical approximations rather than universal first-principles physical laws.",
+  "corpus_info": {
+    "n_observations": 28,
+    "n_sources": 23
+  },
+  "equations": {
+    "Linear_Scaling_Baseline": {
+      "latex_formula": "\\log_{10} R_c = a_0 + a_1 (W_M - 4.20) - a_2 \\log_{10}(n_{2D}) - a_3 \\mathbb{I}_{\\text{vdW}}",
+      "complexity_term_count": 4,
+      "fitted_parameters_full_corpus": [
+        2.8564,
+        0.6354,
+        1.3381,
+        0.3962
+      ],
+      "nested_group_kfold": {
+        "rmse_dex": 0.3593,
+        "mae_dex": 0.2381,
+        "spearman_rho": 0.9053,
+        "kendall_tau": 0.7407,
+        "composite_score": 0.7907,
+        "oof_predictions": [
+          2.2547,
+          2.5323,
+          2.8416,
+          2.8091,
+          3.3587,
+          2.8156,
+          2.9037,
+          3.5499,
+          2.5213,
+          2.3138,
+          2.7354,
+          2.7166,
+          4.3417,
+          2.9515,
+          3.444,
+          3.9893,
+          4.1531,
+          3.0987,
+          3.9761,
+          2.4397,
+          3.2099,
+          3.1147,
+          2.8887,
+          2.4241,
+          3.4289,
+          3.777,
+          3.1267,
+          3.8788
+        ]
+      },
+      "leave_one_group_out": {
+        "rmse_dex": 0.3602,
+        "mae_dex": 0.2304,
+        "spearman_rho": 0.9009,
+        "kendall_tau": 0.7407,
+        "composite_score": 0.7888,
+        "paper_breakdown": {
+          "SRC-EXP-2011-RADISAVLJEVIC": {
+            "n_samples": 1,
+            "rmse": 0.3933
+          },
+          "SRC-EXP-2012-LIU": {
+            "n_samples": 1,
+            "rmse": 0.3764
+          },
+          "SRC-EXP-2013-DAS": {
+            "n_samples": 1,
+            "rmse": 0.4765
+          },
+          "SRC-EXP-2013-FONTANA": {
+            "n_samples": 1,
+            "rmse": 0.2531
+          },
+          "SRC-EXP-2013-GONG": {
+            "n_samples": 2,
+            "rmse": 0.108
+          },
+          "SRC-EXP-2013-KAASBJERG": {
+            "n_samples": 1,
+            "rmse": 0.1003
+          },
+          "SRC-EXP-2013-NEAL": {
+            "n_samples": 1,
+            "rmse": 0.0216
+          },
+          "SRC-EXP-2014-BAMPOULIS": {
+            "n_samples": 1,
+            "rmse": 0.2291
+          },
+          "SRC-EXP-2014-CHUANG": {
+            "n_samples": 1,
+            "rmse": 0.0336
+          },
+          "SRC-EXP-2014-CHWANG": {
+            "n_samples": 1,
+            "rmse": 0.2319
+          },
+          "SRC-EXP-2014-KANG": {
+            "n_samples": 1,
+            "rmse": 0.1515
+          },
+          "SRC-EXP-2014-KAPPERA": {
+            "n_samples": 1,
+            "rmse": 0.2397
+          },
+          "SRC-EXP-2014-MCDONNELL": {
+            "n_samples": 1,
+            "rmse": 0.1577
+          },
+          "SRC-EXP-2015-CUI": {
+            "n_samples": 1,
+            "rmse": 0.0717
+          },
+          "SRC-EXP-2016-ENGLISH": {
+            "n_samples": 2,
+            "rmse": 0.3506
+          },
+          "SRC-EXP-2016-GUIMARAES": {
+            "n_samples": 1,
+            "rmse": 0.0147
+          },
+          "SRC-EXP-2017-KIM": {
+            "n_samples": 1,
+            "rmse": 0.2293
+          },
+          "SRC-EXP-2017-SATA": {
+            "n_samples": 1,
+            "rmse": 0.1756
+          },
+          "SRC-EXP-2018-LIU": {
+            "n_samples": 2,
+            "rmse": 1.0575
+          },
+          "SRC-EXP-2018-WANG-IEDM": {
+            "n_samples": 1,
+            "rmse": 0.1069
+          },
+          "SRC-EXP-2019-LI": {
+            "n_samples": 1,
+            "rmse": 0.1281
+          },
+          "SRC-EXP-2019-WANG": {
+            "n_samples": 2,
+            "rmse": 0.2884
+          },
+          "SRC-EXP-2021-SHEN": {
+            "n_samples": 2,
+            "rmse": 0.1309
+          }
+        },
+        "oof_predictions": [
+          2.1781,
+          2.5051,
+          2.8384,
+          2.8095,
+          3.3178,
+          2.7769,
+          2.8953,
+          3.5366,
+          2.6199,
+          2.3364,
+          2.6466,
+          2.7137,
+          4.2369,
+          2.9077,
+          3.5105,
+          3.9521,
+          4.0742,
+          3.0762,
+          3.9071,
+          2.387,
+          3.2505,
+          2.9858,
+          2.8815,
+          2.5541,
+          3.3939,
+          3.737,
+          3.1153,
+          3.8407
+        ]
+      }
+    },
+    "Thermionic_Field_Emission_Law": {
+      "latex_formula": "\\log_{10} R_c = a_0 + a_1 \\frac{W_M - 4.20}{\\sqrt{n_{2D}}} - a_2 \\mathbb{I}_{\\text{vdW}} + a_3 \\left(\\frac{T}{300}\\right)",
+      "complexity_term_count": 5,
+      "fitted_parameters_full_corpus": [
+        763.1849,
+        0.8234,
+        0.3222,
+        -760.4114
+      ],
+      "nested_group_kfold": {
+        "rmse_dex": 0.3295,
+        "mae_dex": 0.2439,
+        "spearman_rho": 0.9223,
+        "kendall_tau": 0.7672,
+        "composite_score": 0.7619,
+        "oof_predictions": [
+          2.6129,
+          2.6232,
+          2.4899,
+          2.4814,
+          3.7741,
+          2.4751,
+          2.8616,
+          3.5264,
+          2.3924,
+          2.7898,
+          2.8528,
+          2.7115,
+          4.4121,
+          2.9092,
+          3.2062,
+          4.0128,
+          4.1181,
+          2.9059,
+          4.0357,
+          2.8519,
+          3.0386,
+          2.8611,
+          2.905,
+          2.8405,
+          3.2,
+          3.8056,
+          2.8884,
+          3.8436
+        ]
+      },
+      "leave_one_group_out": {
+        "rmse_dex": 0.3353,
+        "mae_dex": 0.2404,
+        "spearman_rho": 0.8889,
+        "kendall_tau": 0.7037,
+        "composite_score": 0.74,
+        "paper_breakdown": {
+          "SRC-EXP-2011-RADISAVLJEVIC": {
+            "n_samples": 1,
+            "rmse": 0.4552
+          },
+          "SRC-EXP-2012-LIU": {
+            "n_samples": 1,
+            "rmse": 0.0585
+          },
+          "SRC-EXP-2013-DAS": {
+            "n_samples": 1,
+            "rmse": 0.0031
+          },
+          "SRC-EXP-2013-FONTANA": {
+            "n_samples": 1,
+            "rmse": 0.2711
+          },
+          "SRC-EXP-2013-GONG": {
+            "n_samples": 2,
+            "rmse": 0.029
+          },
+          "SRC-EXP-2013-KAASBJERG": {
+            "n_samples": 1,
+            "rmse": 0.0894
+          },
+          "SRC-EXP-2013-NEAL": {
+            "n_samples": 1,
+            "rmse": 0.0298
+          },
+          "SRC-EXP-2014-BAMPOULIS": {
+            "n_samples": 1,
+            "rmse": 0.208
+          },
+          "SRC-EXP-2014-CHUANG": {
+            "n_samples": 1,
+            "rmse": 0.3218
+          },
+          "SRC-EXP-2014-CHWANG": {
+            "n_samples": 1,
+            "rmse": 0.2599
+          },
+          "SRC-EXP-2014-KANG": {
+            "n_samples": 1,
+            "rmse": 0.072
+          },
+          "SRC-EXP-2014-KAPPERA": {
+            "n_samples": 1,
+            "rmse": 0.1331
+          },
+          "SRC-EXP-2014-MCDONNELL": {
+            "n_samples": 1,
+            "rmse": 0.2844
+          },
+          "SRC-EXP-2015-CUI": {
+            "n_samples": 1,
+            "rmse": 0.2695
+          },
+          "SRC-EXP-2016-ENGLISH": {
+            "n_samples": 2,
+            "rmse": 0.357
+          },
+          "SRC-EXP-2016-GUIMARAES": {
+            "n_samples": 1,
+            "rmse": 0.0143
+          },
+          "SRC-EXP-2017-KIM": {
+            "n_samples": 1,
+            "rmse": 0.4486
+          },
+          "SRC-EXP-2017-SATA": {
+            "n_samples": 1,
+            "rmse": 0.3687
+          },
+          "SRC-EXP-2018-LIU": {
+            "n_samples": 2,
+            "rmse": 0.8268
+          },
+          "SRC-EXP-2018-WANG-IEDM": {
+            "n_samples": 1,
+            "rmse": 0.3926
+          },
+          "SRC-EXP-2019-LI": {
+            "n_samples": 1,
+            "rmse": 0.2336
+          },
+          "SRC-EXP-2019-WANG": {
+            "n_samples": 2,
+            "rmse": 0.0712
+          },
+          "SRC-EXP-2021-SHEN": {
+            "n_samples": 2,
+            "rmse": 0.377
+          }
+        },
+        "oof_predictions": [
+          2.5681,
+          2.5783,
+          2.503,
+          2.4949,
+          3.675,
+          2.4712,
+          2.8929,
+          3.5457,
+          2.5133,
+          2.816,
+          2.7521,
+          2.7133,
+          4.3636,
+          2.8458,
+          3.2223,
+          3.9701,
+          4.0531,
+          2.8905,
+          3.9622,
+          2.8219,
+          3.0527,
+          2.7927,
+          2.8733,
+          2.8398,
+          3.1746,
+          3.765,
+          2.8918,
+          3.8298
+        ]
+      }
+    },
+    "Reactivity_Depinning_Closed_Form": {
+      "latex_formula": "\\log_{10} R_c = a_0 + a_1 \\Phi_B^{\\text{eff}} - a_2 \\log_{10}(n_{2D}) + a_3 \\frac{|\\Delta H_f|}{200} - a_4 \\mathbb{I}_{\\text{vdW}}",
+      "complexity_term_count": 6,
+      "fitted_parameters_full_corpus": [
+        2.751,
+        0.432,
+        1.8477,
+        0.2092,
+        0.2598
+      ],
+      "nested_group_kfold": {
+        "rmse_dex": 0.4188,
+        "mae_dex": 0.2467,
+        "spearman_rho": 0.8369,
+        "kendall_tau": 0.6878,
+        "composite_score": 0.6364,
+        "oof_predictions": [
+          2.234,
+          2.6519,
+          3.093,
+          3.1658,
+          2.9974,
+          2.8622,
+          2.8131,
+          3.179,
+          2.5214,
+          2.55,
+          2.6462,
+          2.555,
+          4.4181,
+          2.972,
+          3.5706,
+          3.9538,
+          4.2224,
+          3.1693,
+          3.8428,
+          2.7335,
+          3.2829,
+          3.131,
+          2.9092,
+          2.3214,
+          3.4537,
+          3.6609,
+          3.1795,
+          3.7194
+        ]
+      },
+      "leave_one_group_out": {
+        "rmse_dex": 0.4132,
+        "mae_dex": 0.2353,
+        "spearman_rho": 0.8347,
+        "kendall_tau": 0.6878,
+        "composite_score": 0.6378,
+        "paper_breakdown": {
+          "SRC-EXP-2011-RADISAVLJEVIC": {
+            "n_samples": 1,
+            "rmse": 0.3923
+          },
+          "SRC-EXP-2012-LIU": {
+            "n_samples": 1,
+            "rmse": 0.1048
+          },
+          "SRC-EXP-2013-DAS": {
+            "n_samples": 1,
+            "rmse": 0.234
+          },
+          "SRC-EXP-2013-FONTANA": {
+            "n_samples": 1,
+            "rmse": 0.2248
+          },
+          "SRC-EXP-2013-GONG": {
+            "n_samples": 2,
+            "rmse": 0.1895
+          },
+          "SRC-EXP-2013-KAASBJERG": {
+            "n_samples": 1,
+            "rmse": 0.0412
+          },
+          "SRC-EXP-2013-NEAL": {
+            "n_samples": 1,
+            "rmse": 0.0355
+          },
+          "SRC-EXP-2014-BAMPOULIS": {
+            "n_samples": 1,
+            "rmse": 0.1949
+          },
+          "SRC-EXP-2014-CHUANG": {
+            "n_samples": 1,
+            "rmse": 0.0621
+          },
+          "SRC-EXP-2014-CHWANG": {
+            "n_samples": 1,
+            "rmse": 0.1091
+          },
+          "SRC-EXP-2014-KANG": {
+            "n_samples": 1,
+            "rmse": 0.2339
+          },
+          "SRC-EXP-2014-KAPPERA": {
+            "n_samples": 1,
+            "rmse": 0.366
+          },
+          "SRC-EXP-2014-MCDONNELL": {
+            "n_samples": 1,
+            "rmse": 0.1663
+          },
+          "SRC-EXP-2015-CUI": {
+            "n_samples": 1,
+            "rmse": 0.032
+          },
+          "SRC-EXP-2016-ENGLISH": {
+            "n_samples": 2,
+            "rmse": 0.1122
+          },
+          "SRC-EXP-2016-GUIMARAES": {
+            "n_samples": 1,
+            "rmse": 0.1118
+          },
+          "SRC-EXP-2017-KIM": {
+            "n_samples": 1,
+            "rmse": 0.1822
+          },
+          "SRC-EXP-2017-SATA": {
+            "n_samples": 1,
+            "rmse": 0.0072
+          },
+          "SRC-EXP-2018-LIU": {
+            "n_samples": 2,
+            "rmse": 1.3071
+          },
+          "SRC-EXP-2018-WANG-IEDM": {
+            "n_samples": 1,
+            "rmse": 0.094
+          },
+          "SRC-EXP-2019-LI": {
+            "n_samples": 1,
+            "rmse": 0.0215
+          },
+          "SRC-EXP-2019-WANG": {
+            "n_samples": 2,
+            "rmse": 0.5419
+          },
+          "SRC-EXP-2021-SHEN": {
+            "n_samples": 2,
+            "rmse": 0.1988
+          }
+        },
+        "oof_predictions": [
+          2.1631,
+          2.6139,
+          3.039,
+          3.1067,
+          2.9693,
+          2.8748,
+          2.8045,
+          3.1862,
+          2.7462,
+          2.5789,
+          2.54,
+          2.5872,
+          4.2455,
+          2.9087,
+          3.6062,
+          3.9238,
+          4.04,
+          3.14,
+          3.7835,
+          2.6586,
+          3.2902,
+          3.1542,
+          2.8676,
+          2.3532,
+          3.441,
+          3.6142,
+          3.1977,
+          3.6992
+        ]
+      }
+    },
+    "Discovered_Compact_GP_Law": {
+      "latex_formula": "\\log_{10} R_c = a_0 + a_1 \\frac{W_M}{\\sqrt{n_{2D}}} - a_2 (\\mathbb{I}_{\\text{vdW}} \\sqrt{n_{2D}}) + a_3 \\frac{|\\Delta H_f|}{300}",
+      "complexity_term_count": 5,
+      "fitted_parameters_full_corpus": [
+        1.3991,
+        0.312,
+        0.3437,
+        0.4045
+      ],
+      "nested_group_kfold": {
+        "rmse_dex": 0.3438,
+        "mae_dex": 0.2201,
+        "spearman_rho": 0.9141,
+        "kendall_tau": 0.7725,
+        "composite_score": 0.754,
+        "oof_predictions": [
+          2.0049,
+          2.4601,
+          2.9184,
+          2.9524,
+          3.5003,
+          3.0088,
+          2.8071,
+          2.9613,
+          2.5232,
+          2.7016,
+          2.4935,
+          2.5016,
+          4.7433,
+          2.9519,
+          3.5778,
+          3.9343,
+          4.3772,
+          3.1193,
+          3.774,
+          2.667,
+          3.2283,
+          3.117,
+          2.8995,
+          2.4271,
+          3.3977,
+          3.5211,
+          3.1359,
+          3.6246
+        ]
+      },
+      "leave_one_group_out": {
+        "rmse_dex": 0.3269,
+        "mae_dex": 0.2059,
+        "spearman_rho": 0.9163,
+        "kendall_tau": 0.7778,
+        "composite_score": 0.7622,
+        "paper_breakdown": {
+          "SRC-EXP-2011-RADISAVLJEVIC": {
+            "n_samples": 1,
+            "rmse": 0.4047
+          },
+          "SRC-EXP-2012-LIU": {
+            "n_samples": 1,
+            "rmse": 0.0124
+          },
+          "SRC-EXP-2013-DAS": {
+            "n_samples": 1,
+            "rmse": 0.1047
+          },
+          "SRC-EXP-2013-FONTANA": {
+            "n_samples": 1,
+            "rmse": 0.2374
+          },
+          "SRC-EXP-2013-GONG": {
+            "n_samples": 2,
+            "rmse": 0.1843
+          },
+          "SRC-EXP-2013-KAASBJERG": {
+            "n_samples": 1,
+            "rmse": 0.0929
+          },
+          "SRC-EXP-2013-NEAL": {
+            "n_samples": 1,
+            "rmse": 0.0373
+          },
+          "SRC-EXP-2014-BAMPOULIS": {
+            "n_samples": 1,
+            "rmse": 0.3246
+          },
+          "SRC-EXP-2014-CHUANG": {
+            "n_samples": 1,
+            "rmse": 0.0435
+          },
+          "SRC-EXP-2014-CHWANG": {
+            "n_samples": 1,
+            "rmse": 0.0019
+          },
+          "SRC-EXP-2014-KANG": {
+            "n_samples": 1,
+            "rmse": 0.1926
+          },
+          "SRC-EXP-2014-KAPPERA": {
+            "n_samples": 1,
+            "rmse": 0.2149
+          },
+          "SRC-EXP-2014-MCDONNELL": {
+            "n_samples": 1,
+            "rmse": 0.4897
+          },
+          "SRC-EXP-2015-CUI": {
+            "n_samples": 1,
+            "rmse": 0.0886
+          },
+          "SRC-EXP-2016-ENGLISH": {
+            "n_samples": 2,
+            "rmse": 0.0587
+          },
+          "SRC-EXP-2016-GUIMARAES": {
+            "n_samples": 1,
+            "rmse": 0.1779
+          },
+          "SRC-EXP-2017-KIM": {
+            "n_samples": 1,
+            "rmse": 0.231
+          },
+          "SRC-EXP-2017-SATA": {
+            "n_samples": 1,
+            "rmse": 0.0325
+          },
+          "SRC-EXP-2018-LIU": {
+            "n_samples": 2,
+            "rmse": 0.9649
+          },
+          "SRC-EXP-2018-WANG-IEDM": {
+            "n_samples": 1,
+            "rmse": 0.0418
+          },
+          "SRC-EXP-2019-LI": {
+            "n_samples": 1,
+            "rmse": 0.0217
+          },
+          "SRC-EXP-2019-WANG": {
+            "n_samples": 2,
+            "rmse": 0.3641
+          },
+          "SRC-EXP-2021-SHEN": {
+            "n_samples": 2,
+            "rmse": 0.1037
+          }
+        },
+        "oof_predictions": [
+          2.0186,
+          2.4705,
+          2.8764,
+          2.9129,
+          3.4791,
+          3.0285,
+          2.8059,
+          2.9878,
+          2.5951,
+          2.7082,
+          2.4968,
+          2.5211,
+          4.5689,
+          2.8963,
+          3.5876,
+          3.9364,
+          4.1697,
+          3.1017,
+          3.7539,
+          2.751,
+          3.2336,
+          3.1289,
+          2.8658,
+          2.489,
+          3.3922,
+          3.507,
+          3.1564,
+          3.6475
+        ]
+      }
+    }
+  }
+}
