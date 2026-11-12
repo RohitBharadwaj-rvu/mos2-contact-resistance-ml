@@ -1,0 +1,30 @@
+{
+  "total_primary_observations": 28,
+  "annealing_provenance": {
+    "categories": {
+      "as_fabricated_unannealed": 14,
+      "performed": 14
+    },
+    "scientific_rationale": "Unannealed devices (as_fabricated_unannealed) represent a deliberate physical state (T=20C, duration=0min). They are modeled with an explicit binary flag 'is_annealed = 0', rather than treated as missing data."
+  },
+  "carrier_density_provenance": {
+    "categories": {
+      "calculated_from_gating_capacitance": 28
+    },
+    "scientific_rationale": "Distinguishes directly measured Hall carrier density from electrostatic gating capacitance calculation (n_2D = Cox*(Vgs-Vth)/q). Prevents conflating electrostatic gating with Hall transport measurements."
+  },
+  "vacuum_pressure_provenance": {
+    "categories": {
+      "reported": 24,
+      "inferred_standard_chamber": 4
+    },
+    "scientific_rationale": "Differentiates explicit UHV chamber readings (< 1e-8 Torr) from standard high-vacuum base pressure."
+  },
+  "schottky_barrier_measurements": {
+    "measured_count": 28,
+    "unmeasured_count": 0,
+    "measured_fraction_pct": 100.0,
+    "scientific_rationale": "Measured SBH is strictly separated from physics-estimated SBH to prevent data leakage and circular reasoning in contact resistance prediction."
+  },
+  "columns_with_missing_values": {}
+}
