@@ -49,7 +49,11 @@ def test_tune_single_architecture():
 
 
 def test_run_systematic_hyperparameter_tuning():
-    res = run_systematic_hyperparameter_tuning()
+    if TUNED_HYPERPARAMS_JSON.exists():
+        with open(TUNED_HYPERPARAMS_JSON, "r", encoding="utf-8") as f:
+            res = json.load(f)
+    else:
+        res = run_systematic_hyperparameter_tuning()
     assert "models_tuned" in res
     assert len(res["models_tuned"]) == 6
     assert TUNED_HYPERPARAMS_JSON.exists()

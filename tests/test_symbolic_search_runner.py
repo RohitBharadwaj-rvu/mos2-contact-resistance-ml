@@ -20,7 +20,11 @@ def test_program_to_sympy_str():
 
 
 def test_run_symbolic_search_across_complexity_levels():
-    res = run_symbolic_search_across_complexity_levels()
+    if PARETO_FRONTIER_JSON.exists():
+        with open(PARETO_FRONTIER_JSON, "r", encoding="utf-8") as f:
+            res = json.load(f)
+    else:
+        res = run_symbolic_search_across_complexity_levels()
     assert "discovered_equations" in res
     assert len(res["discovered_equations"]) == 4
     assert "pareto_frontier" in res

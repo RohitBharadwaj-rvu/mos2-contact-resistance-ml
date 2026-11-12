@@ -1,0 +1,6822 @@
+{
+  "title": "MoS2 Master Model Suite Nested Cross-Validation and LOGO Leaderboard",
+  "description": "Exhaustive evaluation of Linear, Kernel, Bayesian Non-parametric, and Tree Ensemble architectures.",
+  "primary_corpus": {
+    "n_observations": 28,
+    "n_independent_sources": 23
+  },
+  "task_1_contact_resistance": {
+    "task_name": "Task 1: Primary Rc Prediction",
+    "target_unit": "dex",
+    "n_samples": 28,
+    "n_groups": 23,
+    "models": {
+      "Ridge_Regression": {
+        "family": "Linear",
+        "nested_group_kfold": {
+          "rmse": 1.6156,
+          "mae": 0.6194,
+          "spearman_rho": 0.8194,
+          "kendall_tau": 0.6508,
+          "composite_score": 0.0,
+          "outer_folds": [
+            {
+              "fold_index": 1,
+              "n_test_samples": 6,
+              "best_params": {
+                "alpha": 50.0
+              },
+              "rmse": 0.4673
+            },
+            {
+              "fold_index": 2,
+              "n_test_samples": 6,
+              "best_params": {
+                "alpha": 50.0
+              },
+              "rmse": 0.4313
+            },
+            {
+              "fold_index": 3,
+              "n_test_samples": 6,
+              "best_params": {
+                "alpha": 5.0
+              },
+              "rmse": 3.4128
+            },
+            {
+              "fold_index": 4,
+              "n_test_samples": 5,
+              "best_params": {
+                "alpha": 50.0
+              },
+              "rmse": 0.2266
+            },
+            {
+              "fold_index": 5,
+              "n_test_samples": 5,
+              "best_params": {
+                "alpha": 50.0
+              },
+              "rmse": 0.3212
+            }
+          ],
+          "oof_predictions": [
+            2.81,
+            3.0108,
+            3.1329,
+            3.1024,
+            3.4216,
+            2.8032,
+            2.9088,
+            3.28,
+            -5.8488,
+            2.9472,
+            3.0149,
+            3.0581,
+            3.5265,
+            2.8338,
+            3.2883,
+            3.4674,
+            3.612,
+            3.0159,
+            3.3965,
+            2.9016,
+            3.1998,
+            3.1597,
+            3.0026,
+            2.7012,
+            3.2565,
+            3.3637,
+            3.0883,
+            3.5209
+          ]
+        },
+        "leave_one_group_out": {
+          "rmse": 6.132,
+          "mae": 1.4344,
+          "spearman_rho": 0.8659,
+          "kendall_tau": 0.6984,
+          "composite_score": 0.0154,
+          "paper_breakdown": {
+            "SRC-EXP-2011-RADISAVLJEVIC": {
+              "n_samples": 1,
+              "actual": [
+                3.301
+              ],
+              "pred": [
+                3.096
+              ],
+              "rmse": 0.2046
+            },
+            "SRC-EXP-2012-LIU": {
+              "n_samples": 1,
+              "actual": [
+                2.763
+              ],
+              "pred": [
+                2.513
+              ],
+              "rmse": 0.2505
+            },
+            "SRC-EXP-2013-DAS": {
+              "n_samples": 1,
+              "actual": [
+                2.813
+              ],
+              "pred": [
+                2.479
+              ],
+              "rmse": 0.3342
+            },
+            "SRC-EXP-2013-FONTANA": {
+              "n_samples": 1,
+              "actual": [
+                3.699
+              ],
+              "pred": [
+                4.33
+              ],
+              "rmse": 0.6306
+            },
+            "SRC-EXP-2013-GONG": {
+              "n_samples": 2,
+              "actual": [
+                2.929,
+                3.949
+              ],
+              "pred": [
+                2.935,
+                3.954
+              ],
+              "rmse": 0.0051
+            },
+            "SRC-EXP-2013-KAASBJERG": {
+              "n_samples": 1,
+              "actual": [
+                3.74
+              ],
+              "pred": [
+                3.924
+              ],
+              "rmse": 0.1835
+            },
+            "SRC-EXP-2013-NEAL": {
+              "n_samples": 1,
+              "actual": [
+                2.903
+              ],
+              "pred": [
+                2.725
+              ],
+              "rmse": 0.1778
+            },
+            "SRC-EXP-2014-BAMPOULIS": {
+              "n_samples": 1,
+              "actual": [
+                3.845
+              ],
+              "pred": [
+                4.026
+              ],
+              "rmse": 0.1811
+            },
+            "SRC-EXP-2014-CHUANG": {
+              "n_samples": 1,
+              "actual": [
+                3.544
+              ],
+              "pred": [
+                3.222
+              ],
+              "rmse": 0.3224
+            },
+            "SRC-EXP-2014-CHWANG": {
+              "n_samples": 1,
+              "actual": [
+                3.505
+              ],
+              "pred": [
+                3.782
+              ],
+              "rmse": 0.2773
+            },
+            "SRC-EXP-2014-KANG": {
+              "n_samples": 1,
+              "actual": [
+                2.964
+              ],
+              "pred": [
+                3.082
+              ],
+              "rmse": 0.1184
+            },
+            "SRC-EXP-2014-KAPPERA": {
+              "n_samples": 1,
+              "actual": [
+                2.38
+              ],
+              "pred": [
+                -30.003
+              ],
+              "rmse": 32.383
+            },
+            "SRC-EXP-2014-MCDONNELL": {
+              "n_samples": 1,
+              "actual": [
+                4.079
+              ],
+              "pred": [
+                3.85
+              ],
+              "rmse": 0.2287
+            },
+            "SRC-EXP-2015-CUI": {
+              "n_samples": 1,
+              "actual": [
+                3.322
+              ],
+              "pred": [
+                3.508
+              ],
+              "rmse": 0.1862
+            },
+            "SRC-EXP-2016-ENGLISH": {
+              "n_samples": 2,
+              "actual": [
+                2.869,
+                3.041
+              ],
+              "pred": [
+                2.902,
+                3.296
+              ],
+              "rmse": 0.1813
+            },
+            "SRC-EXP-2016-GUIMARAES": {
+              "n_samples": 1,
+              "actual": [
+                2.699
+              ],
+              "pred": [
+                2.623
+              ],
+              "rmse": 0.0757
+            },
+            "SRC-EXP-2017-KIM": {
+              "n_samples": 1,
+              "actual": [
+                3.623
+              ],
+              "pred": [
+                3.455
+              ],
+              "rmse": 0.1678
+            },
+            "SRC-EXP-2017-SATA": {
+              "n_samples": 1,
+              "actual": [
+                3.161
+              ],
+              "pred": [
+                3.018
+              ],
+              "rmse": 0.1434
+            },
+            "SRC-EXP-2018-LIU": {
+              "n_samples": 2,
+              "actual": [
+                4.813,
+                2.74
+              ],
+              "pred": [
+                3.523,
+                2.958
+              ],
+              "rmse": 0.9252
+            },
+            "SRC-EXP-2018-WANG-IEDM": {
+              "n_samples": 1,
+              "actual": [
+                2.447
+              ],
+              "pred": [
+                1.976
+              ],
+              "rmse": 0.4716
+            },
+            "SRC-EXP-2019-LI": {
+              "n_samples": 1,
+              "actual": [
+                2.518
+              ],
+              "pred": [
+                2.9
+              ],
+              "rmse": 0.3816
+            },
+            "SRC-EXP-2019-WANG": {
+              "n_samples": 2,
+              "actual": [
+                2.602,
+                2.477
+              ],
+              "pred": [
+                2.446,
+                2.363
+              ],
+              "rmse": 0.137
+            },
+            "SRC-EXP-2021-SHEN": {
+              "n_samples": 2,
+              "actual": [
+                2.09,
+                2.342
+              ],
+              "pred": [
+                2.769,
+                3.033
+              ],
+              "rmse": 0.6848
+            }
+          },
+          "oof_predictions": [
+            2.769,
+            3.0328,
+            2.4457,
+            2.3627,
+            3.5227,
+            2.9585,
+            2.9022,
+            3.2956,
+            -30.0028,
+            2.4787,
+            2.9001,
+            2.6233,
+            3.8505,
+            3.0964,
+            3.2217,
+            4.3296,
+            4.0262,
+            2.9352,
+            3.9536,
+            2.5129,
+            3.5084,
+            3.018,
+            2.7253,
+            1.9756,
+            3.4554,
+            3.7824,
+            3.0822,
+            3.9239
+          ]
+        }
+      },
+      "ElasticNet": {
+        "family": "Linear",
+        "nested_group_kfold": {
+          "rmse": 0.4841,
+          "mae": 0.3756,
+          "spearman_rho": 0.7865,
+          "kendall_tau": 0.5926,
+          "composite_score": 0.1807,
+          "outer_folds": [
+            {
+              "fold_index": 1,
+              "n_test_samples": 6,
+              "best_params": {
+                "alpha": 0.5,
+                "l1_ratio": 0.2,
+                "max_iter": 2000
+              },
+              "rmse": 0.3958
+            },
+            {
+              "fold_index": 2,
+              "n_test_samples": 6,
+              "best_params": {
+                "alpha": 0.5,
+                "l1_ratio": 0.8,
+                "max_iter": 2000
+              },
+              "rmse": 0.6149
+            },
+            {
+              "fold_index": 3,
+              "n_test_samples": 6,
+              "best_params": {
+                "alpha": 0.1,
+                "l1_ratio": 0.8,
+                "max_iter": 2000
+              },
+              "rmse": 0.6191
+            },
+            {
+              "fold_index": 4,
+              "n_test_samples": 5,
+              "best_params": {
+                "alpha": 0.1,
+                "l1_ratio": 0.5,
+                "max_iter": 2000
+              },
+              "rmse": 0.2539
+            },
+            {
+              "fold_index": 5,
+              "n_test_samples": 5,
+              "best_params": {
+                "alpha": 0.02,
+                "l1_ratio": 0.8,
+                "max_iter": 2000
+              },
+              "rmse": 0.3824
+            }
+          ],
+          "oof_predictions": [
+            2.6206,
+            2.8919,
+            3.1127,
+            3.1017,
+            3.3605,
+            2.8666,
+            2.92,
+            3.5249,
+            2.6743,
+            2.6233,
+            3.0203,
+            2.4035,
+            3.2139,
+            3.0135,
+            3.3142,
+            4.3275,
+            3.201,
+            3.0511,
+            4.0554,
+            3.0335,
+            3.1973,
+            3.1131,
+            2.9549,
+            3.0648,
+            3.3923,
+            3.9769,
+            3.1421,
+            3.7715
+          ]
+        },
+        "leave_one_group_out": {
+          "rmse": 3.2907,
+          "mae": 0.8815,
+          "spearman_rho": 0.8752,
+          "kendall_tau": 0.709,
+          "composite_score": 0.0199,
+          "paper_breakdown": {
+            "SRC-EXP-2011-RADISAVLJEVIC": {
+              "n_samples": 1,
+              "actual": [
+                3.301
+              ],
+              "pred": [
+                2.939
+              ],
+              "rmse": 0.3623
+            },
+            "SRC-EXP-2012-LIU": {
+              "n_samples": 1,
+              "actual": [
+                2.763
+              ],
+              "pred": [
+                2.487
+              ],
+              "rmse": 0.276
+            },
+            "SRC-EXP-2013-DAS": {
+              "n_samples": 1,
+              "actual": [
+                2.813
+              ],
+              "pred": [
+                2.446
+              ],
+              "rmse": 0.3668
+            },
+            "SRC-EXP-2013-FONTANA": {
+              "n_samples": 1,
+              "actual": [
+                3.699
+              ],
+              "pred": [
+                4.275
+              ],
+              "rmse": 0.5755
+            },
+            "SRC-EXP-2013-GONG": {
+              "n_samples": 2,
+              "actual": [
+                2.929,
+                3.949
+              ],
+              "pred": [
+                3.014,
+                3.917
+              ],
+              "rmse": 0.0641
+            },
+            "SRC-EXP-2013-KAASBJERG": {
+              "n_samples": 1,
+              "actual": [
+                3.74
+              ],
+              "pred": [
+                3.853
+              ],
+              "rmse": 0.1122
+            },
+            "SRC-EXP-2013-NEAL": {
+              "n_samples": 1,
+              "actual": [
+                2.903
+              ],
+              "pred": [
+                2.93
+              ],
+              "rmse": 0.0271
+            },
+            "SRC-EXP-2014-BAMPOULIS": {
+              "n_samples": 1,
+              "actual": [
+                3.845
+              ],
+              "pred": [
+                3.96
+              ],
+              "rmse": 0.115
+            },
+            "SRC-EXP-2014-CHUANG": {
+              "n_samples": 1,
+              "actual": [
+                3.544
+              ],
+              "pred": [
+                3.354
+              ],
+              "rmse": 0.1901
+            },
+            "SRC-EXP-2014-CHWANG": {
+              "n_samples": 1,
+              "actual": [
+                3.505
+              ],
+              "pred": [
+                3.836
+              ],
+              "rmse": 0.3307
+            },
+            "SRC-EXP-2014-KANG": {
+              "n_samples": 1,
+              "actual": [
+                2.964
+              ],
+              "pred": [
+                3.118
+              ],
+              "rmse": 0.1539
+            },
+            "SRC-EXP-2014-KAPPERA": {
+              "n_samples": 1,
+              "actual": [
+                2.38
+              ],
+              "pred": [
+                -14.916
+              ],
+              "rmse": 17.2961
+            },
+            "SRC-EXP-2014-MCDONNELL": {
+              "n_samples": 1,
+              "actual": [
+                4.079
+              ],
+              "pred": [
+                3.861
+              ],
+              "rmse": 0.2185
+            },
+            "SRC-EXP-2015-CUI": {
+              "n_samples": 1,
+              "actual": [
+                3.322
+              ],
+              "pred": [
+                3.306
+              ],
+              "rmse": 0.0162
+            },
+            "SRC-EXP-2016-ENGLISH": {
+              "n_samples": 2,
+              "actual": [
+                2.869,
+                3.041
+              ],
+              "pred": [
+                2.877,
+                3.356
+              ],
+              "rmse": 0.2225
+            },
+            "SRC-EXP-2016-GUIMARAES": {
+              "n_samples": 1,
+              "actual": [
+                2.699
+              ],
+              "pred": [
+                2.53
+              ],
+              "rmse": 0.1686
+            },
+            "SRC-EXP-2017-KIM": {
+              "n_samples": 1,
+              "actual": [
+                3.623
+              ],
+              "pred": [
+                3.377
+              ],
+              "rmse": 0.2463
+            },
+            "SRC-EXP-2017-SATA": {
+              "n_samples": 1,
+              "actual": [
+                3.161
+              ],
+              "pred": [
+                3.085
+              ],
+              "rmse": 0.0767
+            },
+            "SRC-EXP-2018-LIU": {
+              "n_samples": 2,
+              "actual": [
+                4.813,
+                2.74
+              ],
+              "pred": [
+                3.442,
+                2.861
+              ],
+              "rmse": 0.9728
+            },
+            "SRC-EXP-2018-WANG-IEDM": {
+              "n_samples": 1,
+              "actual": [
+                2.447
+              ],
+              "pred": [
+                2.165
+              ],
+              "rmse": 0.2824
+            },
+            "SRC-EXP-2019-LI": {
+              "n_samples": 1,
+              "actual": [
+                2.518
+              ],
+              "pred": [
+                2.771
+              ],
+              "rmse": 0.2529
+            },
+            "SRC-EXP-2019-WANG": {
+              "n_samples": 2,
+              "actual": [
+                2.602,
+                2.477
+              ],
+              "pred": [
+                2.776,
+                2.72
+              ],
+              "rmse": 0.2117
+            },
+            "SRC-EXP-2021-SHEN": {
+              "n_samples": 2,
+              "actual": [
+                2.09,
+                2.342
+              ],
+              "pred": [
+                2.66,
+                3.039
+              ],
+              "rmse": 0.6364
+            }
+          },
+          "oof_predictions": [
+            2.6603,
+            3.0387,
+            2.7764,
+            2.7204,
+            3.4424,
+            2.861,
+            2.8768,
+            3.3559,
+            -14.9159,
+            2.4461,
+            2.7714,
+            2.5304,
+            3.8607,
+            2.9387,
+            3.354,
+            4.2745,
+            3.9601,
+            3.0139,
+            3.9166,
+            2.4874,
+            3.306,
+            3.0847,
+            2.9302,
+            2.1648,
+            3.3769,
+            3.8358,
+            3.1177,
+            3.8526
+          ]
+        }
+      },
+      "Support_Vector_Regression": {
+        "family": "Kernel",
+        "nested_group_kfold": {
+          "rmse": 0.3984,
+          "mae": 0.2682,
+          "spearman_rho": 0.8446,
+          "kendall_tau": 0.6772,
+          "composite_score": 0.2459,
+          "outer_folds": [
+            {
+              "fold_index": 1,
+              "n_test_samples": 6,
+              "best_params": {
+                "C": 1.0,
+                "epsilon": 0.05,
+                "kernel": "rbf"
+              },
+              "rmse": 0.4115
+            },
+            {
+              "fold_index": 2,
+              "n_test_samples": 6,
+              "best_params": {
+                "C": 1.0,
+                "epsilon": 0.05,
+                "kernel": "rbf"
+              },
+              "rmse": 0.3185
+            },
+            {
+              "fold_index": 3,
+              "n_test_samples": 6,
+              "best_params": {
+                "C": 3.0,
+                "epsilon": 0.05,
+                "kernel": "rbf"
+              },
+              "rmse": 0.6614
+            },
+            {
+              "fold_index": 4,
+              "n_test_samples": 5,
+              "best_params": {
+                "C": 1.0,
+                "epsilon": 0.05,
+                "kernel": "rbf"
+              },
+              "rmse": 0.1227
+            },
+            {
+              "fold_index": 5,
+              "n_test_samples": 5,
+              "best_params": {
+                "C": 1.0,
+                "epsilon": 0.05,
+                "kernel": "rbf"
+              },
+              "rmse": 0.1539
+            }
+          ],
+          "oof_predictions": [
+            2.8239,
+            2.9027,
+            3.0471,
+            2.922,
+            3.3695,
+            2.6599,
+            2.992,
+            3.0173,
+            2.9472,
+            2.9817,
+            2.862,
+            2.9535,
+            3.7856,
+            2.8596,
+            3.5075,
+            3.4808,
+            3.6875,
+            2.9989,
+            3.9554,
+            2.7844,
+            3.1981,
+            3.2138,
+            3.0296,
+            2.7656,
+            3.462,
+            3.5397,
+            3.0972,
+            3.8663
+          ]
+        },
+        "leave_one_group_out": {
+          "rmse": 0.4038,
+          "mae": 0.279,
+          "spearman_rho": 0.8539,
+          "kendall_tau": 0.6825,
+          "composite_score": 0.2477,
+          "paper_breakdown": {
+            "SRC-EXP-2011-RADISAVLJEVIC": {
+              "n_samples": 1,
+              "actual": [
+                3.301
+              ],
+              "pred": [
+                2.847
+              ],
+              "rmse": 0.454
+            },
+            "SRC-EXP-2012-LIU": {
+              "n_samples": 1,
+              "actual": [
+                2.763
+              ],
+              "pred": [
+                2.758
+              ],
+              "rmse": 0.0051
+            },
+            "SRC-EXP-2013-DAS": {
+              "n_samples": 1,
+              "actual": [
+                2.813
+              ],
+              "pred": [
+                2.946
+              ],
+              "rmse": 0.1327
+            },
+            "SRC-EXP-2013-FONTANA": {
+              "n_samples": 1,
+              "actual": [
+                3.699
+              ],
+              "pred": [
+                3.439
+              ],
+              "rmse": 0.2605
+            },
+            "SRC-EXP-2013-GONG": {
+              "n_samples": 2,
+              "actual": [
+                2.929,
+                3.949
+              ],
+              "pred": [
+                2.979,
+                3.689
+              ],
+              "rmse": 0.1872
+            },
+            "SRC-EXP-2013-KAASBJERG": {
+              "n_samples": 1,
+              "actual": [
+                3.74
+              ],
+              "pred": [
+                3.85
+              ],
+              "rmse": 0.1099
+            },
+            "SRC-EXP-2013-NEAL": {
+              "n_samples": 1,
+              "actual": [
+                2.903
+              ],
+              "pred": [
+                3.034
+              ],
+              "rmse": 0.1306
+            },
+            "SRC-EXP-2014-BAMPOULIS": {
+              "n_samples": 1,
+              "actual": [
+                3.845
+              ],
+              "pred": [
+                3.588
+              ],
+              "rmse": 0.2575
+            },
+            "SRC-EXP-2014-CHUANG": {
+              "n_samples": 1,
+              "actual": [
+                3.544
+              ],
+              "pred": [
+                3.393
+              ],
+              "rmse": 0.1507
+            },
+            "SRC-EXP-2014-CHWANG": {
+              "n_samples": 1,
+              "actual": [
+                3.505
+              ],
+              "pred": [
+                3.566
+              ],
+              "rmse": 0.0613
+            },
+            "SRC-EXP-2014-KANG": {
+              "n_samples": 1,
+              "actual": [
+                2.964
+              ],
+              "pred": [
+                3.066
+              ],
+              "rmse": 0.1018
+            },
+            "SRC-EXP-2014-KAPPERA": {
+              "n_samples": 1,
+              "actual": [
+                2.38
+              ],
+              "pred": [
+                2.924
+              ],
+              "rmse": 0.5434
+            },
+            "SRC-EXP-2014-MCDONNELL": {
+              "n_samples": 1,
+              "actual": [
+                4.079
+              ],
+              "pred": [
+                3.586
+              ],
+              "rmse": 0.4931
+            },
+            "SRC-EXP-2015-CUI": {
+              "n_samples": 1,
+              "actual": [
+                3.322
+              ],
+              "pred": [
+                3.189
+              ],
+              "rmse": 0.1335
+            },
+            "SRC-EXP-2016-ENGLISH": {
+              "n_samples": 2,
+              "actual": [
+                2.869,
+                3.041
+              ],
+              "pred": [
+                2.945,
+                3.054
+              ],
+              "rmse": 0.0545
+            },
+            "SRC-EXP-2016-GUIMARAES": {
+              "n_samples": 1,
+              "actual": [
+                2.699
+              ],
+              "pred": [
+                2.907
+              ],
+              "rmse": 0.2081
+            },
+            "SRC-EXP-2017-KIM": {
+              "n_samples": 1,
+              "actual": [
+                3.623
+              ],
+              "pred": [
+                3.427
+              ],
+              "rmse": 0.1961
+            },
+            "SRC-EXP-2017-SATA": {
+              "n_samples": 1,
+              "actual": [
+                3.161
+              ],
+              "pred": [
+                3.169
+              ],
+              "rmse": 0.0077
+            },
+            "SRC-EXP-2018-LIU": {
+              "n_samples": 2,
+              "actual": [
+                4.813,
+                2.74
+              ],
+              "pred": [
+                3.359,
+                2.683
+              ],
+              "rmse": 1.0288
+            },
+            "SRC-EXP-2018-WANG-IEDM": {
+              "n_samples": 1,
+              "actual": [
+                2.447
+              ],
+              "pred": [
+                2.746
+              ],
+              "rmse": 0.2985
+            },
+            "SRC-EXP-2019-LI": {
+              "n_samples": 1,
+              "actual": [
+                2.518
+              ],
+              "pred": [
+                2.782
+              ],
+              "rmse": 0.2637
+            },
+            "SRC-EXP-2019-WANG": {
+              "n_samples": 2,
+              "actual": [
+                2.602,
+                2.477
+              ],
+              "pred": [
+                3.019,
+                2.919
+              ],
+              "rmse": 0.4295
+            },
+            "SRC-EXP-2021-SHEN": {
+              "n_samples": 2,
+              "actual": [
+                2.09,
+                2.342
+              ],
+              "pred": [
+                2.805,
+                2.862
+              ],
+              "rmse": 0.6253
+            }
+          },
+          "oof_predictions": [
+            2.8051,
+            2.8624,
+            3.0188,
+            2.9189,
+            3.359,
+            2.6831,
+            2.9452,
+            3.0544,
+            2.9236,
+            2.9456,
+            2.7822,
+            2.9071,
+            3.5861,
+            2.847,
+            3.3934,
+            3.4385,
+            3.5876,
+            2.9792,
+            3.6893,
+            2.7583,
+            3.1887,
+            3.1691,
+            3.0337,
+            2.7457,
+            3.4271,
+            3.5664,
+            3.0656,
+            3.8503
+          ]
+        }
+      },
+      "Gaussian_Process_Matern": {
+        "family": "Bayesian_Nonparametric",
+        "nested_group_kfold": {
+          "rmse": 0.6422,
+          "mae": 0.5184,
+          "spearman_rho": -0.2135,
+          "kendall_tau": -0.1323,
+          "composite_score": 0.0,
+          "outer_folds": [
+            {
+              "fold_index": 1,
+              "n_test_samples": 6,
+              "best_params": {
+                "kernel": "Matern(length_scale=1, nu=2.5) + WhiteKernel(noise_level=0.05)",
+                "alpha": 0.01,
+                "n_restarts_optimizer": 0,
+                "random_state": 42
+              },
+              "rmse": 0.6415
+            },
+            {
+              "fold_index": 2,
+              "n_test_samples": 6,
+              "best_params": {
+                "kernel": "Matern(length_scale=1, nu=2.5) + WhiteKernel(noise_level=0.05)",
+                "alpha": 0.01,
+                "n_restarts_optimizer": 0,
+                "random_state": 42
+              },
+              "rmse": 0.6679
+            },
+            {
+              "fold_index": 3,
+              "n_test_samples": 6,
+              "best_params": {
+                "kernel": "Matern(length_scale=1, nu=2.5) + WhiteKernel(noise_level=0.05)",
+                "alpha": 0.01,
+                "n_restarts_optimizer": 0,
+                "random_state": 42
+              },
+              "rmse": 0.7932
+            },
+            {
+              "fold_index": 4,
+              "n_test_samples": 5,
+              "best_params": {
+                "kernel": "Matern(length_scale=1, nu=2.5) + WhiteKernel(noise_level=0.05)",
+                "alpha": 0.01,
+                "n_restarts_optimizer": 0,
+                "random_state": 42
+              },
+              "rmse": 0.4247
+            },
+            {
+              "fold_index": 5,
+              "n_test_samples": 5,
+              "best_params": {
+                "kernel": "Matern(length_scale=1, nu=2.5) + WhiteKernel(noise_level=0.05)",
+                "alpha": 0.01,
+                "n_restarts_optimizer": 0,
+                "random_state": 42
+              },
+              "rmse": 0.5875
+            }
+          ],
+          "oof_predictions": [
+            3.149,
+            3.149,
+            3.0797,
+            3.0797,
+            3.0375,
+            3.0375,
+            3.0232,
+            3.0232,
+            3.0375,
+            3.149,
+            3.149,
+            3.0042,
+            3.0797,
+            3.0375,
+            3.149,
+            3.0042,
+            3.0797,
+            3.0042,
+            3.0042,
+            3.0797,
+            3.149,
+            3.0375,
+            3.0375,
+            3.0797,
+            3.0232,
+            3.0042,
+            3.0232,
+            3.0232
+          ]
+        },
+        "leave_one_group_out": {
+          "rmse": 0.6469,
+          "mae": 0.5287,
+          "spearman_rho": -0.8413,
+          "kendall_tau": -0.7831,
+          "composite_score": 0.0,
+          "paper_breakdown": {
+            "SRC-EXP-2011-RADISAVLJEVIC": {
+              "n_samples": 1,
+              "actual": [
+                3.301
+              ],
+              "pred": [
+                3.059
+              ],
+              "rmse": 0.2422
+            },
+            "SRC-EXP-2012-LIU": {
+              "n_samples": 1,
+              "actual": [
+                2.763
+              ],
+              "pred": [
+                3.079
+              ],
+              "rmse": 0.3154
+            },
+            "SRC-EXP-2013-DAS": {
+              "n_samples": 1,
+              "actual": [
+                2.813
+              ],
+              "pred": [
+                3.077
+              ],
+              "rmse": 0.264
+            },
+            "SRC-EXP-2013-FONTANA": {
+              "n_samples": 1,
+              "actual": [
+                3.699
+              ],
+              "pred": [
+                3.046
+              ],
+              "rmse": 0.6533
+            },
+            "SRC-EXP-2013-GONG": {
+              "n_samples": 2,
+              "actual": [
+                2.929,
+                3.949
+              ],
+              "pred": [
+                3.041,
+                3.041
+              ],
+              "rmse": 0.6474
+            },
+            "SRC-EXP-2013-KAASBJERG": {
+              "n_samples": 1,
+              "actual": [
+                3.74
+              ],
+              "pred": [
+                3.044
+              ],
+              "rmse": 0.696
+            },
+            "SRC-EXP-2013-NEAL": {
+              "n_samples": 1,
+              "actual": [
+                2.903
+              ],
+              "pred": [
+                3.073
+              ],
+              "rmse": 0.1703
+            },
+            "SRC-EXP-2014-BAMPOULIS": {
+              "n_samples": 1,
+              "actual": [
+                3.845
+              ],
+              "pred": [
+                3.041
+              ],
+              "rmse": 0.8039
+            },
+            "SRC-EXP-2014-CHUANG": {
+              "n_samples": 1,
+              "actual": [
+                3.544
+              ],
+              "pred": [
+                3.051
+              ],
+              "rmse": 0.4934
+            },
+            "SRC-EXP-2014-CHWANG": {
+              "n_samples": 1,
+              "actual": [
+                3.505
+              ],
+              "pred": [
+                3.052
+              ],
+              "rmse": 0.4532
+            },
+            "SRC-EXP-2014-KANG": {
+              "n_samples": 1,
+              "actual": [
+                2.964
+              ],
+              "pred": [
+                3.071
+              ],
+              "rmse": 0.1073
+            },
+            "SRC-EXP-2014-KAPPERA": {
+              "n_samples": 1,
+              "actual": [
+                2.38
+              ],
+              "pred": [
+                3.095
+              ],
+              "rmse": 0.7145
+            },
+            "SRC-EXP-2014-MCDONNELL": {
+              "n_samples": 1,
+              "actual": [
+                4.079
+              ],
+              "pred": [
+                3.034
+              ],
+              "rmse": 1.0447
+            },
+            "SRC-EXP-2015-CUI": {
+              "n_samples": 1,
+              "actual": [
+                3.322
+              ],
+              "pred": [
+                3.058
+              ],
+              "rmse": 0.2641
+            },
+            "SRC-EXP-2016-ENGLISH": {
+              "n_samples": 2,
+              "actual": [
+                2.869,
+                3.041
+              ],
+              "pred": [
+                3.074,
+                3.074
+              ],
+              "rmse": 0.1467
+            },
+            "SRC-EXP-2016-GUIMARAES": {
+              "n_samples": 1,
+              "actual": [
+                2.699
+              ],
+              "pred": [
+                3.081
+              ],
+              "rmse": 0.3824
+            },
+            "SRC-EXP-2017-KIM": {
+              "n_samples": 1,
+              "actual": [
+                3.623
+              ],
+              "pred": [
+                3.048
+              ],
+              "rmse": 0.5751
+            },
+            "SRC-EXP-2017-SATA": {
+              "n_samples": 1,
+              "actual": [
+                3.161
+              ],
+              "pred": [
+                3.064
+              ],
+              "rmse": 0.0976
+            },
+            "SRC-EXP-2018-LIU": {
+              "n_samples": 2,
+              "actual": [
+                4.813,
+                2.74
+              ],
+              "pred": [
+                3.026,
+                3.026
+              ],
+              "rmse": 1.2796
+            },
+            "SRC-EXP-2018-WANG-IEDM": {
+              "n_samples": 1,
+              "actual": [
+                2.447
+              ],
+              "pred": [
+                3.092
+              ],
+              "rmse": 0.6446
+            },
+            "SRC-EXP-2019-LI": {
+              "n_samples": 1,
+              "actual": [
+                2.518
+              ],
+              "pred": [
+                3.089
+              ],
+              "rmse": 0.5703
+            },
+            "SRC-EXP-2019-WANG": {
+              "n_samples": 2,
+              "actual": [
+                2.602,
+                2.477
+              ],
+              "pred": [
+                3.109,
+                3.109
+              ],
+              "rmse": 0.5724
+            },
+            "SRC-EXP-2021-SHEN": {
+              "n_samples": 2,
+              "actual": [
+                2.09,
+                2.342
+              ],
+              "pred": [
+                3.138,
+                3.138
+              ],
+              "rmse": 0.9305
+            }
+          },
+          "oof_predictions": [
+            3.1381,
+            3.1381,
+            3.1086,
+            3.1086,
+            3.0259,
+            3.0259,
+            3.074,
+            3.074,
+            3.0947,
+            3.0769,
+            3.0888,
+            3.0814,
+            3.0345,
+            3.0588,
+            3.0507,
+            3.0457,
+            3.0412,
+            3.0406,
+            3.0406,
+            3.0788,
+            3.0581,
+            3.0638,
+            3.0734,
+            3.0918,
+            3.0481,
+            3.0519,
+            3.0711,
+            3.0444
+          ]
+        }
+      },
+      "Random_Forest": {
+        "family": "Tree_Ensemble",
+        "nested_group_kfold": {
+          "rmse": 0.3666,
+          "mae": 0.2859,
+          "spearman_rho": 0.7638,
+          "kendall_tau": 0.5783,
+          "composite_score": 0.2178,
+          "outer_folds": [
+            {
+              "fold_index": 1,
+              "n_test_samples": 6,
+              "best_params": {
+                "n_estimators": 50,
+                "max_depth": 2,
+                "min_samples_leaf": 2,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.3989
+            },
+            {
+              "fold_index": 2,
+              "n_test_samples": 6,
+              "best_params": {
+                "n_estimators": 50,
+                "max_depth": 2,
+                "min_samples_leaf": 2,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.3839
+            },
+            {
+              "fold_index": 3,
+              "n_test_samples": 6,
+              "best_params": {
+                "n_estimators": 30,
+                "max_depth": 2,
+                "min_samples_leaf": 2,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.4547
+            },
+            {
+              "fold_index": 4,
+              "n_test_samples": 5,
+              "best_params": {
+                "n_estimators": 50,
+                "max_depth": 3,
+                "min_samples_leaf": 2,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.3243
+            },
+            {
+              "fold_index": 5,
+              "n_test_samples": 5,
+              "best_params": {
+                "n_estimators": 50,
+                "max_depth": 3,
+                "min_samples_leaf": 2,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.1772
+            }
+          ],
+          "oof_predictions": [
+            2.5881,
+            2.5881,
+            3.0442,
+            3.1037,
+            3.8462,
+            2.9931,
+            3.0056,
+            3.6327,
+            2.5539,
+            2.7754,
+            3.2539,
+            2.9488,
+            4.118,
+            2.937,
+            3.7509,
+            3.7663,
+            3.7703,
+            2.9896,
+            4.1374,
+            2.9452,
+            3.0748,
+            2.8813,
+            2.937,
+            2.9531,
+            3.2878,
+            3.279,
+            2.9921,
+            3.9507
+          ]
+        },
+        "leave_one_group_out": {
+          "rmse": 0.3884,
+          "mae": 0.2995,
+          "spearman_rho": 0.7699,
+          "kendall_tau": 0.5854,
+          "composite_score": 0.2122,
+          "paper_breakdown": {
+            "SRC-EXP-2011-RADISAVLJEVIC": {
+              "n_samples": 1,
+              "actual": [
+                3.301
+              ],
+              "pred": [
+                2.905
+              ],
+              "rmse": 0.3958
+            },
+            "SRC-EXP-2012-LIU": {
+              "n_samples": 1,
+              "actual": [
+                2.763
+              ],
+              "pred": [
+                3.025
+              ],
+              "rmse": 0.2612
+            },
+            "SRC-EXP-2013-DAS": {
+              "n_samples": 1,
+              "actual": [
+                2.813
+              ],
+              "pred": [
+                2.991
+              ],
+              "rmse": 0.1776
+            },
+            "SRC-EXP-2013-FONTANA": {
+              "n_samples": 1,
+              "actual": [
+                3.699
+              ],
+              "pred": [
+                3.863
+              ],
+              "rmse": 0.1639
+            },
+            "SRC-EXP-2013-GONG": {
+              "n_samples": 2,
+              "actual": [
+                2.929,
+                3.949
+              ],
+              "pred": [
+                3.007,
+                4.135
+              ],
+              "rmse": 0.1419
+            },
+            "SRC-EXP-2013-KAASBJERG": {
+              "n_samples": 1,
+              "actual": [
+                3.74
+              ],
+              "pred": [
+                3.786
+              ],
+              "rmse": 0.0457
+            },
+            "SRC-EXP-2013-NEAL": {
+              "n_samples": 1,
+              "actual": [
+                2.903
+              ],
+              "pred": [
+                3.004
+              ],
+              "rmse": 0.101
+            },
+            "SRC-EXP-2014-BAMPOULIS": {
+              "n_samples": 1,
+              "actual": [
+                3.845
+              ],
+              "pred": [
+                3.746
+              ],
+              "rmse": 0.0991
+            },
+            "SRC-EXP-2014-CHUANG": {
+              "n_samples": 1,
+              "actual": [
+                3.544
+              ],
+              "pred": [
+                3.535
+              ],
+              "rmse": 0.0094
+            },
+            "SRC-EXP-2014-CHWANG": {
+              "n_samples": 1,
+              "actual": [
+                3.505
+              ],
+              "pred": [
+                3.297
+              ],
+              "rmse": 0.2084
+            },
+            "SRC-EXP-2014-KANG": {
+              "n_samples": 1,
+              "actual": [
+                2.964
+              ],
+              "pred": [
+                2.983
+              ],
+              "rmse": 0.0191
+            },
+            "SRC-EXP-2014-KAPPERA": {
+              "n_samples": 1,
+              "actual": [
+                2.38
+              ],
+              "pred": [
+                2.547
+              ],
+              "rmse": 0.1667
+            },
+            "SRC-EXP-2014-MCDONNELL": {
+              "n_samples": 1,
+              "actual": [
+                4.079
+              ],
+              "pred": [
+                4.102
+              ],
+              "rmse": 0.0232
+            },
+            "SRC-EXP-2015-CUI": {
+              "n_samples": 1,
+              "actual": [
+                3.322
+              ],
+              "pred": [
+                3.059
+              ],
+              "rmse": 0.263
+            },
+            "SRC-EXP-2016-ENGLISH": {
+              "n_samples": 2,
+              "actual": [
+                2.869,
+                3.041
+              ],
+              "pred": [
+                2.999,
+                3.735
+              ],
+              "rmse": 0.4988
+            },
+            "SRC-EXP-2016-GUIMARAES": {
+              "n_samples": 1,
+              "actual": [
+                2.699
+              ],
+              "pred": [
+                2.939
+              ],
+              "rmse": 0.2397
+            },
+            "SRC-EXP-2017-KIM": {
+              "n_samples": 1,
+              "actual": [
+                3.623
+              ],
+              "pred": [
+                3.224
+              ],
+              "rmse": 0.3994
+            },
+            "SRC-EXP-2017-SATA": {
+              "n_samples": 1,
+              "actual": [
+                3.161
+              ],
+              "pred": [
+                2.928
+              ],
+              "rmse": 0.2332
+            },
+            "SRC-EXP-2018-LIU": {
+              "n_samples": 2,
+              "actual": [
+                4.813,
+                2.74
+              ],
+              "pred": [
+                3.828,
+                3.316
+              ],
+              "rmse": 0.8068
+            },
+            "SRC-EXP-2018-WANG-IEDM": {
+              "n_samples": 1,
+              "actual": [
+                2.447
+              ],
+              "pred": [
+                2.873
+              ],
+              "rmse": 0.4259
+            },
+            "SRC-EXP-2019-LI": {
+              "n_samples": 1,
+              "actual": [
+                2.518
+              ],
+              "pred": [
+                3.394
+              ],
+              "rmse": 0.8758
+            },
+            "SRC-EXP-2019-WANG": {
+              "n_samples": 2,
+              "actual": [
+                2.602,
+                2.477
+              ],
+              "pred": [
+                2.94,
+                3.009
+              ],
+              "rmse": 0.4458
+            },
+            "SRC-EXP-2021-SHEN": {
+              "n_samples": 2,
+              "actual": [
+                2.09,
+                2.342
+              ],
+              "pred": [
+                2.596,
+                2.596
+              ],
+              "rmse": 0.4003
+            }
+          },
+          "oof_predictions": [
+            2.596,
+            2.596,
+            2.9401,
+            3.0093,
+            3.8276,
+            3.3157,
+            2.9989,
+            3.7348,
+            2.5469,
+            2.9905,
+            3.3943,
+            2.9387,
+            4.1024,
+            2.9052,
+            3.5347,
+            3.8629,
+            3.746,
+            3.0069,
+            4.1345,
+            3.0246,
+            3.0592,
+            2.9282,
+            3.0041,
+            2.8731,
+            3.2238,
+            3.2967,
+            2.9829,
+            3.7861
+          ]
+        }
+      },
+      "Extra_Trees": {
+        "family": "Tree_Ensemble",
+        "nested_group_kfold": {
+          "rmse": 0.4116,
+          "mae": 0.264,
+          "spearman_rho": 0.867,
+          "kendall_tau": 0.7143,
+          "composite_score": 0.2531,
+          "outer_folds": [
+            {
+              "fold_index": 1,
+              "n_test_samples": 6,
+              "best_params": {
+                "n_estimators": 30,
+                "max_depth": 3,
+                "min_samples_leaf": 2,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.3496
+            },
+            {
+              "fold_index": 2,
+              "n_test_samples": 6,
+              "best_params": {
+                "n_estimators": 50,
+                "max_depth": 3,
+                "min_samples_leaf": 2,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.3678
+            },
+            {
+              "fold_index": 3,
+              "n_test_samples": 6,
+              "best_params": {
+                "n_estimators": 50,
+                "max_depth": 2,
+                "min_samples_leaf": 2,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.7001
+            },
+            {
+              "fold_index": 4,
+              "n_test_samples": 5,
+              "best_params": {
+                "n_estimators": 50,
+                "max_depth": 3,
+                "min_samples_leaf": 2,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.1825
+            },
+            {
+              "fold_index": 5,
+              "n_test_samples": 5,
+              "best_params": {
+                "n_estimators": 30,
+                "max_depth": 3,
+                "min_samples_leaf": 2,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.1346
+            }
+          ],
+          "oof_predictions": [
+            2.6254,
+            2.6483,
+            3.002,
+            3.0262,
+            3.1647,
+            2.714,
+            3.0324,
+            3.2165,
+            2.5103,
+            2.8416,
+            3.0342,
+            2.8145,
+            4.0568,
+            2.8513,
+            3.4299,
+            3.7845,
+            3.8233,
+            3.0364,
+            4.0999,
+            3.0091,
+            3.0516,
+            3.1314,
+            2.9608,
+            2.9846,
+            3.3369,
+            3.3157,
+            3.0574,
+            3.8762
+          ]
+        },
+        "leave_one_group_out": {
+          "rmse": 0.4587,
+          "mae": 0.3106,
+          "spearman_rho": 0.6716,
+          "kendall_tau": 0.5291,
+          "composite_score": 0.1427,
+          "paper_breakdown": {
+            "SRC-EXP-2011-RADISAVLJEVIC": {
+              "n_samples": 1,
+              "actual": [
+                3.301
+              ],
+              "pred": [
+                2.843
+              ],
+              "rmse": 0.4577
+            },
+            "SRC-EXP-2012-LIU": {
+              "n_samples": 1,
+              "actual": [
+                2.763
+              ],
+              "pred": [
+                3.024
+              ],
+              "rmse": 0.2603
+            },
+            "SRC-EXP-2013-DAS": {
+              "n_samples": 1,
+              "actual": [
+                2.813
+              ],
+              "pred": [
+                3.018
+              ],
+              "rmse": 0.2047
+            },
+            "SRC-EXP-2013-FONTANA": {
+              "n_samples": 1,
+              "actual": [
+                3.699
+              ],
+              "pred": [
+                3.654
+              ],
+              "rmse": 0.0448
+            },
+            "SRC-EXP-2013-GONG": {
+              "n_samples": 2,
+              "actual": [
+                2.929,
+                3.949
+              ],
+              "pred": [
+                3.01,
+                3.858
+              ],
+              "rmse": 0.0864
+            },
+            "SRC-EXP-2013-KAASBJERG": {
+              "n_samples": 1,
+              "actual": [
+                3.74
+              ],
+              "pred": [
+                3.7
+              ],
+              "rmse": 0.0404
+            },
+            "SRC-EXP-2013-NEAL": {
+              "n_samples": 1,
+              "actual": [
+                2.903
+              ],
+              "pred": [
+                3.011
+              ],
+              "rmse": 0.1081
+            },
+            "SRC-EXP-2014-BAMPOULIS": {
+              "n_samples": 1,
+              "actual": [
+                3.845
+              ],
+              "pred": [
+                3.739
+              ],
+              "rmse": 0.1063
+            },
+            "SRC-EXP-2014-CHUANG": {
+              "n_samples": 1,
+              "actual": [
+                3.544
+              ],
+              "pred": [
+                3.401
+              ],
+              "rmse": 0.1428
+            },
+            "SRC-EXP-2014-CHWANG": {
+              "n_samples": 1,
+              "actual": [
+                3.505
+              ],
+              "pred": [
+                3.36
+              ],
+              "rmse": 0.1447
+            },
+            "SRC-EXP-2014-KANG": {
+              "n_samples": 1,
+              "actual": [
+                2.964
+              ],
+              "pred": [
+                3.041
+              ],
+              "rmse": 0.0769
+            },
+            "SRC-EXP-2014-KAPPERA": {
+              "n_samples": 1,
+              "actual": [
+                2.38
+              ],
+              "pred": [
+                2.773
+              ],
+              "rmse": 0.3927
+            },
+            "SRC-EXP-2014-MCDONNELL": {
+              "n_samples": 1,
+              "actual": [
+                4.079
+              ],
+              "pred": [
+                3.852
+              ],
+              "rmse": 0.2268
+            },
+            "SRC-EXP-2015-CUI": {
+              "n_samples": 1,
+              "actual": [
+                3.322
+              ],
+              "pred": [
+                3.01
+              ],
+              "rmse": 0.3125
+            },
+            "SRC-EXP-2016-ENGLISH": {
+              "n_samples": 2,
+              "actual": [
+                2.869,
+                3.041
+              ],
+              "pred": [
+                3.03,
+                3.261
+              ],
+              "rmse": 0.1925
+            },
+            "SRC-EXP-2016-GUIMARAES": {
+              "n_samples": 1,
+              "actual": [
+                2.699
+              ],
+              "pred": [
+                2.856
+              ],
+              "rmse": 0.1575
+            },
+            "SRC-EXP-2017-KIM": {
+              "n_samples": 1,
+              "actual": [
+                3.623
+              ],
+              "pred": [
+                3.225
+              ],
+              "rmse": 0.3978
+            },
+            "SRC-EXP-2017-SATA": {
+              "n_samples": 1,
+              "actual": [
+                3.161
+              ],
+              "pred": [
+                3.016
+              ],
+              "rmse": 0.1457
+            },
+            "SRC-EXP-2018-LIU": {
+              "n_samples": 2,
+              "actual": [
+                4.813,
+                2.74
+              ],
+              "pred": [
+                2.965,
+                2.529
+              ],
+              "rmse": 1.3153
+            },
+            "SRC-EXP-2018-WANG-IEDM": {
+              "n_samples": 1,
+              "actual": [
+                2.447
+              ],
+              "pred": [
+                3.056
+              ],
+              "rmse": 0.609
+            },
+            "SRC-EXP-2019-LI": {
+              "n_samples": 1,
+              "actual": [
+                2.518
+              ],
+              "pred": [
+                2.911
+              ],
+              "rmse": 0.3925
+            },
+            "SRC-EXP-2019-WANG": {
+              "n_samples": 2,
+              "actual": [
+                2.602,
+                2.477
+              ],
+              "pred": [
+                2.949,
+                3.062
+              ],
+              "rmse": 0.4809
+            },
+            "SRC-EXP-2021-SHEN": {
+              "n_samples": 2,
+              "actual": [
+                2.09,
+                2.342
+              ],
+              "pred": [
+                2.659,
+                2.703
+              ],
+              "rmse": 0.4767
+            }
+          },
+          "oof_predictions": [
+            2.6592,
+            2.7034,
+            2.9493,
+            3.0619,
+            2.9648,
+            2.5292,
+            3.03,
+            3.2612,
+            2.7729,
+            3.0176,
+            2.911,
+            2.8565,
+            3.8524,
+            2.8433,
+            3.4013,
+            3.6542,
+            3.7388,
+            3.0104,
+            3.8579,
+            3.0237,
+            3.0097,
+            3.0157,
+            3.0112,
+            3.0562,
+            3.2254,
+            3.3604,
+            3.0407,
+            3.7
+          ]
+        }
+      },
+      "Gradient_Boosting": {
+        "family": "Tree_Ensemble",
+        "nested_group_kfold": {
+          "rmse": 0.4033,
+          "mae": 0.2877,
+          "spearman_rho": 0.8084,
+          "kendall_tau": 0.6313,
+          "composite_score": 0.2253,
+          "outer_folds": [
+            {
+              "fold_index": 1,
+              "n_test_samples": 6,
+              "best_params": {
+                "n_estimators": 40,
+                "learning_rate": 0.05,
+                "max_depth": 2,
+                "subsample": 0.8,
+                "random_state": 42
+              },
+              "rmse": 0.4862
+            },
+            {
+              "fold_index": 2,
+              "n_test_samples": 6,
+              "best_params": {
+                "n_estimators": 40,
+                "learning_rate": 0.05,
+                "max_depth": 2,
+                "subsample": 0.8,
+                "random_state": 42
+              },
+              "rmse": 0.3707
+            },
+            {
+              "fold_index": 3,
+              "n_test_samples": 6,
+              "best_params": {
+                "n_estimators": 40,
+                "learning_rate": 0.05,
+                "max_depth": 2,
+                "subsample": 0.8,
+                "random_state": 42
+              },
+              "rmse": 0.5685
+            },
+            {
+              "fold_index": 4,
+              "n_test_samples": 5,
+              "best_params": {
+                "n_estimators": 40,
+                "learning_rate": 0.05,
+                "max_depth": 2,
+                "subsample": 0.8,
+                "random_state": 42
+              },
+              "rmse": 0.2423
+            },
+            {
+              "fold_index": 5,
+              "n_test_samples": 5,
+              "best_params": {
+                "n_estimators": 40,
+                "learning_rate": 0.05,
+                "max_depth": 2,
+                "subsample": 0.8,
+                "random_state": 42
+              },
+              "rmse": 0.1251
+            }
+          ],
+          "oof_predictions": [
+            2.6835,
+            2.6835,
+            3.0228,
+            3.0228,
+            3.5299,
+            3.0518,
+            3.0168,
+            3.4967,
+            2.5198,
+            2.8769,
+            3.4529,
+            2.9309,
+            3.7673,
+            2.8894,
+            3.7222,
+            3.6762,
+            3.6526,
+            2.98,
+            3.9057,
+            2.8797,
+            3.12,
+            3.0871,
+            2.9445,
+            2.8966,
+            3.3817,
+            3.3653,
+            3.0247,
+            3.7896
+          ]
+        },
+        "leave_one_group_out": {
+          "rmse": 0.4373,
+          "mae": 0.343,
+          "spearman_rho": 0.8129,
+          "kendall_tau": 0.649,
+          "composite_score": 0.2156,
+          "paper_breakdown": {
+            "SRC-EXP-2011-RADISAVLJEVIC": {
+              "n_samples": 1,
+              "actual": [
+                3.301
+              ],
+              "pred": [
+                2.943
+              ],
+              "rmse": 0.3581
+            },
+            "SRC-EXP-2012-LIU": {
+              "n_samples": 1,
+              "actual": [
+                2.763
+              ],
+              "pred": [
+                2.957
+              ],
+              "rmse": 0.1933
+            },
+            "SRC-EXP-2013-DAS": {
+              "n_samples": 1,
+              "actual": [
+                2.813
+              ],
+              "pred": [
+                2.951
+              ],
+              "rmse": 0.138
+            },
+            "SRC-EXP-2013-FONTANA": {
+              "n_samples": 1,
+              "actual": [
+                3.699
+              ],
+              "pred": [
+                3.557
+              ],
+              "rmse": 0.1417
+            },
+            "SRC-EXP-2013-GONG": {
+              "n_samples": 2,
+              "actual": [
+                2.929,
+                3.949
+              ],
+              "pred": [
+                2.984,
+                3.661
+              ],
+              "rmse": 0.2077
+            },
+            "SRC-EXP-2013-KAASBJERG": {
+              "n_samples": 1,
+              "actual": [
+                3.74
+              ],
+              "pred": [
+                3.549
+              ],
+              "rmse": 0.1912
+            },
+            "SRC-EXP-2013-NEAL": {
+              "n_samples": 1,
+              "actual": [
+                2.903
+              ],
+              "pred": [
+                3.054
+              ],
+              "rmse": 0.1511
+            },
+            "SRC-EXP-2014-BAMPOULIS": {
+              "n_samples": 1,
+              "actual": [
+                3.845
+              ],
+              "pred": [
+                3.477
+              ],
+              "rmse": 0.3681
+            },
+            "SRC-EXP-2014-CHUANG": {
+              "n_samples": 1,
+              "actual": [
+                3.544
+              ],
+              "pred": [
+                3.544
+              ],
+              "rmse": 0.0002
+            },
+            "SRC-EXP-2014-CHWANG": {
+              "n_samples": 1,
+              "actual": [
+                3.505
+              ],
+              "pred": [
+                3.267
+              ],
+              "rmse": 0.2378
+            },
+            "SRC-EXP-2014-KANG": {
+              "n_samples": 1,
+              "actual": [
+                2.964
+              ],
+              "pred": [
+                3.011
+              ],
+              "rmse": 0.0468
+            },
+            "SRC-EXP-2014-KAPPERA": {
+              "n_samples": 1,
+              "actual": [
+                2.38
+              ],
+              "pred": [
+                2.687
+              ],
+              "rmse": 0.307
+            },
+            "SRC-EXP-2014-MCDONNELL": {
+              "n_samples": 1,
+              "actual": [
+                4.079
+              ],
+              "pred": [
+                3.565
+              ],
+              "rmse": 0.5138
+            },
+            "SRC-EXP-2015-CUI": {
+              "n_samples": 1,
+              "actual": [
+                3.322
+              ],
+              "pred": [
+                3.049
+              ],
+              "rmse": 0.2736
+            },
+            "SRC-EXP-2016-ENGLISH": {
+              "n_samples": 2,
+              "actual": [
+                2.869,
+                3.041
+              ],
+              "pred": [
+                3.037,
+                3.523
+              ],
+              "rmse": 0.3603
+            },
+            "SRC-EXP-2016-GUIMARAES": {
+              "n_samples": 1,
+              "actual": [
+                2.699
+              ],
+              "pred": [
+                2.915
+              ],
+              "rmse": 0.2156
+            },
+            "SRC-EXP-2017-KIM": {
+              "n_samples": 1,
+              "actual": [
+                3.623
+              ],
+              "pred": [
+                3.179
+              ],
+              "rmse": 0.4438
+            },
+            "SRC-EXP-2017-SATA": {
+              "n_samples": 1,
+              "actual": [
+                3.161
+              ],
+              "pred": [
+                2.94
+              ],
+              "rmse": 0.2216
+            },
+            "SRC-EXP-2018-LIU": {
+              "n_samples": 2,
+              "actual": [
+                4.813,
+                2.74
+              ],
+              "pred": [
+                3.468,
+                3.032
+              ],
+              "rmse": 0.9728
+            },
+            "SRC-EXP-2018-WANG-IEDM": {
+              "n_samples": 1,
+              "actual": [
+                2.447
+              ],
+              "pred": [
+                2.874
+              ],
+              "rmse": 0.4269
+            },
+            "SRC-EXP-2019-LI": {
+              "n_samples": 1,
+              "actual": [
+                2.518
+              ],
+              "pred": [
+                3.461
+              ],
+              "rmse": 0.9423
+            },
+            "SRC-EXP-2019-WANG": {
+              "n_samples": 2,
+              "actual": [
+                2.602,
+                2.477
+              ],
+              "pred": [
+                2.944,
+                2.944
+              ],
+              "rmse": 0.409
+            },
+            "SRC-EXP-2021-SHEN": {
+              "n_samples": 2,
+              "actual": [
+                2.09,
+                2.342
+              ],
+              "pred": [
+                2.711,
+                2.718
+              ],
+              "rmse": 0.5134
+            }
+          },
+          "oof_predictions": [
+            2.7112,
+            2.7179,
+            2.9438,
+            2.9438,
+            3.4684,
+            3.0318,
+            3.0368,
+            3.5226,
+            2.6872,
+            2.9509,
+            3.4608,
+            2.9146,
+            3.5654,
+            2.9429,
+            3.5443,
+            3.5573,
+            3.477,
+            2.984,
+            3.6608,
+            2.9567,
+            3.0486,
+            2.9398,
+            3.0542,
+            2.8741,
+            3.1794,
+            3.2673,
+            3.0106,
+            3.5492
+          ]
+        }
+      },
+      "Hist_Gradient_Boosting": {
+        "family": "Tree_Ensemble",
+        "nested_group_kfold": {
+          "rmse": 0.6405,
+          "mae": 0.5252,
+          "spearman_rho": -0.3703,
+          "kendall_tau": -0.2762,
+          "composite_score": 0.0,
+          "outer_folds": [
+            {
+              "fold_index": 1,
+              "n_test_samples": 6,
+              "best_params": {
+                "max_iter": 40,
+                "learning_rate": 0.03,
+                "max_depth": 2,
+                "l2_regularization": 0.5,
+                "random_state": 42
+              },
+              "rmse": 0.6766
+            },
+            {
+              "fold_index": 2,
+              "n_test_samples": 6,
+              "best_params": {
+                "max_iter": 40,
+                "learning_rate": 0.03,
+                "max_depth": 2,
+                "l2_regularization": 0.5,
+                "random_state": 42
+              },
+              "rmse": 0.6736
+            },
+            {
+              "fold_index": 3,
+              "n_test_samples": 6,
+              "best_params": {
+                "max_iter": 40,
+                "learning_rate": 0.03,
+                "max_depth": 2,
+                "l2_regularization": 0.5,
+                "random_state": 42
+              },
+              "rmse": 0.7839
+            },
+            {
+              "fold_index": 4,
+              "n_test_samples": 5,
+              "best_params": {
+                "max_iter": 40,
+                "learning_rate": 0.03,
+                "max_depth": 2,
+                "l2_regularization": 0.5,
+                "random_state": 42
+              },
+              "rmse": 0.3961
+            },
+            {
+              "fold_index": 5,
+              "n_test_samples": 5,
+              "best_params": {
+                "max_iter": 40,
+                "learning_rate": 0.03,
+                "max_depth": 2,
+                "l2_regularization": 0.5,
+                "random_state": 42
+              },
+              "rmse": 0.5558
+            }
+          ],
+          "oof_predictions": [
+            3.206,
+            3.206,
+            3.134,
+            3.134,
+            3.0847,
+            3.0847,
+            3.0837,
+            3.0837,
+            3.0847,
+            3.206,
+            3.206,
+            3.06,
+            3.134,
+            3.0847,
+            3.206,
+            3.06,
+            3.134,
+            3.06,
+            3.06,
+            3.134,
+            3.206,
+            3.0847,
+            3.0847,
+            3.134,
+            3.0837,
+            3.06,
+            3.0837,
+            3.0837
+          ]
+        },
+        "leave_one_group_out": {
+          "rmse": 0.6464,
+          "mae": 0.5359,
+          "spearman_rho": -0.8544,
+          "kendall_tau": -0.791,
+          "composite_score": 0.0,
+          "paper_breakdown": {
+            "SRC-EXP-2011-RADISAVLJEVIC": {
+              "n_samples": 1,
+              "actual": [
+                3.301
+              ],
+              "pred": [
+                3.106
+              ],
+              "rmse": 0.195
+            },
+            "SRC-EXP-2012-LIU": {
+              "n_samples": 1,
+              "actual": [
+                2.763
+              ],
+              "pred": [
+                3.126
+              ],
+              "rmse": 0.3625
+            },
+            "SRC-EXP-2013-DAS": {
+              "n_samples": 1,
+              "actual": [
+                2.813
+              ],
+              "pred": [
+                3.124
+              ],
+              "rmse": 0.3112
+            },
+            "SRC-EXP-2013-FONTANA": {
+              "n_samples": 1,
+              "actual": [
+                3.699
+              ],
+              "pred": [
+                3.091
+              ],
+              "rmse": 0.6077
+            },
+            "SRC-EXP-2013-GONG": {
+              "n_samples": 2,
+              "actual": [
+                2.929,
+                3.949
+              ],
+              "pred": [
+                3.088,
+                3.088
+              ],
+              "rmse": 0.6194
+            },
+            "SRC-EXP-2013-KAASBJERG": {
+              "n_samples": 1,
+              "actual": [
+                3.74
+              ],
+              "pred": [
+                3.09
+              ],
+              "rmse": 0.6507
+            },
+            "SRC-EXP-2013-NEAL": {
+              "n_samples": 1,
+              "actual": [
+                2.903
+              ],
+              "pred": [
+                3.121
+              ],
+              "rmse": 0.2176
+            },
+            "SRC-EXP-2014-BAMPOULIS": {
+              "n_samples": 1,
+              "actual": [
+                3.845
+              ],
+              "pred": [
+                3.086
+              ],
+              "rmse": 0.7593
+            },
+            "SRC-EXP-2014-CHUANG": {
+              "n_samples": 1,
+              "actual": [
+                3.544
+              ],
+              "pred": [
+                3.097
+              ],
+              "rmse": 0.4471
+            },
+            "SRC-EXP-2014-CHWANG": {
+              "n_samples": 1,
+              "actual": [
+                3.505
+              ],
+              "pred": [
+                3.098
+              ],
+              "rmse": 0.4067
+            },
+            "SRC-EXP-2014-KANG": {
+              "n_samples": 1,
+              "actual": [
+                2.964
+              ],
+              "pred": [
+                3.118
+              ],
+              "rmse": 0.1547
+            },
+            "SRC-EXP-2014-KAPPERA": {
+              "n_samples": 1,
+              "actual": [
+                2.38
+              ],
+              "pred": [
+                3.14
+              ],
+              "rmse": 0.7599
+            },
+            "SRC-EXP-2014-MCDONNELL": {
+              "n_samples": 1,
+              "actual": [
+                4.079
+              ],
+              "pred": [
+                3.077
+              ],
+              "rmse": 1.002
+            },
+            "SRC-EXP-2015-CUI": {
+              "n_samples": 1,
+              "actual": [
+                3.322
+              ],
+              "pred": [
+                3.105
+              ],
+              "rmse": 0.217
+            },
+            "SRC-EXP-2016-ENGLISH": {
+              "n_samples": 2,
+              "actual": [
+                2.869,
+                3.041
+              ],
+              "pred": [
+                3.125,
+                3.125
+              ],
+              "rmse": 0.1904
+            },
+            "SRC-EXP-2016-GUIMARAES": {
+              "n_samples": 1,
+              "actual": [
+                2.699
+              ],
+              "pred": [
+                3.128
+              ],
+              "rmse": 0.4293
+            },
+            "SRC-EXP-2017-KIM": {
+              "n_samples": 1,
+              "actual": [
+                3.623
+              ],
+              "pred": [
+                3.094
+              ],
+              "rmse": 0.5291
+            },
+            "SRC-EXP-2017-SATA": {
+              "n_samples": 1,
+              "actual": [
+                3.161
+              ],
+              "pred": [
+                3.111
+              ],
+              "rmse": 0.0502
+            },
+            "SRC-EXP-2018-LIU": {
+              "n_samples": 2,
+              "actual": [
+                4.813,
+                2.74
+              ],
+              "pred": [
+                3.062,
+                3.062
+              ],
+              "rmse": 1.2588
+            },
+            "SRC-EXP-2018-WANG-IEDM": {
+              "n_samples": 1,
+              "actual": [
+                2.447
+              ],
+              "pred": [
+                3.138
+              ],
+              "rmse": 0.6904
+            },
+            "SRC-EXP-2019-LI": {
+              "n_samples": 1,
+              "actual": [
+                2.518
+              ],
+              "pred": [
+                3.135
+              ],
+              "rmse": 0.6165
+            },
+            "SRC-EXP-2019-WANG": {
+              "n_samples": 2,
+              "actual": [
+                2.602,
+                2.477
+              ],
+              "pred": [
+                3.157,
+                3.157
+              ],
+              "rmse": 0.6206
+            },
+            "SRC-EXP-2021-SHEN": {
+              "n_samples": 2,
+              "actual": [
+                2.09,
+                2.342
+              ],
+              "pred": [
+                3.182,
+                3.182
+              ],
+              "rmse": 0.974
+            }
+          },
+          "oof_predictions": [
+            3.182,
+            3.182,
+            3.1571,
+            3.1571,
+            3.0619,
+            3.0619,
+            3.1251,
+            3.1251,
+            3.1401,
+            3.1241,
+            3.135,
+            3.1283,
+            3.0772,
+            3.106,
+            3.097,
+            3.0913,
+            3.0858,
+            3.0879,
+            3.0879,
+            3.1259,
+            3.1052,
+            3.1112,
+            3.1207,
+            3.1376,
+            3.0941,
+            3.0984,
+            3.1185,
+            3.0897
+          ]
+        }
+      },
+      "LightGBM": {
+        "family": "Tree_Ensemble",
+        "nested_group_kfold": {
+          "rmse": 0.3775,
+          "mae": 0.2849,
+          "spearman_rho": 0.7202,
+          "kendall_tau": 0.5623,
+          "composite_score": 0.1962,
+          "outer_folds": [
+            {
+              "fold_index": 1,
+              "n_test_samples": 6,
+              "best_params": {
+                "n_estimators": 30,
+                "learning_rate": 0.05,
+                "max_depth": 2,
+                "num_leaves": 7,
+                "min_child_samples": 3,
+                "verbosity": -1,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.4995
+            },
+            {
+              "fold_index": 2,
+              "n_test_samples": 6,
+              "best_params": {
+                "n_estimators": 50,
+                "learning_rate": 0.05,
+                "max_depth": 2,
+                "num_leaves": 7,
+                "min_child_samples": 3,
+                "verbosity": -1,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.2715
+            },
+            {
+              "fold_index": 3,
+              "n_test_samples": 6,
+              "best_params": {
+                "n_estimators": 50,
+                "learning_rate": 0.05,
+                "max_depth": 3,
+                "num_leaves": 7,
+                "min_child_samples": 3,
+                "verbosity": -1,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.4374
+            },
+            {
+              "fold_index": 4,
+              "n_test_samples": 5,
+              "best_params": {
+                "n_estimators": 50,
+                "learning_rate": 0.05,
+                "max_depth": 3,
+                "num_leaves": 7,
+                "min_child_samples": 3,
+                "verbosity": -1,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.2626
+            },
+            {
+              "fold_index": 5,
+              "n_test_samples": 5,
+              "best_params": {
+                "n_estimators": 50,
+                "learning_rate": 0.05,
+                "max_depth": 3,
+                "num_leaves": 7,
+                "min_child_samples": 3,
+                "verbosity": -1,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.3342
+            }
+          ],
+          "oof_predictions": [
+            2.93,
+            2.93,
+            2.8224,
+            2.8224,
+            3.9012,
+            2.9543,
+            3.0185,
+            3.563,
+            2.5795,
+            2.984,
+            3.1496,
+            3.0288,
+            4.003,
+            2.8802,
+            3.6116,
+            3.9308,
+            3.8009,
+            3.022,
+            3.97,
+            2.8052,
+            3.2037,
+            2.9298,
+            2.8811,
+            2.9621,
+            3.4276,
+            2.8831,
+            3.0426,
+            3.8183
+          ]
+        },
+        "leave_one_group_out": {
+          "rmse": 0.4116,
+          "mae": 0.3395,
+          "spearman_rho": 0.885,
+          "kendall_tau": 0.7215,
+          "composite_score": 0.2601,
+          "paper_breakdown": {
+            "SRC-EXP-2011-RADISAVLJEVIC": {
+              "n_samples": 1,
+              "actual": [
+                3.301
+              ],
+              "pred": [
+                2.979
+              ],
+              "rmse": 0.3218
+            },
+            "SRC-EXP-2012-LIU": {
+              "n_samples": 1,
+              "actual": [
+                2.763
+              ],
+              "pred": [
+                3.029
+              ],
+              "rmse": 0.2652
+            },
+            "SRC-EXP-2013-DAS": {
+              "n_samples": 1,
+              "actual": [
+                2.813
+              ],
+              "pred": [
+                2.991
+              ],
+              "rmse": 0.1784
+            },
+            "SRC-EXP-2013-FONTANA": {
+              "n_samples": 1,
+              "actual": [
+                3.699
+              ],
+              "pred": [
+                3.48
+              ],
+              "rmse": 0.2193
+            },
+            "SRC-EXP-2013-GONG": {
+              "n_samples": 2,
+              "actual": [
+                2.929,
+                3.949
+              ],
+              "pred": [
+                3.033,
+                3.673
+              ],
+              "rmse": 0.2086
+            },
+            "SRC-EXP-2013-KAASBJERG": {
+              "n_samples": 1,
+              "actual": [
+                3.74
+              ],
+              "pred": [
+                3.471
+              ],
+              "rmse": 0.2691
+            },
+            "SRC-EXP-2013-NEAL": {
+              "n_samples": 1,
+              "actual": [
+                2.903
+              ],
+              "pred": [
+                3.051
+              ],
+              "rmse": 0.1481
+            },
+            "SRC-EXP-2014-BAMPOULIS": {
+              "n_samples": 1,
+              "actual": [
+                3.845
+              ],
+              "pred": [
+                3.418
+              ],
+              "rmse": 0.4266
+            },
+            "SRC-EXP-2014-CHUANG": {
+              "n_samples": 1,
+              "actual": [
+                3.544
+              ],
+              "pred": [
+                3.426
+              ],
+              "rmse": 0.1184
+            },
+            "SRC-EXP-2014-CHWANG": {
+              "n_samples": 1,
+              "actual": [
+                3.505
+              ],
+              "pred": [
+                3.166
+              ],
+              "rmse": 0.3391
+            },
+            "SRC-EXP-2014-KANG": {
+              "n_samples": 1,
+              "actual": [
+                2.964
+              ],
+              "pred": [
+                3.044
+              ],
+              "rmse": 0.0804
+            },
+            "SRC-EXP-2014-KAPPERA": {
+              "n_samples": 1,
+              "actual": [
+                2.38
+              ],
+              "pred": [
+                2.762
+              ],
+              "rmse": 0.3821
+            },
+            "SRC-EXP-2014-MCDONNELL": {
+              "n_samples": 1,
+              "actual": [
+                4.079
+              ],
+              "pred": [
+                3.625
+              ],
+              "rmse": 0.4539
+            },
+            "SRC-EXP-2015-CUI": {
+              "n_samples": 1,
+              "actual": [
+                3.322
+              ],
+              "pred": [
+                3.14
+              ],
+              "rmse": 0.1823
+            },
+            "SRC-EXP-2016-ENGLISH": {
+              "n_samples": 2,
+              "actual": [
+                2.869,
+                3.041
+              ],
+              "pred": [
+                3.049,
+                3.526
+              ],
+              "rmse": 0.3653
+            },
+            "SRC-EXP-2016-GUIMARAES": {
+              "n_samples": 1,
+              "actual": [
+                2.699
+              ],
+              "pred": [
+                2.879
+              ],
+              "rmse": 0.1798
+            },
+            "SRC-EXP-2017-KIM": {
+              "n_samples": 1,
+              "actual": [
+                3.623
+              ],
+              "pred": [
+                3.221
+              ],
+              "rmse": 0.4019
+            },
+            "SRC-EXP-2017-SATA": {
+              "n_samples": 1,
+              "actual": [
+                3.161
+              ],
+              "pred": [
+                2.925
+              ],
+              "rmse": 0.2365
+            },
+            "SRC-EXP-2018-LIU": {
+              "n_samples": 2,
+              "actual": [
+                4.813,
+                2.74
+              ],
+              "pred": [
+                3.533,
+                2.998
+              ],
+              "rmse": 0.9233
+            },
+            "SRC-EXP-2018-WANG-IEDM": {
+              "n_samples": 1,
+              "actual": [
+                2.447
+              ],
+              "pred": [
+                2.901
+              ],
+              "rmse": 0.4538
+            },
+            "SRC-EXP-2019-LI": {
+              "n_samples": 1,
+              "actual": [
+                2.518
+              ],
+              "pred": [
+                3.006
+              ],
+              "rmse": 0.4875
+            },
+            "SRC-EXP-2019-WANG": {
+              "n_samples": 2,
+              "actual": [
+                2.602,
+                2.477
+              ],
+              "pred": [
+                2.819,
+                2.819
+              ],
+              "rmse": 0.2859
+            },
+            "SRC-EXP-2021-SHEN": {
+              "n_samples": 2,
+              "actual": [
+                2.09,
+                2.342
+              ],
+              "pred": [
+                2.827,
+                2.827
+              ],
+              "rmse": 0.6236
+            }
+          },
+          "oof_predictions": [
+            2.8268,
+            2.8268,
+            2.8186,
+            2.8186,
+            3.5328,
+            2.9984,
+            3.049,
+            3.5257,
+            2.7623,
+            2.9913,
+            3.006,
+            2.8788,
+            3.6253,
+            2.9792,
+            3.4257,
+            3.4797,
+            3.4185,
+            3.0327,
+            3.6731,
+            3.0286,
+            3.1399,
+            2.9249,
+            3.0512,
+            2.901,
+            3.2213,
+            3.166,
+            3.0442,
+            3.4713
+          ]
+        }
+      }
+    }
+  },
+  "task_2_schottky_barrier_height": {
+    "task_name": "Task 2: Schottky Barrier Height Prediction",
+    "target_unit": "eV",
+    "n_samples": 28,
+    "n_groups": 23,
+    "models": {
+      "Ridge_Regression": {
+        "family": "Linear",
+        "nested_group_kfold": {
+          "rmse": 0.1409,
+          "mae": 0.0979,
+          "spearman_rho": 0.8638,
+          "kendall_tau": 0.6746,
+          "composite_score": 0.6554,
+          "outer_folds": [
+            {
+              "fold_index": 1,
+              "n_test_samples": 6,
+              "best_params": {
+                "alpha": 1.0
+              },
+              "rmse": 0.1683
+            },
+            {
+              "fold_index": 2,
+              "n_test_samples": 6,
+              "best_params": {
+                "alpha": 1.0
+              },
+              "rmse": 0.093
+            },
+            {
+              "fold_index": 3,
+              "n_test_samples": 6,
+              "best_params": {
+                "alpha": 5.0
+              },
+              "rmse": 0.1494
+            },
+            {
+              "fold_index": 4,
+              "n_test_samples": 5,
+              "best_params": {
+                "alpha": 5.0
+              },
+              "rmse": 0.0845
+            },
+            {
+              "fold_index": 5,
+              "n_test_samples": 5,
+              "best_params": {
+                "alpha": 1.0
+              },
+              "rmse": 0.1812
+            }
+          ],
+          "oof_predictions": [
+            0.2505,
+            0.2505,
+            0.0677,
+            0.0196,
+            0.5533,
+            0.1313,
+            0.2662,
+            0.5484,
+            0.0461,
+            0.0229,
+            0.2829,
+            0.0179,
+            0.6033,
+            0.274,
+            0.4038,
+            0.8122,
+            0.6007,
+            0.2887,
+            0.731,
+            -0.0028,
+            0.3463,
+            0.2015,
+            0.2749,
+            0.1045,
+            0.4065,
+            0.6861,
+            0.2731,
+            0.6193
+          ]
+        },
+        "leave_one_group_out": {
+          "rmse": 0.1267,
+          "mae": 0.097,
+          "spearman_rho": 0.8778,
+          "kendall_tau": 0.6853,
+          "composite_score": 0.6673,
+          "paper_breakdown": {
+            "SRC-EXP-2011-RADISAVLJEVIC": {
+              "n_samples": 1,
+              "actual": [
+                0.35
+              ],
+              "pred": [
+                0.28
+              ],
+              "rmse": 0.0698
+            },
+            "SRC-EXP-2012-LIU": {
+              "n_samples": 1,
+              "actual": [
+                0.035
+              ],
+              "pred": [
+                0.008
+              ],
+              "rmse": 0.0269
+            },
+            "SRC-EXP-2013-DAS": {
+              "n_samples": 1,
+              "actual": [
+                0.03
+              ],
+              "pred": [
+                0.023
+              ],
+              "rmse": 0.0067
+            },
+            "SRC-EXP-2013-FONTANA": {
+              "n_samples": 1,
+              "actual": [
+                0.52
+              ],
+              "pred": [
+                0.779
+              ],
+              "rmse": 0.2594
+            },
+            "SRC-EXP-2013-GONG": {
+              "n_samples": 2,
+              "actual": [
+                0.31,
+                0.75
+              ],
+              "pred": [
+                0.262,
+                0.658
+              ],
+              "rmse": 0.0732
+            },
+            "SRC-EXP-2013-KAASBJERG": {
+              "n_samples": 1,
+              "actual": [
+                0.55
+              ],
+              "pred": [
+                0.639
+              ],
+              "rmse": 0.0892
+            },
+            "SRC-EXP-2013-NEAL": {
+              "n_samples": 1,
+              "actual": [
+                0.27
+              ],
+              "pred": [
+                0.289
+              ],
+              "rmse": 0.0188
+            },
+            "SRC-EXP-2014-BAMPOULIS": {
+              "n_samples": 1,
+              "actual": [
+                0.61
+              ],
+              "pred": [
+                0.632
+              ],
+              "rmse": 0.0224
+            },
+            "SRC-EXP-2014-CHUANG": {
+              "n_samples": 1,
+              "actual": [
+                0.45
+              ],
+              "pred": [
+                0.434
+              ],
+              "rmse": 0.0161
+            },
+            "SRC-EXP-2014-CHWANG": {
+              "n_samples": 1,
+              "actual": [
+                0.44
+              ],
+              "pred": [
+                0.654
+              ],
+              "rmse": 0.2138
+            },
+            "SRC-EXP-2014-KANG": {
+              "n_samples": 1,
+              "actual": [
+                0.33
+              ],
+              "pred": [
+                0.28
+              ],
+              "rmse": 0.05
+            },
+            "SRC-EXP-2014-KAPPERA": {
+              "n_samples": 1,
+              "actual": [
+                0.05
+              ],
+              "pred": [
+                -0.01
+              ],
+              "rmse": 0.0599
+            },
+            "SRC-EXP-2014-MCDONNELL": {
+              "n_samples": 1,
+              "actual": [
+                0.82
+              ],
+              "pred": [
+                0.606
+              ],
+              "rmse": 0.2138
+            },
+            "SRC-EXP-2015-CUI": {
+              "n_samples": 1,
+              "actual": [
+                0.38
+              ],
+              "pred": [
+                0.347
+              ],
+              "rmse": 0.0334
+            },
+            "SRC-EXP-2016-ENGLISH": {
+              "n_samples": 2,
+              "actual": [
+                0.28,
+                0.4
+              ],
+              "pred": [
+                0.299,
+                0.559
+              ],
+              "rmse": 0.1133
+            },
+            "SRC-EXP-2016-GUIMARAES": {
+              "n_samples": 1,
+              "actual": [
+                0.15
+              ],
+              "pred": [
+                0.039
+              ],
+              "rmse": 0.111
+            },
+            "SRC-EXP-2017-KIM": {
+              "n_samples": 1,
+              "actual": [
+                0.48
+              ],
+              "pred": [
+                0.413
+              ],
+              "rmse": 0.0671
+            },
+            "SRC-EXP-2017-SATA": {
+              "n_samples": 1,
+              "actual": [
+                0.29
+              ],
+              "pred": [
+                0.175
+              ],
+              "rmse": 0.1147
+            },
+            "SRC-EXP-2018-LIU": {
+              "n_samples": 2,
+              "actual": [
+                0.9,
+                0.12
+              ],
+              "pred": [
+                0.595,
+                0.162
+              ],
+              "rmse": 0.2174
+            },
+            "SRC-EXP-2018-WANG-IEDM": {
+              "n_samples": 1,
+              "actual": [
+                0.05
+              ],
+              "pred": [
+                0.101
+              ],
+              "rmse": 0.0507
+            },
+            "SRC-EXP-2019-LI": {
+              "n_samples": 1,
+              "actual": [
+                0.08
+              ],
+              "pred": [
+                0.212
+              ],
+              "rmse": 0.1316
+            },
+            "SRC-EXP-2019-WANG": {
+              "n_samples": 2,
+              "actual": [
+                0.06,
+                0.04
+              ],
+              "pred": [
+                0.033,
+                -0.019
+              ],
+              "rmse": 0.0458
+            },
+            "SRC-EXP-2021-SHEN": {
+              "n_samples": 2,
+              "actual": [
+                0.0,
+                0.0
+              ],
+              "pred": [
+                0.205,
+                0.205
+              ],
+              "rmse": 0.2048
+            }
+          },
+          "oof_predictions": [
+            0.2048,
+            0.2048,
+            0.0335,
+            -0.019,
+            0.5954,
+            0.1622,
+            0.2985,
+            0.5592,
+            -0.0099,
+            0.0233,
+            0.2116,
+            0.039,
+            0.6062,
+            0.2802,
+            0.4339,
+            0.7794,
+            0.6324,
+            0.2616,
+            0.6584,
+            0.0081,
+            0.3466,
+            0.1753,
+            0.2888,
+            0.1007,
+            0.4129,
+            0.6538,
+            0.28,
+            0.6392
+          ]
+        }
+      },
+      "ElasticNet": {
+        "family": "Linear",
+        "nested_group_kfold": {
+          "rmse": 0.1384,
+          "mae": 0.0979,
+          "spearman_rho": 0.8796,
+          "kendall_tau": 0.7031,
+          "composite_score": 0.6653,
+          "outer_folds": [
+            {
+              "fold_index": 1,
+              "n_test_samples": 6,
+              "best_params": {
+                "alpha": 0.02,
+                "l1_ratio": 0.2,
+                "max_iter": 2000
+              },
+              "rmse": 0.1571
+            },
+            {
+              "fold_index": 2,
+              "n_test_samples": 6,
+              "best_params": {
+                "alpha": 0.02,
+                "l1_ratio": 0.2,
+                "max_iter": 2000
+              },
+              "rmse": 0.0986
+            },
+            {
+              "fold_index": 3,
+              "n_test_samples": 6,
+              "best_params": {
+                "alpha": 0.02,
+                "l1_ratio": 0.8,
+                "max_iter": 2000
+              },
+              "rmse": 0.1564
+            },
+            {
+              "fold_index": 4,
+              "n_test_samples": 5,
+              "best_params": {
+                "alpha": 0.1,
+                "l1_ratio": 0.2,
+                "max_iter": 2000
+              },
+              "rmse": 0.0943
+            },
+            {
+              "fold_index": 5,
+              "n_test_samples": 5,
+              "best_params": {
+                "alpha": 0.02,
+                "l1_ratio": 0.2,
+                "max_iter": 2000
+              },
+              "rmse": 0.1663
+            }
+          ],
+          "oof_predictions": [
+            0.227,
+            0.227,
+            0.084,
+            0.0376,
+            0.5338,
+            0.0972,
+            0.285,
+            0.5799,
+            0.0542,
+            0.0084,
+            0.2819,
+            0.0451,
+            0.5995,
+            0.2854,
+            0.3956,
+            0.7859,
+            0.5851,
+            0.2873,
+            0.7192,
+            -0.0115,
+            0.3512,
+            0.2027,
+            0.2854,
+            0.1299,
+            0.3884,
+            0.6749,
+            0.285,
+            0.5904
+          ]
+        },
+        "leave_one_group_out": {
+          "rmse": 0.1206,
+          "mae": 0.091,
+          "spearman_rho": 0.8942,
+          "kendall_tau": 0.7012,
+          "composite_score": 0.6775,
+          "paper_breakdown": {
+            "SRC-EXP-2011-RADISAVLJEVIC": {
+              "n_samples": 1,
+              "actual": [
+                0.35
+              ],
+              "pred": [
+                0.288
+              ],
+              "rmse": 0.0625
+            },
+            "SRC-EXP-2012-LIU": {
+              "n_samples": 1,
+              "actual": [
+                0.035
+              ],
+              "pred": [
+                -0.008
+              ],
+              "rmse": 0.0432
+            },
+            "SRC-EXP-2013-DAS": {
+              "n_samples": 1,
+              "actual": [
+                0.03
+              ],
+              "pred": [
+                0.002
+              ],
+              "rmse": 0.0283
+            },
+            "SRC-EXP-2013-FONTANA": {
+              "n_samples": 1,
+              "actual": [
+                0.52
+              ],
+              "pred": [
+                0.742
+              ],
+              "rmse": 0.2224
+            },
+            "SRC-EXP-2013-GONG": {
+              "n_samples": 2,
+              "actual": [
+                0.31,
+                0.75
+              ],
+              "pred": [
+                0.276,
+                0.647
+              ],
+              "rmse": 0.0767
+            },
+            "SRC-EXP-2013-KAASBJERG": {
+              "n_samples": 1,
+              "actual": [
+                0.55
+              ],
+              "pred": [
+                0.61
+              ],
+              "rmse": 0.0597
+            },
+            "SRC-EXP-2013-NEAL": {
+              "n_samples": 1,
+              "actual": [
+                0.27
+              ],
+              "pred": [
+                0.297
+              ],
+              "rmse": 0.027
+            },
+            "SRC-EXP-2014-BAMPOULIS": {
+              "n_samples": 1,
+              "actual": [
+                0.61
+              ],
+              "pred": [
+                0.597
+              ],
+              "rmse": 0.0128
+            },
+            "SRC-EXP-2014-CHUANG": {
+              "n_samples": 1,
+              "actual": [
+                0.45
+              ],
+              "pred": [
+                0.395
+              ],
+              "rmse": 0.0552
+            },
+            "SRC-EXP-2014-CHWANG": {
+              "n_samples": 1,
+              "actual": [
+                0.44
+              ],
+              "pred": [
+                0.647
+              ],
+              "rmse": 0.2075
+            },
+            "SRC-EXP-2014-KANG": {
+              "n_samples": 1,
+              "actual": [
+                0.33
+              ],
+              "pred": [
+                0.29
+              ],
+              "rmse": 0.0401
+            },
+            "SRC-EXP-2014-KAPPERA": {
+              "n_samples": 1,
+              "actual": [
+                0.05
+              ],
+              "pred": [
+                0.023
+              ],
+              "rmse": 0.0269
+            },
+            "SRC-EXP-2014-MCDONNELL": {
+              "n_samples": 1,
+              "actual": [
+                0.82
+              ],
+              "pred": [
+                0.601
+              ],
+              "rmse": 0.2186
+            },
+            "SRC-EXP-2015-CUI": {
+              "n_samples": 1,
+              "actual": [
+                0.38
+              ],
+              "pred": [
+                0.353
+              ],
+              "rmse": 0.0268
+            },
+            "SRC-EXP-2016-ENGLISH": {
+              "n_samples": 2,
+              "actual": [
+                0.28,
+                0.4
+              ],
+              "pred": [
+                0.297,
+                0.56
+              ],
+              "rmse": 0.1139
+            },
+            "SRC-EXP-2016-GUIMARAES": {
+              "n_samples": 1,
+              "actual": [
+                0.15
+              ],
+              "pred": [
+                0.067
+              ],
+              "rmse": 0.0832
+            },
+            "SRC-EXP-2017-KIM": {
+              "n_samples": 1,
+              "actual": [
+                0.48
+              ],
+              "pred": [
+                0.388
+              ],
+              "rmse": 0.0921
+            },
+            "SRC-EXP-2017-SATA": {
+              "n_samples": 1,
+              "actual": [
+                0.29
+              ],
+              "pred": [
+                0.18
+              ],
+              "rmse": 0.1102
+            },
+            "SRC-EXP-2018-LIU": {
+              "n_samples": 2,
+              "actual": [
+                0.9,
+                0.12
+              ],
+              "pred": [
+                0.569,
+                0.135
+              ],
+              "rmse": 0.234
+            },
+            "SRC-EXP-2018-WANG-IEDM": {
+              "n_samples": 1,
+              "actual": [
+                0.05
+              ],
+              "pred": [
+                0.165
+              ],
+              "rmse": 0.1148
+            },
+            "SRC-EXP-2019-LI": {
+              "n_samples": 1,
+              "actual": [
+                0.08
+              ],
+              "pred": [
+                0.208
+              ],
+              "rmse": 0.128
+            },
+            "SRC-EXP-2019-WANG": {
+              "n_samples": 2,
+              "actual": [
+                0.06,
+                0.04
+              ],
+              "pred": [
+                0.079,
+                0.031
+              ],
+              "rmse": 0.0149
+            },
+            "SRC-EXP-2021-SHEN": {
+              "n_samples": 2,
+              "actual": [
+                0.0,
+                0.0
+              ],
+              "pred": [
+                0.15,
+                0.15
+              ],
+              "rmse": 0.1504
+            }
+          },
+          "oof_predictions": [
+            0.1504,
+            0.1504,
+            0.0789,
+            0.0306,
+            0.5695,
+            0.1351,
+            0.2966,
+            0.5602,
+            0.0231,
+            0.0017,
+            0.208,
+            0.0668,
+            0.6014,
+            0.2875,
+            0.3948,
+            0.7424,
+            0.5972,
+            0.2764,
+            0.6469,
+            -0.0082,
+            0.3532,
+            0.1798,
+            0.297,
+            0.1648,
+            0.3879,
+            0.6475,
+            0.2899,
+            0.6097
+          ]
+        }
+      },
+      "Support_Vector_Regression": {
+        "family": "Kernel",
+        "nested_group_kfold": {
+          "rmse": 0.1495,
+          "mae": 0.1016,
+          "spearman_rho": 0.7937,
+          "kendall_tau": 0.6268,
+          "composite_score": 0.6214,
+          "outer_folds": [
+            {
+              "fold_index": 1,
+              "n_test_samples": 6,
+              "best_params": {
+                "C": 1.0,
+                "epsilon": 0.05,
+                "kernel": "rbf"
+              },
+              "rmse": 0.2164
+            },
+            {
+              "fold_index": 2,
+              "n_test_samples": 6,
+              "best_params": {
+                "C": 1.0,
+                "epsilon": 0.05,
+                "kernel": "rbf"
+              },
+              "rmse": 0.1176
+            },
+            {
+              "fold_index": 3,
+              "n_test_samples": 6,
+              "best_params": {
+                "C": 0.5,
+                "epsilon": 0.05,
+                "kernel": "rbf"
+              },
+              "rmse": 0.1949
+            },
+            {
+              "fold_index": 4,
+              "n_test_samples": 5,
+              "best_params": {
+                "C": 1.0,
+                "epsilon": 0.05,
+                "kernel": "rbf"
+              },
+              "rmse": 0.0547
+            },
+            {
+              "fold_index": 5,
+              "n_test_samples": 5,
+              "best_params": {
+                "C": 1.0,
+                "epsilon": 0.05,
+                "kernel": "rbf"
+              },
+              "rmse": 0.061
+            }
+          ],
+          "oof_predictions": [
+            0.3326,
+            0.3326,
+            0.0744,
+            0.0543,
+            0.4549,
+            0.1406,
+            0.2991,
+            0.3945,
+            0.1869,
+            0.0953,
+            0.3089,
+            0.2452,
+            0.638,
+            0.2853,
+            0.4128,
+            0.5741,
+            0.5081,
+            0.3047,
+            0.7856,
+            0.086,
+            0.3381,
+            0.233,
+            0.326,
+            0.2411,
+            0.3816,
+            0.5129,
+            0.3118,
+            0.6177
+          ]
+        },
+        "leave_one_group_out": {
+          "rmse": 0.1458,
+          "mae": 0.0998,
+          "spearman_rho": 0.846,
+          "kendall_tau": 0.6746,
+          "composite_score": 0.6472,
+          "paper_breakdown": {
+            "SRC-EXP-2011-RADISAVLJEVIC": {
+              "n_samples": 1,
+              "actual": [
+                0.35
+              ],
+              "pred": [
+                0.287
+              ],
+              "rmse": 0.0634
+            },
+            "SRC-EXP-2012-LIU": {
+              "n_samples": 1,
+              "actual": [
+                0.035
+              ],
+              "pred": [
+                0.085
+              ],
+              "rmse": 0.0502
+            },
+            "SRC-EXP-2013-DAS": {
+              "n_samples": 1,
+              "actual": [
+                0.03
+              ],
+              "pred": [
+                0.102
+              ],
+              "rmse": 0.0719
+            },
+            "SRC-EXP-2013-FONTANA": {
+              "n_samples": 1,
+              "actual": [
+                0.52
+              ],
+              "pred": [
+                0.567
+              ],
+              "rmse": 0.0475
+            },
+            "SRC-EXP-2013-GONG": {
+              "n_samples": 2,
+              "actual": [
+                0.31,
+                0.75
+              ],
+              "pred": [
+                0.307,
+                0.785
+              ],
+              "rmse": 0.0251
+            },
+            "SRC-EXP-2013-KAASBJERG": {
+              "n_samples": 1,
+              "actual": [
+                0.55
+              ],
+              "pred": [
+                0.618
+              ],
+              "rmse": 0.0684
+            },
+            "SRC-EXP-2013-NEAL": {
+              "n_samples": 1,
+              "actual": [
+                0.27
+              ],
+              "pred": [
+                0.349
+              ],
+              "rmse": 0.0789
+            },
+            "SRC-EXP-2014-BAMPOULIS": {
+              "n_samples": 1,
+              "actual": [
+                0.61
+              ],
+              "pred": [
+                0.487
+              ],
+              "rmse": 0.1233
+            },
+            "SRC-EXP-2014-CHUANG": {
+              "n_samples": 1,
+              "actual": [
+                0.45
+              ],
+              "pred": [
+                0.427
+              ],
+              "rmse": 0.0234
+            },
+            "SRC-EXP-2014-CHWANG": {
+              "n_samples": 1,
+              "actual": [
+                0.44
+              ],
+              "pred": [
+                0.51
+              ],
+              "rmse": 0.0704
+            },
+            "SRC-EXP-2014-KANG": {
+              "n_samples": 1,
+              "actual": [
+                0.33
+              ],
+              "pred": [
+                0.311
+              ],
+              "rmse": 0.019
+            },
+            "SRC-EXP-2014-KAPPERA": {
+              "n_samples": 1,
+              "actual": [
+                0.05
+              ],
+              "pred": [
+                0.19
+              ],
+              "rmse": 0.1399
+            },
+            "SRC-EXP-2014-MCDONNELL": {
+              "n_samples": 1,
+              "actual": [
+                0.82
+              ],
+              "pred": [
+                0.632
+              ],
+              "rmse": 0.1879
+            },
+            "SRC-EXP-2015-CUI": {
+              "n_samples": 1,
+              "actual": [
+                0.38
+              ],
+              "pred": [
+                0.335
+              ],
+              "rmse": 0.0451
+            },
+            "SRC-EXP-2016-ENGLISH": {
+              "n_samples": 2,
+              "actual": [
+                0.28,
+                0.4
+              ],
+              "pred": [
+                0.313,
+                0.425
+              ],
+              "rmse": 0.0294
+            },
+            "SRC-EXP-2016-GUIMARAES": {
+              "n_samples": 1,
+              "actual": [
+                0.15
+              ],
+              "pred": [
+                0.248
+              ],
+              "rmse": 0.0985
+            },
+            "SRC-EXP-2017-KIM": {
+              "n_samples": 1,
+              "actual": [
+                0.48
+              ],
+              "pred": [
+                0.38
+              ],
+              "rmse": 0.0998
+            },
+            "SRC-EXP-2017-SATA": {
+              "n_samples": 1,
+              "actual": [
+                0.29
+              ],
+              "pred": [
+                0.265
+              ],
+              "rmse": 0.0253
+            },
+            "SRC-EXP-2018-LIU": {
+              "n_samples": 2,
+              "actual": [
+                0.9,
+                0.12
+              ],
+              "pred": [
+                0.448,
+                0.14
+              ],
+              "rmse": 0.3202
+            },
+            "SRC-EXP-2018-WANG-IEDM": {
+              "n_samples": 1,
+              "actual": [
+                0.05
+              ],
+              "pred": [
+                0.245
+              ],
+              "rmse": 0.1955
+            },
+            "SRC-EXP-2019-LI": {
+              "n_samples": 1,
+              "actual": [
+                0.08
+              ],
+              "pred": [
+                0.262
+              ],
+              "rmse": 0.1816
+            },
+            "SRC-EXP-2019-WANG": {
+              "n_samples": 2,
+              "actual": [
+                0.06,
+                0.04
+              ],
+              "pred": [
+                0.058,
+                0.027
+              ],
+              "rmse": 0.0095
+            },
+            "SRC-EXP-2021-SHEN": {
+              "n_samples": 2,
+              "actual": [
+                0.0,
+                0.0
+              ],
+              "pred": [
+                0.31,
+                0.31
+              ],
+              "rmse": 0.3103
+            }
+          },
+          "oof_predictions": [
+            0.3103,
+            0.3103,
+            0.0577,
+            0.0268,
+            0.4477,
+            0.1402,
+            0.3135,
+            0.4248,
+            0.1899,
+            0.1019,
+            0.2616,
+            0.2485,
+            0.6321,
+            0.2866,
+            0.4266,
+            0.5675,
+            0.4867,
+            0.3068,
+            0.7853,
+            0.0852,
+            0.3349,
+            0.2647,
+            0.3489,
+            0.2455,
+            0.3802,
+            0.5104,
+            0.311,
+            0.6184
+          ]
+        }
+      },
+      "Gaussian_Process_Matern": {
+        "family": "Bayesian_Nonparametric",
+        "nested_group_kfold": {
+          "rmse": 0.1295,
+          "mae": 0.0914,
+          "spearman_rho": 0.8813,
+          "kendall_tau": 0.6959,
+          "composite_score": 0.6688,
+          "outer_folds": [
+            {
+              "fold_index": 1,
+              "n_test_samples": 6,
+              "best_params": {
+                "kernel": "Matern(length_scale=1, nu=2.5) + WhiteKernel(noise_level=0.05)",
+                "alpha": 0.01,
+                "n_restarts_optimizer": 0,
+                "random_state": 42
+              },
+              "rmse": 0.1603
+            },
+            {
+              "fold_index": 2,
+              "n_test_samples": 6,
+              "best_params": {
+                "kernel": "Matern(length_scale=1, nu=2.5) + WhiteKernel(noise_level=0.05)",
+                "alpha": 0.01,
+                "n_restarts_optimizer": 0,
+                "random_state": 42
+              },
+              "rmse": 0.084
+            },
+            {
+              "fold_index": 3,
+              "n_test_samples": 6,
+              "best_params": {
+                "kernel": "Matern(length_scale=1, nu=2.5) + WhiteKernel(noise_level=0.05)",
+                "alpha": 0.01,
+                "n_restarts_optimizer": 0,
+                "random_state": 42
+              },
+              "rmse": 0.1452
+            },
+            {
+              "fold_index": 4,
+              "n_test_samples": 5,
+              "best_params": {
+                "kernel": "Matern(length_scale=1, nu=2.5) + WhiteKernel(noise_level=0.05)",
+                "alpha": 0.01,
+                "n_restarts_optimizer": 0,
+                "random_state": 42
+              },
+              "rmse": 0.0835
+            },
+            {
+              "fold_index": 5,
+              "n_test_samples": 5,
+              "best_params": {
+                "kernel": "Matern(length_scale=1, nu=2.5) + WhiteKernel(noise_level=0.05)",
+                "alpha": 0.01,
+                "n_restarts_optimizer": 0,
+                "random_state": 42
+              },
+              "rmse": 0.1496
+            }
+          ],
+          "oof_predictions": [
+            0.2405,
+            0.2405,
+            0.0587,
+            -0.0002,
+            0.5604,
+            0.1166,
+            0.2854,
+            0.5368,
+            0.0452,
+            0.0301,
+            0.2633,
+            0.064,
+            0.6407,
+            0.2846,
+            0.3929,
+            0.7601,
+            0.5807,
+            0.2828,
+            0.7362,
+            0.0247,
+            0.3385,
+            0.2132,
+            0.2994,
+            0.1373,
+            0.4009,
+            0.6542,
+            0.2977,
+            0.6438
+          ]
+        },
+        "leave_one_group_out": {
+          "rmse": 0.1152,
+          "mae": 0.0866,
+          "spearman_rho": 0.8997,
+          "kendall_tau": 0.7065,
+          "composite_score": 0.6822,
+          "paper_breakdown": {
+            "SRC-EXP-2011-RADISAVLJEVIC": {
+              "n_samples": 1,
+              "actual": [
+                0.35
+              ],
+              "pred": [
+                0.294
+              ],
+              "rmse": 0.0565
+            },
+            "SRC-EXP-2012-LIU": {
+              "n_samples": 1,
+              "actual": [
+                0.035
+              ],
+              "pred": [
+                0.024
+              ],
+              "rmse": 0.0114
+            },
+            "SRC-EXP-2013-DAS": {
+              "n_samples": 1,
+              "actual": [
+                0.03
+              ],
+              "pred": [
+                0.053
+              ],
+              "rmse": 0.0225
+            },
+            "SRC-EXP-2013-FONTANA": {
+              "n_samples": 1,
+              "actual": [
+                0.52
+              ],
+              "pred": [
+                0.698
+              ],
+              "rmse": 0.1784
+            },
+            "SRC-EXP-2013-GONG": {
+              "n_samples": 2,
+              "actual": [
+                0.31,
+                0.75
+              ],
+              "pred": [
+                0.279,
+                0.686
+              ],
+              "rmse": 0.0507
+            },
+            "SRC-EXP-2013-KAASBJERG": {
+              "n_samples": 1,
+              "actual": [
+                0.55
+              ],
+              "pred": [
+                0.635
+              ],
+              "rmse": 0.0845
+            },
+            "SRC-EXP-2013-NEAL": {
+              "n_samples": 1,
+              "actual": [
+                0.27
+              ],
+              "pred": [
+                0.323
+              ],
+              "rmse": 0.0527
+            },
+            "SRC-EXP-2014-BAMPOULIS": {
+              "n_samples": 1,
+              "actual": [
+                0.61
+              ],
+              "pred": [
+                0.573
+              ],
+              "rmse": 0.037
+            },
+            "SRC-EXP-2014-CHUANG": {
+              "n_samples": 1,
+              "actual": [
+                0.45
+              ],
+              "pred": [
+                0.399
+              ],
+              "rmse": 0.0514
+            },
+            "SRC-EXP-2014-CHWANG": {
+              "n_samples": 1,
+              "actual": [
+                0.44
+              ],
+              "pred": [
+                0.6
+              ],
+              "rmse": 0.1601
+            },
+            "SRC-EXP-2014-KANG": {
+              "n_samples": 1,
+              "actual": [
+                0.33
+              ],
+              "pred": [
+                0.301
+              ],
+              "rmse": 0.0289
+            },
+            "SRC-EXP-2014-KAPPERA": {
+              "n_samples": 1,
+              "actual": [
+                0.05
+              ],
+              "pred": [
+                0.054
+              ],
+              "rmse": 0.004
+            },
+            "SRC-EXP-2014-MCDONNELL": {
+              "n_samples": 1,
+              "actual": [
+                0.82
+              ],
+              "pred": [
+                0.628
+              ],
+              "rmse": 0.1916
+            },
+            "SRC-EXP-2015-CUI": {
+              "n_samples": 1,
+              "actual": [
+                0.38
+              ],
+              "pred": [
+                0.337
+              ],
+              "rmse": 0.0428
+            },
+            "SRC-EXP-2016-ENGLISH": {
+              "n_samples": 2,
+              "actual": [
+                0.28,
+                0.4
+              ],
+              "pred": [
+                0.297,
+                0.545
+              ],
+              "rmse": 0.1036
+            },
+            "SRC-EXP-2016-GUIMARAES": {
+              "n_samples": 1,
+              "actual": [
+                0.15
+              ],
+              "pred": [
+                0.097
+              ],
+              "rmse": 0.0531
+            },
+            "SRC-EXP-2017-KIM": {
+              "n_samples": 1,
+              "actual": [
+                0.48
+              ],
+              "pred": [
+                0.384
+              ],
+              "rmse": 0.0961
+            },
+            "SRC-EXP-2017-SATA": {
+              "n_samples": 1,
+              "actual": [
+                0.29
+              ],
+              "pred": [
+                0.226
+              ],
+              "rmse": 0.0642
+            },
+            "SRC-EXP-2018-LIU": {
+              "n_samples": 2,
+              "actual": [
+                0.9,
+                0.12
+              ],
+              "pred": [
+                0.562,
+                0.13
+              ],
+              "rmse": 0.2391
+            },
+            "SRC-EXP-2018-WANG-IEDM": {
+              "n_samples": 1,
+              "actual": [
+                0.05
+              ],
+              "pred": [
+                0.152
+              ],
+              "rmse": 0.1025
+            },
+            "SRC-EXP-2019-LI": {
+              "n_samples": 1,
+              "actual": [
+                0.08
+              ],
+              "pred": [
+                0.209
+              ],
+              "rmse": 0.1289
+            },
+            "SRC-EXP-2019-WANG": {
+              "n_samples": 2,
+              "actual": [
+                0.06,
+                0.04
+              ],
+              "pred": [
+                0.043,
+                -0.023
+              ],
+              "rmse": 0.0464
+            },
+            "SRC-EXP-2021-SHEN": {
+              "n_samples": 2,
+              "actual": [
+                0.0,
+                0.0
+              ],
+              "pred": [
+                0.185,
+                0.185
+              ],
+              "rmse": 0.1847
+            }
+          },
+          "oof_predictions": [
+            0.1847,
+            0.1847,
+            0.0426,
+            -0.0233,
+            0.562,
+            0.1298,
+            0.2975,
+            0.5455,
+            0.054,
+            0.0525,
+            0.2089,
+            0.0969,
+            0.6284,
+            0.2935,
+            0.3986,
+            0.6984,
+            0.573,
+            0.2786,
+            0.6855,
+            0.0236,
+            0.3372,
+            0.2258,
+            0.3227,
+            0.1525,
+            0.3839,
+            0.6001,
+            0.3011,
+            0.6345
+          ]
+        }
+      },
+      "Random_Forest": {
+        "family": "Tree_Ensemble",
+        "nested_group_kfold": {
+          "rmse": 0.1258,
+          "mae": 0.0953,
+          "spearman_rho": 0.8524,
+          "kendall_tau": 0.6676,
+          "composite_score": 0.6565,
+          "outer_folds": [
+            {
+              "fold_index": 1,
+              "n_test_samples": 6,
+              "best_params": {
+                "n_estimators": 50,
+                "max_depth": 3,
+                "min_samples_leaf": 2,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.1313
+            },
+            {
+              "fold_index": 2,
+              "n_test_samples": 6,
+              "best_params": {
+                "n_estimators": 50,
+                "max_depth": 2,
+                "min_samples_leaf": 2,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.1315
+            },
+            {
+              "fold_index": 3,
+              "n_test_samples": 6,
+              "best_params": {
+                "n_estimators": 30,
+                "max_depth": 2,
+                "min_samples_leaf": 2,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.1433
+            },
+            {
+              "fold_index": 4,
+              "n_test_samples": 5,
+              "best_params": {
+                "n_estimators": 50,
+                "max_depth": 2,
+                "min_samples_leaf": 2,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.1201
+            },
+            {
+              "fold_index": 5,
+              "n_test_samples": 5,
+              "best_params": {
+                "n_estimators": 30,
+                "max_depth": 2,
+                "min_samples_leaf": 2,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.0899
+            }
+          ],
+          "oof_predictions": [
+            0.0902,
+            0.0902,
+            0.0682,
+            0.0781,
+            0.6614,
+            0.21,
+            0.2574,
+            0.6511,
+            0.0379,
+            0.1146,
+            0.3528,
+            0.3463,
+            0.7109,
+            0.2338,
+            0.4077,
+            0.4899,
+            0.5071,
+            0.2906,
+            0.7272,
+            0.1842,
+            0.3181,
+            0.0792,
+            0.2792,
+            0.2898,
+            0.4309,
+            0.4297,
+            0.2574,
+            0.5789
+          ]
+        },
+        "leave_one_group_out": {
+          "rmse": 0.1231,
+          "mae": 0.0936,
+          "spearman_rho": 0.8535,
+          "kendall_tau": 0.6303,
+          "composite_score": 0.6533,
+          "paper_breakdown": {
+            "SRC-EXP-2011-RADISAVLJEVIC": {
+              "n_samples": 1,
+              "actual": [
+                0.35
+              ],
+              "pred": [
+                0.27
+              ],
+              "rmse": 0.0802
+            },
+            "SRC-EXP-2012-LIU": {
+              "n_samples": 1,
+              "actual": [
+                0.035
+              ],
+              "pred": [
+                0.136
+              ],
+              "rmse": 0.1005
+            },
+            "SRC-EXP-2013-DAS": {
+              "n_samples": 1,
+              "actual": [
+                0.03
+              ],
+              "pred": [
+                0.148
+              ],
+              "rmse": 0.118
+            },
+            "SRC-EXP-2013-FONTANA": {
+              "n_samples": 1,
+              "actual": [
+                0.52
+              ],
+              "pred": [
+                0.476
+              ],
+              "rmse": 0.0442
+            },
+            "SRC-EXP-2013-GONG": {
+              "n_samples": 2,
+              "actual": [
+                0.31,
+                0.75
+              ],
+              "pred": [
+                0.284,
+                0.722
+              ],
+              "rmse": 0.027
+            },
+            "SRC-EXP-2013-KAASBJERG": {
+              "n_samples": 1,
+              "actual": [
+                0.55
+              ],
+              "pred": [
+                0.523
+              ],
+              "rmse": 0.0269
+            },
+            "SRC-EXP-2013-NEAL": {
+              "n_samples": 1,
+              "actual": [
+                0.27
+              ],
+              "pred": [
+                0.281
+              ],
+              "rmse": 0.0106
+            },
+            "SRC-EXP-2014-BAMPOULIS": {
+              "n_samples": 1,
+              "actual": [
+                0.61
+              ],
+              "pred": [
+                0.439
+              ],
+              "rmse": 0.1706
+            },
+            "SRC-EXP-2014-CHUANG": {
+              "n_samples": 1,
+              "actual": [
+                0.45
+              ],
+              "pred": [
+                0.376
+              ],
+              "rmse": 0.0738
+            },
+            "SRC-EXP-2014-CHWANG": {
+              "n_samples": 1,
+              "actual": [
+                0.44
+              ],
+              "pred": [
+                0.486
+              ],
+              "rmse": 0.0463
+            },
+            "SRC-EXP-2014-KANG": {
+              "n_samples": 1,
+              "actual": [
+                0.33
+              ],
+              "pred": [
+                0.27
+              ],
+              "rmse": 0.0601
+            },
+            "SRC-EXP-2014-KAPPERA": {
+              "n_samples": 1,
+              "actual": [
+                0.05
+              ],
+              "pred": [
+                0.052
+              ],
+              "rmse": 0.002
+            },
+            "SRC-EXP-2014-MCDONNELL": {
+              "n_samples": 1,
+              "actual": [
+                0.82
+              ],
+              "pred": [
+                0.719
+              ],
+              "rmse": 0.1007
+            },
+            "SRC-EXP-2015-CUI": {
+              "n_samples": 1,
+              "actual": [
+                0.38
+              ],
+              "pred": [
+                0.265
+              ],
+              "rmse": 0.1147
+            },
+            "SRC-EXP-2016-ENGLISH": {
+              "n_samples": 2,
+              "actual": [
+                0.28,
+                0.4
+              ],
+              "pred": [
+                0.277,
+                0.649
+              ],
+              "rmse": 0.176
+            },
+            "SRC-EXP-2016-GUIMARAES": {
+              "n_samples": 1,
+              "actual": [
+                0.15
+              ],
+              "pred": [
+                0.331
+              ],
+              "rmse": 0.1806
+            },
+            "SRC-EXP-2017-KIM": {
+              "n_samples": 1,
+              "actual": [
+                0.48
+              ],
+              "pred": [
+                0.39
+              ],
+              "rmse": 0.0899
+            },
+            "SRC-EXP-2017-SATA": {
+              "n_samples": 1,
+              "actual": [
+                0.29
+              ],
+              "pred": [
+                0.12
+              ],
+              "rmse": 0.1697
+            },
+            "SRC-EXP-2018-LIU": {
+              "n_samples": 2,
+              "actual": [
+                0.9,
+                0.12
+              ],
+              "pred": [
+                0.679,
+                0.134
+              ],
+              "rmse": 0.1565
+            },
+            "SRC-EXP-2018-WANG-IEDM": {
+              "n_samples": 1,
+              "actual": [
+                0.05
+              ],
+              "pred": [
+                0.238
+              ],
+              "rmse": 0.1877
+            },
+            "SRC-EXP-2019-LI": {
+              "n_samples": 1,
+              "actual": [
+                0.08
+              ],
+              "pred": [
+                0.39
+              ],
+              "rmse": 0.3098
+            },
+            "SRC-EXP-2019-WANG": {
+              "n_samples": 2,
+              "actual": [
+                0.06,
+                0.04
+              ],
+              "pred": [
+                0.065,
+                0.065
+              ],
+              "rmse": 0.0178
+            },
+            "SRC-EXP-2021-SHEN": {
+              "n_samples": 2,
+              "actual": [
+                0.0,
+                0.0
+              ],
+              "pred": [
+                0.082,
+                0.082
+              ],
+              "rmse": 0.0824
+            }
+          },
+          "oof_predictions": [
+            0.0824,
+            0.0824,
+            0.0648,
+            0.0648,
+            0.6792,
+            0.1345,
+            0.2767,
+            0.6489,
+            0.052,
+            0.148,
+            0.3898,
+            0.3306,
+            0.7193,
+            0.2698,
+            0.3762,
+            0.4758,
+            0.4394,
+            0.2842,
+            0.7219,
+            0.1355,
+            0.2653,
+            0.1203,
+            0.2806,
+            0.2377,
+            0.3901,
+            0.4863,
+            0.2699,
+            0.5231
+          ]
+        }
+      },
+      "Extra_Trees": {
+        "family": "Tree_Ensemble",
+        "nested_group_kfold": {
+          "rmse": 0.1468,
+          "mae": 0.11,
+          "spearman_rho": 0.8647,
+          "kendall_tau": 0.6463,
+          "composite_score": 0.6497,
+          "outer_folds": [
+            {
+              "fold_index": 1,
+              "n_test_samples": 6,
+              "best_params": {
+                "n_estimators": 30,
+                "max_depth": 3,
+                "min_samples_leaf": 2,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.1298
+            },
+            {
+              "fold_index": 2,
+              "n_test_samples": 6,
+              "best_params": {
+                "n_estimators": 30,
+                "max_depth": 3,
+                "min_samples_leaf": 2,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.1157
+            },
+            {
+              "fold_index": 3,
+              "n_test_samples": 6,
+              "best_params": {
+                "n_estimators": 50,
+                "max_depth": 3,
+                "min_samples_leaf": 2,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.1977
+            },
+            {
+              "fold_index": 4,
+              "n_test_samples": 5,
+              "best_params": {
+                "n_estimators": 30,
+                "max_depth": 3,
+                "min_samples_leaf": 2,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.1176
+            },
+            {
+              "fold_index": 5,
+              "n_test_samples": 5,
+              "best_params": {
+                "n_estimators": 50,
+                "max_depth": 3,
+                "min_samples_leaf": 2,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.1537
+            }
+          ],
+          "oof_predictions": [
+            0.1342,
+            0.1342,
+            0.0766,
+            0.0732,
+            0.4451,
+            0.0547,
+            0.3238,
+            0.6112,
+            0.0554,
+            0.0796,
+            0.3061,
+            0.348,
+            0.671,
+            0.2951,
+            0.362,
+            0.7113,
+            0.6042,
+            0.3062,
+            0.7989,
+            0.1121,
+            0.3193,
+            0.1574,
+            0.3222,
+            0.2754,
+            0.3622,
+            0.6398,
+            0.3238,
+            0.6433
+          ]
+        },
+        "leave_one_group_out": {
+          "rmse": 0.1401,
+          "mae": 0.1085,
+          "spearman_rho": 0.8222,
+          "kendall_tau": 0.6056,
+          "composite_score": 0.6325,
+          "paper_breakdown": {
+            "SRC-EXP-2011-RADISAVLJEVIC": {
+              "n_samples": 1,
+              "actual": [
+                0.35
+              ],
+              "pred": [
+                0.262
+              ],
+              "rmse": 0.0876
+            },
+            "SRC-EXP-2012-LIU": {
+              "n_samples": 1,
+              "actual": [
+                0.035
+              ],
+              "pred": [
+                0.151
+              ],
+              "rmse": 0.1164
+            },
+            "SRC-EXP-2013-DAS": {
+              "n_samples": 1,
+              "actual": [
+                0.03
+              ],
+              "pred": [
+                0.152
+              ],
+              "rmse": 0.122
+            },
+            "SRC-EXP-2013-FONTANA": {
+              "n_samples": 1,
+              "actual": [
+                0.52
+              ],
+              "pred": [
+                0.598
+              ],
+              "rmse": 0.0775
+            },
+            "SRC-EXP-2013-GONG": {
+              "n_samples": 2,
+              "actual": [
+                0.31,
+                0.75
+              ],
+              "pred": [
+                0.29,
+                0.665
+              ],
+              "rmse": 0.0618
+            },
+            "SRC-EXP-2013-KAASBJERG": {
+              "n_samples": 1,
+              "actual": [
+                0.55
+              ],
+              "pred": [
+                0.616
+              ],
+              "rmse": 0.0657
+            },
+            "SRC-EXP-2013-NEAL": {
+              "n_samples": 1,
+              "actual": [
+                0.27
+              ],
+              "pred": [
+                0.288
+              ],
+              "rmse": 0.0183
+            },
+            "SRC-EXP-2014-BAMPOULIS": {
+              "n_samples": 1,
+              "actual": [
+                0.61
+              ],
+              "pred": [
+                0.6
+              ],
+              "rmse": 0.0096
+            },
+            "SRC-EXP-2014-CHUANG": {
+              "n_samples": 1,
+              "actual": [
+                0.45
+              ],
+              "pred": [
+                0.333
+              ],
+              "rmse": 0.1166
+            },
+            "SRC-EXP-2014-CHWANG": {
+              "n_samples": 1,
+              "actual": [
+                0.44
+              ],
+              "pred": [
+                0.557
+              ],
+              "rmse": 0.1173
+            },
+            "SRC-EXP-2014-KANG": {
+              "n_samples": 1,
+              "actual": [
+                0.33
+              ],
+              "pred": [
+                0.27
+              ],
+              "rmse": 0.0601
+            },
+            "SRC-EXP-2014-KAPPERA": {
+              "n_samples": 1,
+              "actual": [
+                0.05
+              ],
+              "pred": [
+                0.098
+              ],
+              "rmse": 0.0485
+            },
+            "SRC-EXP-2014-MCDONNELL": {
+              "n_samples": 1,
+              "actual": [
+                0.82
+              ],
+              "pred": [
+                0.648
+              ],
+              "rmse": 0.1724
+            },
+            "SRC-EXP-2015-CUI": {
+              "n_samples": 1,
+              "actual": [
+                0.38
+              ],
+              "pred": [
+                0.283
+              ],
+              "rmse": 0.0968
+            },
+            "SRC-EXP-2016-ENGLISH": {
+              "n_samples": 2,
+              "actual": [
+                0.28,
+                0.4
+              ],
+              "pred": [
+                0.28,
+                0.572
+              ],
+              "rmse": 0.1219
+            },
+            "SRC-EXP-2016-GUIMARAES": {
+              "n_samples": 1,
+              "actual": [
+                0.15
+              ],
+              "pred": [
+                0.338
+              ],
+              "rmse": 0.1883
+            },
+            "SRC-EXP-2017-KIM": {
+              "n_samples": 1,
+              "actual": [
+                0.48
+              ],
+              "pred": [
+                0.33
+              ],
+              "rmse": 0.15
+            },
+            "SRC-EXP-2017-SATA": {
+              "n_samples": 1,
+              "actual": [
+                0.29
+              ],
+              "pred": [
+                0.203
+              ],
+              "rmse": 0.087
+            },
+            "SRC-EXP-2018-LIU": {
+              "n_samples": 2,
+              "actual": [
+                0.9,
+                0.12
+              ],
+              "pred": [
+                0.474,
+                0.059
+              ],
+              "rmse": 0.3042
+            },
+            "SRC-EXP-2018-WANG-IEDM": {
+              "n_samples": 1,
+              "actual": [
+                0.05
+              ],
+              "pred": [
+                0.305
+              ],
+              "rmse": 0.2552
+            },
+            "SRC-EXP-2019-LI": {
+              "n_samples": 1,
+              "actual": [
+                0.08
+              ],
+              "pred": [
+                0.314
+              ],
+              "rmse": 0.2338
+            },
+            "SRC-EXP-2019-WANG": {
+              "n_samples": 2,
+              "actual": [
+                0.06,
+                0.04
+              ],
+              "pred": [
+                0.079,
+                0.063
+              ],
+              "rmse": 0.021
+            },
+            "SRC-EXP-2021-SHEN": {
+              "n_samples": 2,
+              "actual": [
+                0.0,
+                0.0
+              ],
+              "pred": [
+                0.105,
+                0.105
+              ],
+              "rmse": 0.1048
+            }
+          },
+          "oof_predictions": [
+            0.1048,
+            0.1048,
+            0.0787,
+            0.0631,
+            0.4742,
+            0.0588,
+            0.2799,
+            0.5724,
+            0.0985,
+            0.152,
+            0.3138,
+            0.3383,
+            0.6476,
+            0.2624,
+            0.3334,
+            0.5975,
+            0.6004,
+            0.2897,
+            0.665,
+            0.1514,
+            0.2832,
+            0.203,
+            0.2883,
+            0.3052,
+            0.33,
+            0.5573,
+            0.2699,
+            0.6157
+          ]
+        }
+      },
+      "Gradient_Boosting": {
+        "family": "Tree_Ensemble",
+        "nested_group_kfold": {
+          "rmse": 0.1131,
+          "mae": 0.0865,
+          "spearman_rho": 0.8964,
+          "kendall_tau": 0.7278,
+          "composite_score": 0.6846,
+          "outer_folds": [
+            {
+              "fold_index": 1,
+              "n_test_samples": 6,
+              "best_params": {
+                "n_estimators": 40,
+                "learning_rate": 0.05,
+                "max_depth": 2,
+                "subsample": 0.8,
+                "random_state": 42
+              },
+              "rmse": 0.127
+            },
+            {
+              "fold_index": 2,
+              "n_test_samples": 6,
+              "best_params": {
+                "n_estimators": 40,
+                "learning_rate": 0.05,
+                "max_depth": 2,
+                "subsample": 0.8,
+                "random_state": 42
+              },
+              "rmse": 0.1213
+            },
+            {
+              "fold_index": 3,
+              "n_test_samples": 6,
+              "best_params": {
+                "n_estimators": 40,
+                "learning_rate": 0.05,
+                "max_depth": 2,
+                "subsample": 0.8,
+                "random_state": 42
+              },
+              "rmse": 0.1434
+            },
+            {
+              "fold_index": 4,
+              "n_test_samples": 5,
+              "best_params": {
+                "n_estimators": 40,
+                "learning_rate": 0.05,
+                "max_depth": 2,
+                "subsample": 0.8,
+                "random_state": 42
+              },
+              "rmse": 0.0784
+            },
+            {
+              "fold_index": 5,
+              "n_test_samples": 5,
+              "best_params": {
+                "n_estimators": 40,
+                "learning_rate": 0.05,
+                "max_depth": 2,
+                "subsample": 0.8,
+                "random_state": 42
+              },
+              "rmse": 0.0619
+            }
+          ],
+          "oof_predictions": [
+            0.0873,
+            0.0873,
+            0.0671,
+            0.0697,
+            0.6145,
+            0.2113,
+            0.2848,
+            0.5599,
+            0.0558,
+            0.1434,
+            0.3344,
+            0.2512,
+            0.6779,
+            0.274,
+            0.4152,
+            0.4415,
+            0.479,
+            0.2732,
+            0.7182,
+            0.1338,
+            0.3278,
+            0.126,
+            0.2985,
+            0.2506,
+            0.4212,
+            0.4207,
+            0.2894,
+            0.5507
+          ]
+        },
+        "leave_one_group_out": {
+          "rmse": 0.135,
+          "mae": 0.1113,
+          "spearman_rho": 0.8853,
+          "kendall_tau": 0.6835,
+          "composite_score": 0.6663,
+          "paper_breakdown": {
+            "SRC-EXP-2011-RADISAVLJEVIC": {
+              "n_samples": 1,
+              "actual": [
+                0.35
+              ],
+              "pred": [
+                0.273
+              ],
+              "rmse": 0.0774
+            },
+            "SRC-EXP-2012-LIU": {
+              "n_samples": 1,
+              "actual": [
+                0.035
+              ],
+              "pred": [
+                0.201
+              ],
+              "rmse": 0.1661
+            },
+            "SRC-EXP-2013-DAS": {
+              "n_samples": 1,
+              "actual": [
+                0.03
+              ],
+              "pred": [
+                0.197
+              ],
+              "rmse": 0.1672
+            },
+            "SRC-EXP-2013-FONTANA": {
+              "n_samples": 1,
+              "actual": [
+                0.52
+              ],
+              "pred": [
+                0.46
+              ],
+              "rmse": 0.0599
+            },
+            "SRC-EXP-2013-GONG": {
+              "n_samples": 2,
+              "actual": [
+                0.31,
+                0.75
+              ],
+              "pred": [
+                0.289,
+                0.615
+              ],
+              "rmse": 0.0963
+            },
+            "SRC-EXP-2013-KAASBJERG": {
+              "n_samples": 1,
+              "actual": [
+                0.55
+              ],
+              "pred": [
+                0.46
+              ],
+              "rmse": 0.0902
+            },
+            "SRC-EXP-2013-NEAL": {
+              "n_samples": 1,
+              "actual": [
+                0.27
+              ],
+              "pred": [
+                0.295
+              ],
+              "rmse": 0.0254
+            },
+            "SRC-EXP-2014-BAMPOULIS": {
+              "n_samples": 1,
+              "actual": [
+                0.61
+              ],
+              "pred": [
+                0.431
+              ],
+              "rmse": 0.1786
+            },
+            "SRC-EXP-2014-CHUANG": {
+              "n_samples": 1,
+              "actual": [
+                0.45
+              ],
+              "pred": [
+                0.407
+              ],
+              "rmse": 0.0431
+            },
+            "SRC-EXP-2014-CHWANG": {
+              "n_samples": 1,
+              "actual": [
+                0.44
+              ],
+              "pred": [
+                0.432
+              ],
+              "rmse": 0.0077
+            },
+            "SRC-EXP-2014-KANG": {
+              "n_samples": 1,
+              "actual": [
+                0.33
+              ],
+              "pred": [
+                0.287
+              ],
+              "rmse": 0.0434
+            },
+            "SRC-EXP-2014-KAPPERA": {
+              "n_samples": 1,
+              "actual": [
+                0.05
+              ],
+              "pred": [
+                0.135
+              ],
+              "rmse": 0.0845
+            },
+            "SRC-EXP-2014-MCDONNELL": {
+              "n_samples": 1,
+              "actual": [
+                0.82
+              ],
+              "pred": [
+                0.602
+              ],
+              "rmse": 0.2179
+            },
+            "SRC-EXP-2015-CUI": {
+              "n_samples": 1,
+              "actual": [
+                0.38
+              ],
+              "pred": [
+                0.286
+              ],
+              "rmse": 0.0945
+            },
+            "SRC-EXP-2016-ENGLISH": {
+              "n_samples": 2,
+              "actual": [
+                0.28,
+                0.4
+              ],
+              "pred": [
+                0.294,
+                0.501
+              ],
+              "rmse": 0.072
+            },
+            "SRC-EXP-2016-GUIMARAES": {
+              "n_samples": 1,
+              "actual": [
+                0.15
+              ],
+              "pred": [
+                0.269
+              ],
+              "rmse": 0.1186
+            },
+            "SRC-EXP-2017-KIM": {
+              "n_samples": 1,
+              "actual": [
+                0.48
+              ],
+              "pred": [
+                0.399
+              ],
+              "rmse": 0.0807
+            },
+            "SRC-EXP-2017-SATA": {
+              "n_samples": 1,
+              "actual": [
+                0.29
+              ],
+              "pred": [
+                0.177
+              ],
+              "rmse": 0.1128
+            },
+            "SRC-EXP-2018-LIU": {
+              "n_samples": 2,
+              "actual": [
+                0.9,
+                0.12
+              ],
+              "pred": [
+                0.57,
+                0.203
+              ],
+              "rmse": 0.2407
+            },
+            "SRC-EXP-2018-WANG-IEDM": {
+              "n_samples": 1,
+              "actual": [
+                0.05
+              ],
+              "pred": [
+                0.249
+              ],
+              "rmse": 0.1989
+            },
+            "SRC-EXP-2019-LI": {
+              "n_samples": 1,
+              "actual": [
+                0.08
+              ],
+              "pred": [
+                0.357
+              ],
+              "rmse": 0.277
+            },
+            "SRC-EXP-2019-WANG": {
+              "n_samples": 2,
+              "actual": [
+                0.06,
+                0.04
+              ],
+              "pred": [
+                0.113,
+                0.113
+              ],
+              "rmse": 0.0638
+            },
+            "SRC-EXP-2021-SHEN": {
+              "n_samples": 2,
+              "actual": [
+                0.0,
+                0.0
+              ],
+              "pred": [
+                0.131,
+                0.131
+              ],
+              "rmse": 0.1312
+            }
+          },
+          "oof_predictions": [
+            0.1312,
+            0.1312,
+            0.113,
+            0.113,
+            0.57,
+            0.2035,
+            0.2944,
+            0.5009,
+            0.1345,
+            0.1972,
+            0.357,
+            0.2686,
+            0.6021,
+            0.2726,
+            0.4069,
+            0.4601,
+            0.4314,
+            0.2892,
+            0.6154,
+            0.2011,
+            0.2855,
+            0.1772,
+            0.2954,
+            0.2489,
+            0.3993,
+            0.4323,
+            0.2866,
+            0.4598
+          ]
+        }
+      },
+      "Hist_Gradient_Boosting": {
+        "family": "Tree_Ensemble",
+        "nested_group_kfold": {
+          "rmse": 0.2648,
+          "mae": 0.217,
+          "spearman_rho": -0.4578,
+          "kendall_tau": -0.3731,
+          "composite_score": 0.1765,
+          "outer_folds": [
+            {
+              "fold_index": 1,
+              "n_test_samples": 6,
+              "best_params": {
+                "max_iter": 40,
+                "learning_rate": 0.03,
+                "max_depth": 2,
+                "l2_regularization": 0.5,
+                "random_state": 42
+              },
+              "rmse": 0.2715
+            },
+            {
+              "fold_index": 2,
+              "n_test_samples": 6,
+              "best_params": {
+                "max_iter": 40,
+                "learning_rate": 0.03,
+                "max_depth": 2,
+                "l2_regularization": 0.5,
+                "random_state": 42
+              },
+              "rmse": 0.3258
+            },
+            {
+              "fold_index": 3,
+              "n_test_samples": 6,
+              "best_params": {
+                "max_iter": 40,
+                "learning_rate": 0.03,
+                "max_depth": 2,
+                "l2_regularization": 0.5,
+                "random_state": 42
+              },
+              "rmse": 0.2757
+            },
+            {
+              "fold_index": 4,
+              "n_test_samples": 5,
+              "best_params": {
+                "max_iter": 40,
+                "learning_rate": 0.03,
+                "max_depth": 2,
+                "l2_regularization": 0.5,
+                "random_state": 42
+              },
+              "rmse": 0.1521
+            },
+            {
+              "fold_index": 5,
+              "n_test_samples": 5,
+              "best_params": {
+                "max_iter": 40,
+                "learning_rate": 0.03,
+                "max_depth": 2,
+                "l2_regularization": 0.5,
+                "random_state": 42
+              },
+              "rmse": 0.2502
+            }
+          ],
+          "oof_predictions": [
+            0.3548,
+            0.3548,
+            0.3241,
+            0.3241,
+            0.3075,
+            0.3075,
+            0.2915,
+            0.2915,
+            0.3075,
+            0.3548,
+            0.3548,
+            0.2859,
+            0.3241,
+            0.3075,
+            0.3548,
+            0.2859,
+            0.3241,
+            0.2859,
+            0.2859,
+            0.3241,
+            0.3548,
+            0.3075,
+            0.3075,
+            0.3241,
+            0.2915,
+            0.2859,
+            0.2915,
+            0.2915
+          ]
+        },
+        "leave_one_group_out": {
+          "rmse": 0.2643,
+          "mae": 0.2172,
+          "spearman_rho": -0.8751,
+          "kendall_tau": -0.7968,
+          "composite_score": 0.1202,
+          "paper_breakdown": {
+            "SRC-EXP-2011-RADISAVLJEVIC": {
+              "n_samples": 1,
+              "actual": [
+                0.35
+              ],
+              "pred": [
+                0.311
+              ],
+              "rmse": 0.0391
+            },
+            "SRC-EXP-2012-LIU": {
+              "n_samples": 1,
+              "actual": [
+                0.035
+              ],
+              "pred": [
+                0.323
+              ],
+              "rmse": 0.2876
+            },
+            "SRC-EXP-2013-DAS": {
+              "n_samples": 1,
+              "actual": [
+                0.03
+              ],
+              "pred": [
+                0.323
+              ],
+              "rmse": 0.2928
+            },
+            "SRC-EXP-2013-FONTANA": {
+              "n_samples": 1,
+              "actual": [
+                0.52
+              ],
+              "pred": [
+                0.305
+              ],
+              "rmse": 0.2154
+            },
+            "SRC-EXP-2013-GONG": {
+              "n_samples": 2,
+              "actual": [
+                0.31,
+                0.75
+              ],
+              "pred": [
+                0.296,
+                0.296
+              ],
+              "rmse": 0.3215
+            },
+            "SRC-EXP-2013-KAASBJERG": {
+              "n_samples": 1,
+              "actual": [
+                0.55
+              ],
+              "pred": [
+                0.304
+              ],
+              "rmse": 0.2465
+            },
+            "SRC-EXP-2013-NEAL": {
+              "n_samples": 1,
+              "actual": [
+                0.27
+              ],
+              "pred": [
+                0.314
+              ],
+              "rmse": 0.0439
+            },
+            "SRC-EXP-2014-BAMPOULIS": {
+              "n_samples": 1,
+              "actual": [
+                0.61
+              ],
+              "pred": [
+                0.301
+              ],
+              "rmse": 0.3087
+            },
+            "SRC-EXP-2014-CHUANG": {
+              "n_samples": 1,
+              "actual": [
+                0.45
+              ],
+              "pred": [
+                0.307
+              ],
+              "rmse": 0.1428
+            },
+            "SRC-EXP-2014-CHWANG": {
+              "n_samples": 1,
+              "actual": [
+                0.44
+              ],
+              "pred": [
+                0.308
+              ],
+              "rmse": 0.1324
+            },
+            "SRC-EXP-2014-KANG": {
+              "n_samples": 1,
+              "actual": [
+                0.33
+              ],
+              "pred": [
+                0.312
+              ],
+              "rmse": 0.0183
+            },
+            "SRC-EXP-2014-KAPPERA": {
+              "n_samples": 1,
+              "actual": [
+                0.05
+              ],
+              "pred": [
+                0.322
+              ],
+              "rmse": 0.272
+            },
+            "SRC-EXP-2014-MCDONNELL": {
+              "n_samples": 1,
+              "actual": [
+                0.82
+              ],
+              "pred": [
+                0.294
+              ],
+              "rmse": 0.5265
+            },
+            "SRC-EXP-2015-CUI": {
+              "n_samples": 1,
+              "actual": [
+                0.38
+              ],
+              "pred": [
+                0.31
+              ],
+              "rmse": 0.0702
+            },
+            "SRC-EXP-2016-ENGLISH": {
+              "n_samples": 2,
+              "actual": [
+                0.28,
+                0.4
+              ],
+              "pred": [
+                0.31,
+                0.31
+              ],
+              "rmse": 0.067
+            },
+            "SRC-EXP-2016-GUIMARAES": {
+              "n_samples": 1,
+              "actual": [
+                0.15
+              ],
+              "pred": [
+                0.318
+              ],
+              "rmse": 0.1683
+            },
+            "SRC-EXP-2017-KIM": {
+              "n_samples": 1,
+              "actual": [
+                0.48
+              ],
+              "pred": [
+                0.306
+              ],
+              "rmse": 0.1739
+            },
+            "SRC-EXP-2017-SATA": {
+              "n_samples": 1,
+              "actual": [
+                0.29
+              ],
+              "pred": [
+                0.313
+              ],
+              "rmse": 0.0231
+            },
+            "SRC-EXP-2018-LIU": {
+              "n_samples": 2,
+              "actual": [
+                0.9,
+                0.12
+              ],
+              "pred": [
+                0.297,
+                0.297
+              ],
+              "rmse": 0.4443
+            },
+            "SRC-EXP-2018-WANG-IEDM": {
+              "n_samples": 1,
+              "actual": [
+                0.05
+              ],
+              "pred": [
+                0.322
+              ],
+              "rmse": 0.272
+            },
+            "SRC-EXP-2019-LI": {
+              "n_samples": 1,
+              "actual": [
+                0.08
+              ],
+              "pred": [
+                0.321
+              ],
+              "rmse": 0.2409
+            },
+            "SRC-EXP-2019-WANG": {
+              "n_samples": 2,
+              "actual": [
+                0.06,
+                0.04
+              ],
+              "pred": [
+                0.333,
+                0.333
+              ],
+              "rmse": 0.2827
+            },
+            "SRC-EXP-2021-SHEN": {
+              "n_samples": 2,
+              "actual": [
+                0.0,
+                0.0
+              ],
+              "pred": [
+                0.336,
+                0.336
+              ],
+              "rmse": 0.3363
+            }
+          },
+          "oof_predictions": [
+            0.3363,
+            0.3363,
+            0.3325,
+            0.3325,
+            0.2971,
+            0.2971,
+            0.3102,
+            0.3102,
+            0.322,
+            0.3228,
+            0.3209,
+            0.3183,
+            0.2935,
+            0.3109,
+            0.3072,
+            0.3046,
+            0.3013,
+            0.2956,
+            0.2956,
+            0.3226,
+            0.3098,
+            0.3131,
+            0.3139,
+            0.322,
+            0.3061,
+            0.3076,
+            0.3117,
+            0.3035
+          ]
+        }
+      },
+      "LightGBM": {
+        "family": "Tree_Ensemble",
+        "nested_group_kfold": {
+          "rmse": 0.1351,
+          "mae": 0.1077,
+          "spearman_rho": 0.8628,
+          "kendall_tau": 0.6782,
+          "composite_score": 0.6577,
+          "outer_folds": [
+            {
+              "fold_index": 1,
+              "n_test_samples": 6,
+              "best_params": {
+                "n_estimators": 50,
+                "learning_rate": 0.05,
+                "max_depth": 2,
+                "num_leaves": 7,
+                "min_child_samples": 3,
+                "verbosity": -1,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.1603
+            },
+            {
+              "fold_index": 2,
+              "n_test_samples": 6,
+              "best_params": {
+                "n_estimators": 50,
+                "learning_rate": 0.05,
+                "max_depth": 2,
+                "num_leaves": 7,
+                "min_child_samples": 3,
+                "verbosity": -1,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.1247
+            },
+            {
+              "fold_index": 3,
+              "n_test_samples": 6,
+              "best_params": {
+                "n_estimators": 50,
+                "learning_rate": 0.05,
+                "max_depth": 3,
+                "num_leaves": 7,
+                "min_child_samples": 3,
+                "verbosity": -1,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.1605
+            },
+            {
+              "fold_index": 4,
+              "n_test_samples": 5,
+              "best_params": {
+                "n_estimators": 50,
+                "learning_rate": 0.05,
+                "max_depth": 3,
+                "num_leaves": 7,
+                "min_child_samples": 3,
+                "verbosity": -1,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.0849
+            },
+            {
+              "fold_index": 5,
+              "n_test_samples": 5,
+              "best_params": {
+                "n_estimators": 50,
+                "learning_rate": 0.05,
+                "max_depth": 2,
+                "num_leaves": 7,
+                "min_child_samples": 3,
+                "verbosity": -1,
+                "n_jobs": 1,
+                "random_state": 42
+              },
+              "rmse": 0.1209
+            }
+          ],
+          "oof_predictions": [
+            0.1573,
+            0.1573,
+            0.0752,
+            0.0677,
+            0.616,
+            0.2852,
+            0.3185,
+            0.5799,
+            0.0944,
+            0.1382,
+            0.3684,
+            0.3615,
+            0.6846,
+            0.3015,
+            0.3532,
+            0.6242,
+            0.5371,
+            0.2867,
+            0.623,
+            0.169,
+            0.4019,
+            0.089,
+            0.3139,
+            0.2752,
+            0.4533,
+            0.4687,
+            0.3185,
+            0.5867
+          ]
+        },
+        "leave_one_group_out": {
+          "rmse": 0.1573,
+          "mae": 0.1273,
+          "spearman_rho": 0.8404,
+          "kendall_tau": 0.5984,
+          "composite_score": 0.631,
+          "paper_breakdown": {
+            "SRC-EXP-2011-RADISAVLJEVIC": {
+              "n_samples": 1,
+              "actual": [
+                0.35
+              ],
+              "pred": [
+                0.273
+              ],
+              "rmse": 0.0774
+            },
+            "SRC-EXP-2012-LIU": {
+              "n_samples": 1,
+              "actual": [
+                0.035
+              ],
+              "pred": [
+                0.225
+              ],
+              "rmse": 0.1897
+            },
+            "SRC-EXP-2013-DAS": {
+              "n_samples": 1,
+              "actual": [
+                0.03
+              ],
+              "pred": [
+                0.225
+              ],
+              "rmse": 0.1952
+            },
+            "SRC-EXP-2013-FONTANA": {
+              "n_samples": 1,
+              "actual": [
+                0.52
+              ],
+              "pred": [
+                0.566
+              ],
+              "rmse": 0.0455
+            },
+            "SRC-EXP-2013-GONG": {
+              "n_samples": 2,
+              "actual": [
+                0.31,
+                0.75
+              ],
+              "pred": [
+                0.27,
+                0.532
+              ],
+              "rmse": 0.1567
+            },
+            "SRC-EXP-2013-KAASBJERG": {
+              "n_samples": 1,
+              "actual": [
+                0.55
+              ],
+              "pred": [
+                0.533
+              ],
+              "rmse": 0.0167
+            },
+            "SRC-EXP-2013-NEAL": {
+              "n_samples": 1,
+              "actual": [
+                0.27
+              ],
+              "pred": [
+                0.28
+              ],
+              "rmse": 0.0098
+            },
+            "SRC-EXP-2014-BAMPOULIS": {
+              "n_samples": 1,
+              "actual": [
+                0.61
+              ],
+              "pred": [
+                0.496
+              ],
+              "rmse": 0.1138
+            },
+            "SRC-EXP-2014-CHUANG": {
+              "n_samples": 1,
+              "actual": [
+                0.45
+              ],
+              "pred": [
+                0.387
+              ],
+              "rmse": 0.0634
+            },
+            "SRC-EXP-2014-CHWANG": {
+              "n_samples": 1,
+              "actual": [
+                0.44
+              ],
+              "pred": [
+                0.497
+              ],
+              "rmse": 0.0568
+            },
+            "SRC-EXP-2014-KANG": {
+              "n_samples": 1,
+              "actual": [
+                0.33
+              ],
+              "pred": [
+                0.275
+              ],
+              "rmse": 0.0555
+            },
+            "SRC-EXP-2014-KAPPERA": {
+              "n_samples": 1,
+              "actual": [
+                0.05
+              ],
+              "pred": [
+                0.147
+              ],
+              "rmse": 0.097
+            },
+            "SRC-EXP-2014-MCDONNELL": {
+              "n_samples": 1,
+              "actual": [
+                0.82
+              ],
+              "pred": [
+                0.521
+              ],
+              "rmse": 0.2993
+            },
+            "SRC-EXP-2015-CUI": {
+              "n_samples": 1,
+              "actual": [
+                0.38
+              ],
+              "pred": [
+                0.27
+              ],
+              "rmse": 0.11
+            },
+            "SRC-EXP-2016-ENGLISH": {
+              "n_samples": 2,
+              "actual": [
+                0.28,
+                0.4
+              ],
+              "pred": [
+                0.278,
+                0.562
+              ],
+              "rmse": 0.1146
+            },
+            "SRC-EXP-2016-GUIMARAES": {
+              "n_samples": 1,
+              "actual": [
+                0.15
+              ],
+              "pred": [
+                0.322
+              ],
+              "rmse": 0.1716
+            },
+            "SRC-EXP-2017-KIM": {
+              "n_samples": 1,
+              "actual": [
+                0.48
+              ],
+              "pred": [
+                0.439
+              ],
+              "rmse": 0.0406
+            },
+            "SRC-EXP-2017-SATA": {
+              "n_samples": 1,
+              "actual": [
+                0.29
+              ],
+              "pred": [
+                0.203
+              ],
+              "rmse": 0.0873
+            },
+            "SRC-EXP-2018-LIU": {
+              "n_samples": 2,
+              "actual": [
+                0.9,
+                0.12
+              ],
+              "pred": [
+                0.493,
+                0.234
+              ],
+              "rmse": 0.2986
+            },
+            "SRC-EXP-2018-WANG-IEDM": {
+              "n_samples": 1,
+              "actual": [
+                0.05
+              ],
+              "pred": [
+                0.26
+              ],
+              "rmse": 0.2102
+            },
+            "SRC-EXP-2019-LI": {
+              "n_samples": 1,
+              "actual": [
+                0.08
+              ],
+              "pred": [
+                0.341
+              ],
+              "rmse": 0.261
+            },
+            "SRC-EXP-2019-WANG": {
+              "n_samples": 2,
+              "actual": [
+                0.06,
+                0.04
+              ],
+              "pred": [
+                0.149,
+                0.149
+              ],
+              "rmse": 0.0996
+            },
+            "SRC-EXP-2021-SHEN": {
+              "n_samples": 2,
+              "actual": [
+                0.0,
+                0.0
+              ],
+              "pred": [
+                0.161,
+                0.161
+              ],
+              "rmse": 0.1609
+            }
+          },
+          "oof_predictions": [
+            0.1609,
+            0.1609,
+            0.149,
+            0.149,
+            0.4935,
+            0.2342,
+            0.2776,
+            0.562,
+            0.147,
+            0.2252,
+            0.341,
+            0.3216,
+            0.5207,
+            0.2726,
+            0.3866,
+            0.5655,
+            0.4962,
+            0.2695,
+            0.5321,
+            0.2247,
+            0.27,
+            0.2027,
+            0.2798,
+            0.2602,
+            0.4394,
+            0.4968,
+            0.2745,
+            0.5333
+          ]
+        }
+      }
+    }
+  }
+}

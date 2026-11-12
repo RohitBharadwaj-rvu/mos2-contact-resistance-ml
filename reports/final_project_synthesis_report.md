@@ -2,140 +2,104 @@
 
 **Author:** Rohit Bharadwaj  
 **Project GitHub Repository:** [mos2-contact-resistance-ml](https://github.com/RohitBharadwaj-rvu/mos2-contact-resistance-ml)  
-**Kaggle Benchmark Dataset:** [`rohitajitbharadwaj/mos2-contact-resistance-benchmark`](https://www.kaggle.com/datasets/rohitajitbharadwaj/mos2-contact-resistance-benchmark)  
-**Date:** November 2026  
+**Kaggle Benchmark Dataset (v2.0):** [`rohitajitbharadwaj/mos2-contact-resistance-benchmark`](https://www.kaggle.com/datasets/rohitajitbharadwaj/mos2-contact-resistance-benchmark)  
+**Date:** November 2026 (Audit-Remediated Edition)  
 
 ---
 
 ## Abstract
-Contact resistance ($R_c$) at metal–semiconductor interfaces remains the primary bottleneck hindering two-dimensional (2D) molybdenum disulfide ($\text{MoS}_2$) field-effect transistors (FETs) from reaching the International Roadmap for Devices and Systems (IRDS) target of $R_c < 100\,\Omega\cdot\mu\text{m}$ for sub-1nm logic nodes. In this project, we construct an end-to-end, physics-informed machine learning (ML) and symbolic regression framework to predict, decouple, and optimize contact resistance across 20 rigorously curated experimental devices spanning 13 landmark literature publications. Using paper-grouped cross-validation (`GroupKFold`, $k=5$) to prevent data leakage, we benchmark 9 model families, finding that tuned regularized linear models (Ridge/ElasticNet) achieve state-of-the-art predictive accuracy ($\text{RMSE} = 0.2260\,\text{dex}$, Spearman $\rho = 0.9489$, Kendall $\tau = 0.8316$). Through multi-tier genetic programming, we discover an analytical, closed-form scaling law:
-$$R_c \approx 4570 \cdot 10^{\Phi_B - \left(\frac{n_{2D}}{10^{13}\,\text{cm}^{-2}}\right)}\quad [\Omega\cdot\mu\text{m}]$$
-which maintains a physically realistic margin over the theoretical Landauer-Sharvin ballistic quantum lower bound ($12.8 - 18.1\,\Omega\cdot\mu\text{m}$). Variance decomposition via ANOVA reveals that intrinsic semiconductor electrostatics ($\Phi_B, n_{2D}$) account for **$87.1\%$** of empirical variance, while extrinsic processing factors ($\delta_{\text{vdW}}, \Delta H_f$) explain **$6.0\%$**, with unexplained noise bounded at **$6.9\%$**. Causal mediation path analysis further establishes that **$90.7\%$** of the contact enhancement provided by high-formation-enthalpy reactive metals is mediated indirectly through Schottky barrier height ($\Phi_B$) reduction rather than direct orbital hybridization. Finally, we establish a 4-regime transport taxonomy, delineate a 2D phase diagram, and invert the discovered scaling law to provide actionable quantitative design rules for experimentalists.
+Contact resistance ($R_c$) at metal–semiconductor interfaces is the primary technological bottleneck preventing two-dimensional (2D) molybdenum disulfide ($\text{MoS}_2$) field-effect transistors (FETs) from satisfying the International Roadmap for Devices and Systems (IRDS) threshold of $R_c < 100\,\Omega\cdot\mu\text{m}$ for sub-1nm CMOS logic nodes. Following an exhaustive scientific review, we implement an audit-remediated physical machine learning and empirical decoupling framework across **28 primary experimental device observations derived from 23 independent peer-reviewed literature publications**. Review-derived summary entries (Allain 2015) were traced back to primary publications (Radisavljevic 2011, Chuang 2014, Fontana 2013, Bampoulis 2014) and isolated to prevent fold contamination.
+
+We formulate two distinct, un-biased prediction tasks:
+1. **Task 1 (Primary Contact Resistance Prediction):** Predicts $R_c$ directly from 14 raw physical and experimental fabrication levers ($W_M$, Pauling electronegativity, sulfide enthalpy $\Delta H_f$, metal resistivity, vdW transfer indicator, chamber vacuum, annealing flag, annealing temperature, thermal budget, layer count, thickness, gate carrier density $n_{2D}$, EOT, and measurement temperature) with zero pre-baked pinning assumptions ($S=0.95/0.15$ removed).
+2. **Task 2 (Schottky Barrier Height Prediction):** Predicts measured $\Phi_B$ from 8 interface and materials descriptors.
+
+To eliminate hyperparameter selection optimism, all models are evaluated under **Nested GroupKFold-5** (outer 5 folds for unseen literature generalizability, inner 3 folds for hyperparameter tuning) and headline **Leave-One-Group-Out (LOGO across 23 independent sources)**. Tree ensembles demonstrate superior out-of-distribution generalization: **Random Forest** achieves an out-of-fold Nested CV RMSE of **0.3666 dex** and LOGO RMSE of **0.3884 dex** ($\rho = 0.7699$), followed closely by **LightGBM** (Nested RMSE: **0.3775 dex**, LOGO RMSE: **0.4116 dex**, $\rho = 0.8850$) and **Support Vector Regression** (Nested RMSE: **0.3984 dex**, LOGO RMSE: **0.4038 dex**, $\rho = 0.8539$). For Task 2, **Gaussian Process Regressor (Matérn 5/2)** achieves a LOGO RMSE of **0.1152 eV** ($\rho = 0.8997$).
+
+Evaluating closed-form symbolic scaling equations strictly out-of-fold across unseen publications, we validate a compact scaling law:
+$$\log_{10}(R_c\ [\Omega\cdot\mu\mathrm{m}]) \approx 1.399 + 0.312 \frac{W_M}{\sqrt{n_{2D}/10^{13}}} - 0.344 (\mathbb{I}_{\text{vdW}} \sqrt{n_{2D}/10^{13}}) + 0.405 \frac{|\Delta H_f|}{300}$$
+which achieves an out-of-fold LOGO RMSE of **0.3269 dex** and Spearman rank correlation $\rho = \mathbf{0.9163}$ across 23 primary independent publications.
+
+Out-of-fold variance decomposition with 1,000 bootstrap iterations demonstrates that intrinsic electronic transport ($W_M, n_{2D}, T$) accounts for **$63.4\%$** [95% CI: $38.4\% - 75.9\%$] of observed variance, extrinsic fabrication modifiers explain **$10.6\%$** [95% CI: $0.0\% - 37.4\%$], and laboratory/device variability accounts for **$26.6\%$** [95% CI: $11.8\% - 42.2\%$]. Observational path analysis indicates that **$94.7\%$** [95% CI: $48.4\% - 100.0\%$] of the contact resistance reduction in de-pinned van der Waals contacts is statistically mediated through Schottky barrier height reduction.
 
 ---
 
-## 1. Introduction & Physical Motivation
-Silicon CMOS scaling faces severe short-channel effects below the $3\,\text{nm}$ gate length node. Monolayer transition metal dichalcogenides (TMDs), particularly $\text{MoS}_2$, possess atomic sub-nanometer body thickness, an absence of dangling bonds, a pristine bandgap ($1.8\,\text{eV}$ for monolayer, $1.3\,\text{eV}$ for few-layer), and high immunity to drain-induced barrier lowering (DIBL).
-
-However, the practical application of 2D $\text{MoS}_2$ in high-performance computing is severely throttled by parasitics:
-1. **Fermi-Level Pinning:** Conventional thermal and e-beam evaporation of 3D metals creates high kinetic damage, inducing sulfur vacancies ($V_S$) and Metal-Induced Gap States (MIGS) that pin the Fermi level near $0.35 - 0.70\,\text{eV}$ below the conduction band edge ($S = d\Phi_B / dW_M \approx 0.15 - 0.28 \ll 1.0$).
-2. **Contact Resistance Scaling:** Contact resistance in conventional back-gated devices remains $10^3 - 10^5\,\Omega\cdot\mu\text{m}$, orders of magnitude above the IRDS requirement of $R_c < 100\,\Omega\cdot\mu\text{m}$.
-3. **Decoupling Challenge:** In laboratory literature, interfacial chemistry (formation enthalpy $\Delta H_f$), dielectric gating ($n_{2D}$), deposition method (van der Waals lamination vs evaporation), and metal work function ($W_M$) are conflated, obscuring the primary governing levers.
-
----
-
-## 2. Master Curated Dataset & FAIR Packaging
-A standardized, literature-curated benchmark dataset was assembled across 13 landmark peer-reviewed publications:
-- Total Curated Devices: 20 experimental FET instances.
-- Feature Dimensionality: 44 physically annotated and engineered columns.
-- Metal Systems Covered: $\text{Bi}$, $\text{Sb}$, $\text{Ti}$, $\text{Sc}$, $\text{Ag}$, $\text{Au}$, $\text{Pt}$, $\text{Pd}$, $\text{Ni}$, and phase-engineered $1\text{T}-\text{MoS}_2$.
-- Target Variables: $\log_{10}(R_c / [\Omega\cdot\mu\text{m}])$ and width-normalized $R_c$ ($\Omega\cdot\mu\text{m}$).
-- FAIR Packaging: Completely packaged with machine-readable schemas (`data_dictionary.json`, `data_dictionary.md`), source citation registers (`source_provenance_registry.json`), and published openly to Kaggle under CC-BY-4.0: [`rohitajitbharadwaj/mos2-contact-resistance-benchmark`](https://www.kaggle.com/datasets/rohitajitbharadwaj/mos2-contact-resistance-benchmark).
+## 1. Primary Data Provenance & Disentangled Corpus
+The primary experimental corpus comprises 28 independently characterized $\text{MoS}_2$ FET devices spanning 23 peer-reviewed experimental publications:
+- **Disentangled Review Provenance:** 4 review-derived rows in earlier compilations were traced back to original primary literature:
+  - DP-017 (Ti) $\to$ Radisavljevic et al., *Nature Nanotechnology* 6, 147 (2011).
+  - DP-018 (Mo) $\to$ Chuang et al., *Nano Letters* 14, 1337 (2014).
+  - DP-019 (Ni) $\to$ Fontana et al., *Scientific Reports* 3, 1629 (2013).
+  - DP-020 (Au) $\to$ Bampoulis et al., *J. Phys. Chem. C* 118, 20459 (2014).
+- **Secondary Review Isolation:** Review-level summaries are quarantined into `data/raw/secondary_review_literature_dataset.csv` and excluded from primary training and cross-validation splits.
+- **Granular Missingness Tracking:** Missing values explicitly differentiate intentional fabrication choices (`as_fabricated_unannealed`, $\mathbb{I}_{\text{annealed}}=0$) from truly unmeasured parameters (`unreported`). Imputation is strictly executed fold-by-fold without data leakage.
 
 ---
 
-## 3. Validation Strategy & Benchmark Model Leaderboard
-To eliminate inter-paper contamination and over-optimistic cross-validation, models were evaluated strictly using **Grouped 5-Fold Cross-Validation (`GroupKFold`, $k=5$) grouped by `source_uid`**.
+## 2. Headline Cross-Validation Benchmarks
 
-Models were ranked using a multi-objective composite fitness score balancing root mean square error (RMSE), rank correlation (Spearman $\rho$), concordance (Kendall $\tau$), and feature complexity penalties:
-$$\text{Score} = 0.40(1 - \min(1, \text{RMSE})) + 0.35\max(0, \rho) + 0.25 C - 0.05\max(0, P - 4)$$
+### 2.1. Task 1: Primary Contact Resistance Prediction (14 Raw Levers)
+Target: $\log_{10} R_c$ ($\Omega\cdot\mu\text{m}$).
 
-### Definitive Cross-Validated Model Leaderboard
-| Rank | Model Architecture | CV RMSE (dex) | Spearman $\rho$ | Kendall $\tau$ | Composite Score | Physical Consistency |
-| :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **1** | **Tuned Ridge Regression** | **0.2260** | **0.9489** | **0.8316** | **0.8720** | **100% Monotonic** |
-| **2** | **Tuned ElasticNet** | 0.2277 | 0.9489 | 0.8316 | 0.8710 | 100% Monotonic |
-| **3** | **Gradient Boosting Regressor** | 0.3838 | 0.9023 | 0.7474 | 0.7870 | Constrained |
-| **4** | **HistGradientBoosting (Constrained)** | 0.3871 | 0.9023 | 0.7474 | 0.7830 | 100% Monotonic |
-| **5** | **Gaussian Process (Matérn 5/2)** | 0.3904 | 0.8872 | 0.7368 | 0.7781 | Smooth Kernel |
-| **6** | **Discovered Closed-Form Law** | **0.3859** | **0.8887** | **0.7444** | **0.7751** | **Analytical Physics** |
-| **7** | LightGBM (Monotonic) | 0.4083 | 0.8647 | 0.7158 | 0.7556 | Constrained |
-| **8** | Tuned Random Forest | 0.4187 | 0.8722 | 0.7263 | 0.7535 | Unconstrained Trees |
-| **9** | Support Vector Regression (SVR) | 0.4172 | 0.8647 | 0.7053 | 0.7508 | RBF Kernel |
+| Model Architecture | Model Family | Nested CV-5 RMSE (dex) | LOGO RMSE (dex) | LOGO Spearman $\rho$ | Multi-Objective Score |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **Random Forest** | Tree Ensemble | **0.3666** | **0.3884** | 0.7699 | **0.7812** |
+| **LightGBM** | Tree Ensemble | **0.3775** | 0.4116 | **0.8850** | **0.8045** |
+| **Support Vector Regression (RBF)** | Kernel Machine | 0.3984 | 0.4038 | 0.8539 | 0.7760 |
+| **Gradient Boosting** | Tree Ensemble | 0.4033 | 0.4373 | 0.8129 | 0.7490 |
+| **Extra Trees** | Tree Ensemble | 0.4116 | 0.4587 | 0.6716 | 0.6920 |
+| **ElasticNet** | Regularized Linear | 0.4841 | 3.2907 | 0.8752 | 0.4320 |
+| **HistGradientBoosting** | Tree Ensemble | 0.6405 | 0.6464 | -0.8544 | 0.3820 |
+| **Gaussian Process (Matérn 5/2)** | Bayesian Nonparametric | 0.6422 | 0.6469 | -0.8413 | 0.3780 |
+| **Ridge Regression** | Regularized Linear | 1.6156 | 6.1320 | 0.8659 | 0.3210 |
 
----
+### 2.2. Task 2: Schottky Barrier Height Prediction (8 Raw Levers)
+Target: Measured Schottky Barrier Height $\Phi_B$ ($\text{eV}$).
 
-## 4. Discovered Closed-Form Physical Contact Law
-Multi-objective symbolic regression across 4 complexity tiers generated a Pareto frontier balancing mathematical complexity against predictive accuracy.
-
-The optimal formula on the Pareto frontier discovered without human bias is:
-$$\log_{10}\left(R_c / [\Omega\cdot\mu\text{m}]\right) \approx \Phi_B / [\text{eV}] - \left(\frac{n_{2D}}{10^{13}\,\text{cm}^{-2}}\right) + 3.660$$
-$$R_c \approx 4570 \cdot 10^{\Phi_B - \left(\frac{n_{2D}}{10^{13}\,\text{cm}^{-2}}\right)}\quad [\Omega\cdot\mu\text{m}]$$
-
-### Physical Validation of Discovered Equation:
-1. **Schottky Barrier Sensitivity:** $\frac{\partial \log_{10} R_c}{\partial \Phi_B} = +1.00\,\text{dex/eV} > 0$ (Monotonically increasing resistance with barrier height).
-2. **Electrostatic Gate Sensitivity:** $\frac{\partial \log_{10} R_c}{\partial (n_{2D}/10^{13})} = -1.00\,\text{dex} < 0$ (Every $10^{13}\,\text{cm}^{-2}$ accumulation cuts resistance by exactly $10\times$).
-3. **Quantum Ballistic Floor Alignment:** At zero barrier ($\Phi_B = 0\,\text{eV}$) and peak gate accumulation ($n_{2D} = 2.0 \times 10^{13}\,\text{cm}^{-2}$), the equation yields:
-   $$R_c = 4570 \cdot 10^{-2.0} = 45.7\,\Omega\cdot\mu\text{m}$$
-   This sits comfortably above the theoretical single-contact Landauer-Sharvin quantum ballistic lower bound ($12.8\,\Omega\cdot\mu\text{m}$), maintaining an ideal physical margin factor of $3.57\times$ to account for finite acoustic/optical phonon scattering.
+| Model Architecture | Model Family | Nested CV-5 RMSE (eV) | LOGO RMSE (eV) | LOGO Spearman $\rho$ | Multi-Objective Score |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **Gaussian Process (Matérn 5/2)** | Bayesian Nonparametric | 0.1295 | **0.1152** | **0.8997** | **0.8610** |
+| **ElasticNet** | Regularized Linear | 0.1384 | 0.1206 | 0.8942 | 0.8450 |
+| **Random Forest** | Tree Ensemble | 0.1258 | 0.1231 | 0.8535 | 0.8490 |
+| **Ridge Regression** | Regularized Linear | 0.1409 | 0.1267 | 0.8778 | 0.8380 |
+| **Gradient Boosting** | Tree Ensemble | **0.1131** | 0.1350 | 0.8853 | 0.8520 |
+| **Extra Trees** | Tree Ensemble | 0.1468 | 0.1401 | 0.8222 | 0.8120 |
+| **Support Vector Regression (RBF)** | Kernel Machine | 0.1495 | 0.1458 | 0.8460 | 0.8190 |
+| **LightGBM** | Tree Ensemble | 0.1351 | 0.1573 | 0.8404 | 0.8240 |
 
 ---
 
-## 5. Interpretability & Mechanism Decoupling
-
-### 5.1. Cross-Architecture Feature Attributions (SHAP)
-Cross-architecture SHAP analysis across linear, tree, and kernel models revealed unanimous agreement:
-- **Schottky Barrier Height ($\Phi_B$):** Accounts for **$54.2\%$** of predictive attribution.
-- **Gate Carrier Density ($n_{2D}$):** Accounts for **$30.7\%$** of predictive attribution.
-- **Van der Waals Transfer Indicator ($\delta_{\text{vdW}}$):** Accounts for **$8.6\%$** of predictive attribution.
-- **Interfacial Formation Enthalpy ($\Delta H_f$):** Accounts for **$6.5\%$** of predictive attribution.
-
-### 5.2. Intrinsic Transport vs Extrinsic Processing Decoupling
-Using ANOVA sum-of-squares decomposition on the total empirical log-variance ($\sigma^2_{\log_{10} R_c} = 0.4759\,\text{dex}^2$):
-- **Intrinsic Physics ($\Phi_B, n_{2D}$):** Explains **$87.1\%$** ($0.4148\,\text{dex}^2$).
-- **Extrinsic Fabrication ($\delta_{\text{vdW}}, \Delta H_f$):** Explains **$6.0\%$** ($0.0285\,\text{dex}^2$).
-- **Unexplained Noise / Measurement Variability:** **$6.9\%$** ($0.0326\,\text{dex}^2$).
-- **Key Insight:** Van der Waals transfer provides an intrinsic $10^{-0.366} \approx 0.43\times$ ($> 2.3\times$) resistance reduction across all metals, independent of metal work function.
-
-### 5.3. Causal Mediation Path Analysis
-Baron-Kenny / Preacher-Hayes mediation analysis decomposed the total causal effect of reactive metal formation enthalpy ($\Delta H_f$):
-- Indirect path mediated through Schottky barrier reduction: **$90.7\%$** ($a \cdot b = -0.4655$).
-- Direct path via orbital hybridization / tunnel barrier thinning: **$9.3\%$** ($c' = -0.0478$).
-- **Scientific Conclusion:** Reactive metals like Ti and Sc do not lower contact resistance primarily through direct chemical bonding; rather, their chemical reaction consumes interfacial chalcogens, de-pinning the Fermi level closer to the conduction band.
+## 3. Discovered Closed-Form Empirical Scaling Law
+Evaluated strictly out-of-fold across 23 independent primary literature sources:
+$$\log_{10}(R_c\ [\Omega\cdot\mu\mathrm{m}]) \approx 1.399 + 0.312 \frac{W_M}{\sqrt{n_{2D}/10^{13}}} - 0.344 (\mathbb{I}_{\text{vdW}} \sqrt{n_{2D}/10^{13}}) + 0.405 \frac{|\Delta H_f|}{300}$$
+- **GroupKFold-5 OOF RMSE:** **0.3438 dex**
+- **LOGO Held-Out RMSE across 23 Publications:** **0.3269 dex**
+- **LOGO Spearman Rank Correlation ($\rho$):** **0.9163**
+- **Physical Interpretation:** Captures barrier-mediated tunneling, gate carrier accumulation, chemical reactivity, and vdW de-pinning as an interpretable semi-empirical parametric heuristic.
 
 ---
 
-## 6. Physical Transport Regimes & 2D Phase Diagrams
-Devices in the 2D parameter space $(\Phi_B, n_{2D})$ are partitioned into four distinct physical transport regimes:
-1. **Regime I: Ballistic / Quantum-Limited Regime ($R_c < 200\,\Omega\cdot\mu\text{m}$):**
-   Governed by Landauer-Sharvin quantum transmission. Satisfied by transferred semimetals (Bi, Sb) and 1T metallic phase homojunctions with $\Phi_B < 0.15\,\text{eV}$ and $n_{2D} \ge 1.0 \times 10^{13}\,\text{cm}^{-2}$.
-2. **Regime II: Thermionic-Field / Tunneling Regime ($200 - 1500\,\Omega\cdot\mu\text{m}$):**
-   Governed by field-emission tunneling through an electrostatically compressed depletion width. Satisfied by annealed Ti/Au, Sc, Ag, and In.
-3. **Regime III: Thermionic Emission Regime ($1500 - 15000\,\Omega\cdot\mu\text{m}$):**
-   Governed by Richardson thermal activation over the barrier. Common in evaporated Au, Ni, Cr on back-gated $\text{SiO}_2$.
-4. **Regime IV: Defect-Dominated / Fermi-Level Pinned Regime ($R_c > 15000\,\Omega\cdot\mu\text{m}$):**
-   Severe Fermi-level pinning near mid-gap and defect hopping. Observed in unpassivated Pt, Pd, and damaged evaporates.
+## 4. Out-of-Fold Explainability & Nuanced Decoupling
+1. **Out-of-Fold TreeSHAP Attributions (Task 1):**
+   - Metal Work Function ($W_M$): **0.2786 dex** (43.1% relative attribution)
+   - Gate Carrier Density ($n_{2D}$): **0.1886 dex** (29.2% relative attribution)
+   - Interface Architecture ($\mathbb{I}_{\text{vdW}}$): **0.0628 dex** (9.7% relative attribution)
+   - Interfacial Formation Enthalpy ($\Delta H_f$): **0.0583 dex** (9.0% relative attribution)
+   - Post-Annealing Temperature ($T_{\text{anneal}}$): **0.0318 dex** (4.9% relative attribution)
+2. **Out-of-Fold Variance Decomposition (1,000 Bootstrap 95% CIs):**
+   - Intrinsic Transport Factors ($W_M, n_{2D}, T$): **63.4%** [95% CI: 38.4%, 75.9%]
+   - Extrinsic Fabrication Modifiers (vdW transfer, chemistry, annealing): **10.6%** [95% CI: 0.0%, 37.4%]
+   - Experimental Variability / Device Noise: **26.6%** [95% CI: 11.8%, 42.2%]
+3. **Observational Path Analysis:**
+   - Evaluates empirical mediation of vdW de-pinning via Schottky barrier reduction.
+   - Indirect Mediated Path: $\beta_{\text{indirect}} = -0.539$ [95% CI: -0.886, -0.022]
+   - Direct Unmediated Path: $\beta_{\text{direct}} = -0.016$ [95% CI: -0.276, +0.162] (statistically indistinguishable from zero)
+   - Mediation Proportion: **94.7%** [95% CI: 48.4%, 100.0%]
 
 ---
 
-## 7. Quantitative Design Rules for Sub-100 $\Omega\cdot\mu\text{m}$ Contacts
-Inverting the validated closed-form law gives the **Maximum Tolerable Schottky Barrier Height**:
-$$\Phi_{B,\max} = \log_{10}(R_c^*) + \left(\frac{n_{2D}}{10^{13}\,\text{cm}^{-2}}\right) - 3.660\quad [\text{eV}]$$
-
-For the IRDS target $R_c^* = 100\,\Omega\cdot\mu\text{m}$ ($\log_{10}(100) = 2.0$):
-$$\Phi_{B,\max} = \left(\frac{n_{2D}}{10^{13}\,\text{cm}^{-2}}\right) - 1.660\quad [\text{eV}]$$
-
-### Feasibility by Electrostatic Gating Geometry:
-- Standard Back-Gate ($90\,\text{nm}\ \text{SiO}_2$, $n_{2D} = 5 \times 10^{12}\,\text{cm}^{-2}$): $\Phi_{B,\max} = -1.16\,\text{eV}$ (**Physically Impossible**).
-- Strong Back-Gate ($90\,\text{nm}\ \text{SiO}_2$, $n_{2D} = 1.0 \times 10^{13}\,\text{cm}^{-2}$): $\Phi_{B,\max} = -0.66\,\text{eV}$ (**Physically Impossible**).
-- High-$\kappa$ Top-Gate ($5\,\text{nm}\ \text{HfO}_2$, $n_{2D} = 1.5 \times 10^{13}\,\text{cm}^{-2}$): $\Phi_{B,\max} = -0.16\,\text{eV}$ (**Impossible without degenerate chemical doping**).
-- Peak High-$\kappa$ Top-Gate ($3\,\text{nm}\ \text{HfO}_2$, $n_{2D} = 1.8 \times 10^{13}\,\text{cm}^{-2}$): $\Phi_{B,\max} = \mathbf{0.14\,\text{eV}}$ (**Achieved with Bi/Sb semimetals**).
-- Peak High-$\kappa$ Top-Gate ($3\,\text{nm}\ \text{HfO}_2$, $n_{2D} = 2.0 \times 10^{13}\,\text{cm}^{-2}$): $\Phi_{B,\max} = \mathbf{0.34\,\text{eV}}$ (**Achieved with annealed Ti/Au**).
-
-### Laboratory Parameter Return-on-Investment (ROI) Hierarchy:
-- **Tier 1 (Essential Priority, $> 5\times$ impact):** Gate dielectric EOT scaling ($31.6\times$ reduction) and Schottky barrier elimination ($7.1\times$ reduction).
-- **Tier 2 (Major Enhancer, $1.5\times - 5\times$ impact):** Van der Waals lamination ($2.3\times$ reduction) and reactive vacuum annealing ($1.8\times$ reduction).
-- **Tier 3 (Minor Modulator, $1.1\times - 1.5\times$ impact):** Flake thickness ($1.3\times$ reduction).
-- **Tier 4 (Ineffective / Wasted Effort, $< 1.1\times$ impact):** Metal pad thickness ($> 20\,\text{nm}$) and bulk metal electrical resistivity.
-
----
-
-## 8. Verified Interactive Web Dashboard
-An interactive Flask/HTML5 dashboard was developed in `src/dashboard/app.py`, allowing experimentalists to dynamically evaluate contact performance, inspect Landauer bounds, and verify transport regimes.
-
-The live dashboard was verified on `http://127.0.0.1:5050` with automated Playwright headless browser capture, producing verified live screenshot: `reports/figures/dashboard_live_screenshot.png` and artifact `dashboard_live_verification.png`.
-
----
-
-## 9. Conclusion
-This project successfully bridges data-driven machine learning with fundamental semiconductor physics. By rigorously enforcing grouped cross-validation, discovering closed-form Pareto-optimal scaling laws, and performing causal mediation analysis, we provide the 2D semiconductor community with a definitive, reproducible, and actionable roadmap for achieving sub-$100\,\Omega\cdot\mu\text{m}$ contacts for future sub-1nm CMOS technologies.
+## 5. Summary & Engineering Deliverables
+- **Live Interactive Dashboard:** Full-stack Flask app (`src/dashboard/app.py`) deployed on `http://127.0.0.1:5050` with live Playwright screenshot verification.
+- **Kaggle Benchmark Dataset (v2.0):** Publicly published to [`rohitajitbharadwaj/mos2-contact-resistance-benchmark`](https://www.kaggle.com/datasets/rohitajitbharadwaj/mos2-contact-resistance-benchmark).
+- **Automated Test Suite:** 231 passed unit tests covering data curation, provenance, nested cross-validation, model suite, symbolic search, interpretability, and web dashboard.
+- **GitHub Repository:** Open-source release at [https://github.com/RohitBharadwaj-rvu/mos2-contact-resistance-ml](https://github.com/RohitBharadwaj-rvu/mos2-contact-resistance-ml).

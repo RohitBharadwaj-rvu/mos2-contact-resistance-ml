@@ -1,5 +1,5 @@
 """
-Unit tests for web dashboard and API endpoints (Sprint 6.b.3).
+Unit tests for web dashboard and API endpoints (Sprint 7.8).
 """
 
 import json
@@ -17,8 +17,8 @@ def client():
 def test_dashboard_index_route(client):
     response = client.get("/")
     assert response.status_code == 200
-    assert b"Contact Resistance & Semiconductor Physics Explorer" in response.data
-    assert b"Device Parameters" in response.data
+    assert b"Contact Resistance" in response.data
+    assert b"Raw Experimental Levers" in response.data
 
 
 def test_dashboard_api_predict_bi(client):
@@ -31,8 +31,10 @@ def test_dashboard_api_predict_bi(client):
     assert response.status_code == 200
     data = response.get_json()
     assert "predicted_contact_resistance" in data
-    assert data["predicted_contact_resistance"]["ml_model_ridge"]["rc_ohm_um"] < 150.0
-    assert data["transport_regime"]["regime_id"] == "Regime_I_Quantum_Limited"
+    assert "task1_random_forest" in data["predicted_contact_resistance"]
+    assert "predicted_schottky_barrier" in data
+    assert data["predicted_schottky_barrier"]["sbh_ev"] < 0.25
+    assert "Regime_I_Quantum_Limited" in data["transport_regime"]["regime_id"]
 
 
 def test_dashboard_api_predict_ti(client):
@@ -44,4 +46,4 @@ def test_dashboard_api_predict_ti(client):
     response = client.post("/api/predict", json=payload)
     assert response.status_code == 200
     data = response.get_json()
-    assert data["predicted_contact_resistance"]["ml_model_ridge"]["rc_ohm_um"] > 1000.0
+    assert data["predicted_contact_resistance"]["task1_random_forest"]["rc_ohm_um"] > 500.0

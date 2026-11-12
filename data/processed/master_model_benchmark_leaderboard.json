@@ -42,10 +42,10 @@
     {
       "model_name": "Gradient_Boosting",
       "category": "non_linear_ml",
-      "composite_score": 0.759,
-      "rmse_log10_dex": 0.4098,
-      "spearman_rho": 0.8868,
-      "concordance_index": 0.85,
+      "composite_score": 0.7534,
+      "rmse_log10_dex": 0.4131,
+      "spearman_rho": 0.8823,
+      "concordance_index": 0.8395,
       "is_qualified": true
     },
     {
